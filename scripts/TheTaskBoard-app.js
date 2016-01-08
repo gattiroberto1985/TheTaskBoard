@@ -25,6 +25,8 @@ TTBApp.config ( function ( $routeProvider ) {
 }); // chiude definizione routing applicazione
 
 
+// Definizione dei factory e dei services angular
+
 
 
 // Definizione del controller per l'header di pagina (occhio alle dipendenza da
@@ -86,7 +88,7 @@ TTBApp.controller(TTBAPP_CONTROLLER_PROJECTS_NAME, function ( $scope ) {
                     ] // closing note array
                 }, // closing first task of first project 
                 { 
-                    id: 1,
+                    id: 2,
                     description: "Searching for Jefferson Hope",
                     assignedTo: "Sherlock Holmes",
                     status: "OPEN",
