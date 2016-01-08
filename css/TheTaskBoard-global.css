@@ -1,0 +1,13 @@
+[tooltip]:before {
+    position: absolute;
+    content: attr(tooltip);
+    opacity: 0;
+}
+
+[tooltip]:hover:before {
+    opacity: 1;
+}
+
+[tooltip]:not([tooltip-persistent]):before {
+    pointer-events: none;
+}
