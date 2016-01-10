@@ -1,7 +1,7 @@
 
 var UL_COORDS = { top: 0, left: 0, width: 0, height: 0 };
 var CUR_LI_COORDS = { top: 0, left: 0, width: 0, height: 0 };
-var CUR_LI_COORDS = { top: 0, left: 0, width: 0, height: 0 };
+var OLD_LI_COORDS = { top: 0, left: 0, width: 0, height: 0 };
 
 $(window).load( function () {
     var divPrefixId = "#prj_";
@@ -20,28 +20,29 @@ $(window).load( function () {
 
         
         console.log ( "appending mouseenter to div '" + divId + "' . . . ");
-        $( divId ).mouseenter(function() {
-                console.log ( "Entering '" + divId + "' . . .");
-                $(this).toggleClass("background-li");
-                showDatas( divId );
+        $( divId ).click(function() {
+                console.log ( "Entering '" + $(this).attr("id") + "' . . .");
+                $(this).toggleClass("selectedTask");
+                showDatas( $(this) );
             }
         );
         
-        console.log ( "appending mouseleave to div '" + divId + "' . . . ");
+        /*console.log ( "appending mouseleave to div '" + divId + "' . . . ");
         $( divId ).mouseleave(function() {
                 console.log ( "Exiting '" + divId + "' . . .");
+                $(this).toggleClass("background-li");
                 hideDatas( divId );
             }
-        );
+        );*/
         
     }
 });
 
-function showDatas( divId )
+function showDatas( element )
 {
-    var element = $(divId);
     //console.log ( "[" + divId + "] .. retreived element '" + element + "' . . .");
     var position = element.position();
+    var divId = element.attr("id");
     /*console.log ( "[" + divId + "] .. position is: ");
     console.log ( "[" + divId + "] .... top: " + position.top);
     console.log ( "[" + divId + "] .... left: " + position.left);
@@ -60,14 +61,14 @@ function showDatas( divId )
     console.log ( "[" + divId + "] .... right  : " + ( position.left + element.width() ) );
     console.log (" [" + divId + "] .. well, saving it to CUR_LI_COORDS variable . . . ");
     CUR_LI_COORDS = { 
-            top: $(divId).position().top,
-            left: $(divId).position().left,
-            width: $(divId).width(),
-            height: $(divId).height()
+            top: element.position().top,
+            left: element.position().left,
+            width: element.width(),
+            height: element.height()
         };
     
-    console.log ( "[" + divId + "] .. expanding div to the full UL dimensions . . . " );
-    $(divId).animate({
+    console.log ( "[" + divId + "] .. expanding div '" + element.attr("id") + "' to the full UL dimensions . . . " );
+    element.animate({
         width: UL_COORDS.width, 
         height: UL_COORDS.height, 
         left: UL_COORDS.left, 
