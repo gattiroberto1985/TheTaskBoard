@@ -1,0 +1,45 @@
+
+<!-- *************************************************************************
+                                     Task section
+     ************************************************************************* -->
+
+<div id="taskWrapper" class="col-md-12">
+    <!-- Sezione di ricerca -->
+    <form role="form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search here..." ng-model="tskSearchStr" />
+      </div>
+    </form>
+
+
+
+    <!-- Lista task: quadrati, al click si espandono a tutto schermo, diventando editabili e mostrando
+                     la sezione delle note. 
+                     Vedi tipo qui: http://jsfiddle.net/teddyrised/EWJGJ/ -->
+    <ul class="list-unstyled">
+        <li id="{{task.uniqueId}}"
+            class="task col-md-4" 
+            ng-repeat="task in tasks | filter:tskSearchStr" 
+            ng-mouseover="editTask(task, $event)"
+            style="background: no-repeat" title="{{project.description}}">
+            <div class="tsk-details clearfix">
+                <!-- Task fields: 
+                    * id
+                    * name
+                    * description
+                    * dateOpen
+                    * dateClose
+                    * dateLastModified
+                    * status
+                    * assignedTo
+                    * effort
+                -->
+                <h3>{{task.id}}</h3>
+                <p>{{task.description}}</p>
+                <p>{{task.status}}</p>
+                <button class="btn btn-info" ng-click="updateTask(task)">Update Task</button>
+                <button class="btn btn-info" ng-click="deleteTask(task)">Delete task</button>
+            </div> <!-- chiude div contenitore del task -->
+        </li>
+    </ul>
+</div> <!-- chiude div taskWrapper -->

@@ -170,3 +170,23 @@ An ES6 class is really just a constructor function in ES5. We wrote about that i
 if you haven’t read that article yet, I’d recommend checking that out.
 
 With factories, this is not possible because they are simply called as functions.  
+
+Console log utilities
+=====================
+Just add a cool feature which a lot of developers miss:
+
+    console.log("this is %o, event is %o, host is %s", this, e, location.host);
+
+This is the magical `%o` dump clickable and deep-browsable content of a JavaScript object. `%s` was shown just for a record.
+
+Also this is cool too:
+
+    console.log("%s", new Error().stack);
+
+Which gives a Java-like stack trace to the point of the `new Error()` invocation (including path to file and line number!).
+
+Both `%o` and `new Error().stack` are available in Chrome and Firefox!
+
+Also for stack traces in Firefox use:
+
+    console.trace();

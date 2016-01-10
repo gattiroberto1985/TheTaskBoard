@@ -1,0 +1,51 @@
+<!-- *************************************************************************
+                                 Project section
+     ************************************************************************* -->
+
+<!--div id="projectHeader" class="col-md-4">
+
+    <h3>Progetto selezionato</h3>
+
+</div-->
+
+<div id="projectWrapper" class="col-md-8">
+    <!-- Sezione di ricerca -->
+    <form role="form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search here..." ng-model="prjSearchStr" />
+      </div>
+    </form>
+
+
+
+    <!-- Lista progetti -->
+    <!--ul class="list-unstyled">
+        <li-->
+        <div id="{{project.uniqueId}}"
+            class="project col-md-4" 
+            ng-mouseenter="onMouseEnter(project)"
+            ng-mouseleave="onMouseLeave(project)"
+            ng-repeat="project in projects | filter:prjSearchStr" style="background: no-repeat" tooltip="{{project.description}}"> <!-- title="{{project.description}}" -->
+            <div class="prj-details clearfix">
+                <!-- Project fields: 
+                    * id
+                    * name
+                    * description
+                    * dateOpen
+                    * dateClose
+                    * dateLastModified
+                    * status
+                    * assignedTo
+                    * effort
+                    * taskList
+                -->
+                <h3 class="hide">{{project.id}}</h3>
+                <p>{{project.name}}</p>
+                <p>{{project.status}}</p>
+                <button class="btn btn-info" ng-click="loadProjectTasks(project)">Load Project</button>
+                <button class="btn btn-info" ng-click="deleteProject(project)">Delete Project</button>
+            </div>
+        </div>
+        <!--/li>
+    </ul-->
+</div>

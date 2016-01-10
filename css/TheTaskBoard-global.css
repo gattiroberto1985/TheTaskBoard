@@ -1,13 +1,78 @@
-[tooltip]:before {
+/* Tooltip animations */
+/* VERSION 1 */
+/*[tooltip]:before {
+    background-color: darkgrey;
     position: absolute;
     content: attr(tooltip);
     opacity: 0;
 }
 
 [tooltip]:hover:before {
+    background-color: darkgrey;
     opacity: 1;
 }
 
 [tooltip]:not([tooltip-persistent]):before {
     pointer-events: none;
+}*/
+
+/* VERSION 2 */
+[tooltip]:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width:200px;
+}
+[tooltip]:hover:before{
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}
+/* classes */
+.hide {
+    display: none;
+}
+
+.highlight {
+    background-color :#CCC;
+}
+
+.full {
+    height:100% !important;
+    width:100% !important;
+    z-index: 100;
+}
+
+
+
+/*****************************************************************************/
+/*                                  TEST CLASSES                             */
+/*****************************************************************************/
+
+.project {
+    position: absolute;
+}
+
+.task {
+    position:absolute;
+}
+
+.background-ul {
+    background-color: cornflowerblue;   
+}
+
+.background-li {
+    background-color: red;   
 }
