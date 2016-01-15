@@ -19,13 +19,21 @@
 
 
     <!-- Lista progetti -->
-    <!--ul class="list-unstyled">
-        <li-->
-        <div id="{{project.uniqueId}}"
-            class="project col-md-4" 
-            ng-mouseenter="onMouseEnter(project)"
-            ng-mouseleave="onMouseLeave(project)"
-            ng-repeat="project in projects | filter:prjSearchStr" style="background: no-repeat" tooltip="{{project.description}}"> <!-- title="{{project.description}}" -->
+    <ul id="prjList" class="list-unstyled">
+        <!--div id="{{project.uniqueId}}" 
+
+             -->
+        
+        <li id="{{project.uniqueId}}"
+             class="project col-md-4" 
+             ng-repeat="project in projects | filter:prjSearchStr" 
+             style="background: no-repeat" 
+             ng-click="editProject(project)"
+             title="{{project.description}}"  >
+             <!-- ng-dialog="templates/tpl_project_details.html"
+             ng-dialog-class="ngdialog-theme-flat"
+             ng-dialog-controller="TTBProjectDetailsCtrl"
+             ng-dialog-id="{{project.uniqueId}}" --> 
             <div class="prj-details clearfix">
                 <!-- Project fields: 
                     * id
@@ -42,10 +50,37 @@
                 <h3 class="hide">{{project.id}}</h3>
                 <p>{{project.name}}</p>
                 <p>{{project.status}}</p>
-                <button class="btn btn-info" ng-click="loadProjectTasks(project)">Load Project</button>
+                <button class="btn btn-info" ng-click="openProject(project)">Open Project</button>
                 <button class="btn btn-info" ng-click="deleteProject(project)">Delete Project</button>
             </div>
-        </div>
-        <!--/li>
-    </ul-->
+        </li>
+        
+        <li id="fake" >
+            <div class="col-md-12 prj-details clearfix" style="background-color: black;">
+                <!-- Project fields: 
+                    * id
+                    * name
+                    * description
+                    * dateOpen
+                    * dateClose
+                    * dateLastModified
+                    * status
+                    * assignedTo
+                    * effort
+                    * taskList
+                -->
+                <h3 class="hide"></h3>
+                <p></p>
+                <p></p>                
+            </div>
+        </li>        
+        <!--/div-->
+    </ul>
+    
+    <!--div>
+        <ul id="prjShortHeader" class="list-unstyled">
+            <input type="text" value="{{project.name}}" > </input>
+            <input type="text" value="{{project.status}}" > </input>
+        </ul>
+    </div-->
 </div>

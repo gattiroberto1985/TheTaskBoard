@@ -9,35 +9,71 @@
 /******************************************************************************/
 
 // Definizione variabili globali
-var TTBAPP_MODULE_NAME              = "TTBApp";
-var TTBAPP_CONTROLLER_TASKS_NAME    = "TTBTasksCtrl";
-var TTBAPP_CONTROLLER_PROJECTS_NAME = "TTBProjectsCtrl";
-var TTBAPP_CONTROLLER_HEADER_NAME   = "TTBHeaderCtrl";
-var TTBAPP_SERVICE_PROJECTS         = "TTBProjectsSrv";
-var TTBAPP_SERVICE_TASKS            = "TTBTasksSrv";
+var TTBAPP_MODULE_NAME                     = "TTBApp";
+var TTBAPP_CONTROLLER_TASKS_NAME           = "TTBTasksCtrl";
+var TTBAPP_CONTROLLER_TASK_DETAILS_NAME    = "TTBTaskDetailCtrl";
+var TTBAPP_CONTROLLER_PROJECTS_NAME        = "TTBProjectsCtrl";
+var TTBAPP_CONTROLLER_PROJECT_DETAILS_NAME = "TTBProjectDetailsCtrl"; //TTBProjectDetailsCtrl
+var TTBAPP_CONTROLLER_HEADER_NAME          = "TTBHeaderCtrl";
+var TTBAPP_SERVICE_PROJECTS                = "TTBProjectsSrv";
+var TTBAPP_SERVICE_TASKS                   = "TTBTasksSrv";
 
-var TTBAPP_NAV_MAIN_PAGE = "/main";            // ATTENTION: this value should match the one in the index.html!
-var TTBAPP_NAV_PRJ_DETAILS_PAGE = "/details";  // ATTENTION: this value should match the one in the index.html!
+var TTBAPP_NAV_PROJECTS_PAGE     = "/projects"; // ATTENTION: this value should match the one in the index.html!
+var TTBAPP_NAV_TASK_PAGE         = "/tasks";    // ATTENTION: this value should match the one in the index.html!
+var TTBAPP_NAV_PROJ_DETAILS_PAGE = "/project";  // ATTENTION: this value should match the one in the index.html!
+var TTBAPP_NAV_TASK_DETAILS_PAGE = "/task";     // ATTENTION: this value should match the one in the index.html!
+
 
 var TTBAPP_APP_NAME    = "TheTaskBoard App";
 var TTBAPP_DESCRIPTION = "Task manager for the stupid guy!";
 // Definizione modulo angular (attenzione al tag 'ng-app' nel template html!)
-var TTBApp = angular.module(TTBAPP_MODULE_NAME, [ "ngRoute" ] );
+var TTBApp = angular.module(TTBAPP_MODULE_NAME, [ "ngRoute", "ngDialog" ] );
 
+$(window).load(function () {
+   console.log ( "Page loaded, hiding overlay . . . ") ;
+     $("#overlay").hide();
+    
+});
 
+(function($) {
+    $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+            attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+            return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+    };
+})(jQuery);
 
 // Definizione della navigazione interna
 TTBApp.config ( function ( $routeProvider ) {
+    /*
+    var TTBAPP_NAV_PROJECTS_PAGE     = "/projects"; // ATTENTION: this value should match the one in the index.html!
+var TTBAPP_NAV_TASK_PAGE         = "/tasks";    // ATTENTION: this value should match the one in the index.html!
+var TTBAPP_NAV_PROJ_DETAILS_PAGE = "/project";  // ATTENTION: this value should match the one in the index.html!
+var TTBAPP_NAV_TASK_DETAILS_PAGE = "/task";     // ATTENTION: this value should match the one in the index.html!
+
+    */
     $routeProvider
-          .when(TTBAPP_NAV_MAIN_PAGE, {
+          .when(TTBAPP_NAV_PROJECTS_PAGE, {
 			templateUrl: "templates/tpl_projects.html",
 			controller: TTBAPP_CONTROLLER_PROJECTS_NAME
-		}).when(TTBAPP_NAV_PRJ_DETAILS_PAGE, {
+		}).when(TTBAPP_NAV_TASK_PAGE, {
 			templateUrl: "templates/tpl_tasks.html",
 			controller: TTBAPP_CONTROLLER_TASKS_NAME
-		})
+		})/*.when(TTBAPP_NAV_PROJ_DETAILS_PAGE, {
+			templateUrl: "templates/tpl_project.html",
+			controller: TTBAPP_CONTROLLER_PROJECT_NAME
+		}).when(TTBAPP_NAV_TASK_DETAILS_PAGE, {
+			templateUrl: "templates/tpl_task.html",
+			controller: TTBAPP_CONTROLLER_TASK_NAME
+		})*/
 	.otherwise({
-		redirectTo: TTBAPP_NAV_MAIN_PAGE
+		redirectTo: TTBAPP_NAV_PROJECTS_PAGE
 	});
 }); // chiude definizione routing applicazione
 
@@ -175,7 +211,14 @@ TTBApp.controller(TTBAPP_CONTROLLER_HEADER_NAME, function ($scope, $location ) {
     
 }); // chiude definizione controller TTBAPP_CONTROLLER_HEADER_NAME
 
-
+TTBApp.controller(TTBAPP_CONTROLLER_PROJECT_DETAILS_NAME, function ( $scope, TTBProjectsSrv ) {
+    
+    var project = $scope.project;
+    
+    console.log( " project is " + project.id );
+    
+    
+});
 
 // Definizione controller task
 TTBApp.controller(TTBAPP_CONTROLLER_TASKS_NAME, function ( $scope, TTBTasksSrv ) {
@@ -190,77 +233,90 @@ TTBApp.controller(TTBAPP_CONTROLLER_TASKS_NAME, function ( $scope, TTBTasksSrv )
 
 
 // Definizione controller dei progetti
-TTBApp.controller(TTBAPP_CONTROLLER_PROJECTS_NAME, function ( $scope, $location, TTBProjectsSrv, TTBTasksSrv) { //TTBAPP_SERVICE_PROJECTS ) {
+TTBApp.controller(TTBAPP_CONTROLLER_PROJECTS_NAME, function ( $scope, $location, TTBProjectsSrv, TTBTasksSrv, ngDialog ) { //TTBAPP_SERVICE_PROJECTS ) {
     
     // Inserisco nello scope del controller i progetti caricati dal service
     $scope.projects = TTBProjectsSrv.getProjects();
     
+    $scope.getProject = function ( id ) { 
+        for ( var project in $scope.projects )
+            if ( project.id === id )
+                return project;
+    };
+    
     // Definisco le callback utilizzate nel template HTML
-    $scope.loadProjectTasks = function ( project ) { 
-        console.log("Trying to get project tasks . . . ");
-        var taskList = TTBProjectsSrv.getProjectTask(project); 
-        console.log("Showing " + taskList.length + " tasks in panels . . .");
-        TTBTasksSrv.setTasks(taskList);
-        console.log("Redirecting to '" + TTBAPP_NAV_PRJ_DETAILS_PAGE + "' . . . ");
-        $location.path(TTBAPP_NAV_PRJ_DETAILS_PAGE);
-    }
+    
+    // Metodo di apertura progetto su pagina dedicata (details)
+    $scope.openProject = function ( project ) { openProject(project, TTBTasksSrv, $location); };
 
-    $scope.onMouseEnter = function(project) {
-        console.log("Mouse entered in div '" + project.uniqueId + "' . . .");
-        showProjectHeaders("#" + project.uniqueId);
-        //$scope.highlightedItem = project.uniqueId;
-    };
+    // Metodo di modifica rapida dei dati di testata del progetto
+    $scope.editProject = function(project) {  editProjectHeader(project, ngDialog, $scope ); };
 
-    $scope.onMouseLeave = function(project) {
-        console.log("Mouse leaved from div '" + project.uniqueId + "' . . .");
-        hideProjectHeaders("#" + project.uniqueId);
-        //$scope.highlightedItem = project.uniqueId;
-    };
+    // Metodo di rimozione progetto
+    $scope.deleteProject = function ( project ) { deleteProject(project); };
 
-    /*$scope.$watch('highlightedItem', function(newPrj, oldPrj) {
-        //alert ( "n: " + n + " @@ o: " + o );
-        console.log ( "Changed selected project from '" + oldPrj + "' to '" + newPrj + "' ");
-        $(oldPrj).removeClass("highlight");
-        $(newPrj).addClass("highlight");
-        showProjectHeaders(newPrj);
-    });        */
-
-    /*$scope.editProject = function ( project ) {
-        console.log("Entering in edit-project-mode . . .");
-    };*/
+    // Metodo di salvataggio modifiche dei dati di testata del progetto
+    $scope.updateProject = function ( project ) { updateProjectHeader(project); };
+    
 } ); // Chiude definizione controller TTBAPP_CONTROLLER_PROJECTS_NAME
 
-function hideProjectHeaders(oldPrjDiv)
+
+/* ************************************************************************* */
+/*                           METODI DI GESTIONE PROGETTO                     */
+/* ************************************************************************* */
+
+function openProject( project, taskSRV, locationSRV )
 {
-    $(oldPrjDiv).animate({ margin: 0, width: "-=160", height: "-=160", "z-index": 1 });
+    console.log("Trying to get project tasks . . . ");
+    var taskList = project.taskList;
+    if ( taskList === undefined || taskList.length == 0 )
+    {
+        console.log(". . . No task defined for project!")
+    }
+    else
+    {
+        console.log("Showing " + taskList.length + " tasks in panels . . .");
+        taskSRV.setTasks(taskList);
+    }
+    console.log("Redirecting to '" + TTBAPP_NAV_TASK_PAGE + "' . . . ");
+    locationSRV.path(TTBAPP_NAV_TASK_PAGE);
 }
 
-function showProjectHeaders(/*oldPrjDiv,*/ newPrjDiv)
+function editProjectHeader( project, ngDialog, $scope )
 {
-    var element = $(newPrjDiv);
-    // expanding new div . . .
-    // getting actual position of project
-    var actualPosition = element.position();
+    console.log(". . Request for edit project: showing overlay and hiding container . . .");
+    console.log ( ngDialog );
+    $scope.project = project;
+    ngDialog.open( { 
+            template: 'templates/tpl_project_details.html',
+            controller: "TTBProjectDetailsCtrl",
+            class: "ngdialog-theme-flat",
+            scope: $scope
+        }
+    );
     
-    $(newPrjDiv).animate({ margin: -10, width: "+=160", height: "+=160", "z-index": 100 });
-    /*
-    $("#" + oldPrjDiv).animate().css('box-shadow', 'none')
-    $("#" + oldPrjDiv).animate({
-            width: 210,
-            height: 240,
-            top: 0,
-            left: 0
-        }, 'fast');
-    $("#" + oldPrjDiv).css({ zIndex: 1 });    
-    $("#" + newPrjDiv).animate(
-        {
-            width: 1024,
-            height: 768,
-            top: -80,
-            left: -45
-        }, 'fast');
-        $("#" + newPrjDiv).animate().css('box-shadow', '0 0 5px #000');
-        $("#" + newPrjDiv).css({
-            zIndex: 100 
-        });*/
+    /*console.log("Hiding 'ul' element . . .");
+    $( "#" + project.uniqueId ).siblings().hide(400);
+    // Creo il clone per il project
+    $("#" + project.uniqueId ).removeClass("col-md-4", 100).addClass("col-md-12", 100);
+    
+    //$("#prjShortHeader").show(400);
+    console.log("Showing 'clonedDiv' element . . .");*/
+    
+}
+
+function updateProject()
+{
+    console.log(". . Request for edit project: showing overlay and hiding container . . .");
+    
+    $("#" + project.uniqueId ).removeClass("col-md-12", 100).addClass("col-md-4", 100);
+    $( "#" + project.uniqueId ).siblings().show(400);
+    // Creo il clone per il project
+    
+}
+
+function deleteProject( project )
+{
+    console.log("Requesting delete action for project with id '" + project.id + "' . . .");
+    console.log("WARNING: NOT YET IMPLEMENTED!!");
 }

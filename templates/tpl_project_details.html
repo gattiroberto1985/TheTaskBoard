@@ -1,0 +1,19 @@
+            <div>
+                <!-- Project fields: 
+                    * id
+                    * name
+                    * description
+                    * dateOpen
+                    * dateClose
+                    * dateLastModified
+                    * status
+                    * assignedTo
+                    * effort
+                    * taskList
+                -->
+                <input type="text" value="{{project.id}}" ></input>
+                <input type="text" value="{{project.name}}"></input>
+                <input type="text" value="{{project.status}}"></input>
+                <button class="btn btn-info" ng-click="updatrProject(project)">Open Project</button>
+                <button class="btn btn-info" ng-click="deleteProject(project)">Delete Project</button>
+            </div>

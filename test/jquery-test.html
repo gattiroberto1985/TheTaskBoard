@@ -6,7 +6,10 @@
         <title>Test animazioni</title>
 
         <!-- Importing JQuery -->
+        <!--script src="../fwks/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+        <script src="../fwks/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script-->
         <script src="../fwks/jquery-1.11.3.js"></script>
+        <script src="../fwks/jquery-ui.js"></script>
         
         <!-- Importing TheTaskBoard app code . . . -->
         <script src="./scripts/jquery-test.js"></script>
@@ -19,34 +22,40 @@
     
     <body>
         <div id="container">
-            <div id="projectContainer" class="col-md-8">
-                <ul id="ulElm" class="list-unstyled background-ul" >
+            <div id="projectContainer" class="col-md-8 container">
+                <!--ul id="ulElm" class="list-unstyled background-ul" -->
                     
-                    <li class="task col-md-4" id="prj_1">
-                        <h3>1</h3>
-                        <p>desc 1</p>
-                        <p>status 1</p>
+                    <!--li class="task col-md-4" id="prj_1"-->
+                    <div class="task col-md-4" id="prj_1">
+                        <h3 class="prj_id">1</h3>
+                        <p class="prj_desc">desc 1</p>
+                        <p class="prj_status">status 1</p>
+                        <button id="update" class="btn btn-info" ng-click="updateTask(task)">Update Task</button>
+                        <button id="delete" class="btn btn-info" ng-click="deleteTask(task)">Delete task</button>                    
+                    <!--/li-->
+                    </div>
+                    
+                    <div class="task col-md-4"  id="prj_2">
+                    <!--li class="task col-md-4"  id="prj_2"-->
+                        <h3 class="prj_id">2</h3>
+                        <p class="prj_desc">desc 2</p>
+                        <p class="prj_status">status 2</p>
                         <button class="btn btn-info" ng-click="updateTask(task)">Update Task</button>
                         <button class="btn btn-info" ng-click="deleteTask(task)">Delete task</button>                    
-                    </li>
+                    <!--/li-->
+                    </div>
                     
-                    <li class="task col-md-4"  id="prj_2">
-                        <h3>2</h3>
-                        <p>desc 2</p>
-                        <p>status 2</p>
+                    <div class="task col-md-4"  id="prj_3">
+                    <!--li class="task col-md-4"  id="prj_3"-->
+                        <h3 class="prj_id">3</h3>
+                        <p class="prj_desc">desc 3</p>
+                        <p class="prj_status">status 3</p>
                         <button class="btn btn-info" ng-click="updateTask(task)">Update Task</button>
                         <button class="btn btn-info" ng-click="deleteTask(task)">Delete task</button>                    
-                    </li>
+                    <!--/li-->
+                    </div>
                     
-                    <li class="task col-md-4"  id="prj_3">
-                        <h3>3</h3>
-                        <p>desc 3</p>
-                        <p>status 3</p>
-                        <button class="btn btn-info" ng-click="updateTask(task)">Update Task</button>
-                        <button class="btn btn-info" ng-click="deleteTask(task)">Delete task</button>                    
-                    </li>
-                    
-                </ul>
+                <!--/ul-->
             </div>
             
             <div id="projectHeader" class="col-md-4">
@@ -54,6 +63,20 @@
                 <h2>Titolo progetto</h2>
                 <h3>Descrizione del progetto</h3>
             </div>
+        
+            
         </div>
+        
+            <div id="overlay" class="overlay container-fluid text-center pagination-centered">
+                <div class="row-fluid">
+                    <div class="centering text-center">
+                        <h1>I AM THE OVERLAY!</h1>
+
+                        <button class="btn btn-info" onclick="updateProject();" ng-click="updateProject()">Update Project</button>
+                        <button class="btn btn-info" ng-click="deleteProject()">Delete Project</button>                    
+                    </div>
+                </div>
+            </div>
+        
     </body>
 </html>

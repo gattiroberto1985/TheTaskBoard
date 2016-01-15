@@ -61,15 +61,53 @@
 /*                                  TEST CLASSES                             */
 /*****************************************************************************/
 
+
+.container-fluid{
+    position:absolute;
+    height:100%;
+    display:table;
+    width: 70%;
+    padding: 0;
+}
+ 
+.row-fluid {
+    height: 100%; 
+    display:table-cell; 
+    vertical-align: middle;
+}
+
+.centering {
+  float:none;
+  margin:0 auto;
+}
+
+.overlay {
+    background: #e9e9e9;
+    position: absolute;     /*<- This and the following properties will  */
+    /*top: 0;           */    /*   make the overlay, the element will expand */
+    /*right: 0;  */           /*   so as to cover the whole body of the page */
+    /*bottom: 0;
+    left: 0;
+    opacity: 0.5;*/
+}
+
+
+
+
+/* DEPRECATED */
+.container {
+    position: relative;
+}
+
 .project {
     position: absolute;
 }
 
 .task {
-    position: absolute;
+    /*position: absolute;*/
 }
 
-#ulElm .selectedTask {
+.selectedTask {
     background-color: red;
 }
 
@@ -80,3 +118,14 @@
 .background-li {
     background-color: red;   
 }
+
+.clone {
+    position:absolute;
+}
+.prj_id {
+    
+}
+
+.prj_desc { }
+
+.prj_status { }

@@ -8,14 +8,22 @@
         <!-- Importing angular js . . . -->
         <script src="./fwks/angularjs-1.5.0-rc.0.js"> </script>
         <script src="./fwks/angularjs-route-1.5.0-rc.0.js"> </script>
+        <script src="./fwks/ngDialog.js"> </script>
         
         <!-- Importing JQuery -->
         <script src="./fwks/jquery-1.11.3.js"></script>
         
         <!-- Importing TheTaskBoard app code . . . -->
         <script src="./scripts/TheTaskBoard-app.js"> </script>
+        
+        <!-- Importing angular objects . . . -->
+        <!--script src="./scripts/angular/config.js"> </script>
+        <script src="./scripts/angular/services.js"> </script>
+        <script src="./scripts/angular/controllers.js"> </script-->
         <script src="./scripts/animations.js"></script>
+        
         <!-- Static resources and bootstrap csses . . . -->
+        <link rel="stylesheet" type="text/css" href="./css/ngDialog.css" >
         <link rel="stylesheet" type="text/css" href="./css/TheTaskBoard-global.css" >
         <link rel="stylesheet" type="text/css" href="./css/bootstrap-3.3.0-min.css" >
         
@@ -35,12 +43,23 @@
                     </ul>
                 </div>                    
             </header>
-
-            <div ng-view class="container"></div>
-		
-  
         </div> <!-- chiude div container -->
         
+                
+        <div id="dataContainer" ng-view class="container"></div>
+		
+                  
+        <div id="overlay" class="container overlay container-fluid text-center pagination-centered">
+            <div class="row-fluid">
+                <div class="centering text-center">
+                    <h1>I AM THE OVERLAY!</h1>
+
+                    <button class="btn btn-info" ng-click="updateProject()">Update Project</button>
+                    <button class="btn btn-info" ng-click="deleteProject()">Delete Project</button>                    
+                </div>
+            </div>            
+        </div> 
+                
     </body>
     
 </html>
