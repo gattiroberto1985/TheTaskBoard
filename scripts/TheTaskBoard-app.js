@@ -155,13 +155,13 @@ var IDB_NAME = "TheTaskBoard_IDB";
 var IDB_VERSION = 15;
 var KEY_ID = "_id";
 
+var IDB_DATABASE = null;
+
 // Definizione dei factory e dei services angular
 // Definizione service project . . .
 TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
-    // QUESTI DATI VANNO RECUPERATI DA DB!!!
 
-    var myDb = $window.indexedDB;
-    var db = null;
+    IDB_DATABASE = $window.indexedDB;
     var lastIndex = 0;
     
     this.open = function () {
@@ -169,15 +169,15 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
         var request = indexedDB.open(IDB_NAME, IDB_VERSION);
         request.onupgradeneeded = function (e) {
             console.log ( " [ DATABASE ] IDB upgrade needed!" );
-            db = e.target.result;
+            IDB_DATABASE = e.target.result;
             e.target.transaction.onerror = indexedDB.onerror;
-            if (db.objectStoreNames.contains(IDB_OBJECT_STORE_NAME)) {
+            if (IDB_DATABASEobjectStoreNames.contains(IDB_OBJECT_STORE_NAME)) {
                 console.log ( " [ DATABASE ] . . . removing old object store . . . " );
-                db.deleteObjectStore(IDB_OBJECT_STORE_NAME);
+                IDB_DATABASEdeleteObjectStore(IDB_OBJECT_STORE_NAME);
             }
             
             console.log ( " [ DATABASE ] . . . creating new object store . . ." );
-            var store = db.createObjectStore(IDB_OBJECT_STORE_NAME, {
+            var store = IDB_DATABASEcreateObjectStore(IDB_OBJECT_STORE_NAME, {
                 keyPath: KEY_ID,
                 autoIncrement: true
             });
@@ -200,7 +200,7 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
 
         request.onsuccess = function (e) {
             console.log(" [ DATABASE ] . . . Created db!");
-            db = e.target.result;
+            IDB_DATABASE = e.target.result;
             deferred.resolve();
         };
 
@@ -214,11 +214,11 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
         
         var deferred = $q.defer();
         console.log("getProjects...");
-        if (db === null)
+        if (IDB_DATABASE === null)
             deferred.reject("IndexDB is not opened yet!");
         else 
         {
-            var trans = db.transaction([IDB_OBJECT_STORE_NAME], "readwrite");
+            var trans = IDB_DATABASE.transaction([IDB_OBJECT_STORE_NAME], "readwrite");
             var store = trans.objectStore(IDB_OBJECT_STORE_NAME);
             var projects = [];
             // Get everything in the store;
@@ -433,4 +433,70 @@ function deleteProject( project )
 {
     console.log("Requesting delete action for project with id '" + project.id + "' . . .");
     console.log("WARNING: NOT YET IMPLEMENTED!!");
+}
+
+
+
+/***** DB METHODS *****/
+
+
+function deleteProject(project)
+{
+    try
+    {
+        if ( project === undefined || project._id == -1 )
+        {
+            console.log("WARNING: no project selected, wtf should i delete??");
+            return;
+        }
+        console.log("Request for removing project...");
+        var transaction = IDB_DATABASE.transaction(IDB_OBJECT_STORE_NAME, "readwrite");
+        var objectStore = transaction.objectStore(IDB_OBJECT_STORE_NAME);                    
+        console.log("Deleting record with id '" + Number(project._id) + "'");
+        var request = objectStore.delete(Number(project._id));
+        request.onsuccess = function (event) 
+        { 
+            console.log("Deleted project !");
+            // handleDBSuccess(DB_ACTION_DELETE_ITEM, event, [ task ] ); 
+        };
+    }
+    catch ( err ) 
+    {
+        console.log("ERROR: an error has occurred: '" + err.message + "'");
+        alert("ERRORE: " + err.message );
+    }
+}
+
+
+function updateProject(project)
+{
+    //var project = null;
+    try
+    {
+        var transaction = IDB_DATABASE.transaction(IDB_OBJECT_STORE_NAME, "readwrite");
+        var objectStore = transaction.objectStore(IDB_OBJECT_STORE_NAME);                    
+        var request, action;
+        var params = [];
+        if ( project._id === undefined ) 
+        {
+            //newtask.taskId = null;
+            //action = DB_ACTION_ADD_ITEM;
+            request = objectStore.add(project);
+        }
+        else
+        {
+            //action = DB_ACTION_UPDATE_ITEM;
+            //var keyRange = IDBKeyRange.only(newtask.taskId);
+            //var index = objectStore.index("id");
+            request = objectStore.put(project);
+            //request = objectStore.openCursor();
+        }
+        request.onsuccess = function (event) { console.log("Ok, added/updated project!"); };         
+        request.onerror   = function (event) { console.log("ERROR: on add/update project!"); };
+    }
+    catch ( err )
+    {
+        console.log("ERROR: an error has occurred: '" + err.message + "'");
+        alert("ERRORE: impossibile creare il task: " + err.message + "'");
+    }    
 }
