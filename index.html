@@ -3,15 +3,17 @@
 
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>TheTaskBoard for dummies!</title>
         
         <!-- Importing angular js . . . -->
         <script src="./fwks/angularjs-1.5.0-rc.0.js"> </script>
         <script src="./fwks/angularjs-route-1.5.0-rc.0.js"> </script>
         <script src="./fwks/ngDialog.js"> </script>
-        
-        <!-- Importing JQuery -->
         <script src="./fwks/jquery-1.11.3.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" ></script>
+                
+        <!-- Importing JQuery -->
         
         <!-- Importing TheTaskBoard app code . . . -->
         <script src="./scripts/TheTaskBoard-app.js"> </script>
@@ -49,7 +51,7 @@
         <div id="dataContainer" ng-view class="container"></div>
 		
                   
-        <div id="overlay" class="container overlay container-fluid text-center pagination-centered">
+        <!--div id="overlay" class="container overlay container-fluid text-center pagination-centered">
             <div class="row-fluid">
                 <div class="centering text-center">
                     <h1>I AM THE OVERLAY!</h1>
@@ -58,7 +60,7 @@
                     <button class="btn btn-info" ng-click="deleteProject()">Delete Project</button>                    
                 </div>
             </div>            
-        </div> 
+        </div--> 
                 
     </body>
     

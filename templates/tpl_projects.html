@@ -28,13 +28,12 @@
              class="project col-md-4" 
              ng-repeat="project in projects | filter:prjSearchStr" 
              style="background: no-repeat" 
-             ng-click="editProject(project)"
              title="{{project.description}}"  >
-             <!-- ng-dialog="templates/tpl_project_details.html"
-             ng-dialog-class="ngdialog-theme-flat"
-             ng-dialog-controller="TTBProjectDetailsCtrl"
-             ng-dialog-id="{{project.uniqueId}}" --> 
-            <div class="prj-details clearfix">
+            
+            <div id="{{project.uniqueId}}TxtDiv"
+                 ng-click="editProject(true, project)"
+                 class="prj-details clearfix"
+                 ng-hide="editing">
                 <!-- Project fields: 
                     * id
                     * name
@@ -53,34 +52,81 @@
                 <button class="btn btn-info" ng-click="openProject(project)">Open Project</button>
                 <button class="btn btn-info" ng-click="deleteProject(project)">Delete Project</button>
             </div>
+            
+            <div id="{{project.uniqueId}}FrmDiv">
+                <form ng-submit="editProject(false, project)" ng-show="editing" >
+                    
+                    <button type="button" class="close" ng-click="editProject(false, project, true)">
+                        X<!--span class="glyphicon glyphicon-remove"></span--> 
+                    </button>
+                    <p class="alert alert-warning col-md-12">Il progetto verrà modificato immediatamente! Per annullare le modifiche, cliccare su "X" e ricaricare la pagina!</p>
+                    <label for="prjName">Nome progetto</label>
+                    <input type="text" class="form-control" id="prjName" placeholder="Nome Progetto . . ." value="{{project.name}}" ng-model="project.name"/>
+                    
+                    <label for="prjStaus">Stato progetto</label>
+                    <input type="text" class="form-control" id="prjStaus" placeholder="Stato Progetto . . ." value="{{project.status}}" ng-model="project.status"/> 
+                    
+                    <label for="prjDescr">Descrizione progetto</label>
+                    <textarea type="text" class="form-control" id="prjDescr" placeholder="Descrizione progetto . . ." ng-model="project.description"> {{project.description}} </textarea> 
+     
+                    <label for="prjAssigned">In carico a</label>
+                    <input type="text" class="form-control" id="prjAssigned" placeholder="Inserire un incaricato . . ." value="{{project.assignedTo | date:'yyyy-MM-dd HH:mm:ss'}}" ng-model="project.assignedTo"/>                     
+              
+                    <label for="prjOpened">Data apertura</label>
+                    <input 
+                           id="prjOpened" 
+                           type="datetime"
+                           pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4} {0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}"
+                           class="form-control"
+                           placeholder="Data apertura . . ." 
+                           value="{{project.dateOpen | date:'yyyy-MM-dd HH:mm:ss'}}" 
+                           ng-model="project.dateOpen"
+                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>      
+                    
+                    <label for="prjUpdated">Data ultimo aggiornamento</label>
+                    <input 
+                           id="prjUpdated" 
+                           type="datetime"
+                           pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4} {0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}"
+                           class="form-control" 
+                           placeholder="Data ultimo aggiornamento . . ." 
+                           value="{{project.dateLastModified | date:'yyyy-MM-dd HH:mm:ss'}}" 
+                           ng-model="project.dateLastModified"
+                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>      
+                    
+                    
+                    <label ng-if="project.dateClosed !== undefined" for="prjClosed">Data chiusura</label>
+                    <input 
+                           id="prjClosed" 
+                           type="datetime"
+                           pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4} {0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}"
+                           class="form-control" 
+                           value="{{project.dateClosed  | date:'yyyy-MM-dd HH:mm:ss'}}" 
+                           ng-if="project.dateClosed !== undefined" 
+                           placeholder="Data chiusura . . ." 
+                           ng-model="project.dateClosed"
+                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>      
+                    
+                    
+                    
+                    
+                    <p ng-if="project.taskList === undefined "> Non risultano task associati!</p>
+                    
+                    <p ng-if="project.taskList.length > 0" >Questo progetto ha {{ project.taskList.length}} task interni.</p>
+      
+                    <fieldset>
+                        <button type="submit" class="btn btn-default col-md-4">Aggiorna</button>          
+                        <button class="btn btn-info col-md-4" ng-click="openProject(project)">Apri Progetto</button>
+                        <button class="btn btn-info col-md-4" ng-click="deleteProject(project)">Cancella Progetto</button>                    
+                    </fieldset>
+                    
+                </form>
+            </div>
+            
         </li>
         
-        <li id="fake" >
-            <div class="col-md-12 prj-details clearfix" style="background-color: black;">
-                <!-- Project fields: 
-                    * id
-                    * name
-                    * description
-                    * dateOpen
-                    * dateClose
-                    * dateLastModified
-                    * status
-                    * assignedTo
-                    * effort
-                    * taskList
-                -->
-                <h3 class="hide"></h3>
-                <p></p>
-                <p></p>                
-            </div>
-        </li>        
+
         <!--/div-->
     </ul>
-    
-    <!--div>
-        <ul id="prjShortHeader" class="list-unstyled">
-            <input type="text" value="{{project.name}}" > </input>
-            <input type="text" value="{{project.status}}" > </input>
-        </ul>
-    </div-->
+
 </div>

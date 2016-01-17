@@ -1,19 +1,26 @@
-            <div>
-                <!-- Project fields: 
-                    * id
-                    * name
-                    * description
-                    * dateOpen
-                    * dateClose
-                    * dateLastModified
-                    * status
-                    * assignedTo
-                    * effort
-                    * taskList
-                -->
-                <input type="text" value="{{project.id}}" ></input>
-                <input type="text" value="{{project.name}}"></input>
-                <input type="text" value="{{project.status}}"></input>
-                <button class="btn btn-info" ng-click="updatrProject(project)">Open Project</button>
-                <button class="btn btn-info" ng-click="deleteProject(project)">Delete Project</button>
+
+<!--div>
+    <form role="form">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" />
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div-->    
+
+<div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Ciao</h4>
+              </div>
+              <div class="modal-body" ng-transclude></div>
             </div>
+          </div>
+       </div>

@@ -17,12 +17,17 @@
                      la sezione delle note. 
                      Vedi tipo qui: http://jsfiddle.net/teddyrised/EWJGJ/ -->
     <ul class="list-unstyled">
+        
+        <!-- 
+            Contenitore dei due div
+          -->
         <li id="{{task.uniqueId}}"
             class="task col-md-4" 
             ng-repeat="task in tasks | filter:tskSearchStr" 
             ng-mouseover="editTask(task, $event)"
             style="background: no-repeat" title="{{project.description}}">
-            <div class="tsk-details clearfix">
+            
+            <div id="{{task.uniqueId}}TxtDiv" class="tsk-read-details clearfix"  ng-hide="tskEdit" >
                 <!-- Task fields: 
                     * id
                     * name
@@ -34,12 +39,42 @@
                     * assignedTo
                     * effort
                 -->
-                <h3>{{task.id}}</h3>
-                <p>{{task.description}}</p>
+                <h3>{{task.name}}</h3>
+                <!--p>{{task.description}}</p-->
                 <p>{{task.status}}</p>
-                <button class="btn btn-info" ng-click="updateTask(task)">Update Task</button>
+                <p>{{task.assignedTo}}</p>
+                <p>{{task.dateLastModified}}</p>
+                <!--button class="btn btn-info" ng-click="updateTask(task)">Update Task</button-->
                 <button class="btn btn-info" ng-click="deleteTask(task)">Delete task</button>
             </div> <!-- chiude div contenitore del task -->
+            
+            <div class="tsk-edit-details clearfix"  ng-show="tskEdit" >
+                
+                <div id="{{task.uniqueId}}EdtDiv">
+                    
+                </div>
+                
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{task.uniqueId}}EdtDivNotes">Mostra note</button>
+                
+                <div id="{{task.uniqueId}}EdtDivNotes" class="collapse">
+                    <ul>
+                        <li class="tskNote" ng-repeat="note in task.notes" >
+                            <input type="datetime"
+                                   pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4} {0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}"
+                                   ng-model="note.date"
+                                   value="{{note.date}}"> </input>
+                            <textarea type="text" class="form form-control" value="{{note.text}}" ng-model="note.text"></textarea>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="tskEditButtonDiv">
+                    <button class="btn btn-info" ng-click="updateTask(task)">Esci</button>
+                    <button class="btn btn-info" ng-click="updateTask(task)">Aggiorna</button>
+                    <button class="btn btn-info" ng-click="updateTask(task)">Rimuovi</button>
+                </div>
+            </div>
+            
         </li>
     </ul>
 </div> <!-- chiude div taskWrapper -->
