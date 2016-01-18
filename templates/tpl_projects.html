@@ -30,6 +30,7 @@
              style="background: no-repeat" 
              title="{{project.description}}"  >
             
+            <!-- Div testuale, con i dati non editabili dall'utente -->
             <div id="{{project.uniqueId}}TxtDiv"
                  ng-click="editProject(true, project)"
                  class="prj-details clearfix"
@@ -53,8 +54,9 @@
                 <button class="btn btn-info" ng-click="deleteProject(project)">Delete Project</button>
             </div>
             
+            <!-- Form div coi dati modificabili dall'utente -->
             <div id="{{project.uniqueId}}FrmDiv">
-                <form ng-submit="editProject(false, project)" ng-show="editing" >
+                <form ng-submit="updateProject(project);" ng-show="editing" >
                     
                     <button type="button" class="close" ng-click="editProject(false, project, true)">
                         X<!--span class="glyphicon glyphicon-remove"></span--> 

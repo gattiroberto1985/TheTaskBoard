@@ -161,7 +161,7 @@ var IDB_DATABASE = null;
 // Definizione service project . . .
 TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
 
-    IDB_DATABASE = $window.indexedDB;
+    //myDb = $window.indexedDB;
     var lastIndex = 0;
     
     this.open = function () {
@@ -171,13 +171,13 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
             console.log ( " [ DATABASE ] IDB upgrade needed!" );
             IDB_DATABASE = e.target.result;
             e.target.transaction.onerror = indexedDB.onerror;
-            if (IDB_DATABASEobjectStoreNames.contains(IDB_OBJECT_STORE_NAME)) {
+            if (IDB_DATABASE.objectStoreNames.contains(IDB_OBJECT_STORE_NAME)) {
                 console.log ( " [ DATABASE ] . . . removing old object store . . . " );
                 IDB_DATABASEdeleteObjectStore(IDB_OBJECT_STORE_NAME);
             }
             
             console.log ( " [ DATABASE ] . . . creating new object store . . ." );
-            var store = IDB_DATABASEcreateObjectStore(IDB_OBJECT_STORE_NAME, {
+            var store = IDB_DATABASE.createObjectStore(IDB_OBJECT_STORE_NAME, {
                 keyPath: KEY_ID,
                 autoIncrement: true
             });
@@ -371,7 +371,7 @@ TTBApp.controller(TTBAPP_CONTROLLER_PROJECTS_NAME, function ( $scope, $location,
     $scope.deleteProject = function ( project ) { deleteProject(project); };
 
     // Metodo di salvataggio modifiche dei dati di testata del progetto
-    $scope.updateProject = function ( project ) { updateProjectHeader(project); };
+    $scope.updateProject = function ( project ) { updateProjectDb(project); };
     
 } ); // Chiude definizione controller TTBAPP_CONTROLLER_PROJECTS_NAME
 
@@ -418,16 +418,16 @@ function editProjectHeader( editFlag, project )
     }    
 }
 
-function updateProject(project)
+/*function updateProject(project)
 {
     console.log(". . Request for edit project: showing overlay and hiding container . . .");
     
     console.log ( project.id + " @@ " + project.name + " @@ " + project.status );
-    /*$("#" + project.uniqueId ).removeClass("col-md-12", 100).addClass("col-md-4", 100);
-    $( "#" + project.uniqueId ).siblings().show(400);*/
+    $("#" + project.uniqueId ).removeClass("col-md-12", 100).addClass("col-md-4", 100);
+    $( "#" + project.uniqueId ).siblings().show(400);
     // Creo il clone per il project
     
-}
+}*/
 
 function deleteProject( project )
 {
@@ -468,9 +468,11 @@ function deleteProject(project)
 }
 
 
-function updateProject(project)
+function updateProjectDb(project)
 {
     //var project = null;
+    console.log ( "Updating project : " );
+    console.log ( project );
     try
     {
         var transaction = IDB_DATABASE.transaction(IDB_OBJECT_STORE_NAME, "readwrite");
