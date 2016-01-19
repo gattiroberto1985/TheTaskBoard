@@ -152,7 +152,7 @@ var TTBAPP_NAV_TASK_DETAILS_PAGE = "/task";     // ATTENTION: this value should 
 // Gestione database
 var IDB_OBJECT_STORE_NAME = "projects";
 var IDB_NAME = "TheTaskBoard_IDB";
-var IDB_VERSION = 15;
+var IDB_VERSION = 17;
 var KEY_ID = "_id";
 
 var IDB_DATABASE = null;
@@ -173,7 +173,7 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
             e.target.transaction.onerror = indexedDB.onerror;
             if (IDB_DATABASE.objectStoreNames.contains(IDB_OBJECT_STORE_NAME)) {
                 console.log ( " [ DATABASE ] . . . removing old object store . . . " );
-                IDB_DATABASEdeleteObjectStore(IDB_OBJECT_STORE_NAME);
+                IDB_DATABASE.deleteObjectStore(IDB_OBJECT_STORE_NAME);
             }
             
             console.log ( " [ DATABASE ] . . . creating new object store . . ." );
@@ -274,14 +274,20 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
 });
 
 // Definizione service per i task . . . 
-TTBApp.service(TTBAPP_SERVICE_TASKS, function() {
+TTBApp.service(TTBAPP_SERVICE_TASKS, function(TTBProjectsSrv) {
+    
     this.tasks = [ ];
+    this.project = TTBProjectsSrv.project;
+    console.log ( this.project );
     
     this.setTasks = function ( tasklist ) {
         this.tasks = tasklist;
     } ;
     
     this.getTasks = function ( ) { return this.tasks; } ;
+    
+    this.getProject = function () { return this.project; } ;
+    
 });
 
 // Definizione del controller per l'header di pagina (occhio alle dipendenza da
@@ -305,10 +311,12 @@ TTBApp.controller(TTBAPP_CONTROLLER_HEADER_NAME, function ($scope, $location ) {
 
 
 // Definizione controller task
-TTBApp.controller(TTBAPP_CONTROLLER_TASKS_NAME, function ( $scope, TTBTasksSrv ) {
+TTBApp.controller(TTBAPP_CONTROLLER_TASKS_NAME, function ( $scope, TTBTasksSrv, TTBProjectsSrv ) {
     
     // Recupero i task dal service . . .
     $scope.tasks = TTBTasksSrv.getTasks();
+    $scope.project = TTBProjectsSrv.getProject();
+    console.og ( $scope.project );
     
     console.log("There are " + $scope.tasks.length + " tasks to show!");
 } ); // Chiude definizione controller TTBAPP_CONTROLLER_TASKS_NAME
