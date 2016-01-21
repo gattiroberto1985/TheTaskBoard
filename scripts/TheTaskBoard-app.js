@@ -29,9 +29,9 @@ var TTBAPP_APP_NAME    = "TheTaskBoard App";
 var TTBAPP_DESCRIPTION = "Task manager for the stupid guy!";
 
 // Graphical transactions time
-var TIME_TRANS_HIDE_SHOW_SIBLINGS = 250; // ms
-var TIME_TRANS_HIDE_SHOW_DIV      = 250; // ms
-var TIME_TRANS_ADD_REMOVE_CLASS   = 250; // ms
+var TIME_TRANS_HIDE_SHOW_SIBLINGS = 500; // ms
+var TIME_TRANS_HIDE_SHOW_DIV      = 500; // ms
+var TIME_TRANS_ADD_REMOVE_CLASS   = 500; // ms
 
 
 var TEST_PROJECTS =  [
@@ -150,9 +150,9 @@ var TTBAPP_NAV_TASK_DETAILS_PAGE = "/task";     // ATTENTION: this value should 
 }); // chiude definizione routing applicazione
 
 // Gestione database
-var IDB_OBJECT_STORE_NAME = "projects";
-var IDB_NAME = "TheTaskBoard_IDB";
-var IDB_VERSION = 17;
+var IDB_OBJECT_STORE_NAME = "ttb";
+var IDB_NAME = "TTB_idb";
+var IDB_VERSION = 1;
 var KEY_ID = "_id";
 
 var IDB_DATABASE = null;
@@ -163,6 +163,8 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
 
     //myDb = $window.indexedDB;
     var lastIndex = 0;
+    
+    this.project = { };
     
     this.open = function () {
         var deferred = $q.defer();
@@ -209,6 +211,8 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
         };
         return deferred.promise;        
     };
+    
+    this.getProject = function () { return this.project; };
     
     this.getProjects = function () {
         
@@ -264,11 +268,11 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
     };    
     
     // Ritorna i task specifici del progetto
-    this.getProjectTask = function(project) {
-        if ( project.id === undefined )
+    this.getProjectTask = function() {
+        if ( this.project.id === undefined )
             throw "Project id is undefined!";
-        console.log( "Task list contains " + project.taskList.length + " tasks!");
-        return project.taskList;
+        console.log( "Task list contains " + this.project.taskList.length + " tasks!");
+        return this.project.taskList;
     }
         
 });
@@ -276,13 +280,19 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
 // Definizione service per i task . . . 
 TTBApp.service(TTBAPP_SERVICE_TASKS, function(TTBProjectsSrv) {
     
+    this.project = { };
     this.tasks = [ ];
-    this.project = TTBProjectsSrv.project;
-    console.log ( this.project );
+    
+    //console.log ( this.project );
     
     this.setTasks = function ( tasklist ) {
         this.tasks = tasklist;
     } ;
+    
+    this.setProject = function ( project ) {
+            this.project = project;
+            this.tasks = project.taskList;
+    };
     
     this.getTasks = function ( ) { return this.tasks; } ;
     
@@ -315,8 +325,8 @@ TTBApp.controller(TTBAPP_CONTROLLER_TASKS_NAME, function ( $scope, TTBTasksSrv, 
     
     // Recupero i task dal service . . .
     $scope.tasks = TTBTasksSrv.getTasks();
-    $scope.project = TTBProjectsSrv.getProject();
-    console.og ( $scope.project );
+    $scope.project = TTBTasksSrv.getProject();
+    console.log ( $scope.project );
     
     console.log("There are " + $scope.tasks.length + " tasks to show!");
 } ); // Chiude definizione controller TTBAPP_CONTROLLER_TASKS_NAME
@@ -398,7 +408,8 @@ function openProject( project, taskSRV, locationSRV )
     else
     {
         console.log("Showing " + taskList.length + " tasks in panels . . .");
-        taskSRV.setTasks(taskList);
+        //taskSRV.setTasks(taskList);
+        taskSRV.setProject(project);
     }
     console.log("Redirecting to '" + TTBAPP_NAV_TASK_PAGE + "' . . . ");
     locationSRV.path(TTBAPP_NAV_TASK_PAGE);
