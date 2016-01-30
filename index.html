@@ -25,33 +25,76 @@
     
     <body>
         
+        <!-- [ HTML_FORMAT ] @@ Inizio Header di pagina -->
+        
         <div class="container">
             <!-- Page header -->
             <header id="headerWrapper" class="jumbotron" ng-controller="TTBHeaderCtrl">
                 <h1>{{appDetails.title}}<h1>
                 <p>{{appDetails.tagline}}</p>
-                <div class="nav-wrapper pull-left">
-                    <ul class="nav nav-pills">
-                        <li ng-class="{active: nav.isActive('/main')}"><a href="#/main">Main page</a></li>
-                        <li ng-class="{active: nav.isActive('/details')}"><a href="#/details">Details</a></li>
-                    </ul>
-                </div>                    
+                
             </header>
         </div> <!-- chiude div container -->
         
+            
+        <!-- [ HTML_FORMAT ] @@ Inizio contenitore di pagina -->
+        <div id="dataContainer" class="container">
+            
+            
+            
+            
+            <!-- Sezione con i todo rapidi, fuori ambito progettuale o che costituiscono un progetto a se' -->
+            <!-- HACK: per ora non mostrato in pagina, in quanto non implementato! -->
+            <div id="fastToDoDiv" style="display: none">
                 
-        <div id="dataContainer" ng-view class="container"></div>
-		
-        <!--div id="overlay" class="container overlay container-fluid text-center pagination-centered">
-            <div class="row-fluid">
-                <div class="centering text-center">
-                    <h1>I AM THE OVERLAY!</h1>
-
-                    <button class="btn btn-info" ng-click="updateProject()">Update Project</button>
-                    <button class="btn btn-info" ng-click="deleteProject()">Delete Project</button>                    
+                <!-- button per la gestione del collapse del pannello contenente i fastToDos . . . -->
+                <button class="btn" data-toggle="collapse" data-target="fastToDos"> </button>
+                
+                <!-- Container dei fast ToDos -->
+                <div id="fastToDos" class="todosContainer">
+                   <ng-include src="'pages/todos.html" autoscroll="true" ></ng-include>
                 </div>
+                    
+            </div>
+            
+            
+            
+            
+            <!-- [ HTML_FORMAT ] @@ Inizio div contenitore dei progetti -->
+            
+            <div id="allProjectsDiv">
+                <!-- button per la gestione del collapse del pannello contenente i fastToDos . . . -->
+                <button class="btn" data-toggle="collapse" data-target="projects"> </button>
+                
+                <!-- Container dei fast ToDos -->
+                <div id="projects" class="projectsContainer">
+                    <ng-include src="'pages/projects.html" autoscroll="true" ></ng-include>
+                </div>
+                                
+            </div>
+            
+                
+                
+                
+            <!-- [ HTML_FORMAT ] @@ Inizio div contenitore dei task del progetto -->
+            <div id="projectTasksDiv">
+                <!-- button per la gestione del collapse del pannello contenente i fastToDos . . . -->
+                <button class="btn" data-toggle="collapse" data-target="tasks"> </button>
+                
+                <!-- Container dei fast ToDos -->
+                <div id="tasks" class="tasksContainer">
+                    <ng-include src="'pages/tasks.html" autoscroll="true" ></ng-include>
+                </div>
+                                
             </div>            
-        </div--> 
+            
+        </div>
+
+        
+        <footer class="footer">
+            <p>Powered by bob</p>
+            <p>Thanks to: angularJS, bootstrap3</p>
+        </footer>
                 
     </body>
     

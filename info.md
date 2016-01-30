@@ -1,41 +1,4 @@
 
-<!-- Numbered sections:
- pandoc --number-sections md_file outputfile.html
- 
- MarkDown base Help
-Sub-heading
------------
- 
-### Another deeper heading
- 
-Paragraphs are separated
-by a blank line.
-
-Leave 2 spaces at the end of a line to do a  
-line break
-
-Text attributes *italic*, **bold**, 
-`monospace`, ~~strikethrough~~ .
-
-A [link](http://example.com).
-<<<   No space between ] and (  >>>
-
-Shopping list:
-
-  * apples
-  * oranges
-  * pears
-
-Numbered list:
-
-  1. apples
-  2. oranges
-  3. pears
-
-The rain---not the reign---in
-Spain. 
- -->
- 
 TheTaskBoard Guide Page
 =======
 
@@ -55,20 +18,19 @@ Application objects
 -------------------
 
 They are projects and task. Here is the project fields:
-* id: this is a db-generated field, an integer;
-* name: this is an identifier, like a serial number, or a code;
-* description: the description of the project, with the milestones and the objectives;
-* dateOpen: when the project starts;
-* dateClose: when the project closes;
-* dateLastModified: when the project had a change;
-* status: status of the project;
-* assignedTo: the assigner of the project (main referee);
-* effort: time spent in doing the project;
-* taskList: a list of task related to the project.
+* `id`: this is a db-generated field, an integer;
+* `name`: this is an identifier, like a serial number, or a code;
+* `description`: the description of the project, with the milestones and the objectives;
+* `dateOpen`: when the project starts;
+* `dateClose`: when the project closes;
+* `dateLastModified`: when the project had a change;
+* `status`: status of the project;
+* `assignedTo`: the assigner of the project (main referee);
+* `effort`: time spent in doing the project;
+* `taskList`: a list of task related to the project.
 
 The task shares the same logical structure, with the exception that a task could not have
-sons (how the hell can i represent it on a web page?? when i get it, i'll improve the app,
-but for the moment . . . ). 
+sons. 
 
 A note on angularJS factory and service
 ---------------------------------------
@@ -190,3 +152,17 @@ Both `%o` and `new Error().stack` are available in Chrome and Firefox!
 Also for stack traces in Firefox use:
 
     console.trace();
+    
+
+## `$q` and asynchronous functions
+
+This is a service that helps to run functions asynchronously, and use their return values (or exceptions) when they are 
+done processing.
+
+This is an implementation of promises/deferred objects inspired by Kris Kowal's Q.
+
+`$q` can be used in two fashions:
+
+1. one which is more similar to Kris Kowal's Q or jQuery's Deferred implementations;
+2. one which resembles ES6 promises to some degree.
+

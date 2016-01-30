@@ -16,6 +16,20 @@
     pointer-events: none;
 }*/
 
+/* Classi per collasso dei pannelli */
+/* Icon when the collapsible content is shown */
+.btn:after {
+    font-family: "Glyphicons Halflings";
+    content: "\e114";
+}
+
+/* Icon when the collapsible content is hidden */
+.btn.collapsed:after {
+    content: "\e080";
+}
+
+
+
 /* VERSION 2 */
 [tooltip]:hover:after{
     background: #333;

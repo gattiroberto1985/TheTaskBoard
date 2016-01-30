@@ -219,7 +219,7 @@ TTBApp.service(TTBAPP_SERVICE_PROJECTS, function($window, $q) {
         var deferred = $q.defer();
         console.log("getProjects...");
         if (IDB_DATABASE === null)
-            deferred.reject("IndexDB is not opened yet!");
+            deferred.reject("IndexedDB is not opened yet!");
         else 
         {
             var trans = IDB_DATABASE.transaction([IDB_OBJECT_STORE_NAME], "readwrite");
