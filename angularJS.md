@@ -253,7 +253,8 @@ controller ha il suo scope**.
 
 Generalmente, i controller ereditano tutti i metodi e tutte le proprietà di
 tutti i controller a loro superiori, e al cui interno essi si ritrovano
-innestati. Naturalmente una dipendenza tra i controller non è necessariamente
+innestati. Particolare importanza ricopre lo scope `rootScope`.
+Naturalmente una dipendenza tra i controller non è necessariamente
  un male, ma va usata _cum grano salis_, dato che si deve intervenire nel
  caso di refactoring dell'interfaccia grafica.
 
@@ -593,3 +594,10 @@ quanto eseguito coi controller:
 il secondo parametro deve esistere: alpiù sarà un array vuoto.
 Ai moduli è possibile aggiungere controller, factory, service, con i metodi
 usati in precedenza.
+
+Oltre all’assemblaggio dei moduli che compongono la nostra applicazione,
+possiamo sfruttare questo modulo principale per effettuare configurazioni
+globali ed inizializzazioni. Queste attività si basano su due metodi
+`config()` (pre-caricamento moduli) e `run()` (post-caricamento moduli)
+che corrispondono a due fasi cronologicamente distinte dell’avvio di
+un’applicazione Angular.
