@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>angularJS</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+pre.editor-colors,
+.host {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region,
+.host .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #abb2bf;
+}
+.comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.entity.name.type {
+  color: #e5c07b;
+}
+.entity.other.inherited-class {
+  color: #98c379;
+}
+.keyword {
+  color: #c678dd;
+}
+.keyword.control {
+  color: #c678dd;
+}
+.keyword.operator {
+  color: #abb2bf;
+}
+.keyword.other.special-method {
+  color: #61afef;
+}
+.keyword.other.unit {
+  color: #d19a66;
+}
+.storage {
+  color: #c678dd;
+}
+.storage.type.annotation,
+.storage.type.primitive {
+  color: #c678dd;
+}
+.storage.modifier.package,
+.storage.modifier.import {
+  color: #abb2bf;
+}
+.constant {
+  color: #d19a66;
+}
+.constant.variable {
+  color: #d19a66;
+}
+.constant.character.escape {
+  color: #56b6c2;
+}
+.constant.numeric {
+  color: #d19a66;
+}
+.constant.other.color {
+  color: #56b6c2;
+}
+.constant.other.symbol {
+  color: #56b6c2;
+}
+.variable {
+  color: #e06c75;
+}
+.variable.interpolation {
+  color: #be5046;
+}
+.variable.parameter {
+  color: #abb2bf;
+}
+.string {
+  color: #98c379;
+}
+.string.regexp {
+  color: #56b6c2;
+}
+.string.regexp .source.ruby.embedded {
+  color: #e5c07b;
+}
+.string.other.link {
+  color: #e06c75;
+}
+.punctuation.definition.comment {
+  color: #5c6370;
+}
+.punctuation.definition.method-parameters,
+.punctuation.definition.function-parameters,
+.punctuation.definition.parameters,
+.punctuation.definition.separator,
+.punctuation.definition.seperator,
+.punctuation.definition.array {
+  color: #abb2bf;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #61afef;
+}
+.punctuation.definition.bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #be5046;
+}
+.punctuation.section.method,
+.punctuation.section.class,
+.punctuation.section.inner-class {
+  color: #abb2bf;
+}
+.support.class {
+  color: #e5c07b;
+}
+.support.type {
+  color: #56b6c2;
+}
+.support.function {
+  color: #56b6c2;
+}
+.support.function.any-method {
+  color: #61afef;
+}
+.entity.name.function {
+  color: #61afef;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #e5c07b;
+}
+.entity.name.section {
+  color: #61afef;
+}
+.entity.name.tag {
+  color: #e06c75;
+}
+.entity.other.attribute-name {
+  color: #d19a66;
+}
+.entity.other.attribute-name.id {
+  color: #61afef;
+}
+.meta.class {
+  color: #e5c07b;
+}
+.meta.class.body {
+  color: #abb2bf;
+}
+.meta.method-call,
+.meta.method {
+  color: #abb2bf;
+}
+.meta.definition.variable {
+  color: #e06c75;
+}
+.meta.link {
+  color: #d19a66;
+}
+.meta.require {
+  color: #61afef;
+}
+.meta.selector {
+  color: #c678dd;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.meta.tag {
+  color: #abb2bf;
+}
+.none {
+  color: #abb2bf;
+}
+.invalid.deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.invalid.illegal {
+  color: #ffffff !important;
+  background-color: #e05252 !important;
+}
+.markup.bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #c678dd;
+}
+.markup.deleted {
+  color: #e06c75;
+}
+.markup.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #61afef;
+}
+.markup.inserted {
+  color: #98c379;
+}
+.markup.list {
+  color: #e06c75;
+}
+.markup.quote {
+  color: #d19a66;
+}
+.markup.raw {
+  color: #98c379;
+}
+.source.cs .keyword.operator {
+  color: #c678dd;
+}
+.source.css .property-name,
+.source.css .property-value {
+  color: #828997;
+}
+.source.css .property-name.support,
+.source.css .property-value.support {
+  color: #abb2bf;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .markup.heading {
+  color: #e06c75;
+}
+.source.gfm .markup.link {
+  color: #c678dd;
+}
+.source.gfm .link .entity {
+  color: #61afef;
+}
+.source.ini .keyword.other.definition.ini {
+  color: #e06c75;
+}
+.source.java .storage.modifier.import {
+  color: #e5c07b;
+}
+.source.java .storage.type {
+  color: #e5c07b;
+}
+.source.java-properties .meta.key-pair {
+  color: #e06c75;
+}
+.source.java-properties .meta.key-pair > .punctuation {
+  color: #abb2bf;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #98c379;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #56b6c2;
+}
+.source.ruby .constant.other.symbol > .punctuation {
+  color: inherit;
+}
+.source.python .keyword.operator.logical.python {
+  color: #c678dd;
+}
+.source.python .variable.parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h1 id="angularjs">AngularJS</h1>
+<h1 id="generalita-">Generalita&#39;</h1>
+<p>AngularJS è un framework javascript open source che fornisce gli strumenti per
+lo sviluppo di <em>Single Page Application</em>, sfruttando il pattern MVC.</p>
+<p>Il framework opera manipolando ed estendendo il codice HTML, permettendo ad
+esempio la definizione di nuovi tag, tramite <em>direttive</em>; fornisce inoltre un
+<em>data-binding</em> sincronizzato tra model e view (ogni modifica alla pagina è
+riportata immediatamente al modello, senza la necessità di intervenire via DOM).</p>
+<h2 id="inclusione-della-libreria">Inclusione della libreria</h2>
+<p>Al solito, via statica o via CDN (recuperato al volo via rete):</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;script&nbsp;src=&quot;</span><span class="markup underline link http hyperlink"><span>http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js</span></span><span>&quot;&gt;&lt;/script&gt;</span></span></span></div></pre><p>Per la corretta attivazione del framework è poi necessario che ad un tag venga
+dato l&#39;attributo <code>ng-app[=&quot;nomeModuloAJS&quot;]</code> (parte tra quadra è facoltativa).
+Tipicamente si da&#39; tale attributo al <code>body</code> o al tag <code>html</code>.</p>
+<h2 id="fasi-di-avvio-della-libreria">Fasi di avvio della libreria</h2>
+<p>Di seguito le fasi di avvio di AngularJS:</p>
+<ol>
+<li>Server invia il codice HTML al client;</li>
+<li>il client processa il DOM contenuto nell&#39;html;</li>
+<li>Interviene AngularJS, che esegue la ricerca della direttiva <code>ng-app</code>,
+identificando la root dell&#39;applicazione; se trovato, viene:<ol>
+<li>caricato l&#39;eventuale modulo specificato all&#39;interno di <code>ng-app</code>;</li>
+<li>creato l&#39;<em>application injector</em>;</li>
+<li>elaborato il DOM finale modificato da AngularJS.</li>
+</ol>
+</li>
+</ol>
+<h1 id="direttive">Direttive</h1>
+<p>Costituiscono dei tag aggiuntivi, o degli attributi da dare a tag esistenti. In ogni caso, sono delle estensioni dell&#39;HTML di base e sono caratterizzati dal prefisso <code>ng-</code>.
+Alcune direttive predefinite più comuni sono le seguenti:</p>
+<ul>
+<li><code>ng-app</code>: definisce l&#39;elemento di root dell&#39;applicazione, quello in cui
+andremo a definire tutta la parte di DOM che angular dovrà andare a gestire;</li>
+<li><p><code>ng-model</code>: indica un campo (una variabile nello scope), in cui andare a
+registrare il contenuto del tag cui questa direttiva è appesa; il <em>binding</em>
+è immediato, ed ogni modifica alla variabile viene registrata immediatamente
+sul campo (e viceversa). Le modalità di aggiornamento possono essere
+specificate tramite un&#39;opzione:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>ng-model-options=&quot;{updateOn:&nbsp;&#39;default&nbsp;blur&#39;,&nbsp;debounce:&nbsp;{default:&nbsp;500,&nbsp;blur:0}}&quot;</span></span></span></div></pre></li>
+<li><p><code>ng-bind</code>: indica che qui deve essere inserito il valore della variabile
+nello <code>$scope</code> specificata; una maniera del tutto equivalente e&#39; quello di
+usare la sintassi <code>{{ espressione }}</code> per avere lo stesso effetto;
+all&#39;interno di questa sintassi sono anche possibili operazioni aritmetiche,
+risoluzioni oggetto-campo, array, formattazioni, utilizzo dell&#39;operatore
+ternario. NON è invece possibile:</p>
+<ul>
+<li>riferirsi a variabili globali;</li>
+<li>usare strutture condizionali (diverse dall&#39;operatore ternario);</li>
+<li>iterare;</li>
+<li>usare blocchi try ... catch ;</li>
+<li>dichiarare funzioni;</li>
+<li>usare espressioni regolari.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><code>ng-init</code>: tramtie questa direttiva, è possibile passare dei valori iniziali
+alle variabili specificate. E&#39; possibile inizializzare array, json, e
+differenti variabili in un colpo solo. Tipicamente però, per questo tipo di
+compito, si utilizzano i <code>controller</code>.</p>
+<p>Per un piccolo esempio, vedere <a href="./examples/01.html">qui</a>.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;!DOCTYPE&nbsp;html&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&lt;html&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;head&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;script&nbsp;src=&quot;</span><span class="markup underline link http hyperlink"><span>http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js</span></span><span>&quot;&gt;&lt;/script&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/head&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-app=&quot;&quot;&nbsp;ng-init=&quot;nome=&#39;Roberto&#39;&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&gt;Come&nbsp;ti&nbsp;chiami?:&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;nome&quot;&gt;&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Il&nbsp;mio&nbsp;nome&nbsp;è&nbsp;&lt;strong&nbsp;ng-bind=&quot;nome&quot;&gt;&lt;/strong&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/html&gt;</span></span></span></div></pre></li>
+</ul>
+<h2 id="altre-direttive">Altre direttive</h2>
+<p>Nella maggior parte dei casi le direttive sono specificate tramite atttributi
+speciali, ma non è raro trovarne sotto forma di elementi, classi o anche
+commenti. Inoltre, è possibile definire delle direttive personalizzate, a
+nostro uso e consumo.</p>
+<ul>
+<li><p><code>ng-show</code> ed <code>ng-hide</code>: consentono di visualizzare o meno elementi sulla
+pagina:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-show=&quot;true&quot;&gt;Questo&nbsp;è&nbsp;un&nbsp;test&nbsp;&lt;&nbsp;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&lt;div&nbsp;ng-hide=&quot;true&quot;&gt;Questo&nbsp;è&nbsp;un&nbsp;test&nbsp;&lt;&nbsp;/div&gt;</span></span></span></div></pre></li>
+<li><p><code>ng-if</code>: consente di visualizzare porzioni di interfaccia utente in base ad
+una condizione:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&nbsp;ng-if=&quot;utente.nome&nbsp;||&nbsp;utente.cognome&quot;&nbsp;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Hello&nbsp;{{&nbsp;utente.cognome&nbsp;+&nbsp;&quot;,&nbsp;&quot;&nbsp;+&nbsp;utente.nome&nbsp;}}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/p&gt;</span></span></span></div></pre><p>  notare che la direttiva <strong>elimina</strong> ciò che non viene visualizzato, a differenza di ng-hide;</p>
+</li>
+<li><p><code>ng-switch</code>: fa ciò che ci si aspetta:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&gt;Colore:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;colore&quot;&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-switch=&quot;colore&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;span&nbsp;ng-switch-when=&quot;rosso&quot;&nbsp;style=&quot;color:red&quot;&gt;{{colore}}&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;ng-switch-when=&quot;verde&quot;&nbsp;style=&quot;color:green&quot;&gt;{{colore}}&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;ng-switch-when=&quot;blu&quot;&nbsp;&nbsp;&nbsp;style=&quot;color:blue&quot;&gt;{{colore}}&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;ng-switch-default&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style=&quot;color:black&quot;&gt;{{colore}}&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre></li>
+<li><p><code>ng-include</code>: permette l&#39;inclusione di altri documenti all&#39;interno del documento primario:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-include=&quot;&#39;dati/documento.html&#39;&quot;&gt;&lt;/div&gt;</span></span></span></div></pre><p>il codice contenuto in dati/documento.html verrà interpretato da Angular
+(quindi potrà contenere direttive,ecc. ). Notare la presenza degli apici:
+<strong>quello che va specificato è una stringa</strong>.
+All&#39;interno può anche essere specificato un <em>caricamento condizionale</em>:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&gt;Eta&#39;:&nbsp;&lt;&nbsp;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;utente.eta&quot;&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-include=&quot;utente.eta&nbsp;&gt;=&nbsp;18?&nbsp;&#39;dati/docMaggiorenni.html&#39;&nbsp;:&nbsp;&#39;dati/docMinorenni.html&#39;&quot;&gt;&lt;/div&gt;</span></span></span></div></pre><p>sono ammesse anche funzioni, purchè ritornino stringhe:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-include=&quot;caricaDocumento(utente.eta)&quot;&gt;&nbsp;&lt;/div&gt;</span></span></span></div></pre><p>e anche degli <em>inline template</em>, purchè preventivamente definiti sotto forma di script nel documento:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-include=&quot;&#39;/doc.html&#39;&quot;&gt;&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&lt;script&nbsp;type=&quot;text/ng-template&quot;&nbsp;id=&quot;/doc.html&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Corpo&nbsp;del&nbsp;documento</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/script&gt;</span></span></span></div></pre></li>
+<li><p><code>ng-class</code>: specifica una espressione il cui risultato deve essere una
+classe CSS valida del documento. Un esempio può essere il seguente:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&gt;Crea&nbsp;la&nbsp;tua&nbsp;password:&nbsp;&lt;input&nbsp;type=&quot;password&quot;&nbsp;ng-model=&quot;password&quot;&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&nbsp;ng-class=&quot;{&#39;rosso&#39;:&nbsp;password.length&nbsp;&lt;&nbsp;4,&nbsp;&#39;giallo&#39;:&nbsp;password.length&nbsp;&gt;=&nbsp;4&nbsp;&amp;&amp;&nbsp;password.length&nbsp;&lt;&nbsp;8,&nbsp;&#39;verde&#39;:&nbsp;password.length&nbsp;&gt;=&nbsp;8}&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Robustezza&nbsp;della&nbsp;password</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/p&gt;</span></span></span></div></pre></li>
+<li><p><code>ng-repeat</code>: utile per la generazione di elenchi di oggetti. Ad ogni
+ripetizione, viene inserita nello <code>$scope</code> una variabile di scope, definita
+<code>$index</code>. un esempio:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;ul&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;li&nbsp;ng-repeat=&quot;persona&nbsp;in&nbsp;persone&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>N.&nbsp;{{$index}}&nbsp;-&nbsp;{{persona.nome}}&nbsp;{{persona.cognome}}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/li&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/ul&gt;</span></span></span></div></pre></li>
+<li><p><code>ng-option</code>: utile per generare elenchi o campi select:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.elencoCitta&nbsp;=&nbsp;[</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>{codice:&nbsp;&quot;RM&quot;,&nbsp;nome:&nbsp;&quot;Roma&quot;,&nbsp;regione:&nbsp;&quot;Lazio&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;LT&quot;,&nbsp;nome:&nbsp;&quot;Latina&quot;,&nbsp;regione:&nbsp;&quot;Lazio&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;MI&quot;,&nbsp;nome:&nbsp;&quot;Milano&quot;&nbsp;regione:&nbsp;&quot;Lombardia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;NA&quot;,&nbsp;nome:&nbsp;&quot;Napoli&quot;&nbsp;regione:&nbsp;&quot;Campania&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;CO&quot;,&nbsp;nome:&nbsp;&quot;Como&quot;&nbsp;regione:&nbsp;&quot;Lombardia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;PA&quot;,&nbsp;nome:&quot;Palermo&quot;,&nbsp;regione:&nbsp;&quot;Sicilia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;CA&quot;,&nbsp;nome:&nbsp;&quot;Caserta&quot;&nbsp;regione:&nbsp;&quot;Campania&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;AV&quot;,&nbsp;nome:&nbsp;&quot;Avellino&quot;&nbsp;regione:&nbsp;&quot;Campania&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;TP&quot;,&nbsp;nome:&quot;Trapani&quot;,&nbsp;regione:&nbsp;&quot;Sicilia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{codice:&nbsp;&quot;AG&quot;,&nbsp;nome:&quot;Agrigento&quot;,&nbsp;regione:&nbsp;&quot;Sicilia&quot;}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>];</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;...</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&lt;select&nbsp;ng-model=&quot;selectedItem&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>ng-options=&quot;citta.codice&nbsp;as&nbsp;citta.nome&nbsp;group&nbsp;by&nbsp;citta.regione&nbsp;for&nbsp;citta&nbsp;in&nbsp;elencoCitta&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/select&gt;</span></span></span></div></pre><p>con questa <code>select</code> abbiamo raggruppato le citta&#39; per regione, mostrando
+nella combo i nomi, ma dando a <code>selectedItem</code> il valore relativo al codice.</p>
+</li>
+</ul>
+<h2 id="direttive-ed-eventi">Direttive ed eventi</h2>
+<p>AngularJS prevede una serie di direttive per la gestione degli eventi di interazione utente con la GUI. I più comuni sono:</p>
+<ul>
+<li><code>ng-click</code></li>
+<li><code>ng-dbl-click</code></li>
+<li><code>ng-mousedown</code></li>
+<li><code>ng-mouseup</code></li>
+<li><code>ng-mouseenter</code></li>
+<li><code>ng-mouseleave</code></li>
+<li><code>ng-mousemove</code></li>
+<li><code>ng-mouseover</code></li>
+<li><code>ng-keydown</code></li>
+<li><code>ng-keyup</code></li>
+<li><code>ng-keypress</code></li>
+<li><code>ng-change</code></li>
+</ul>
+<p>Sono distinti dai gestori evento standard, più che altro per la fase in cui
+vengono &quot;tradotti&quot;: nel caso del gestore evento angularJS, la direttiva
+subisce il controllo da parte di angular stesso, aumentando quindi le
+potenzialità. L&#39;importante è che ciò che viene eseguito sia all&#39;interno dello
+scope angular corretto. A tali funzioni è possibile passare un oggetto
+<code>$event</code>, che rappresenta l&#39;oggetto standard che descrive l&#39;evento catturato
+dal browser.</p>
+<h1 id="controller">Controller</h1>
+<p>Questo componente funge da <code>binder</code> tra il modello e la vista e
+sostanzialmente si tratta di un oggetto javascript. E&#39; necessario istruire
+l&#39;applicazione che dovrà fare uso di un controller, ed un modo per farlo è
+usando la direttiva ng-controller e specificare il nome del controller da
+utilizzare. Per rendere l&#39;idea, l&#39;applicazione sopra si può trasformare in:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;!DOCTYPE&nbsp;html&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;html&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;head&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;src=&quot;</span><span class="markup underline link http hyperlink"><span>http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js</span></span><span>&quot;&gt;&lt;/script&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//&nbsp;Definisco&nbsp;il&nbsp;modulo&nbsp;angular,&nbsp;da&nbsp;richiamare&nbsp;in&nbsp;ng-app</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;app&nbsp;=&nbsp;angular.module(&#39;myApp&#39;,&nbsp;[]);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Definisco&nbsp;il&nbsp;controller&nbsp;specificato&nbsp;in&nbsp;ng-controller</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;app.controller(&#39;myCtrl&#39;,&nbsp;function($scope)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.nome&nbsp;=&nbsp;&quot;Roberto&quot;;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.cognome&nbsp;=&nbsp;&quot;Gatti&quot;;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Definisco&nbsp;una&nbsp;funzione&nbsp;che&nbsp;ritorni&nbsp;il&nbsp;nome&nbsp;completo</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.nomeCompleto&nbsp;=&nbsp;function&nbsp;()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;&quot;&#39;&quot;&nbsp;+&nbsp;cognome&nbsp;+&nbsp;&quot;,&nbsp;&quot;&nbsp;+&nbsp;nome&nbsp;+&nbsp;&quot;&#39;&quot;;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/script&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-app=&quot;myApp&quot;&nbsp;ng-controller=&quot;myCtrl&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&gt;Come&nbsp;ti&nbsp;chiami?:&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;nome&quot;&gt;&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;cognome&quot;&gt;&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Il&nbsp;tuo&nbsp;nome&nbsp;è&nbsp;{{&nbsp;nomeCompleto()&nbsp;}}&nbsp;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/body&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/html&gt;</span></span></span></div></pre><p>Nel javascript, sono stati definiti un <code>modulo</code>, <code>myApp</code>, il cui nome coincide
+con quanto definito in <code>ng-app</code> e un <code>controller</code> che è stato impostato come
+tale all&#39;interno dell&#39;applicazione. Il parametro passato in input al
+controller, <code>$scope</code>, tecnicamente viene detta <em>dipendenza</em> ed è compito del
+<code>dependency injector</code> eseguire tale operazione. Attenzione che <strong>ogni
+controller ha il suo scope</strong>.</p>
+<h2 id="gerarchie-di-scope-">Gerarchie di <code>$scope</code></h2>
+<p>Generalmente, i controller ereditano tutti i metodi e tutte le proprietà di
+tutti i controller a loro superiori, e al cui interno essi si ritrovano
+innestati. Particolare importanza ricopre lo scope <code>rootScope</code>.
+Naturalmente una dipendenza tra i controller non è necessariamente
+ un male, ma va usata <em>cum grano salis</em>, dato che si deve intervenire nel
+ caso di refactoring dell&#39;interfaccia grafica.</p>
+<p>Notare che non necessariamente un controller deve ereditare uno scope. Questo
+significa che il controller definirà un suo scope, e nella view le variabili
+al suo interno dovranno essere referenziate specificando anche il suo nome:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[])</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>.controller(&quot;userController&quot;,&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>this.utente&nbsp;=&nbsp;{nome:&nbsp;&quot;Mario&quot;,&nbsp;cognome:&nbsp;&quot;Rossi&quot;};</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;...&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;ng-controller=&quot;userController&nbsp;as&nbsp;userCtrl&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&gt;Nome:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;userCtrl.utente.nome&quot;&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Cognome:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;userCtrl.utente.cognome&quot;&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;{{userCtrl.saluta()}}&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre><h2 id="alcune-osservazioni-sui-controller">Alcune osservazioni sui controller</h2>
+<p>Attenzione alla separazione delle competenze: il controller deve <strong>impostare
+lo stato iniziale del modello dati</strong> e <strong>definire le funzionalità per la
+view</strong>. Un controller, per natura, non dovrebbe mai:</p>
+<ul>
+<li>Manipolare il DOM: compito a carico delle <code>direttive</code>;</li>
+<li>Formattare l&#39;input: compito a carico dei <code>form Angular</code>;</li>
+<li>Formattare l&#39;output: lo faranno i <code>filtri</code>;</li>
+<li>Condividere dati con altri controller: questo sarà un compito dei <code>provider</code>
+o di suoi simili (<code>service</code> e <code>factory</code>);</li>
+<li>Implementare funzionalità generali: l&#39;implementazione di
+funzionalità che non riguardano direttamente l&#39;interazione tra dati
+e view deve essere fatta nei servizi.</li>
+</ul>
+<h1 id="filtri">Filtri</h1>
+<p>Sono componenti che hanno il compito di formattare o comunque applicare
+una elaborazione al risultato di una espressione. Per utilizzarli, è
+sufficiente l&#39;uso dell&#39;operatore pipe <code>|</code>:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;p&gt;{{&quot;Hello&nbsp;Angular&quot;&nbsp;|&nbsp;uppercase&nbsp;}}&lt;/p&gt;</span></span></span></div></pre><p>Tramite pipe si possono concatenare più filtri in sequenza.</p>
+<h2 id="filtri-predefiniti">Filtri predefiniti</h2>
+<p>Di seguito una tabella con alcuni filtri predefiniti:</p>
+<table>
+    <tr>
+        <th>Nome filtro</th>
+        <th>Descrizione</th>
+    </tr>
+    <tr><td><code>lowercase</code></td><td>Tasforma la stringa in caratteri minuscoli </td> </tr>
+    <tr><td><code>uppercase</code></td><td>Tasforma la stringa in caratteri maiuscoli</td> </tr>
+    <tr><td><code>number</code></td><td>Formatta un numero (<code>number: #cifre</code>)</td> </tr>
+    <tr><td><code>currency</code></td><td>Formatta una valuta (<code>&quot;valuta&quot;: #cifre</code>)</td> </tr>
+    <tr><td><code>date</code></td><td>Formatta date</td> </tr>
+    <tr><td><code>orderBy</code></td><td>Ordinamento array</td> </tr>
+    <tr><td><code>limitTo</code></td><td>Estrae i primi <code>n</code> elementi di un array</td> </tr>
+    <tr><td><code>filter</code></td><td>Estrae gli elementi di un array che soddisfano un determinato criterio</td> </tr>
+</table>
+
+<h2 id="filtri-personalizzati">Filtri personalizzati</h2>
+<p>Si possono creare fitri personalizzati, con codice javascript del tipo:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).filter(&quot;capitalize&quot;,&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>function(){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;function(text){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;result&nbsp;=&nbsp;text;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isNaN(text))&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>result&nbsp;=&nbsp;text.charAt(0).toUpperCase()&nbsp;+&nbsp;text.substr(1);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;result;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>ed è sufficiente richiarlo in questo modo:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;p&gt;{{&quot;questo&nbsp;è&nbsp;un&nbsp;test&quot;&nbsp;|&nbsp;capitalize}}&lt;/p&gt;</span></span></span></div></pre><h1 id="servizi-e-factory">Servizi e factory</h1>
+<p>I servizi sono i componenti Angular che offrono funzionalità indipendenti
+dall’interfaccia utente. Essi, in genere, consentono di implementare la
+logica dell’applicazione, cioè le funzionalità che si occupano di elaborare
+e/o recuperare i dati da visualizzare sulle view tramite i controller.</p>
+<p>Un altro ruolo che possiamo attribuire ai servizi è quello della
+condivisione di funzionalità accessibili dagli altri componenti
+dell’applicazione: controller, filtri, direttive o altri servizi. Per
+fare un esempio, supponiamo di aver bisogno di una funzione per il
+calcolo del codice fiscale a partire dai dati anagrafici di una persona
+e che tale funzione venga utilizzata da più componenti della nostra
+applicazione Angular. Il modo migliore di gestire questa esigenza è la
+sua implementazione come servizio.</p>
+<h2 id="definizione-servizi">Definizione servizi</h2>
+<p>Da un punto di vista tecnico, i servizi AngularJS sono oggetti singleton:
+di essi, quindi, esisterà una sola istanza accessibile dagli altri componenti
+dell’applicazione. Le due principali modalità di creazione di un servizio
+utilizzano i metodi <code>service()</code> e <code>factory()</code> dell’applicazione Angular.
+La differenza tra i due è sottile e consiste nel fatto che <code>service()</code>
+restituisce una istanza della funzione specificata nel corpo mentre
+<code>factory()</code> restituisce il return code della funzione specificata nel corpo.</p>
+<p>Sfruttando la <em>dependency injection</em> è possibile utilizzare uno o più
+servizi all&#39;interno di un controller, impostando come parametro della
+funzione del controller il nome dei servizi:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).controller(&quot;myController&quot;,&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>function($scope,&nbsp;somma1,&nbsp;somma2)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.x&nbsp;=&nbsp;somma1.somma(1,2);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$scope.y&nbsp;=&nbsp;somma2(1,2)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><h2 id="servizi-per-condivisione-dati">Servizi per condivisione dati</h2>
+<p>La funzionalità principale dei servizi è quella di condividere dati
+tra le varie componenti di un&#39;applicazione. I servizi vanno <em>iniettati
+come dipendenza</em> ai vari controller che ne devono utilizzare le
+funzionalità.
+Ad esempio, consideriamo il caso di due view, una di inserimento stringa:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;ng-controller=&quot;cittaController&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;p&gt;Città:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;nome&quot;/&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Regione:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;regione&quot;/&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;button&nbsp;ng-click=&quot;aggiungiCitta()&quot;&gt;Aggiungi&lt;/button&gt;&lt;/p&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre><p>ed una di elenco stringhe:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;ng-controller=&quot;elencoController&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;ul&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;li&nbsp;ng-repeat=&quot;citta&nbsp;in&nbsp;elencoCitta&quot;&gt;{{citta.nome}}&lt;/li&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/ul&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre><p>In questo caso è utile definire un servizio, in questo modo:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).service(&quot;elencoCitta&quot;,&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>this.elenco&nbsp;&nbsp;=&nbsp;[</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>{nome:&nbsp;&quot;Roma&quot;,&nbsp;regione:&nbsp;&quot;Lazio&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&nbsp;&quot;Latina&quot;,&nbsp;regione:&nbsp;&quot;Lazio&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&nbsp;&quot;Milano&quot;,&nbsp;regione:&nbsp;&quot;Lombardia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&nbsp;&quot;Napoli&quot;,&nbsp;regione:&nbsp;&quot;Campania&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&nbsp;&quot;Como&quot;,&nbsp;regione:&nbsp;&quot;Lombardia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&quot;Palermo&quot;,&nbsp;regione:&nbsp;&quot;Sicilia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&nbsp;&quot;Caserta&quot;,&nbsp;regione:&nbsp;&quot;Campania&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&nbsp;&quot;Avellino&quot;,&nbsp;regione:&nbsp;&quot;Campania&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&quot;Trapani&quot;,&nbsp;regione:&nbsp;&quot;Sicilia&quot;},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{nome:&quot;Agrigento&quot;,&nbsp;regione:&nbsp;&quot;Sicilia&quot;}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>];</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>this.aggiungi&nbsp;=&nbsp;function(citta)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>this.elenco.push(citta);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>};</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>Alle due view corrisponderanno due controller distinti, con funzionalità
+diverse: nello specifico, il <code>cittaController</code> dovrà mettere a disposizione
+un metodo di inserimento:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;)&nbsp;.controller(&quot;cittaController&quot;,&nbsp;function($scope,&nbsp;elencoCitta)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.aggiungiCitta&nbsp;=&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>elencoCitta.aggiungi({nome:&nbsp;$scope.nome,&nbsp;regione:&nbsp;$scope.regione});</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>};</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>mentre <code>elencoCitta</code> non necessita di particolari metodi:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).controller(&quot;elencoController&quot;,&nbsp;function($scope,&nbsp;elencoCitta)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.elencoCitta&nbsp;=&nbsp;elencoCitta.elenco;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>Il punto chiave è l&#39;iniezione del servizio <code>elencoCitta</code> come parametro
+della <code>function</code> che gestisce il controller. In questo modo, il servizio
+è visibile da entrambi i controller, che ne potranno disporre a piacimento.</p>
+<h2 id="il-servizio-http-">Il servizio <code>$http</code></h2>
+<p>Serve per effettuare delle chiamate ajax (Asynchronous Javascript And Xml), e
+mette a disposizione un oggetto che fornisce i metodi per invocare i
+corrispondenti metodi HTTP:</p>
+<ul>
+<li><code>$http.get(url)</code>     </li>
+<li><code>$http.post(url, dati)</code></li>
+<li><code>$http.put(url, dati)</code></li>
+<li><code>$http.delete(url)</code></li>
+<li><code>$http.head(url)</code></li>
+</ul>
+<p>I metodi del servizio <code>$http</code> restituiscono delle <em>promise</em>, cioè degli
+oggetti che consentono di gestire in maniera strutturata l’esito di
+chiamate asincrone. Tali <em>promise</em> hanno a disposizione i seguenti metodi:</p>
+<table>
+<thead>
+<tr>
+<th>Metodo</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>success()</code></td>
+<td>Esito positivo</td>
+</tr>
+<tr>
+<td><code>error()</code></td>
+<td>Esito negativo</td>
+</tr>
+</tbody>
+</table>
+<p>che a loro volta espongono i parametri:</p>
+<table>
+<thead>
+<tr>
+<th>Parametro</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>Dati restituiti dal server</td>
+</tr>
+<tr>
+<td>status</td>
+<td>http status code della richiesta</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>header della risposta</td>
+</tr>
+<tr>
+<td>config</td>
+<td>configurazione della chiamata (l&#39;oggetto passato come ultimo parametro alla chiamata)</td>
+</tr>
+</tbody>
+</table>
+<p>Esempio di <code>get</code> e gestione delle sue promises:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).controller(&quot;elencoController&quot;,&nbsp;function($scope,&nbsp;$http)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$http.get(&quot;/elencoCitta&quot;)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>.success(function(data)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.elencoCitta&nbsp;=&nbsp;data;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>})</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.error(function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>alert(&quot;Si&nbsp;è&nbsp;verificato&nbsp;un&nbsp;errore!&quot;);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>Esempio di <code>post</code>:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$http.get(&quot;/elencoCitta&quot;,&nbsp;{&nbsp;nome:&nbsp;$scope.name,&nbsp;regione:&nbsp;$scope.regione&nbsp;})</span></span></span></div></pre><p>E&#39; possibile passare a tutti i metodi un terzo paramero, un JSON con
+questa struttura:</p>
+<table>
+<thead>
+<tr>
+<th>Proprietà</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td>metodo http da usare (inutile, di solito, visto che c&#39;è il nome della funzione che fa fede)</td>
+</tr>
+<tr>
+<td>url</td>
+<td>url della chiamata (come sopra)</td>
+</tr>
+<tr>
+<td>params</td>
+<td>Oggetto JavaScript che rappresenta eventuali parametri da aggiungere in coda all’URL</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Oggetto JavaScript che rappresenta gli header HTTP da inviare al server con la richiesta</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>Tempo massimo di attesa di una risposta da parte del server espresso in millisecondi</td>
+</tr>
+<tr>
+<td>transformRequest</td>
+<td>Funzione che può trasformare la richiesta prima di inviarla al server</td>
+</tr>
+<tr>
+<td>transformResponse</td>
+<td>Funzione che può trasformare la risposta prima di passarla all’applicazione</td>
+</tr>
+</tbody>
+</table>
+<h1 id="form">Form</h1>
+<h2 id="validazione-dati">Validazione dati</h2>
+<p>AngularJS ha un insieme di direttive utili nella validazione delle form.
+È importante premettere che il framework valida i controlli di una form
+prima di copiare il loro valore sulle variabili del modello a cui sono
+legate. Questo garantisce che il modello avrà sempre valori validi in
+base ai vincoli impostati sui controlli delle form.
+E&#39; importante assegnare al form un nome (attributo <code>name</code>), perchè questo
+consentirà di aggiungere allo <code>$scope</code> l&#39;istanza del controller
+automaticamente creata da angular.</p>
+<p>Ad esempio:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;form&nbsp;name=&quot;myForm&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-show=&quot;myForm.$dirty&quot;&gt;Form&nbsp;modificata&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&lt;div&nbsp;ng-show=&quot;myForm.$pristine&quot;&gt;Form&nbsp;non&nbsp;modificata&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;utente.nome&quot;&nbsp;&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/form&gt;</span></span></span></div></pre><p>Analizzando le proprietà <code>$dirty</code> e <code>$pristine</code> dell’istanza della form
+possiamo controllare il suo stato e visualizzare il messaggio opportuno
+nel caso in cui sia stata modificata (<code>$dirty</code>) o se contiene i suoi valori
+iniziali (<code>$pristine</code>).</p>
+<p>Un’altra accortezza da prendere in considerazione è l’uso dell’attributo
+<code>novalidate</code>. Questo evita che il browser possa considerare validi i dati
+presenti sulla form ignorando i controlli di validazione di AngularJS.</p>
+<p>Sui vari campi del form sono impostabili altri controlli:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ng-class=&quot;{&nbsp;&nbsp;&nbsp;&nbsp;&#39;&#39;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;myForm.nomeUtente.$pristine,</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&#39;validClass&#39;&nbsp;&nbsp;:&nbsp;myForm.nomeUtente.$valid,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;invalidClass&#39;:&nbsp;myForm.nomeUtente.$invalid}&quot;</span></span></span></div></pre><p>per dare classi diverse a seconda della validazione (notare <code>$valid</code>).
+Di default angular mette a disposizione le classi:</p>
+<ul>
+<li><code>ng-pristine</code></li>
+<li><code>ng-dirty</code></li>
+<li><code>ng-valid</code></li>
+<li><code>ng-invalid</code></li>
+</ul>
+<p>che vanno però definite tra i fogli di stile dell&#39;applicazione.
+In caso di problemi con la validazione, è disponibile un oggetto <code>$error</code>.
+Le sue proprietà corrispondono al vincolo impostato (<code>ng-required</code>,
+<code>ng-maxlength</code>, ..., senza <code>ng-</code> davanti).</p>
+<h2 id="invio-dei-dati">Invio dei dati</h2>
+<p>Oltre all&#39;approccio standard HTML, angular mette a disposizione una
+direttiva, <code>ng-submit</code>:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;form&nbsp;name=&quot;myForm&quot;&nbsp;ng-submit=&quot;invia(utente)&quot;&nbsp;novalidate&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;utente.nome&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>name=&quot;nomeUtente&quot;&nbsp;ng-maxlength=&quot;20&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ng-required=&quot;true&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-show=&quot;myForm.nomeUtente.$invalid&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Il&nbsp;nome&nbsp;utente&nbsp;è&nbsp;obbligatorio&nbsp;e&nbsp;non&nbsp;può&nbsp;superare&nbsp;i&nbsp;20&nbsp;caratteri</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;button&nbsp;type=&quot;submit&quot;&gt;Invia&lt;/button&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/form&gt;</span></span></span></div></pre><p>In questo caso abbiamo specificato l’invocazione della funzione di scope
+<code>invia()</code> tramite la direttiva <code>ng-submit</code>. Quando l’utente clicca sul
+pulsante di invio viene eseguita la funzione che si occupa di inoltrare
+i dati al server avendo la possibilità di effettuare eventuali
+pre-elaborazioni:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$scope.invia&nbsp;=&nbsp;function(utente)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$http.post(&quot;/elaboraForm&quot;,&nbsp;utente)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>.success(function()&nbsp;{&nbsp;alert(&quot;Dati&nbsp;correttamente&nbsp;inviati!&quot;);})</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.error(function()&nbsp;{&nbsp;alert(&quot;Si&nbsp;è&nbsp;verificato&nbsp;un&nbsp;errore!&quot;);});</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>};</span></span></span></div></pre><p>Un&#39;alternativa altrettanto valida è quella di utilizzare la direttiva
+<code>ng-click</code>.
+Un&#39;altra valida prassi è quella di disabilitare il button di invio dati
+finchè il form non è valido:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;button&nbsp;type=&quot;submit&quot;&nbsp;ng-disabled=&quot;myForm.$invalid&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>ng-click=&quot;invia(utente)&quot;&gt;Invia&lt;/button&gt;</span></span></span></div></pre><h1 id="moduli-angularjs">Moduli AngularJS</h1>
+<p>I moduli sono dei contenitore di componenti, indipendenti dalla loro natura
+e dalla loro collocazione fisica.
+E&#39; possibile definire delle dipendenze tra i vari moduli, similmente a
+quanto eseguito coi controller:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;NomeModulo&quot;,&nbsp;[&nbsp;&quot;moduloDipendente1&quot;,&nbsp;&quot;moduloDipendente2&quot;,&nbsp;...])</span></span></span></div></pre><p>il secondo parametro deve esistere: alpiù sarà un array vuoto.
+Ai moduli è possibile aggiungere controller, factory, service, con i metodi
+usati in precedenza.</p>
+<p>Oltre all’assemblaggio dei moduli che compongono la nostra applicazione,
+possiamo sfruttare questo modulo principale per effettuare configurazioni
+globali ed inizializzazioni. Queste attività si basano su due metodi
+<code>config()</code> (pre-caricamento moduli) e <code>run()</code> (post-caricamento moduli)
+che corrispondono a due fasi cronologicamente distinte dell’avvio di
+un’applicazione Angular.</p>
+<h2 id="dependency-injection">Dependency injection</h2>
+<p>la dependency injection è un design pattern che delega ad un’entità esterna
+il compito di individuare e fornire una risorsa di cui un oggetto ha
+bisogno. Nel nostro caso, se un componente Angular, come ad esempio un
+controller, ha bisogno delle funzionalità di messe a disposizione da un
+servizio non deve fare altro che specificare il suo nome tra i parametri
+della sua definizione:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).controller(&quot;myController&quot;,&nbsp;function(myService)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//&nbsp;...</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>myService.metodo1();</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//&nbsp;...</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>In questo modo la nostra definizione di controller delega al framework
+il compito di individuare l’oggetto myService e di renderlo disponibile
+all’interno del nostro componente.</p>
+<p>Angular individua il componente da iniettare basandosi sul nome del parametro.
+Si possono anche usare le annotazioni (utili nel caso si faccia uso
+di tool di minificazione tipo <code>UglifyJS</code>):</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).controller(&quot;myController&quot;,[&quot;myService1&quot;,&quot;myService2&quot;,&nbsp;function(x,&nbsp;y){...}]);</span></span></span></div></pre><p>dove i primi <code>n</code> elementi dell&#39;array sono stringhe che identificando
+il valore delle variabili <code>x</code> ed <code>y</code> nell&#39;argomento della funzione
+che definisce il controller.</p>
+<h1 id="single-page-application">Single Page Application</h1>
+<p>Consiste in una singola pagina web in cui sono a disposizione tutte le
+viste necessarie al funzionamento dell&#39;applicazione. Le viste vengono
+create ed eliminate, mostrate e nascoste, utilizzando URL diversi nonostante
+la pagina rimanga sempre la stessa. Il meccanismo che permette di
+realizzare un sistema di questo tipo è il <code>routing</code>.</p>
+<p>AngularJS supporta il routing tra viste tramite il servizio <code>$route</code>, il
+cui utilizzo richiede l’introduzione di alcuni concetti ed una opportuna
+configurazione. Ma procediamo per gradi introducendo i vari concetti tramite
+un esempio concreto: la visualizzazione di un elenco di utenti con la
+possibilità di vedere i dettagli di ciascun utente cliccando su un
+elemento dell’elenco.
+Il routing va importato nell&#39;applicazione tramite script ad hoc:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&nbsp;src=&quot;</span><span class="markup underline link https hyperlink"><span>https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js</span></span><span>&quot;&gt;&lt;/script&gt;</span></span></span></div></pre><p>e inserito come dipendenza nella nostra applicazione tramite codice:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[&quot;ngRoute&quot;]);</span></span></span></div></pre><p>Il routing va quindi configurato opportunamente, e nell&#39;esempio che usiamo
+sarà una cosa del tipo:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[&quot;ngRoute&quot;]).config(function($routeProvider)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$routeProvider.when(&quot;/utenti&quot;,&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>templateUrl:&nbsp;&quot;/templates/listaUtenti.html&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller:&nbsp;&quot;listaUtentiCtrl&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>})</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//&nbsp;:userId&nbsp;indica&nbsp;che&nbsp;al&nbsp;routing&nbsp;sto&nbsp;passando&nbsp;un&nbsp;parametro!</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Tale&nbsp;parametro&nbsp;sarà&nbsp;poi&nbsp;recuperabile&nbsp;dal&nbsp;controller</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;utenteCtrl&nbsp;tramite&nbsp;apposita&nbsp;variabile</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>.when(&quot;/utenti/:userId&quot;,&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>templateUrl:&nbsp;&quot;/templates/utente.html&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controller:&nbsp;&quot;utenteCtrl&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>})</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>.otherwise({redirectTo:&nbsp;&quot;/utenti&quot;});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;controller&nbsp;lista&nbsp;utenti</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).controller(&quot;listaUtentiCtrl&quot;,&nbsp;function($scope,&nbsp;utentiService)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.utenti&nbsp;=&nbsp;utentiService.utenti;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>Ogni url va configurato con un oggetto JSON, in cui dovrà essere
+specificando il <em>template</em> e il controller.
+Una volta definito come mappare gli url, è necessario specificare <em>dove</em>
+angular dovrà mostrare le view. Tale compito è a carico della direttiva
+<code>ng-view</code>:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;body&nbsp;ng-app=&quot;myApp&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;div&nbsp;ng-view&gt;&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/body&gt;</span></span></span></div></pre><p>I template possono essere salvati in tre modi:</p>
+<ul>
+<li>con parametro <code>template</code>, e il valore che lo definisce (il codice HTML);</li>
+<li>con parametro <code>templateUrl</code> e puntando ad un file esterno;</li>
+<li>con parametro <code>templateUrl</code> e puntando ad un oggetto tipo <code>&lt;script id=&quot;nomeTemplateUrl&quot;</code>
+nel codice HTML dell&#39;applicazione (in questo caso si parla di
+<em>inline template</em>).</li>
+</ul>
+<h2 id="parametri-del-routing">Parametri del routing</h2>
+<p>Come detto, è possibile passare dei parametri al routing, che poi si occuperà
+di passarli al controller che ha in gestione la view.
+Nel nostro caso, abbiamo <code>:userId</code>, che verrà passato al controller
+<code>utenteCtrl</code>, tramite servizio <code>$routeParams</code>. Per accedervi è sufficiente:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;).controller(&quot;utenteCtrl&quot;,&nbsp;function($scope,&nbsp;$routeParams,&nbsp;utentiService,&nbsp;filterFilter)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;userId&nbsp;=&nbsp;$routeParams.userId;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;$scope.utente&nbsp;=&nbsp;filterFilter(utentiService.utenti,&nbsp;{&nbsp;id:&nbsp;userId&nbsp;})[0];</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>};</span></span></span></div></pre><h1 id="direttive-personalizzate">Direttive personalizzate</h1>
+<p>Il ruolo delle direttive consiste nell’estendere le potenzialità
+dell’approccio dichiarativo dell’HTML nella costruzione di interfacce
+grafiche.</p>
+<p>Un primo esempio per rendere l&#39;idea:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[]).directive(&quot;titolo&quot;,&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>template:&nbsp;&quot;&lt;h1&gt;Questo&nbsp;è&nbsp;un&nbsp;titolo&lt;/h1&gt;&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>};</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>che nel codice HTML possiamo richiamare così (sono tutte equivalenti):</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;!--&nbsp;come&nbsp;tag&nbsp;--&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;titolo&gt;&lt;/titolo&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;!--&nbsp;come&nbsp;direttiva&nbsp;angular&nbsp;--&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;titolo&gt;&nbsp;&lt;/titolo&gt;</span></span></span></div></pre><p>Questo tipo di scrittura è vincolabile tramite parametro <code>restrict</code> nel
+<code>return</code> della funzione <code>directive</code>. I valori sono:</p>
+<table>
+<thead>
+<tr>
+<th>Valore</th>
+<th>Uso</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>E</code></td>
+<td><code>&lt;titolo&gt;&lt;/titolo&gt;</code></td>
+<td>Elemento HTML</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td><code>&lt;div titolo&gt;&lt;/div&gt;</code></td>
+<td>Attributo di elemento</td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td><code>&lt;div class=&quot;titolo&quot;&gt;</code></td>
+<td>Classe</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td><code>&lt;!--directive: titolo --&gt;</code></td>
+<td>Commento</td>
+</tr>
+</tbody>
+</table>
+<p>In linea di massima, gli ultimi due sono rari (la classe è utile se poi si
+va a definire un css). In generale è opportuno definire una direttiva come
+elemento quando stiamo costruendo un componente autonomo, come ad esempio
+un datepicker, una griglia, un menu. Definiremo una direttiva come attributo
+quando intendiamo arricchire un elemento esistente di una nuova funzionalità.</p>
+<h2 id="scope-isolato">Scope isolato</h2>
+<p>Le direttive sono componibili, quindi all&#39;interno di una posso utilizzare
+ad esempio un <code>ng-model</code> o altro (vedi <strong>Direttive -&gt; Definizione combo
+con valori preimpostati</strong>).
+Notare che <strong>lo scope della direttiva è quello del controller in cui questa
+è inserita</strong>, e ciò potrebbe portare dei problemi.
+Per ovviare a questo, garantendo una certa indipendenza delle direttive
+dalle view e dai controller in cui sono utilizzate, si può usare uno
+<code>scope</code> isolato, cioè di uno scope legato alla direttiva e mappabile con
+valori provenienti dall’esterno:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[]).directive(&quot;mySelectCity&quot;,&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>restrict:&nbsp;&quot;E&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templateUrl:&nbsp;&quot;/mySelectCityTemplate.html&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scope:&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>elencoCitta:&nbsp;&quot;=cityList&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>};</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>La stringa <code>=cityList</code> definisce un attributo per la direttiva, da
+valorizzare:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;ng-controller=&quot;myController&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;my-select-city&nbsp;city-list=&quot;elencoCitta&quot;&gt;&lt;/my-select-city&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre><p>tramite la variabile <code>elencoCitta</code> definita nel controller. Questa
+impostazione permette di definire più elementi all&#39;interno di uno
+stesso controller.</p>
+<p>Ad essere precisi, rimarrebbe ancora un altro vincolo alla completa
+indipendenza della nostra direttiva dal modello dei dati definito nel
+controller: i nomi delle proprietà codice e nome della singola città
+da utilizzare per il binding delle option nella select.</p>
+<p>Possiamo gestire anche questa situazione effettuando il seguente
+refactoring della soluzione inizialmente proposta:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[]).directive(&quot;mySelectCity&quot;,&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>restrict:&nbsp;&quot;E&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templateUrl:&nbsp;&quot;/mySelectCityTemplate.html&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scope:&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>cityList:&nbsp;&quot;=&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cityDisplayProperty:&nbsp;&quot;=&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>};</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;script&nbsp;type=&quot;text/ng-template&quot;&nbsp;id=&quot;/mySelectCityTemplate.html&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;select&nbsp;ng-model=&quot;selectedItem&quot;&nbsp;ng-options=&quot;city[cityDisplayProperty]&nbsp;for&nbsp;city&nbsp;in&nbsp;cityList&quot;&gt;&nbsp;&lt;/select&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/script&gt;</span></span></span></div></pre><p>Le modifiche rispetto alla soluzione iniziale sono diverse. Innanzitutto
+abbiamo ridefinito il template della direttiva sfruttando <code>ng-options</code>
+al posto di <code>ng-repeat</code>, che rende più flessibile la soluzione e permette
+di limitare ad una sola proprietà il numero di quelle necessarie per il
+binding delle option.</p>
+<p>Proprio per il binding, abbiamo parametrizzato il nome della proprietà
+mappandola su un nuovo attributo della nostra direttiva:
+<code>city-display-property</code>.</p>
+<p>Da notare come nella mappatura tra “proprietà dello scope della direttiva”
+e “attributo” abbiamo riportato semplicemente la stringa<code>=&quot;...&quot;</code> invece
+della stringa che riportava lo stesso nome preceduto dall’operatore <code>=</code>.
+In effetti, quando il nome della proprietà dello scope è corrispondente
+al nome dell’attributo possiamo anche semplicemente specificare
+l’operatore <code>=</code>; in altre parole, gli assegnamenti
+<code>cityDisplayProperty: &quot;=cityDisplayProperty&quot;</code> e
+<code>cityDisplayProperty: &quot;=&quot;</code> hanno lo stesso significato.</p>
+<p>In conclusione, la nostra direttiva sarà utilizzata nel seguente modo:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;ng-controller=&quot;myController&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;my-select-city&nbsp;city-list=&quot;elencoCitta&quot;&nbsp;city-display-property=&quot;&#39;nome&#39;&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/my-select-city&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre><p>Con questo accorgimento la nostra direttiva è totalmente indipendente
+dalle scelte effettuate nel controller per assegnare i nomi delle
+variabili. Lo scope isolato e gli attributi della direttiva ci permettono
+di mappare i dati in maniera molto semplice ed efficace.</p>
+<h3 id="modalit-di-mappatura-dello-scope">Modalità di mappatura dello scope</h3>
+<p>Esistono tre modalità di mappatura tra l&#39;interno della direttiva e
+l&#39;esterno:</p>
+<table>
+<thead>
+<tr>
+<th>Operatore</th>
+<th>Simbolo</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uguale</td>
+<td><code>=</code></td>
+<td>associa le variabili di scope di direttiva a un attributo</td>
+</tr>
+<tr>
+<td>chiocciola</td>
+<td><code>@</code></td>
+<td>usare le stringhe per indicare la variabile giusta da considerare nel binding</td>
+</tr>
+<tr>
+<td>e-commerciale</td>
+<td><code>&amp;</code></td>
+<td>permette di valutare espressioni ed eseguire funzioni nel contesto dello scope del controller</td>
+</tr>
+</tbody>
+</table>
+<p>Di seguito i dettagli:</p>
+<ul>
+<li><code>=</code> mette in corrispondenza la variabile esterna con la variabile
+interna tramite un binding bidirezionale;</li>
+<li></li>
+</ul>
+<h1 id="dietro-le-quinte">Dietro le quinte</h1>
+<h2 id="two-way-binding">Two-way binding</h2>
+<p>Per la modifica del campo e le relative modifiche alla pagina è sufficiente
+il modello standard ad eventi del DOM:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Nome:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;id=&quot;txtNome&quot;&gt;&lt;br/&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&lt;span&nbsp;id=&quot;spnMessaggio&quot;&gt;&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;txtNome&nbsp;=&nbsp;document.getElementById(&quot;txtNome&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;txtNome.addEventListener(&quot;input&quot;,&nbsp;function(e)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;spnMessaggio&nbsp;=&nbsp;document.getElementById(&quot;spnMessaggio&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spnMessaggio.innerHTML&nbsp;=&nbsp;&quot;Buongiorno&nbsp;&quot;&nbsp;+&nbsp;e.target.value;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/script&gt;</span></span></span></div></pre><p>Lo stesso effetto è ottenuto con AngularJS senza bisogno di scrivere codice JavaScript:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Nome:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;id=&quot;txtNome&quot;&nbsp;ng-model=&quot;nome&quot;&gt;&lt;br/&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;span&nbsp;id=&quot;spnMessaggio&quot;&nbsp;ng-show=&quot;nome&nbsp;!=&nbsp;null&nbsp;&amp;&amp;&nbsp;nome&nbsp;!=&nbsp;&#39;&#39;&quot;&gt;Buongiorno&nbsp;{{nome}}&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre><p>Angular crea un <code>watch</code> sulla variabile del modello dati e sull&#39;elemento
+dell&#39;interfaccia utente; nel nostro caso, avremo un watch associato alla
+variabile nome dal momento che è stata definita come variabile del
+modello dei dati tramite la direttiva <code>ng-model</code>.
+Quando si verifica un evento che modifica il contenuto della variabile
+<code>nome</code>, come ad esempio, l’inserimento di un valore nella casella di
+testo associata, viene automaticmanete avviato un processo di
+valutazione chiamato <code>digest loop</code>.
+Questo consiste nello scorrere la lista dei <code>watch</code> allo scopo di
+individuare le variabili il cui valore è cambiato dall’ultima esecuzione
+del loop. Se il valore di una variabile è cambiato, vengono eseguite le
+opportune attività che consentono, ad esempio, di aggiornare il DOM
+nei punti in cui la variabile è utilizzata.
+Il digest loop termina quando non ci sono più aggiornamenti da eseguire.
+Può però succedere che una variabile a cui è associato un <code>watch</code> venga
+modificata proprio nel corso del <code>digest loop</code>, ad esempio perché il suo
+valore dipendeva da un’altra variabile tenuta sotto controllo da un altro
+<code>watch</code>. In questo caso il <code>digest loop</code> viene rieseguito fino a quando
+non ci sono più variazioni a catena.</p>
+<p>Questo meccanismo consente non solo di tenere aggiornata automaticamente
+l’interfaccia utente, ma anche di mantenere sincronizzato il contenuto dei
+controlli HTML con le variabili del modello associate. In altre parole, il
+<code>digest loop</code> è il meccanismo che implementa il two-way binding di AngularJS.</p>
+<p>Il <code>digest loop</code>e tutto il processo di valutazione dei <code>watch</code> è spesso
+detto <em>contesto Angular</em>. L’espressione sta ad indicare il fatto che in
+quella fase Angular prende il controllo della nostra applicazione e
+sincronizza variabili e DOM. Il concetto è fondamentale per comprendere il
+perché talvolta ci troviamo in situazioni in cui ci aspettiamo un
+comportamento e invece l’effetto non è proprio quello atteso oppure
+addirittura non accade proprio nulla.
+Ad esempio:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;ng-controller=&quot;myCtrl&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Numero:&nbsp;&lt;input&nbsp;type=&quot;text&quot;&nbsp;ng-model=&quot;numero&quot;&gt;&lt;/br&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;id=&quot;btnRaddoppia&quot;&gt;Raddoppia&lt;/button&gt;&lt;/br&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;{{doppio}}&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[]).controller(&quot;myCtrl&quot;,&nbsp;function($scope)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>document.getElementById(&quot;btnRaddoppia&quot;)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.addEventListener(&quot;click&quot;,&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.doppio&nbsp;=&nbsp;$scope.numero&nbsp;*&nbsp;2;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/script&gt;</span></span></span></div></pre><p>Ci si attende che al click, venga raddoppiato il valore della casella di
+testo. Tuttavia, inserendo un numero e cliccando sul pulsante non accade
+proprio nulla. Abbiamo definito le due variabili di scope <code>numero</code> e
+<code>doppio</code> utilizzate nella view e quindi Angular ha creato due watch per
+monitorare la variazione dei loro valori. Però il clic sul pulsante non
+ha avviato il <code>digest loop</code>. Eppure se seguiamo con un debugger il codice
+JavaScript notiamo che al clic sul pulsante il codice del gestore d’evento
+viene eseguito correttamente. Il problema è che <em>tale codice viene eseguito
+fuori dal contesto Angular</em> e pertanto non avviene la valutazione dei
+<code>watch</code>, cioè non viene attivato il <code>digest loop</code>.
+Per avviarlo nel contesto angular, va utilizzato <code>$apply</code>, modificando il
+corpo dell&#39;<code>addEventListener</code>:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>.addEventListener(&quot;click&quot;,&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.$apply(function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$scope.doppio&nbsp;=&nbsp;$scope.numero&nbsp;*&nbsp;2;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>Il metodo <code>$apply()</code> si occupa essenzialmente di eseguire la funzione
+passata come argomento e avviare subito dopo il <code>digest loop</code>.
+Attenzione, che la chiamata ad <code>$apply</code> in contesto angular genera un errore!
+Come regola generale sarebbe opportuno utilizzare le direttive predefinite
+che Angular ci mette a disposizione. Questo ci evita in linea di massima di
+dover utilizzare funzionalità interne come <code>$apply()</code>. La conoscenza degli
+<code>internals</code> può comuque tornarci utile quando vogliamo integrare nel
+contesto Angular funzionalità implementate in una libreria non-Angular.</p>
+<h2 id="creazione-di-watch-">Creazione di <code>watch</code></h2>
+<p>Se dovessimo per esempio eseguire una specifica attività quando cambia il
+valore di una variabile, è necessario definire manualmente dei <code>watch</code>:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$scope.$watch(&quot;doppio&quot;,&nbsp;function(newValue,&nbsp;oldValue)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>if&nbsp;(newValue&nbsp;!=&nbsp;oldValue)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;alert(&quot;Raddoppio&nbsp;in&nbsp;&quot;&nbsp;+&nbsp;newValue);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><p>La firma del metodo è intuitiva, e contiene il nome della variabile del
+modello su cui si desidera inserire il <code>watch</code> e una funzione da chiamare
+in risposta all&#39;evento di modifica. Tale funzione ha in input il vecchio
+ed il nuovo valore della variabile.</p>
+<p>Attenzione che di default, nel caso di oggetti, <strong>un <code>watch</code> confronta i
+riferimenti</strong>, cioè viene considerata variazione di valore solo se la
+variabile punta ad un nuovo oggetto. Per indicare ad angular che intendiamo
+catturare anche le variazioni delle proprietà di un oggetto, bisogna
+specificare un terzo parametro nel metodo <code>$watch()</code>, un boolean:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>persona.nome&nbsp;=&nbsp;&quot;ciccio&quot;;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>...</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$scope.$watch(&quot;persona&quot;,&nbsp;function(newValue,&nbsp;oldValue)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>if&nbsp;(newValue&nbsp;!=&nbsp;oldValue)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>alert(&quot;Il&nbsp;nuovo&nbsp;valore&nbsp;è&nbsp;&quot;&nbsp;+&nbsp;newValue.nome);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>},&nbsp;true);&nbsp;//&nbsp;con&nbsp;il&nbsp;true,&nbsp;se&nbsp;cambio&nbsp;persona.nome,&nbsp;la&nbsp;funzione</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//&nbsp;viene&nbsp;invocata!</span></span></span></div></pre><h1 id="snippet-utili-generici">Snippet utili generici</h1>
+<h2 id="direttive">Direttive</h2>
+<h3 id="definizione-combo-con-valori-preimpostati">Definizione combo con valori preimpostati</h3>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>angular.module(&quot;myApp&quot;,&nbsp;[]).directive(&quot;mySelectCity&quot;,&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>restrict:&nbsp;&quot;E&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templateUrl:&nbsp;&quot;/mySelectCityTemplate.html&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>};</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;script&nbsp;type=&quot;text/ng-template&quot;&nbsp;id=&quot;/mySelectCityTemplate.html&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;select&nbsp;ng-model=&quot;selectedItem&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;option&nbsp;ng-repeat=&quot;citta&nbsp;in&nbsp;elencoCitta&quot;&nbsp;value=&quot;citta.codice&quot;&gt;{{citta.nome}}&lt;/option&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/select&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;/script&gt;</span></span></span></div></pre></body>
+</html>

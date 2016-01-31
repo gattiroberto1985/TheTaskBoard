@@ -1,0 +1,139 @@
+# The TaskBoard WebApp
+
+Un'applicazione di gestione task con angularJS ed IndexedDB.
+
+# Funzionalità
+
+L'applicazione darà la possibilità:
+
+- di creare dei _progetti_, e di gestirne l'evoluzione;
+- di creare dei _task_ da associare ai progetti, e con eventuali dipendenze
+  tra di loro;
+- di creare dei _fask_, ovvero dei _fast-task_, svincolati da attività
+  progettuali e indipendenti tra di loro. Idealmente corrispondono a piccole
+  attività one shot o a delle idee da abbozzare che poi diventeranno
+  eventualmente dei progetti.
+
+Come struttura, i progetti e i task condividono le seguenti proprietà:
+
+- `id`: un identificativo numerico univoco;
+- `name`: un identificativo in stringa, con il titolo o il codice dell'attività;
+- `description`: una descrizione del progetto/task, con riportate le finalità
+  dell'attività, obiettivi, requisiti, ecc.;
+- `assigner`: un assegnatario dell'attività, se esistente ed univoco; in
+ generale, il responsabile dell'attività;
+- `dateOpen`  : data creazione della richiesta;
+- `dateWork`  : data inizio lavori;
+- `dateEnd`   : data fine lavori;
+- `dateClosed`: data chiusura effettiva della richiesta;
+- `datePaused`: data sospensione attività;
+- `status`    : stato dell'attività (vedi stati possibili);
+- `statusNote`: note relative allo stato (es. motivo sospensione);
+- `timeline`  : mappa con la cronistoria dell'attività; è un array di oggetti
+ del tipo data azionamento - stato - note status.
+- `notes`: note dell'attività (appunti, idee, memo, ...);
+
+Per i progetti sarà anche definita una `taskList`, cioè un array di oggetti
+tipo `task`, definiti per il progetto.
+
+Infine, l'ultimo componente logico-funzionale della webapp saranno i già citati
+_fask_, che saranno costituiti da un id, un titolo e una descrizione.
+
+## Navigazione dell'applicazione
+
+Sostanzialmente avremo:
+
+1. una pagina _taskboard_:
+
+    - una sidebar con la lista di _fask_, la possibilità di inserirne di nuovi,
+      di modificare gli esistenti, ecc. Tale sidebar dovrà essere a scomparsa
+      laterale;
+
+    - un pannello con una lista dei progetti, in cui vengono visualizzate solo
+      alcune informazioni:
+
+        - `name`;
+        - `description`;
+        - `status`;
+        - `assigner`;
+
+      Da ogni singolo progetto dovrà essere possibile accedervi, caricando di
+      conseguenza la schermata dei task;
+      La lista di progetti dovrà essere raggruppabile ed ordinabile per stato
+      e/o assegnatario;
+
+    - un pannello con un form di inserimento di un nuovo progetto. I requisiti
+      minimi sono il nome dell'attività e la descrizione. Previa conferma di
+      inserimento tramite dialog all'utente, dovrà essere aperta la relativa
+      pagina di dettaglio.
+
+2. una pagina _prjDetails_ di dettaglio del singolo progetto, che dovrà
+   presentare:
+
+    - un pannello collassabile con la sua cronistoria;
+
+    - un pannello con le informazioni di testata (intestazioni, date, stato);
+
+    - un pannello con le note associate al progetto; la lista dovrà permettere
+      ricerche e filtri;
+
+    - un pannello con la lista di task associati al progetto; la lista dovrà
+      permettere il raggruppamento per stato e/o assegnatario e dovrà essere
+      filtrabile;
+
+    - un pannello con un form di inserimento di un nuovo task. Previa conferma
+    di inserimento tramite dialog all'utente, dovrà essere aperta la relativa
+    pagina di dettaglio.
+
+    - la solita sidebar con i _fask_, sempre a disposizione.
+
+3. una pagina _tskDetails_ di dettaglio del task selezionato, del tutto simile
+   a quella dei progetti, privata ovviamente della componente relativa ai task.
+   Anche in questo caso, la sidebar collassabile dei _fask_ sarà disponibile.
+
+
+# Analisi tecnica
+
+Si farà uso di angularJS per la parte di gestione GUI e di MVC. A livello di
+database verrà utilizzato dapprima il LocalStorage, con l'obiettivo di creare
+dei driver anche per IndexedDB e per MongoDB.
+Dovrà essere possibile cambiare a scelta l'adapter, anche eventualmente
+ricaricando l'applicazione.
+
+A livello di CSS, si farà utilizzo di bootstrap.
+
+## Configurazione angularJS
+
+
+Si svilupperà una SPA (_single page application_), dove tramite routing angular
+verranno visualizzati i componenti opportuni.
+
+## Routing dell'applicazione
+
+Le tre macro-view dell'applicazione saranno mappate su tre url differenti:
+
+- pagina _taskboard_: mappata su url di root (o `/taskboard`);
+
+- pagina _prjDetails_: mappata su url "rest"-style `/project/:prjId`;
+
+- pagina _tskDetails_: mappata su url "rest"-style
+  `/project/:prjId/task/:tskId`;
+
+L'id dovrà sempre essere valorizzato, anche nel caso di progetto/task nuovo.
+
+## Template e view
+
+I tre template saranno definiti su file a sè stanti, residenti sotto la
+directory `/pages`.
+
+## Controllers
+
+## Services e factories
+
+## Configurazione oggetti e DATABASE
+
+### API indexedDB
+
+### API MongoDB
+
+### API LocalStorage
