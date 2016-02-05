@@ -37,7 +37,8 @@ Per i progetti sarà anche definita una `taskList`, cioè un array di oggetti
 tipo `task`, definiti per il progetto.
 
 Infine, l'ultimo componente logico-funzionale della webapp saranno i già citati
-_fask_, che saranno costituiti da un id, un titolo e una descrizione.
+_fask_, che saranno costituiti da un id, un titolo, una descrizione e un flag
+che indica se il fask e' stato o meno completato.
 
 ## Navigazione dell'applicazione
 
@@ -91,6 +92,7 @@ Sostanzialmente avremo:
    a quella dei progetti, privata ovviamente della componente relativa ai task.
    Anche in questo caso, la sidebar collassabile dei _fask_ sarà disponibile.
 
+In tutte le pagine dovrà essere presente un menu di navigazione.
 
 # Analisi tecnica
 
@@ -125,6 +127,56 @@ L'id dovrà sempre essere valorizzato, anche nel caso di progetto/task nuovo.
 
 I tre template saranno definiti su file a sè stanti, residenti sotto la
 directory `/pages`.
+
+### Template della div relativa ai fask
+
+La pagina è costituita da due `div`. La prima contiene un `form` di inserimento
+nuovo fask, cosi' definito:
+
+    <form name="newFask" >
+        <!-- checkbox di completamento -->
+        <input class="toggle" type="checkbox" ng-model="fask.completed" ng-change="toggleFaskCompleted(fask)">
+        <!-- Campo di testo per inserimento titolo del fask -->
+        <input  class="edit"
+                ng-trim="false"
+                ng-model="fask.title"
+                fask-escape="revertEdits(fask)"
+                ng-blur="saveEdits(fask, 'blur')"
+                fask-focus="fask == editedFask">
+        <!-- Area di testo per inserimento/modifica della descrizione del fask -->
+        <textarea  class="edit"
+                   ng-trim="true"
+                   ng-model="fask.description"
+                   fask-escape="revertEdits(fask)"
+                   ng-blur="saveEdits(fask, 'blur')"
+                   fask-focus="fask == editedFask">        
+    </form>
+
+Sul
+ed una sezione con la lista totale di fask:
+
+    <div id="fskList" ng-show="fasks.length" ng-cloak>
+        <span id="fask-count"><strong>{{remainingCount}}</strong>
+            <ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+        </span>
+        <ul id="filters">
+            <li>
+                <a ng-class="{selected: status == ''} " href="#/">All</a>
+            </li>
+            <li>
+                <a ng-class="{selected: status == 'active'}" href="#/active">Active</a>
+            </li>
+            <li>
+                <a ng-class="{selected: status == 'completed'}" href="#/completed">Completed</a>
+            </li>
+        </ul>
+        <button id="clear-completed" ng-click="clearCompletedFasks()" ng-show="completedCount">Clear completed</button>
+    </footer>
+
+### Template della view relativa ai progetti
+
+### Template della view relativa ai task del progetto
+
 
 ## Controllers
 
