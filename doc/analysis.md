@@ -152,7 +152,19 @@ nuovo fask, cosi' definito:
                    fask-focus="fask == editedFask">        
     </form>
 
-Sul
+Per tale sezione sono stati definite nel controller della view le seguenti
+funzioni:
+
+- `toggleFaskCompleted(fask)`: imposta il fask come completato e salva le
+   modifiche a db;
+- `revertEdits(fask)`: esegue il rollback delle modifiche al fask, riportandolo
+  alla versione iniziale;
+- `saveEdits(fask, 'event')`: esegue il salvataggio dei dati del fask,
+  aggiungendolo o aggiornandolo a db;
+
+Sono state inoltre definite le direttive:
+- `faskEscape`:
+- `faskFocus`:
 ed una sezione con la lista totale di fask:
 
     <div id="fskList" ng-show="fasks.length" ng-cloak>
