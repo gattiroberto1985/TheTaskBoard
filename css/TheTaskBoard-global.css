@@ -1,3 +1,11 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+
+
+
 /* Tooltip animations */
 /* VERSION 1 */
 /*[tooltip]:before {
@@ -129,10 +137,10 @@
     width: 70%;
     padding: 0;
 }
- 
+
 .row-fluid {
-    height: 100%; 
-    display:table-cell; 
+    height: 100%;
+    display:table-cell;
     vertical-align: middle;
 }
 
@@ -161,7 +169,7 @@
 
 .project {
     position: relative;
-    
+
     border-radius: 10px /* tl corner */
                    10px /* tr corner */
                    10px /* bl corner */
@@ -172,7 +180,7 @@
                 10px /* dimensione verticale */
                  8px /* raggio sfumatura */
                 #dedede /* colore sfumatura */ ;
-    
+
 }
 
 .task {
@@ -184,18 +192,18 @@
 }
 
 .background-ul {
-    background-color: cornflowerblue;   
+    background-color: cornflowerblue;
 }
 
 .background-li {
-    background-color: red;   
+    background-color: red;
 }
 
 .clone {
     position:absolute;
 }
 .prj_id {
-    
+
 }
 
 .prj_desc { }

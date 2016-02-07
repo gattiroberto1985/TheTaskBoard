@@ -142,14 +142,16 @@ nuovo fask, cosi' definito:
                 ng-model="fask.title"
                 fask-escape="revertEdits(fask)"
                 ng-blur="saveEdits(fask, 'blur')"
-                fask-focus="fask == editedFask">
+                fask-focus="fask == editedFask"
+                placeholder="Fask title..."></input>
         <!-- Area di testo per inserimento/modifica della descrizione del fask -->
         <textarea  class="edit"
                    ng-trim="true"
                    ng-model="fask.description"
                    fask-escape="revertEdits(fask)"
                    ng-blur="saveEdits(fask, 'blur')"
-                   fask-focus="fask == editedFask">        
+                   fask-focus="fask == editedFask"
+                   placeholder="Write something to remember"></textarea>
     </form>
 
 Per tale sezione sono stati definite nel controller della view le seguenti
@@ -163,9 +165,63 @@ funzioni:
   aggiungendolo o aggiornandolo a db;
 
 Sono state inoltre definite le direttive:
-- `faskEscape`:
-- `faskFocus`:
-ed una sezione con la lista totale di fask:
+
+- `faskEscape`: viene eseguito il metodo qui sotto quando su un elemento viene
+   scatenato un evento di `escape keydown`:
+
+       'use strict';
+
+       var ESCAPE_KEY = 27;
+
+       return function (scope, elem, attrs) {
+            elem.bind('keydown', function (event) {
+                if (event.keyCode === ESCAPE_KEY) {
+                    scope.$apply(attrs.todoEscape);
+                }
+            });
+
+            scope.$on('$destroy', function () {
+                elem.unbind('keydown');
+            });
+       };
+
+- `faskFocus`: imposta il focus all'elemento corrente quando
+  l'espressione passata e' `true`:
+
+       'use strict';
+
+       return function (scope, elem, attrs) {
+           scope.$watch(attrs.todoFocus, function (newVal) {
+               if (newVal) {
+                   $timeout(function () {
+                       elem[0].focus();
+                   }, 0, false);
+               }
+           });
+       };
+
+E' inoltre presente una sezione con la lista totale di fask:
+
+    <!-- Lista fasks -->
+    <section id="fasksList" >
+        <input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)"></input>
+        <label for="toggle-all">Mark all as complete</label>
+            <ul id="fasks-list">
+                <li ng-repeat="fask in fasks | filter:statusFilter track by $index" ng-class="{completed: fask.completed, editing: fask == editedFask}">
+                <div class="view">
+                    <input class="toggle" type="checkbox" ng-model="fask.completed" ng-change="toggleCompleted(fask)">
+                    <label ng-dblclick="editFask(fask)">{{fask.title}}</label>
+                    <button class="destroy" ng-click="removeFask(fask)"></button>
+                </div>
+                <form ng-submit="saveEdits(fask, 'submit')">
+                        <input class="edit" ng-trim="false" ng-model="fask.title" fask-escape="revertEdits(fask)" ng-blur="saveEdits(fask, 'blur')" fask-focus="fask == editedFask"></input>
+                </form>
+            </li>
+        </ul>
+    </section>
+
+Ed una sezione footer in cui vengono messi a disposizione dei filtri e un
+riepilogo dei fask:
 
     <div id="fskList" ng-show="fasks.length" ng-cloak>
         <span id="fask-count"><strong>{{remainingCount}}</strong>
@@ -183,7 +239,7 @@ ed una sezione con la lista totale di fask:
             </li>
         </ul>
         <button id="clear-completed" ng-click="clearCompletedFasks()" ng-show="completedCount">Clear completed</button>
-    </footer>
+    </div>
 
 ### Template della view relativa ai progetti
 

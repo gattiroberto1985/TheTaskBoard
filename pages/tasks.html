@@ -1,97 +1,97 @@
-<div>
+<div id="tasks" ng-controller="tasksCtrl">
     <!-- Sezione di ricerca -->
     <form role="form">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search here..." ng-model="tskSearchStr" />
       </div>
     </form>
-    
+
     <!-- Lista task -->
     <ul id="tasksList">
         <li id="{{task.id}}"
-             class="project col-md-4" 
-             ng-repeat="task in tasks | filter:tskSearchStr" 
-             style="background: no-repeat" 
+             class="project col-md-4"
+             ng-repeat="task in tasks | filter:tskSearchStr"
+             style="background: no-repeat"
              title="{{task.description}}">
-            
+
             <!-- Dati di visualizzazione: mostrato solo nel caso in cui editProjectFlag sia a false -->
             <div id="tsk{{task.id}}ListDiv" ng-if="!editTaskFlag" class="tskHeaders">
                 <p>{{task.name}}</p>
                 <p>{{task.status}}</p>
                 <button class="btn btn-info" ng-click="deleteTask(task)">Delete Task</button>
             </div>
-            
+
             <div id="tsk{{task.id}}EditDiv" ng-if="editTaskFlag" class="tskHeadersEdit">
-                
+
                 <form ng-submit="updateTask(task)">
                     <!-- button di chiusura (senza salvataggio a db) del form di modifica header -->
                     <button type="button" class="close" ng-click="editTask(false, task, true)">
-                        X<!--span class="glyphicon glyphicon-remove"></span--> 
+                        X<!--span class="glyphicon glyphicon-remove"></span-->
                     </button>
-                    
+
                     <!-- Alert per avviso di modifica istantanea interfaccia grafica -->
                     <p class="alert alert-warning col-md-12">Il task verrà modificato immediatamente! Per annullare le modifiche, cliccare su "X" e ricaricare la pagina!</p>
-                    
+
                     <!-- Nome task ed etichetta -->
                     <label for="tskName">Nome Task</label>
                     <input type="text" class="form-control" id="tskName" placeholder="Nome Task . . ." value="{{task.name}}" ng-model="task.name"/>
 
                     <!-- Stato progetto ed etichetta -->
                     <label for="prjStaus">Stato progetto</label>
-                    <input type="text" class="form-control" id="prjStaus" placeholder="Stato Progetto . . ." value="{{task.status}}" ng-model="task.status"/> 
+                    <input type="text" class="form-control" id="prjStaus" placeholder="Stato Progetto . . ." value="{{task.status}}" ng-model="task.status"/>
 
                     <!-- Descrizione progetto ed etichetta -->
                     <label for="prjDescr">Descrizione progetto</label>
-                    <textarea type="text" class="form-control" id="prjDescr" placeholder="Descrizione progetto . . ." ng-model="task.description">{{task.description}}</textarea> 
+                    <textarea type="text" class="form-control" id="prjDescr" placeholder="Descrizione progetto . . ." ng-model="task.description">{{task.description}}</textarea>
 
                     <!-- Assegnatario progetto ed etichetta -->
                     <label for="prjAssigned">In carico a</label>
-                    <input type="text" class="form-control" id="prjAssigned" placeholder="Inserire un incaricato . . ." value="{{task.assignedTo}}" ng-model="task.assignedTo"/>                     
+                    <input type="text" class="form-control" id="prjAssigned" placeholder="Inserire un incaricato . . ." value="{{task.assignedTo}}" ng-model="task.assignedTo"/>
 
                     <!-- Data apertura progetto ed etichetta -->
                     <label for="prjOpened">Data apertura</label>
-                    <input 
-                           id="prjOpened" 
+                    <input
+                           id="prjOpened"
                            type="datetime"
                            pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4} {0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}"
                            class="form-control"
-                           placeholder="Data apertura . . ." 
-                           value="{{task.dateOpen | date:'yyyy-MM-dd HH:mm:ss'}}" 
+                           placeholder="Data apertura . . ."
+                           value="{{task.dateOpen | date:'yyyy-MM-dd HH:mm:ss'}}"
                            ng-model="task.dateOpen"
-                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>      
+                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>
 
                     <!-- Data ultimo aggiornamento ed etichetta -->
                     <label for="prjUpdated">Data ultimo aggiornamento</label>
-                    <input 
-                           id="prjUpdated" 
+                    <input
+                           id="prjUpdated"
                            type="datetime"
                            pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4} {0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}"
-                           class="form-control" 
-                           placeholder="Data ultimo aggiornamento . . ." 
-                           value="{{task.dateLastModified | date:'yyyy-MM-dd HH:mm:ss'}}" 
+                           class="form-control"
+                           placeholder="Data ultimo aggiornamento . . ."
+                           value="{{task.dateLastModified | date:'yyyy-MM-dd HH:mm:ss'}}"
                            ng-model="task.dateLastModified"
-                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>      
+                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>
 
 
                     <!-- Data chiusura ed etichetta -->
                     <label ng-if="task.dateClosed !== undefined" for="prjClosed">Data chiusura</label>
-                    <input 
-                           id="prjClosed" 
+                    <input
+                           id="prjClosed"
                            type="datetime"
                            pattern="[0-9]{1,2}-[0-9]{1,2}-[0-9]{4} {0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}:{0,1}[0-9]{0,2}"
-                           class="form-control" 
-                           value="{{task.dateClosed  | date:'yyyy-MM-dd HH:mm:ss'}}" 
-                           ng-if="task.dateClosed !== undefined" 
-                           placeholder="Data chiusura . . ." 
+                           class="form-control"
+                           value="{{task.dateClosed  | date:'yyyy-MM-dd HH:mm:ss'}}"
+                           ng-if="task.dateClosed !== undefined"
+                           placeholder="Data chiusura . . ."
                            ng-model="task.dateClosed"
-                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>      
+                           title="Formato data: 'DD-MM-YYYY HH24:MI:SS'"/>
 
 
                     <!-- Task associati -->
                     <button ng-if="task.notes === undefined "> Aggiungi nota</p>
                     <div id="notes" ng-if="task.notes.length > 0" >
                         <button class="btn" data-toggle="collapse" data-target="notes{{task.id}}"> </button>
-                                        
+
                         <div id="notes{{task.id}}">
                             <ul>
                                 <li class="tskNote" ng-repeat="note in task.notes" >
@@ -106,18 +106,18 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                     </div>
                     <!-- Fieldset con i pulsanti di submit, delete ed apertura -->
                     <fieldset>
-                        <button type="submit" class="btn btn-default col-md-4">Aggiorna</button>          
+                        <button type="submit" class="btn btn-default col-md-4">Aggiorna</button>
                         <button class="btn btn-info col-md-4" ng-click="deleteProject(project)">Cancella Task</button>
                     </fieldset>
-                
+
                 </form>
             </div>
-            
+
         </li>
     </ul>
-    
+
 </div>

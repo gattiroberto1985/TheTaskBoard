@@ -9,10 +9,8 @@ StringUtils.prototype = {
     isEmpty: function ( string ) {
         if ( string === undefined )
             return false;
-        if ( string.equals("") )
-            return false;
-        // stringa non vuota
-        return true;
+        var re = new RegExp('^[ \t]');
+        return re.test(string);
     },
 
     isNumber: function ( string ) {
