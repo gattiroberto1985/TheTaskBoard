@@ -18,13 +18,13 @@
                     fask-focus="fask == editedFask"
                     placeholder="Fask title..."></input>
             <!-- Area di testo per inserimento/modifica della descrizione del fask -->
-            <textarea  class="edit"
+            <!--textarea  class="edit"
                        ng-trim="true"
                        ng-model="fask.description"
                        fask-escape="revertEdits(fask)"
                        ng-blur="saveEdits(fask, 'blur')"
                        fask-focus="fask == editedFask"
-                       placeholder="Write something to remember!"></textarea>
+                       placeholder="Write something to remember!"></textarea-->
         </form>
     </header>
 
@@ -45,7 +45,7 @@
                 <div class="view">
                     <input class="toggle" type="checkbox" ng-model="fask.completed" ng-change="toggleCompleted(fask)"></input>
                     <label ng-dblclick="editFask(fask)">{{fask.title}}</label>
-                    <button class="destroy" ng-click="removeFask(fask)"></button>
+                    <button class="destroy" ng-click="removeFask(fask)">X</button>
                 </div>
                 <!-- . . . e form di modifica! -->
                 <form ng-submit="saveEdits(fask, 'submit')">
