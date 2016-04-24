@@ -2,9 +2,91 @@
   display: none !important;
 }
 
+/* voci di menu di navigazione */
+
+/* [ START: MENU CSS ] */
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+  font-size: 12px;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li.active {
+  background-color: lightgrey;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/* [ END: MENU CSS ] */
+
+/* [ START: PROJECT LIST CSS ] */
+
+.project-list {
+
+}
+
+.project {
+
+}
+
+/* [ END: PROJECT LIST ] */
+
+.trash {
+    font-family: "Glyphicons Halflings";
+    content: '\xE068';
+    cursor: pointer;
+}
 
 
+/** Classi di visualizzazione **/
+.hide {
+    display: none;
+}
 
+.show {
+    display: block;
+}
+
+/** Classi per la visualizzazione in editing **/
+#ul-projects-list li.editing {
+    border-bottom: none;
+	padding: 0;
+    color: red;
+    background-color: yellow;
+}
+
+/* questa classe nasconde la componente di lettura se sto modificando il progetto */
+#ul-projects-list li.editing .view {
+    display: none;
+    background-color: green;
+}
+
+#ul-projects-list li.editing .edit {
+    display: block;
+    background-color: grey;
+}
 
 /* Tooltip animations */
 /* VERSION 1 */
@@ -65,6 +147,10 @@
 /* classes */
 .hide {
     display: none;
+}
+
+.show {
+    display: block;
 }
 
 .highlight {

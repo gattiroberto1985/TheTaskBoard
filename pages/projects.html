@@ -1,6 +1,106 @@
 <!-- Div contenitore per la view relativa alla taskboard -->
-<div id="taskboard" ng-controller="projectsCtrl">
+<div id="div-projects" ng-controller="projectsCtrl">
 
+    <!-- nell'header posiziono i controlli per l'inserimento di un progetto -->
+    <header id="div-new-project">
+        <!-- Definizione delle etichette per i campi -->
+        <label for="prj-new-title"      >Titolo</label>
+        <label for="prj-new-description">Descrizione</label>
+        <!--label for="prj-new-date-open"  >Data apertura</label-->
+        <!--label for="prj-new-date-close" >Data chiusura</label-->
+        <label for="prj-new-owner"      >Assegnato a</label>
 
+        <form
+            name="prj-form-add"
+            class="css-form"
+
+            ng-submit="addProject()">
+            <input
+                type="text"
+                ng-model="newProject.title"
+                label="prj-new-title"
+                placeholder="Inserisci il titolo..."
+                required="true"></input>
+
+            <input
+                type="text"
+                ng-model="newProject.description"
+                label="prj-new-description"
+                placeholder="Inserisci la descrizione..."
+                required="true"></input>
+
+            <select
+                ng-model="newProject.owner"
+                label="prj-new-owner"
+                placeholder="Inserisci l'assegnatario..."
+                ng-options="owner as owner.value for owner in owners"
+                required="true"></select>
+            <!--input type="text" ng-model="newProject.title" label="prj-new-title" placeholder="Inserisci il titolo..." required="true"></input-->
+            <!--input type="text" ng-model="newProject.title" label="prj-new-title" placeholder="Inserisci il titolo..." required="true"></input-->
+            <!--input type="text" ng-model="newProject.title" label="prj-new-title" placeholder="Inserisci il titolo..." required="true"></input-->
+            <input type="submit" id="new-prj-submit" value="Aggiungi"></input>
+
+        </form>
+
+    </header>
+
+    <!-- Nella section metto la lista di progetti definiti -->
+    <section id="div-projects-list">
+
+        <!-- Lista projects -->
+        <ul id="ul-projects-list" class="projects-list list-inline">
+            <!--
+                Ogni li contiene un form per la modifica (inizialmente nascosto)
+                ed un "form" di visualizzazione
+            -->
+            <li class="project col-md-3" ng-repeat="project in projects | filter:statusFilter track by $index">
+                <!--ng-class="{completed: project.completed, editing: project == editedProject}"-->
+
+                <!-- La classe 'view' serve come classe li.editing view -->
+                <div
+                    ng-class="{ show: project != editedProject, hide: project == editedProject }"
+                    ng-dblclick="editProject(project)"
+                    id="li-project-view-{{project.id}}">
+                    <h4 class="list-prjs-prj-title"      >{{project.title}}      </h4>
+                    <p  class="list-prjs-prj-description">{{project.description}}</p>
+                    <p  class="list-prjs-prj-assigner"   >{{project.owner.value}}</p>
+                    <p  class="list-prjs-prj-status"     >{{project.status}}     </p>
+                    <a href="#/project/{{project.id}}">Apri</a>
+                    <button ng-click="removeProject(project)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </div>
+
+                <!-- La classe 'edit' serve come classe li.editing edit  -->
+                <form
+                    ng-class="{ show: project == editedProject, hide: project != editedProject }"
+                    dir-escape="rollbackProject(project)"
+                    ng-blur="rollbackProject(project)"
+                    ng-submit="updateProject(project)">
+                        <!--class="edit"-->
+                    <!-- id="li-project-edit-{{project.id}}" -->
+                    <input
+                        type="text"
+                        ng-model="project.title"
+                        placeholder="Inserisci il titolo..."
+                        required="true"></input>
+
+                    <textarea
+                        type="text"
+                        ng-model="project.description"
+                        placeholder="Inserisci la descrizione..."
+                        required="true"></textarea>
+
+                    <select
+                        ng-model="project.owner"
+                        placeholder="Inserisci l'assegnatario..."
+                        ng-options="owner as owner.value for owner in owners"
+                        required="true"></select>
+
+                    <input type="submit" value="Aggiorna"></input>
+                </form>
+            </li>
+        </ul>
+    </section>
 
 </div>
