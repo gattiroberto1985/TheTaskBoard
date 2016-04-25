@@ -25,12 +25,14 @@ app.config( function ($routeProvider ) {
         // :userId indica che al routing sto passando un parametro!
         // Tale parametro sarà poi recuperabile dal controller
         // utenteCtrl tramite apposita variabile
-        .when('/project/:id', projectDetailsData)
+        .when('/project/:id/tasks', projectDetailsData)
         .otherwise({
             redirectTo: '/projects'
         });
 });
 
+// Defining application constants
+app.constant("PROJECT_STATUSES", [{ }]);
 
 function Project(id, title, description, dateOpen, dateClose, dateLastUpdated, owner) {
     this.id              = id;
