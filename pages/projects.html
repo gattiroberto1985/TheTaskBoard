@@ -77,7 +77,7 @@
                         </p>
                         <p  class="list-prjs-prj-assigner"   >{{project.owner.value}} </p>
                         <p  class="list-prjs-prj-status"     >{{project.status.value}}</p>
-                        <a href="#/project/{{project.id}}">Apri</a>
+                        <!--a href="#/project/{{project.id}}">Apri</a-->
                         <button ng-click="removeProject(project.id)">
                             <span class="glyphicon glyphicon-trash"></span>
                         </button>
@@ -127,10 +127,10 @@
         <div class="col-md-8" id="div-project-details">
 
             <div class="col-md-12" id="prj-control-div">
-                <button class="btn" ng-click="updateProject()"        >Conferma modifiche</button>
-                <button class="btn" ng-click="rollbackProject()"      >Annulla modifiche</button>
+                <button class="btn" ng-click="updateProject(sProject)"   >Conferma modifiche</button>
+                <button class="btn" ng-click="rollbackProject()"         >Annulla modifiche</button>
                 <button class="btn" ng-click="removeProject(sProject.id)">Rimuovi progetto</button>
-                <button class="btn" ng-click="closeProject()"         >Torna alla vista dashboard</button>
+                <button class="btn" ng-click="closeProject()"            >Torna alla vista dashboard</button>
             </div>
 
             <div class="col-md-12" id="div-project-headers">
