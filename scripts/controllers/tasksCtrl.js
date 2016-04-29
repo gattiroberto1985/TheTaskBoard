@@ -10,5 +10,5 @@ app.controller("tasksCtrl", function ( $scope, $location, projectServ ) {
 
         $scope.tasks = projectServ.sProject.tasks;
 
-        //$scope.sTask = pro
+        $scope.sTask = pro
 });
