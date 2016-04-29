@@ -6,6 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>TheTaskBoard for dummies!</title>
 
+        <!-- Static resources and bootstrap csses . . . -->
+        <!--link rel="stylesheet" type="text/css" href="./css/normalize.css" -->
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap-3.3.0-min.css" >
+        <link rel="stylesheet" type="text/css" href="./css/TheTaskBoard-global.css" >
+        <link rel="stylesheet" type="text/css" href="./css/myTreeView.css" >
+        <!--link rel="stylesheet" type="text/css" href="./css/angularjs-treeview.css" -->
+
         <!-- Importing angular js . . . -->
         <script src="./fwks/angularjs-1.5.0-rc.0.js"> </script>
         <script src="./fwks/angularjs-route-1.5.0-rc.0.js"> </script>
@@ -18,21 +25,20 @@
 
         <!-- Importing utilities . . . -->
         <script src="./scripts/utils.js"></script>
+        <!-- Importing treeview angular js . . . -->
+        <!--script src="./scripts/angularjs-treeview.js"></script-->
         <!-- Importing TheTaskBoard app code . . . -->
         <script src="./scripts/app.js"></script>
         <!-- Importing angularJS directives . . . -->
         <script src="./scripts/directives/dirEscape.js"></script>
+        <script src="./scripts/directives/dirTreeView.js"></script>
         <!-- Importing angularJS providers . . . -->
         <script src="./scripts/providers/projectServ.js"></script>
         <!-- Importing angularJS controllers . . . -->
         <script src="./scripts/controllers/headerCtrl.js"></script>
-        <script src="./scripts/controllers/projectsCtrl.js"></script>
+        <script src="./scripts/controllers/dashboardCtrl.js"></script>
+        <script src="./scripts/controllers/projectCtrl.js"></script>
         <script src="./scripts/controllers/tasksCtrl.js"></script>
-
-        <!-- Static resources and bootstrap csses . . . -->
-        <link rel="stylesheet" type="text/css" href="./css/normalize.css" >
-        <link rel="stylesheet" type="text/css" href="./css/bootstrap-3.3.0-min.css" >
-        <link rel="stylesheet" type="text/css" href="./css/TheTaskBoard-global.css" >
 
         <style>[ng-cloak] { display: none; }</style>
 
@@ -49,8 +55,9 @@
                 <p>{{appDetails.tagline}}</p>
 
                 <ul class="menu">
-                  <li ng-class="menuClass('projects')"><a href="#!projects">Projects List</a></li>
-                  <li ng-class="menuClass('help')"><a href="#!help">Help</a></li>
+                  <li ng-class="menuClass('dashboard')"><a href="#dashboard">Dashboard</a></li>
+                  <li ng-show="spId != null" ng-class="menuClass('project')"><a href="#project/sProject.id">Project</a></li>
+                  <li ng-show="spId != null" ng-class="menuClass('tasks')"><a href="#!help">Tasks</a></li>
                 </ul>
             </header>
 
@@ -78,6 +85,10 @@
             </div>
 
 
+            <div>
+              Test direttiva treeView
+              <!--my-tree-view></my-tree-view-->
+            </div>
 
 
             <!-- [ HTML_FORMAT ] @@ Inizio div contenitore dei progetti -->
@@ -85,7 +96,7 @@
             <div id="allProjectsDiv">
 
                 <!-- Container dei fast ToDos -->
-                <div id="projects" class="projectsContainer">
+                <div>
                     <ng-view></ng-view>
                     <!--ng-include src="'pages/projects.html'" autoscroll="true" ></ng-include-->
                 </div>

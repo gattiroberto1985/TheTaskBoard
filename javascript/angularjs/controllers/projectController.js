@@ -2,7 +2,7 @@
 /**
  * Definizione controller relativo ai progetti.
  */
-TTBApp.controller("projectsCtrl", function projectCTRL($scope, $routeParams, $filter, store) {
+TTBApp.controller("dashboardCtrl", function projectCTRL($scope, $routeParams, $filter, store) {
 
     'use strict';
 

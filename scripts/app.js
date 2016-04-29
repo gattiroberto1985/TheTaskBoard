@@ -1,19 +1,29 @@
 // Defining application
-var app = angular.module("TTBApp", ["ngRoute"]);
+var app = angular.module("TTBApp", ["ngRoute"/*, "ui.tree" */ ]);
 
 // Configuring the app
 app.config( function ($routeProvider ) {
     'use strict';
 
     var homePageDatas = {
-        controller: 'projectsCtrl',
-        templateUrl: 'pages/projects.html',
+        controller: 'dashboardCtrl',
+        templateUrl: 'pages/dashboard.html',
         /*  resolve: {
             store: function () {
 
                 });
             }*/
-        };
+    };
+
+    var projectDetailsPageDatas = {
+      controller: 'projectCtrl',
+      templateUrl: 'pages/project.html'
+    };
+
+    var projectTasksPageDatas = {
+      controller: 'tasksCtrl',
+      templateUrl: 'pages/tasks.html'
+    };
 
     var projectDetailsData = {
         controller: 'tasksCtrl',
@@ -21,13 +31,14 @@ app.config( function ($routeProvider ) {
     };
 
     $routeProvider
-        .when('/projects', homePageDatas)
+        .when('/dashboard', homePageDatas)
         // :userId indica che al routing sto passando un parametro!
         // Tale parametro sarà poi recuperabile dal controller
         // utenteCtrl tramite apposita variabile
+        .when('/project/:id', projectDetailsPageDatas )
         .when('/project/:id/tasks', projectDetailsData)
         .otherwise({
-            redirectTo: '/projects'
+            redirectTo: '/dashboard'
         });
 });
 

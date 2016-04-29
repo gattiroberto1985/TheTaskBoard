@@ -85,6 +85,28 @@
 
 /* [ END: PROJECT LIST ] */
 
+
+
+
+/*  [ START: TASK LIST ] */
+
+
+/*#tasklist {
+  margin-left: 1px;
+  padding-left: 1px;
+  list-style-type: none;
+}*/
+
+/*li .single-task {
+  background-color: lightgrey;
+  margin-left: 10px;
+  padding-left: 10px;
+  list-style-type: none;
+}*/
+
+/* [ END: TASK LIST ] */
+
+
 .trash {
     font-family: "Glyphicons Halflings";
     content: '\xE068';

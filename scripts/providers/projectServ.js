@@ -28,14 +28,15 @@ app.service('projectServ', function ( ) {
             description: "Descrizione progetto 1",
             status: this.statuses[0],
             owner: this.owners[1],
-
+            tasks: [ ]
         },
         {
             id: getUid(),
-            title: "Progetto 2",
-            description: "Descrizione progetto 2",
+            title: "Progetto 2a",
+            description: "Descrizione progetto 2a",
             status: this.statuses[1],
-            owner: this.owners[1]
+            owner: this.owners[1],
+            tasks: [ ]
         },
         {
             id: getUid(),
@@ -70,7 +71,54 @@ app.service('projectServ', function ( ) {
                     statusNote: "",
                     notes: [
                         { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 1", text: "testo nota task 1"}
-                    ]
+                    ],
+                    tasks: [ ]
+                },
+                {
+                    id: getUid(),
+                    title: "Task 2",
+                    description: "Descrizione Task 2",
+                    status: "In Pausa",
+                    owner: this.owners[1],
+                    dateOpen: new Date(2016, 04, 04),
+                    dateClose: null,
+                    dateLastUpdated: new Date(2016, 04, 07),
+                    statusNote: "",
+                    notes: [
+                        { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 2", text: "testo nota task 2"}
+                    ],
+                    tasks: [ ]
+                },
+                {
+                    id: getUid(),
+                    title: "Task 3",
+                    description: "Descrizione Task 3",
+                    status: "In Pausa",
+                    owner: this.owners[1],
+                    dateOpen: new Date(2016, 04, 04),
+                    dateClose: null,
+                    dateLastUpdated: new Date(2016, 04, 07),
+                    statusNote: "",
+                    notes: [
+                        { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 2", text: "testo nota task 2"}
+                    ],
+                    tasks: [
+                      {
+                        id: getUid(),
+                        title: "Task 3.1",
+                        description: "Descrizione Task 3.1",
+                        status: "In Pausa",
+                        owner: this.owners[1],
+                        dateOpen: new Date(2016, 04, 04),
+                        dateClose: null,
+                        dateLastUpdated: new Date(2016, 04, 07),
+                        statusNote: "",
+                        notes: [
+                            { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 2.1", text: "testo nota task 2.1"}
+                        ],
+                        tasks: [ ]
+                    }
+                  ]
                 }
             ]
         }
@@ -142,17 +190,24 @@ app.service('projectServ', function ( ) {
     /*                             OTHER METHODS                             */
     /* ********************************************************************* */
 
-    this.setSelectedProject = function ( project )
+    this.setSelectedProject = function ( projectId )
     {
         // Mantaining a backup copy of the project, to have simple rollback
         // behaviour...
-        this.sProject = angular.extend( { }, project );
-        if ( this.sProject.notes === undefined )
-            this.sProject.notes = [ ];
-        if ( this.sProject.timeline === undefined )
-                this.sProject.timeline = [ ];
+        for ( var i = 0; i < this.projects.length; i++ )
+        {
+            if ( this.projects[i].id == projectId )
+            {
+                this.sProject = angular.extend( { }, this.projects[i] );
+                if ( this.sProject.notes === undefined )
+                    this.sProject.notes = [ ];
+                if ( this.sProject.timeline === undefined )
+                        this.sProject.timeline = [ ];
 
-        console.log(" [ AJS ] [ projectServ ] selected project: '" + JSON.stringify(this.sProject) + "'");
+                console.log("Project selected!");
+                return;
+            }
+        }
     };
 
 });

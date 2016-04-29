@@ -1,4 +1,55 @@
 <!-- Div contenitore per la view relativa alla taskboard -->
-<div id="div-project-tasks" ng-controller="tasksCtrl">
+<section id="div-project-tasks">
 
-</div>
+  <div class="col-md-3 tasks-list">
+
+    <header class="col-md-12 tasks-list-action-bar">
+      <button class="col-md-3 btn glyphicon glyphicon-minus" ng-click="collapseAll()"  ></button>
+      <button class="col-md-3 btn glyphicon glyphicon-plus"  ng-click="expandAll()"    ></button>
+      <button class="col-md-3 btn glyphicon glyphicon-chevron-left"  ng-click="revertChanges()"></button>
+      <button class="col-md-3 btn glyphicon glyphicon-add"  ng-click="addTask(null)"></button>
+    </header>
+
+
+    <section class="col-md-12 tasks-list-tree">
+
+      <div
+          data-angular-treeview="true"
+          data-tree-id="id"
+          data-tree-model="tasks"
+          data-node-id="id"
+          data-node-label="title"
+          data-node-children="tasks" >
+      </div>
+    </section>
+
+
+  </div>
+
+  <div id="selected-task-details">
+    <p class="alert alert-info" ng-show="editedTask === undefined || editedTask == null " >
+        Selezionare un task dalla lista o crearne uno!
+    </p>
+
+    <div id="task-details" ng-show="editedTask != null">
+
+    </div>
+  </div>
+
+  <!--div ui-tree>
+    <ol ui-tree-nodes="" ng-model="tasks">
+      <li ng-repeat="task in tasks" ui-tree-node>
+        <div ui-tree-handle>
+          {{task.title}}
+        </div>
+        <ol ui-tree-nodes="" ng-model="task.tasks">
+          <li ng-repeat="subTask in task.tasks" ui-tree-node>
+            <div ui-tree-handle>
+              {{task.title}}
+            </div>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </div-->
+</section>
