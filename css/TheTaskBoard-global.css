@@ -33,6 +33,14 @@
 
 /** [ END: ROW MANAGEMENT   ] **/
 
+/* [ START: UTILS ] */
+
+.spacer {
+    height: 30px;
+}
+
+/* [ END: UTILS ] */
+
 
 /* voci di menu di navigazione */
 
@@ -91,18 +99,22 @@
 /*  [ START: TASK LIST ] */
 
 
-/*#tasklist {
+.tasks-list {
   margin-left: 1px;
   padding-left: 1px;
   list-style-type: none;
-}*/
+}
 
-/*li .single-task {
-  background-color: lightgrey;
+.single-task {
   margin-left: 10px;
   padding-left: 10px;
   list-style-type: none;
-}*/
+}
+
+/* task statuses */
+.task-closed {
+
+}
 
 /* [ END: TASK LIST ] */
 

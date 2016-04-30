@@ -4,7 +4,9 @@ app.controller("headerCtrl", function ( $scope, $location, projectServ ) {
 
     $scope.spId = spId = null;
 
-    projectServ.sProject != null ? spId = projectServ.sProject.id : spId = null;
+    $scope.sProject = projectServ.sProject;
+
+    //projectServ.sProject != null ? spId = projectServ.sProject.id : spId = null;
 
     $scope.appDetails = {
         title  : "TheTaskBoard",

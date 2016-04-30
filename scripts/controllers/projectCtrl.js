@@ -9,10 +9,27 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
 
     $scope.sProject = sProject = angular.extend( { }, projectServ.sProject );
 
-    $scope.newNote  = newNote  = null;
+    $scope.newNote  = newNote  = { };
 
     $scope.owners   = projectServ.owners;
     $scope.statuses = projectServ.statuses;
+
+    $scope.openedTaskNumber = 0;
+    $scope.closedTaskNumber = 0;
+    $scope.pausedTaskNumber = 0;
+    $scope.workingTaskNumber = 0;
+
+    if ( sProject.tasks != undefined && sProject.tasks != null )
+    {
+        for ( var i = 0; i < sProject.tasks.length; i++)
+        {
+            if ( sProject.tasks[i].status == $scope.statuses[0] ) $scope.openedTaskNumber++;
+            if ( sProject.tasks[i].status == $scope.statuses[1] ) $scope.workingTaskNumber++;
+            if ( sProject.tasks[i].status == $scope.statuses[2] ) $scope.pausedTaskNumber++;
+            if ( sProject.tasks[i].status == $scope.statuses[3] ) $scope.closedTaskNumber++;
+        }
+    }
+
 
     if ( sProject.notes    === undefined ) sProject.notes    = [ ] ;
     if ( sProject.timeline === undefined ) sProject.timeline = [ ] ;
@@ -34,10 +51,11 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
      * This function close the project view. If the project has not been saved
      * the changes are lost!
      */
-    $scope.closeProject = function ( ) {
+    /*$scope.closeProject = function ( ) {
         console.log("Closing project");
         sProject = sProject = null;
-    };
+        $location.path("/dashboard");
+    };*/
 
     /**
      * This function rollbacks all changes made to the original task.
@@ -73,8 +91,8 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
         if ( sProject.notes === undefined )
             sProject.notes = [ ];
 
-        sProject.notes.push($scope.newNote);
-        $scope.newNote = null;
+        sProject.notes.push(angular.extend( { }, $scope.newNote) );
+        $scope.newNote = { };
     };
 
     /**

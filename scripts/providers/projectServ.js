@@ -1,4 +1,21 @@
+/*
+ * MongoDB datas:
+ *   collections: projects, fasks, users, tags
+ *
+ * API: XMqKdQMWKfpGmBVMCwS3_nYAxz2-z8de
+ *
+ * To connect using the mongo shell:
+ *    mongo ds011732.mlab.com:11732/thetaskboard -u <dbuser> -p <dbpassword>
+ * To connect using a driver via the standard MongoDB URI (what's this?):
+ *    mongodb://<dbuser>:<dbpassword>@ds011732.mlab.com:11732/thetaskboard
+ *
+ *  user/pwd: roberto/roberto
+ *
+ */
+
 app.service('projectServ', function ( ) {
+
+
 
     /**
      * TODO: This datas must be retreived from a database layer!
@@ -63,7 +80,7 @@ app.service('projectServ', function ( ) {
                     id: getUid(),
                     title: "Task 1",
                     description: "Descrizione Task 1",
-                    status: "In Pausa",
+                    status: this.statuses[1],
                     owner: this.owners[1],
                     dateOpen: new Date(2016, 04, 04),
                     dateClose: null,
@@ -78,7 +95,7 @@ app.service('projectServ', function ( ) {
                     id: getUid(),
                     title: "Task 2",
                     description: "Descrizione Task 2",
-                    status: "In Pausa",
+                    status: this.statuses[0],
                     owner: this.owners[1],
                     dateOpen: new Date(2016, 04, 04),
                     dateClose: null,
@@ -93,7 +110,7 @@ app.service('projectServ', function ( ) {
                     id: getUid(),
                     title: "Task 3",
                     description: "Descrizione Task 3",
-                    status: "In Pausa",
+                    status: this.statuses[3],
                     owner: this.owners[1],
                     dateOpen: new Date(2016, 04, 04),
                     dateClose: null,
@@ -102,12 +119,12 @@ app.service('projectServ', function ( ) {
                     notes: [
                         { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 2", text: "testo nota task 2"}
                     ],
-                    tasks: [
+                    tasks: [/*
                       {
                         id: getUid(),
                         title: "Task 3.1",
                         description: "Descrizione Task 3.1",
-                        status: "In Pausa",
+                        status: this.statuses[2],
                         owner: this.owners[1],
                         dateOpen: new Date(2016, 04, 04),
                         dateClose: null,
@@ -118,7 +135,7 @@ app.service('projectServ', function ( ) {
                         ],
                         tasks: [ ]
                     }
-                  ]
+                  */]
                 }
             ]
         }
@@ -126,6 +143,7 @@ app.service('projectServ', function ( ) {
 
     this.selectedProjectId = null;
     this.sProject          = null;
+    this.sTask             = null;
 
     /* ********************************************************************* */
     /*                                CRUD METHODS                           */
@@ -137,10 +155,10 @@ app.service('projectServ', function ( ) {
         console.log( " [ AJS ] [ projectServ ] Creating project . . .");
 
         if ( project.status == null )
-            project.status = "Aperto";
+            project.status = this.statuses[0];
 
         if ( project.owner == null )
-            project.owner = owners[0];
+            project.owner = this.owners[0];
 
         project.dateOpen = project.dateLastUpdated = new Date();
         project.dateClose = null;
@@ -150,6 +168,12 @@ app.service('projectServ', function ( ) {
         this.projects.push( project );
         this.selectedProjectId = project.id;
         this.sProject = angular.extend( { }, project );
+        if ( this.sProject.notes === undefined || this.sProject.notes == null )
+            this.sProject.notes = [ ];
+        if ( this.sProject.timeline === undefined || this.sProject.timeline == null )
+            this.sProject.timeline = [ ];
+        if ( this.sProject.tasks === undefined || this.sProject.tasks == null )
+            this.sProject.tasks = [ ];
     };
 
     this.removeProject = function ( projectId )
@@ -186,6 +210,32 @@ app.service('projectServ', function ( ) {
         console.log(" ERROR: unable to find project to update with id: '" + project.id + "'");
     };
 
+    this.updateTask = function ( newTask )
+    {
+        console.log(" [ ProjectServ ] Updating task in project . . .");
+
+        for ( var i = 0; i < this.sProject.tasks.length ; i++ )
+        {
+            var task = this.sProject.tasks[i];
+            if ( task.id === newTask.id )
+            {
+                // Overwriting object . . .
+                this.sProject.tasks[i] = angular.extend({ }, newTask);
+                // aliasing reference . . .
+                sTask = this.sProject.tasks[i];
+                console.log(" [ ProjectServ ] ok, task updated!");
+                return;
+            }
+        }
+
+        console.log(" [ ProjectServ ] Warning: task not found: proceeding with a new insert . . .");
+        var task = angular.extend( { }, newTask );
+        if ( this.sProject.tasks === undefined || this.sProject.tasks == null )
+            this.sProject.tasks = [ ];
+        this.sProject.tasks.push( task );
+        this.sTask = task;
+    }
+
     /* ********************************************************************* */
     /*                             OTHER METHODS                             */
     /* ********************************************************************* */
@@ -203,11 +253,19 @@ app.service('projectServ', function ( ) {
                     this.sProject.notes = [ ];
                 if ( this.sProject.timeline === undefined )
                         this.sProject.timeline = [ ];
+                if ( this.sProject.tasks === undefined )
+                    this.sProject.tasks = [ ];
 
                 console.log("Project selected!");
                 return;
             }
         }
     };
+
+    this.setSelectedTask = function ( task )
+    {
+        console.log ( " [ ProjectServ ] Setting selected task . . .");
+        this.sTask = angular.extends( { }, task );
+    }
 
 });

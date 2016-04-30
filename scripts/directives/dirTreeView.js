@@ -8,6 +8,7 @@ app.directive('angularTreeview', function( $compile ) {
     return treeViewDirective;*/
     		return {
     			restrict: 'A',
+                scope: false, // let's inherit the parent controller scope!
     			link: function ( scope, element, attrs ) {
     				//tree id
     				var treeId = attrs.treeId;
@@ -24,7 +25,7 @@ app.directive('angularTreeview', function( $compile ) {
     				//children
     				var nodeChildren = attrs.nodeChildren || 'children';
 
-            console.log ( "treeId: " + treeId + " -- Treemodel: " + treeModel + " -- nodeId: " + nodeId + " -- nodeLabel: " + nodeLabel + " -- nodeChildren: " + nodeChildren);
+            //console.log ( "treeId: " + treeId + " -- Treemodel: " + treeModel + " -- nodeId: " + nodeId + " -- nodeLabel: " + nodeLabel + " -- nodeChildren: " + nodeChildren);
 
     				//tree template
     				var template =
@@ -34,6 +35,8 @@ app.directive('angularTreeview', function( $compile ) {
     							'<i class="expanded" data-ng-show="node.' + nodeChildren + '.length && !node.collapsed" data-ng-click="' + treeId + '.selectNodeHead(node)"></i>' +
     							'<i class="normal" data-ng-hide="node.' + nodeChildren + '.length"></i> ' +
     							'<span data-ng-class="node.selected" data-ng-click="' + treeId + '.selectNodeLabel(node)">{{node.' + nodeLabel + '}}</span>' +
+                                '<button class="glyphicon glyphicon-plus" ng-click="createSubTask(node)"></button>' + 
+                                '<button class="glyphicon glyphicon-minus" ng-click="deleteTask(node)"></button>' +
     							'<div data-angular-treeview="true" data-ng-hide="node.collapsed" data-tree-id="' + treeId + '" data-tree-model="node.' + nodeChildren + '" data-node-id=' + nodeId + ' data-node-label=' + nodeLabel + ' data-node-children=' + nodeChildren + '></div>' +
     						'</li>' +
     					'</ul>';
@@ -53,7 +56,8 @@ app.directive('angularTreeview', function( $compile ) {
 
     							//Collapse or Expand
     							selectedNode.collapsed = false; // !selectedNode.collapsed;
-                  console.log ( " Selected task '" + JSON.stringify( selectedNode ) + "'");
+                                //console.log ( " Selected task '" + JSON.stringify( selectedNode ) + "'");
+                                scope.setEditedTask( selectedNode );
     						};
 
     						//if node label clicks,
@@ -66,9 +70,10 @@ app.directive('angularTreeview', function( $compile ) {
 
     							//set highlight to selected node
     							selectedNode.selected = 'selected';
-                  console.log ( " Selected task '" + JSON.stringify( selectedNode ) + "'");
+                                //console.log ( " Selected task '" + JSON.stringify( selectedNode ) + "'");
     							//set currentNode
     							scope[treeId].currentNode = selectedNode;
+                                scope.setEditedTask( selectedNode );
     						};
     					}
 

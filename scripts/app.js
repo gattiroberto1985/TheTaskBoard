@@ -20,14 +20,19 @@ app.config( function ($routeProvider ) {
       templateUrl: 'pages/project.html'
     };
 
-    var projectTasksPageDatas = {
+    /*var projectTasksPageDatas = {
       controller: 'tasksCtrl',
       templateUrl: 'pages/tasks.html'
-    };
+    };*/
 
-    var projectDetailsData = {
+    /*var projectDetailsData = {
         controller: 'tasksCtrl',
         templateUrl: 'pages/tasks.html'
+    };*/
+
+    var usersData = {
+        controller: 'usersCtrl',
+        templateUrl: 'pages/users.html'
     };
 
     $routeProvider
@@ -36,7 +41,8 @@ app.config( function ($routeProvider ) {
         // Tale parametro sarà poi recuperabile dal controller
         // utenteCtrl tramite apposita variabile
         .when('/project/:id', projectDetailsPageDatas )
-        .when('/project/:id/tasks', projectDetailsData)
+        //.when('/project/:id/tasks', projectDetailsData)
+      //.when('/users', usersData )
         .otherwise({
             redirectTo: '/dashboard'
         });
