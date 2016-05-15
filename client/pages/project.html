@@ -1,0 +1,36 @@
+<!-- Data section of the project -->
+<section ng-show="sProject != null" class="col-md-12" id="div-project-datas">
+
+    <!-- Da ristrutturare con:
+        action bar ( gia' prj-control-div) sempre visibile anche durante lo scroll
+
+        collapsable panel con gli header del progetto (la vecchia projects.html)
+
+        collapsable panel con i task del progetto (quello che e' ora sotto la tasks)
+
+    -->
+
+    <div id="project-action-bar" class="col-md-12">
+        <button class="btn" ng-click="updateProject(sProject)"   >Conferma modifiche</button>
+        <button class="btn" ng-click="rollbackProject()"         >Annulla modifiche</button>
+        <button class="btn" ng-click="removeProject(sProject)"   >Rimuovi progetto</button>
+    </div>
+
+    <button class="btn col-md-12" data-toggle="collapse" data-target="#project-headers">Mostra/Nascondi testata progetto</button>
+    <div class="col-md-12" id="project-headers">
+        <h1>Dettagli progetto</h1>
+        <ng-include src="'pages/project-headers.html'"></ng-include>
+    </div>
+
+    <div class="spacer">
+        <hr />
+    </div>
+
+    <div class="col-md-12" id="project-tasks">
+        <h2>Task del progetto</h2>
+        <ng-include src="'pages/project-tasks.html'"></ng-include>
+    </div>
+
+    <!--ng-include src="'pages/tasks.html'"></ng-include-->
+
+</section>

@@ -1,0 +1,25 @@
+<div id="users-div">
+
+    <h1> Inserimento nuovo utente </h1>
+
+        <form
+            name="user-form-add"
+            class="css-form"
+            ng-submit="addUser()">
+
+            <input
+                type="text"
+                ng-model="newUser.username"
+                label="new-user-name"
+                placeholder="Inserisci il nome utente..."
+                required="true"></input>
+
+            <input
+                type="email"
+                ng-model="newUser.email"
+                label="new-user-email"
+                placeholder="Inserisci l'indirizzo email..."
+                required="true"></input>
+        </form>
+
+</div>
