@@ -1,6 +1,6 @@
 /**
  * Angular controller for the header.
- * To be improved. . . 
+ * To be improved. . .
  *
  */
 app.controller("headerCtrl", function ( $scope, $location, projectServ ) {
@@ -17,7 +17,7 @@ app.controller("headerCtrl", function ( $scope, $location, projectServ ) {
 
     $scope.appDetails = {
         title  : "TheTaskBoard",
-        tagline: "App per la gestione minimale dei progetti!"
+        tagline: "... where to write everything!"
     };
 
     $scope.menuClass = function(page) {

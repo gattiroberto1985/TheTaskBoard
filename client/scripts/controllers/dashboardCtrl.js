@@ -84,4 +84,12 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
         $scope.newProject = null;
     };
 
+    /**
+     * Resets the fields of the new project view.
+     */
+    $scope.resetFields = function ( ) {
+        console.log(" [ dashboardCtrl ] Resetting new project fields . . .");
+        $scope.newProject = null;
+    };
+
 });
