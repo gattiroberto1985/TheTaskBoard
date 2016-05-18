@@ -1,6 +1,8 @@
 app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
     console.log(" [ AJS ] [ projectCtrl ] Entering projects controller . . .");
 
+
+
     if ( projectServ.sProject === undefined || projectServ.sProject == null )
     {
         console.log(" [ AJS ] [ projectCtrl ] No project selected! Redirecting to dashboard . . .");

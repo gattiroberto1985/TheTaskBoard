@@ -254,6 +254,18 @@ riepilogo dei fask:
 
 ### API indexedDB
 
+Per il corretto utilizzo con IndexedDB e' necessario avviare un webserver sulla
+macchina locale. Per questioni di sicurezza IDB non funziona con percorsi locali
+(via `file://`). E' stato a tale scopo creato un file `goServer.go`, in
+[linguaggio go](https://golang.org/ "Go language Home Page"). Previo download ed
+inserimento dell'eseguibile di `go` nel `PATH`di sistema, si puo' lanciare il
+tutto via:
+
+    go run goServer.go
+
+che eseguira' un webserver mettendo a disposizione i file residenti nella
+cartella da cui il comando e' stato lanciato.
+
 ### API MongoDB
 
 ### API LocalStorage

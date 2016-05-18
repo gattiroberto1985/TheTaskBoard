@@ -13,34 +13,57 @@
  *
  */
 
-app.service('projectServ', function ( ) {
+app.service('projectServ', function ( $indexedDB ) {
 
+    // TODO: define me as angular constant!
+    var OBJECT_STORE_NAME = 'projects';
 
+    /**
+     * @type {ObjectStore}
+     */
+    //this.objectStore = indexedDBServ.objectStore(OBJECT_STORE_NAME);
+
+    //myObjectStore.insert({"ssn": "444-444-222-111","name": "John Doe", "age": 57}).then(function(e){...});
+    this.projects = [  ];
+    $indexedDB.openStore('projects', function(store){
+
+          //store.insert({"ssn": "444-444-222-111","name": "John Doe", "age": 57}).then(function(e){...});
+
+          store.getAll().then(function(projects) {
+            // Update scope
+            this.projects = projects;
+          });
+        });
+    /*indexedDBServ.open();
+    indexedDBServ.getProjects().then(function(results) {
+      // Update scope
+      this.projects = results;
+    });*/
 
     /**
      * TODO: This datas must be retreived from a database layer!
      */
     this.owners = [
-        { id: "unknown"        , value: "Non Assegnato!" },
-        { id: "roberto.gatti"  , value: "Roberto"        },
-        { id: "stefano.moretto", value: "Stefano M."     },
-        { id: "s.fiorini"      , value: "Stefano F."     }
+        { _id: "unknown"        , value: "Non Assegnato!" },
+        { _id: "roberto.gatti"  , value: "Roberto"        },
+        { _id: "stefano.moretto", value: "Stefano M."     },
+        { _id: "s.fiorini"      , value: "Stefano F."     }
     ];
 
     /**
      * TODO: This datas must be retreived from a database layer!
      */
     this.statuses = [
-        { id: 0, value: "Aperto"         },
-        { id: 1, value: "In Lavorazione" },
-        { id: 2, value: "In Pausa"       },
-        { id: 3, value: "Chiuso"         }
+        { _id: 0, value: "Aperto"         },
+        { _id: 1, value: "In Lavorazione" },
+        { _id: 2, value: "In Pausa"       },
+        { _id: 3, value: "Chiuso"         }
     ];
 
     // TODO: this datas MUST be retrieved from a database layer!
-    this.projects = [
+    /*this.projects = [
         {
-            id: getUid(),
+            _id: getUid(),
             title: "Progetto 1",
             description: "Descrizione progetto 1",
             status: this.statuses[0],
@@ -48,7 +71,7 @@ app.service('projectServ', function ( ) {
             tasks: [ ]
         },
         {
-            id: getUid(),
+            _id: getUid(),
             title: "Progetto 2a",
             description: "Descrizione progetto 2a",
             status: this.statuses[1],
@@ -56,7 +79,7 @@ app.service('projectServ', function ( ) {
             tasks: [ ]
         },
         {
-            id: getUid(),
+            _id: getUid(),
             title: "Progetto 3",
             description: "Descrizione progetto 3",
             status: this.statuses[2],
@@ -77,7 +100,7 @@ app.service('projectServ', function ( ) {
             ],
             tasks: [
                 {
-                    id: getUid(),
+                    _id: getUid(),
                     title: "Task 1",
                     description: "Descrizione Task 1",
                     status: this.statuses[1],
@@ -92,7 +115,7 @@ app.service('projectServ', function ( ) {
                     tasks: [ ]
                 },
                 {
-                    id: getUid(),
+                    _id: getUid(),
                     title: "Task 2",
                     description: "Descrizione Task 2",
                     status: this.statuses[0],
@@ -107,7 +130,7 @@ app.service('projectServ', function ( ) {
                     tasks: [ ]
                 },
                 {
-                    id: getUid(),
+                    _id: getUid(),
                     title: "Task 3",
                     description: "Descrizione Task 3",
                     status: this.statuses[3],
@@ -119,27 +142,11 @@ app.service('projectServ', function ( ) {
                     notes: [
                         { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 2", text: "testo nota task 2"}
                     ],
-                    tasks: [/*
-                      {
-                        id: getUid(),
-                        title: "Task 3.1",
-                        description: "Descrizione Task 3.1",
-                        status: this.statuses[2],
-                        owner: this.owners[1],
-                        dateOpen: new Date(2016, 04, 04),
-                        dateClose: null,
-                        dateLastUpdated: new Date(2016, 04, 07),
-                        statusNote: "",
-                        notes: [
-                            { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 2.1", text: "testo nota task 2.1"}
-                        ],
-                        tasks: [ ]
-                    }
-                  */]
+                    tasks: [ ]
                 }
             ]
         }
-    ];
+    ];*/
 
     this.selectedProjectId = null;
     this.sProject          = null;
@@ -163,10 +170,11 @@ app.service('projectServ', function ( ) {
         project.dateOpen = project.dateLastUpdated = new Date();
         project.dateClose = null;
 
-        project.id = getUid();
+        project._id = getUid();
 
-        this.projects.push( project );
-        this.selectedProjectId = project.id;
+        //this.projects.push( project );
+        //this.objectStore.add( project );
+        this.selectedProjectId = project._id;
         this.sProject = angular.extend( { }, project );
         if ( this.sProject.notes === undefined || this.sProject.notes == null )
             this.sProject.notes = [ ];
@@ -179,16 +187,18 @@ app.service('projectServ', function ( ) {
     this.removeProject = function ( projectId )
     {
         console.log(" [ AJS ] [ projectServ ] deleting project with id '" + projectId + "'. . . ");
-        var i = 0;
+        /*var i = 0;
         for ( i = 0; i < this.projects.length; i++ )
         {
-            if ( this.projects[i].id == projectId )
+            if ( this.projects[i]._id == projectId )
             {
-                this.projects.splice(i, 1 );
-                break;
+                //this.projects.splice(i, 1 );
+                console.log("Project found, deleting it . . .");*/
+                //this.objectStore.delete({ _id: projectId })
+          /*      break;
             }
-        }
-        console.log(" [ AJS ] [ projectServ ] Deleted project at index '" + i  + "' . . .");
+        }*/
+        console.log(" [ AJS ] [ projectServ ] Deleted project!");
     };
 
     /**
@@ -198,16 +208,17 @@ app.service('projectServ', function ( ) {
     this.saveProject = function ( project )
     {
         console.log("Updating project . . .");
-        for ( var i = 0; i < this.projects.length; i++ )
+        //this.objectStore.put( project );
+        /*for ( var i = 0; i < this.projects.length; i++ )
         {
-            if ( this.projects[i].id == project.id )
+            if ( this.projects[i]._id == project._id )
             {
                 this.projects[i] = project;
                 console.log("Project updated!");
                 return;
             }
         }
-        console.log(" ERROR: unable to find project to update with id: '" + project.id + "'");
+        console.log(" ERROR: unable to find project to update with _id: '" + project._id + "'");*/
     };
 
     this.updateTask = function ( newTask )
@@ -217,7 +228,7 @@ app.service('projectServ', function ( ) {
         for ( var i = 0; i < this.sProject.tasks.length ; i++ )
         {
             var task = this.sProject.tasks[i];
-            if ( task.id === newTask.id )
+            if ( task._id === newTask._id )
             {
                 // Overwriting object . . .
                 this.sProject.tasks[i] = angular.extend({ }, newTask);
@@ -246,7 +257,7 @@ app.service('projectServ', function ( ) {
         // behaviour...
         for ( var i = 0; i < this.projects.length; i++ )
         {
-            if ( this.projects[i].id == projectId )
+            if ( this.projects[i]._id == projectId )
             {
                 this.sProject = angular.extend( { }, this.projects[i] );
                 if ( this.sProject.notes === undefined )

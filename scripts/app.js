@@ -1,9 +1,20 @@
 // Defining application
-var app = angular.module("TTBApp", ["ngRoute"/*, "ui.tree" */ ]);
+var app = angular.module("TTBApp", ["ngRoute", "indexedDB" /*, "ui.tree" */ ]);
 
 // Configuring the app
-app.config( function ($routeProvider ) {
+app.config( function ($routeProvider, $indexedDBProvider ) {
     'use strict';
+c
+
+    // Configuring IDB . . .
+    $indexedDBProvider
+          .connection('TTB_APP_V2')
+          .upgradeDatabase(2, function(event, db, tx){
+            console.log("UPGRADING DATABASE!");
+            var objStore = db.createObjectStore('projects', {keyPath: '_id'});
+            //objStore.createIndex('name_idx', 'name', {unique: false});
+            objStore.createIndex('_id_idx', '_id', {unique: true});
+          });
 
     var homePageDatas = {
         controller: 'dashboardCtrl',
