@@ -1,0 +1,5 @@
+**/node_modules
+client.*
+client/_.git
+server/_.git
+_.gitmodules

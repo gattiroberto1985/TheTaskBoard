@@ -1,0 +1,27 @@
+
+.accordion-control p {
+    font-size: 14px;
+    font-style: italic;
+    color: #b3cccc;
+    height: auto;
+}
+
+.accordion-control button {
+    color: black;
+}
+
+.project {
+    margin: 10px 10px 10px 10px; /* top - right - bottom - left */
+    padding-left: 10px;
+    border-radius: 4px;
+    box-shadow: 3px 4px 10px #b3cccc; /* h-shadow v-shadow blur spread color */
+}
+
+.project-desc {
+    font-size: 14px;
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    /*quotes: "\201C""\201D""\2018""\2019";*/
+}

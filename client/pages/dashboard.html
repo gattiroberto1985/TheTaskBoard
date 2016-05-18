@@ -1,0 +1,167 @@
+<!-- Div contenitore per la view relativa alla taskboard -->
+<div class="col-md-12" id="div-projects"> <!-- ng-controller="dashboardCtrl" -->
+
+    <!-- Header pagina -->
+    <header id="page-header" class="jumbotron">
+        <h2>Dashboard progetti</h2>
+    </header>
+
+    <!-- Pannello di creazione progetto -->
+    <div id="project-new-div" class="panel">
+        <!-- div per accordion e intestazione -->
+        <div class="accordion-control panel-heading">
+            <h4>Nuovo progetto
+                <span class="pull-right">
+                    <button data-toggle="collapse"
+                            class="btn btn-default btn-sm"
+                            data-target="#project-new-datas">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                </span>
+            </h4>
+        </div>
+        <!-- Div per i dati -->
+        <div id="project-new-datas" class="row collapse out panel-body">
+
+            <form
+                name="prj-form-add"
+                class="form-horizontal" role="form"
+                ng-submit="addProject()">
+
+                <div class="col-md-8">
+                    <!-- Definizione delle etichette per i campi -->
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="prj-new-title"      >Titolo</label>
+                        <div class="col-md-10">
+                        <input class="form-control" type="text" ng-model="newProject.title"
+                            id="prj-new-title" placeholder="Inserisci il titolo . . ."
+                            required="true"></input>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="prj-new-description">Descrizione</label>
+                        <div class="col-md-10">
+                        <textarea class="form-control"
+                            type="text"
+                            ng-model="newProject.description"
+                            label="prj-new-description"
+                            placeholder="Inserisci la descrizione..."
+                            required="true"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="prj-new-owner"      >Assegnato a</label>
+                        <div class="col-md-10">
+                        <select
+                            ng-model="newProject.owner"
+                            label="prj-new-owner"
+                            placeholder="Inserisci l'assegnatario..."
+                            ng-options="owner as owner.value for owner in owners"
+                            required="true"></select>
+                        </div>
+                    </div>
+                </div>
+                <div id="form-action-panel" class="col-md-4">
+                    <input type="submit" id="new-prj-submit" value="Aggiungi" class="form-control btn-primary"></input>
+                    <!-- Spazietto intermedio . . . -->
+                    <br/>
+                    <input type="button" ng-click="resetFields()" value="Reset campi" class="form-control btn-primary"></input>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Div con filtro progetti -->
+    <!--div id="project-filter-div" class="panel">
+        <div class="accordion-control panel-heading">
+            <h4>Filtra progetti
+                <span class="pull-right">
+                    <button data-toggle="collapse"
+                            class="btn btn-default btn-sm"
+                            data-target="#project-filter-datas">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                </span>
+            </h4>
+        </div>
+        <div id="project-filter-datas" class="row collapse in panel-body">
+            <div class="span7 text-center col-md-10">
+                <input type="text"
+                        class="form-control"
+                        ng-model="searchString"
+                        placeholder="Inserisci una stringa di ricerca . . ."></input>
+            </div>
+
+        </div>
+    </div-->
+
+
+    <!-- Sezione di lista progetti -->
+    <!-- Div con lista progetti -->
+    <div id="projects-list-div" class="panel">
+        <header class="panel-heading">
+            <h4>Lista progetti</h4>
+            <input type="text"
+                    class="form-control"
+                    ng-model="searchString"
+                    placeholder="Inserisci una stringa di ricerca . . ."></input>
+        </header>
+
+
+        <!-- Per ogni progetto, la sua section e il suo accordion -->
+        <section class="panel-body project" ng-repeat="project in projects | filter: searchString">
+            <!-- Div per accordion -->
+            <div class="accordion-control panel-heading">
+                <!-- mostrare solo se chiuso! -->
+                <h4>{{ project.title }} <span class="small">{{ project.description | truncate:70 }}</span>
+                    <span class="pull-right">
+                        <button title="Rimuovi progetto"
+                                class="btn btn-default btn-sm"
+                                ng-click="removeProject(project._id)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                        <button title="Apri progetto . . ."
+                                class="btn btn-default btn-sm"
+                                ng-click="openProject(project)">
+                                <span class="glyphicon glyphicon glyphicon-arrow-right"></span>
+                        </button>
+                        <button title="Espandi dati"
+                                data-toggle="collapse"
+                                class="btn btn-default btn-sm"
+                                data-target="#div-project-data-{{project._id}}">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                    </span>
+                </h4>
+            </div>
+            <!-- Div per i dati -->
+            <div id="div-project-data-{{project._id}}" class="row collapse out panel-body">
+
+                <!--p>Descrizione progetto: </p-->
+                <blockquote class="project-desc">{{ project.description }}</blockquote>
+
+                <p>Attualmente in carico a: <strong>{{ project.owner.value }}</strong></p>
+                <p>Stato attuale: <strong>{{ project.status.value }}</strong>
+                    <p ng-show="project.statusNote != undefined">, con nota:<br/>
+                        {{ project.statusNote }}
+                    </p>
+                </p>
+                <p>Ultima modifica eseguita il: <strong>{{ project.dateLastUpdated | date: 'dd MMM yyyy HH:mm' }}</strong></p>
+                <p>In questo progetto sono presenti:
+                    <ul style="list-style-type:none">
+                        <li>{{ fromAngular }} task aperti</li>
+                        <li>{{ fromAngular }} task in lavorazione</li>
+                        <li>{{ fromAngular }} task fermi</li>
+                        <li>{{ fromAngular }} task chiusi</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+    </div>
+
+</div>

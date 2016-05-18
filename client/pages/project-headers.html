@@ -1,0 +1,122 @@
+<section>
+
+    <!-- 6-column size for the headers and the task of the project -->
+    <div class="col-md-6" id="div-project-details">
+
+            <!--
+            id: 3,
+            title: "Progetto 3",
+            description: "Descrizione progetto 3",
+            status: "In Pausa",
+            owner: owners[3],
+            dateOpen: new Date(2016, 04, 02),
+            dateClose: null,
+            dateLastUpdated: new Date(2016, 04, 24),
+            statusNote: "In attesa chiarimenti",
+            timeline: [
+                { date: new Date(2016, 04, 03), status: "In Lavorazione", note: "Inizio lavori!"},
+                { date: new Date(2016, 04, 06), status: "In Pausa"      , note: "Inviate indicazioni, in attesa riscontro"},
+                { date: new Date(2016, 04, 06), status: "In Lavorazione", note: "Info recuperate, riparto con l'attività"}
+            ],
+            notes: [
+                { date: new Date(2016, 04, 03, 12, 22, 00), title: "titolo nota 1", text: "testo nota 1 " },
+                { date: new Date(2016, 04, 07, 17, 48, 00), title: "titolo nota 2", text: "testo nota 2 " },
+                { date: new Date(2016, 04, 13, 14, 12, 00), title: "titolo nota 3", text: "testo nota 3 " }
+            ],-->
+            <input type="text"
+            ng-model="sProject.title"
+            label="prj-new-title"
+            placeholder="Inserisci il titolo..."
+            required="true"></input>
+
+            <textarea
+                type="text"
+                ng-model="sProject.description"
+                label="prj-new-description"
+                placeholder="Inserisci la descrizione..."
+                required="true"></textarea>
+
+            <select
+                ng-model="sProject.status"
+                label="prj-new-owner"
+                placeholder="Inserisci lo stato..."
+                ng-options="status as status.value for status in statuses track by status.id"
+                required="true"></select>
+
+            <textarea
+                ng-model="sProject.statusNote"
+                label="prj-status-note"
+                placeholder="Inserisci le note dello stato . . . ">{{sProject.statusNote}}</textarea>
+
+            <p>Data apertura: {{ sProject.dateOpen | date: 'dd MMM yyyy'}}</p>
+
+            <p ng-if="sProject.dateClose != null">Data chiusura: {{ sProject.dateOpen | date: 'dd MMM yyyy'}}</p>
+
+            <p>Data ultima modifica: {{ sProject.dateLastUpdate | date: 'dd MMM yyyy HH:mm'}}</p>
+
+                <p>Task totali: {{ sProject.tasks.length }}</p>
+                <p class="alert-danger" >Task aperti:         <span class="pull-right">{{ openedTaskNumber }} </span></p>
+                <p class="alert-success">Task chiusi:         <span class="pull-right">{{ closedTaskNumber }} </span></p>
+                <p class="alert-info"   >Task in lavorazione: <span class="pull-right">{{ workingTaskNumber }}</span></p>
+                <p class="alert-warning">Task fermi:          <span class="pull-right">{{ pausedTaskNumber }} </span></p>
+                <!--div ng-repeat="task in sProject.tasks"></div-->
+                <!--button class="btn" ng-click="openProjectTasks(sProject)">Apri task</button-->
+
+
+    </div>
+
+    <!-- 6-column size for the notes and the timeline -->
+    <div class="col-md-6">
+        <button class="btn col-md-12" data-toggle="collapse" data-target="#div-project-notes">Mostra/Nascondi note</button>
+        <div class="col-md-12" id="div-project-notes">
+            <div class="col-md-12" id="new-prj-note">
+                <textarea
+                    class="col-md-10"
+                    type="text"
+                    ng-model="newNote.text"
+                    placeholder="Inserisci il testo della nota . . ."></textarea>
+                <button class="col-md-1" ng-click="addProjectNote()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+            <p ng-repeat="note in sProject.notes">[ {{note.date | date: 'yyyy/MM/dd HH:mm'}} ] {{note.text}}</p>
+        </div>
+
+
+        <button class="btn col-md-12" data-toggle="collapse" data-target="#div-project-timeline">Mostra/Nascondi timeline</button>
+        <div class="col-md-12" id="div-project-timeline">
+            <div id="prj-timeline">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>
+                                <a href="" ng-click="timelineSortField = 'date'; timelineSortSense = !timelineSortSense">
+                                    Data
+                                    <span ng-show="timelineSortField == 'date'" class="fa fa-caret-down"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="" ng-click="timelineSortField = 'status'; timelineSortSense = !timelineSortSense">
+                                    Stato
+                                    <span ng-show="timelineSortField == 'status'" class="fa fa-caret-down"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="" ng-click="timelineSortField = 'note'; timelineSortSense = !timelineSortSense">
+                                    Nota
+                                    <span ng-show="timelineSortField == 'note'" class="fa fa-caret-down"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="timestep in sProject.timeline | orderBy:timelineSortField:timelineSortSense">
+                        <td>{{timestep.date | date: 'dd MMM yyyy HH:mm'}} </td>
+                        <td>{{timestep.status}}</td>
+                        <td>{{timestep.note}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>
