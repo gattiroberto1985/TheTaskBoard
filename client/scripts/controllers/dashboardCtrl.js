@@ -20,9 +20,17 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
 
     // Calling getProjects() from the service, and valorizing the local
     // projects variable . . .
-    projectServ.getProjects().then( function ( response ) {
-        setProjects(response);
-    });
+    projectServ.getProjects().then(
+        // onsuccess . . .
+        function ( response ) {
+            setProjects(response);
+        },
+        // onerror . . .
+        function ( response ) {
+            console.log ( "ERROR: unable to retreive the projects!");
+            if ( response.status == -1 )
+                alert ( "ERROR: unable to get the projects: the server may be down . . .");
+        });
 
     /* ******************************************************************** */
     /*                              CALLBACKS                               */

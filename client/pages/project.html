@@ -1,6 +1,13 @@
 <!-- Data section of the project -->
 <section ng-show="sProject != null" class="col-md-12" id="div-project-datas">
 
+    <!-- Header pagina -->
+    <header id="page-header" class="jumbotron">
+        <h2>Dettagli {{ sProject.title | truncate:25 }}<br/><br/>
+            <span class="small">{{ sProject.status.value }} -- {{ sProject.statusNote | truncate:30 }}</span>
+        </h2>
+    </header>
+
     <!-- Da ristrutturare con:
         action bar ( gia' prj-control-div) sempre visibile anche durante lo scroll
 
@@ -16,19 +23,54 @@
         <button class="btn" ng-click="removeProject(sProject)"   >Rimuovi progetto</button>
     </div-->
 
-    <button class="btn col-md-12" data-toggle="collapse" data-target="#project-headers">Mostra/Nascondi testata progetto</button>
-    <div class="col-md-12" id="project-headers">
-        <h1>Dettagli progetto</h1>
-        <ng-include src="'pages/project-headers.html'"></ng-include>
+    <div id="project-action-bar" class="panel fixed-top">
+        <div class="panel-body form-inline">
+            <!-- 2016.05.20 @@ Rimossi riferimenti a updateproject -->
+            <button class="form-control btn-primary" ng-click="updateProject()"   >Conferma modifiche</button>
+            <button class="form-control btn-primary" ng-click="rollbackProject()"         >Annulla modifiche</button>
+            <button class="form-control btn-primary" ng-click="removeProject()"   >Rimuovi progetto</button>
+        </div>
     </div>
 
-    <div class="spacer">
+    <!--button class="btn col-md-12" data-toggle="collapse" data-target="#project-headers">Mostra/Nascondi testata progetto</button-->
+    <div class="panel">
+        <!-- div per accordion e intestazione -->
+        <div class="accordion-control panel-heading">
+            <h3>Dettagli progetto
+                <span class="pull-right">
+                    <button data-toggle="collapse"
+                            class="btn btn-default btn-sm"
+                            data-target="#project-headers-data">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                </span>
+            </h3>
+        </div>
+        <div id="project-headers-data" class="panel-body collapse in">
+            <ng-include src="'pages/project-headers.html'"></ng-include>
+        </div>
+    </div>
+
+    <!--div class="spacer">
         <hr />
-    </div>
+    </div-->
 
-    <div class="col-md-12" id="project-tasks">
-        <h2>Task del progetto</h2>
-        <ng-include src="'pages/project-tasks.html'"></ng-include>
+    <div class="panel" >
+        <!-- div per accordion e intestazione -->
+        <div class="accordion-control panel-heading">
+            <h3>Task del progetto
+                <span class="pull-right">
+                    <button data-toggle="collapse"
+                            class="btn btn-default btn-sm"
+                            data-target="#project-tasks">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                </span>
+            </h3>
+        </div>
+        <div id="project-tasks" class="panel-body collapse in">
+            <ng-include src="'pages/project-tasks.html'"></ng-include>
+        </div>
     </div>
 
     <!--ng-include src="'pages/tasks.html'"></ng-include-->

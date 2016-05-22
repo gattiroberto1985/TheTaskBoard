@@ -52,30 +52,6 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
     if ( sProject.timeline === undefined ) sProject.timeline = [ ] ;
 
     /**
-     * This function redirect to the tasks page.
-     * @deprecated
-     */
-    /*$scope.openProjectTasks = function ( project ) {
-        if ( project == null )
-        {
-            console.log(" No project to open!");
-            return;
-        }
-        console.log("[ dashboardCtrl ] Redirecting to 'project/" + project.id + "/tasks' . . . ");
-        $location.path("project/" + project.id + "/tasks" );
-    };*/
-
-    /**
-     * This function close the project view. If the project has not been saved
-     * the changes are lost!
-     */
-    /*$scope.closeProject = function ( ) {
-        console.log("Closing project");
-        sProject = sProject = null;
-        $location.path("/dashboard");
-    };*/
-
-    /**
      * This function rollbacks all changes made to the original task.
      */
     $scope.rollbackProject = function( ) {
@@ -120,11 +96,30 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
     /**
      * Update a project (by calling the project service).
      *
-     * @param updatedProject the old project with the new data (shares same _id).
      */
-    $scope.updateProject = function ( updatedProject ) {
+    $scope.updateProject = function ( /* updatedProject */ ) {
         console.log("[ dashboardCtrl ] Trying to save the project . . .");
-        projectServ.saveProject( updatedProject );
+        // If project state is different from the source . . .
+        if ( sProject.status != projectServ.status )
+        {
+            // . . . if status note is empty or not changed wrt the old one . . .
+            if ( _isNullOrEmpty ( sProject.statusNote ) || sProject.statusNote == projectServ.sProject.statusNote )
+            {
+                // . . . throwing error . . .
+                alert ( "WARNING: inserire o modificare la nota per il cambio di stato!");
+                return;
+            }
+            // . . . adding timeline step . . .
+            $scope.addProjectTimelineStep();
+        }
+        // . . . otherwise if note is not null and is different from the old one . . .
+        else if (  ( ! _isNullOrEmpty ( sProject.statusNote ) ) && sProject.statusNote != projectServ.sProject.statusNote  )
+        {
+            // . . . adding timeline step . . .
+            $scope.addProjectTimelineStep();
+        }
+        // . . . then save the project!
+        projectServ.saveProject( sProject );
     };
 
     /**
@@ -136,4 +131,18 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
         projectServ.removeProject ( projectId );
         sProject = projectServ.sProject = null;
     };
+
+    /**
+     * Adds a status note in the timeline.
+     */
+    $scope.addProjectTimelineStep = function ( ) {
+        console.log(" [ projectCtrl ] Adding timeline step . . . ");
+        var timestamp = new Date();
+        var status = sProject.status.value;
+        var text = sProject.statusNote;
+
+        sProject.timeline.push( { "date": timestamp, "status": status, "note": text } );
+
+    };
+
 });

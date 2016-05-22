@@ -6,7 +6,7 @@
  * Delete) and some utilities variable for referencing the user selection.
  *
  */
-app.service('projectServ', function ( $http ) {
+app.service('projectServ', function ( $http, storageServ ) {
 
     this.owners            = [ ];     // local array for storing the owners
     this.statuses          = [ ];     // local array for storing the statuses
@@ -20,7 +20,7 @@ app.service('projectServ', function ( $http ) {
     this.owners = [
         { id: "unknown"        , value: "Non Assegnato!" },
         { id: "roberto.gatti"  , value: "Roberto"        },
-        { id: "stefano.moretto", value: "Stefano M."     },
+        //{ id: "stefano.moretto", value: "Stefano M."     },
         { id: "s.fiorini"      , value: "Stefano F."     }
     ];
 
@@ -34,42 +34,18 @@ app.service('projectServ', function ( $http ) {
         { id: 3, value: "Chiuso"         }
     ];
 
-
-    /* ********************************************************************* */
-    /*                             REST HANDLERS                             */
-    /* ********************************************************************* */
-
-    /**
-     * Success REST Http request handler.
-     *
-     * @param response REST http response.
-     */
-    this.onSuccess = function ( response )
-    {
-        console.log( "Rest call correctly consumed! Request code: " + response.status + ".");
-    }
-
-    /**
-     * Error REST Http request handler.
-     *
-     * @param response REST http response.
-     */
-    this.onError   = function ( response )
-    {
-        console.log( "ERROR: rest call in error: " + response.status );
-        alert ( "ERROR: REST call failed: " + response.status);
-    }
-
     /* ********************************************************************* */
     /*                                CRUD METHODS                           */
     /* ********************************************************************* */
+
+    //storageServ.checkAPI() ;
 
     /**
      * Gets all the project from the database layer.
      */
     this.getProjects = function ( )
     {
-        return $http.get('http://localhost:3000/project');
+        return storageServ.getProjects();
     };
 
     /**
@@ -94,12 +70,7 @@ app.service('projectServ', function ( $http ) {
         // Defining _id for the project . . .
         project._id = getUid();
 
-        $http.post("http://localhost:3000/project", project ).then (
-            // Success callback . . .
-            this.onSuccess,
-            // . . . and error callback!
-            this.onError
-        );
+        storageServ.addProject( project );
 
         //this.selectedProjectId = project._id;
         this.sProject = angular.extend( { }, project );
@@ -119,12 +90,7 @@ app.service('projectServ', function ( $http ) {
     this.removeProject = function ( projectId )
     {
         console.log(" [ AJS ] [ projectServ ] deleting project with id '" + projectId + "'. . . ");
-        $http.delete("http://localhost:3000/project/" + projectId).then (
-            // Success callback . . .
-            this.onSuccess, //function ( response ) { alert("Project deleted on server!"); console.log(response.data + " -- " + response.status )},
-            // Error callback
-            this.onError //function ( response ) { alert("ERROR: unable to delete project :( !");  console.log(response.data + " -- " + response.status )}
-        );
+        storageServ.removeProject( projectId );
 
         // Removing from the local array . . .
         for ( var i = 0; i < this.projects.length; i++ )
@@ -146,13 +112,7 @@ app.service('projectServ', function ( $http ) {
     this.saveProject = function ( project )
     {
         console.log("Updating project . . .");
-        $http.put("http://localhost:3000/project/" + project._id, project).then (
-            // Success callback . . .
-            this.onSuccess, //function ( response ) { alert("Project updated on server!"); console.log(response.data + " -- " + response.status )},
-            // Error callback
-            this.onError //function ( response ) { alert("ERROR: unable to update project :( !");  console.log(response.data + " -- " + response.status )}
-        );
-
+        storageServ.updateProject ( project );
         // updating local array . . .
         for ( var i = 0; i < this.projects.length; i++ )
         {

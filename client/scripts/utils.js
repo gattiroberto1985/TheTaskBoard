@@ -20,6 +20,7 @@ function getUid() {
  * @param source the first element to search
  * @param target the second element to search
  * @throws error if one of the parameters is null/undefined
+ * @return true if identical objects, false otherwise
  */
 function _equals(source, target)
 {
@@ -61,4 +62,16 @@ function _equals(source, target)
     }
 
     return true;
+}
+
+/**
+ * Checks if the string is null or empty.
+ *
+ * @param source The input string to check;
+ * @return true if the string is null or empty, false otherwise.
+ */
+function _isNullOrEmpty( source )
+{
+    if ( source === undefined || source == null || source.trim().length == 0 )
+        return false;
 }
