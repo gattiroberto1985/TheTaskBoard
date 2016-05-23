@@ -27,11 +27,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-/*// Defining REST . ..
-app.use('/hello', function(req, res, next) {
+// Rest endpoint for check the state of the server  . . .
+app.use('/ttb_mongo_api', function(req, res, next) {
   res.send('Hello World!');
   next(); // pass to next middlewaer
-});*/
+});
 
 // Connect to MongoDB
 //mongoose.connect('mongodb://localhost/mean-dev/');
