@@ -145,4 +145,9 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
 
     };
 
+    $scope.openTasks = function ( ) {
+        console.log ( " [ projectCtrl ] Opening tasks . . . ");
+        $location.path("project/" + sProject._id + "/tasks" );
+    };
+
 });
