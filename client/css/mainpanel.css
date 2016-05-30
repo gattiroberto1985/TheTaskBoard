@@ -31,5 +31,9 @@
 }
 
 #project-action-bar {
-    position: fixed;
+    /* position: fixed; */
+}
+
+.task-header:hover {
+    background: #e0ebeb;
 }

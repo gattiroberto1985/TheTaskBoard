@@ -141,7 +141,7 @@ app.service('projectServ', function ( $http, storageServ ) {
             if ( task._id === newTask._id )
             {
                 // Overwriting object . . .
-                console.log("task found: " + task._id );
+                console.log(" [ projectServ ] Task found: " + task._id );
                 this.sProject.tasks[i] = angular.extend({ }, newTask);
                 // aliasing reference . . .
                 sTask = this.sProject.tasks[i];
@@ -158,6 +158,21 @@ app.service('projectServ', function ( $http, storageServ ) {
         this.sProject.tasks.push( task );
         this.sTask = task;
     }
+
+    /**
+     * Removes a task.
+     *
+     * @param taskId The id of the task to remove.
+     */
+    this.removeTask = function ( taskId )
+    {
+        console.log ( " [ projectServ ] Removing task with id '" + taskid + "' . . . ");
+        for ( var i = 0; i < this.sProject.tasks.length ; i++ )
+        {
+            if ( this.sProject.tasks[ i ]._id == taskId )
+                this.sProject.tasks.splice( i, 1 ); // removing 1 element at index i
+        }
+    };
 
     /* ********************************************************************* */
     /*                             OTHER METHODS                             */

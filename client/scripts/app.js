@@ -25,30 +25,22 @@ app.config( function ($routeProvider ) {
         templateUrl: 'pages/fasks.html'
     };
 
-    /*var projectTasksPageDatas = {
+    var projectTasksPageDatas = {
       controller: 'tasksCtrl',
-      templateUrl: 'pages/tasks.html'
-    };*/
+      templateUrl: 'pages/project-tasks.html'
+    };
 
     /*var projectDetailsData = {
-        controller: 'tasksCtrl',
-        templateUrl: 'pages/tasks.html'
+        controller: 'adminCtrl',
+        templateUrl: 'pages/admin.html'
     };*/
-
-    var usersData = {
-        controller: 'usersCtrl',
-        templateUrl: 'pages/users.html'
-    };
 
     $routeProvider
         .when('/dashboard', homePageDatas)
         .when('/fasks', fasksPage)
-        // :userId indica che al routing sto passando un parametro!
-        // Tale parametro sarà poi recuperabile dal controller
-        // utenteCtrl tramite apposita variabile
         .when('/project/:_id', projectDetailsPageDatas )
-        //.when('/project/:id/tasks', projectDetailsData)
-      //.when('/users', usersData )
+        .when('/project/:_id/tasks', projectTasksPageDatas )
+        //.when('/admin', adminPageDatas )
         .otherwise({
             redirectTo: '/dashboard'
         });

@@ -27,8 +27,9 @@
         <div class="panel-body form-inline">
             <!-- 2016.05.20 @@ Rimossi riferimenti a updateproject -->
             <button class="form-control btn-primary" ng-click="updateProject()"   >Conferma modifiche</button>
-            <button class="form-control btn-primary" ng-click="rollbackProject()"         >Annulla modifiche</button>
+            <button class="form-control btn-primary" ng-click="rollbackProject()" >Annulla modifiche</button>
             <button class="form-control btn-primary" ng-click="removeProject()"   >Rimuovi progetto</button>
+            <button class="form-control btn-primary" ng-click="openTasks()"       >Apri tasks</button>
         </div>
     </div>
 
@@ -57,7 +58,7 @@
 
     <div class="panel" >
         <!-- div per accordion e intestazione -->
-        <div class="accordion-control panel-heading">
+        <!--div class="accordion-control panel-heading">
             <h3>Task del progetto
                 <span class="pull-right">
                     <button data-toggle="collapse"
@@ -67,10 +68,10 @@
                     </button>
                 </span>
             </h3>
-        </div>
-        <div id="project-tasks" class="panel-body collapse in">
+        </div-->
+        <!--div id="project-tasks" class="panel-body collapse in">
             <ng-include src="'pages/project-tasks.html'"></ng-include>
-        </div>
+        </div-->
     </div>
 
     <!--ng-include src="'pages/tasks.html'"></ng-include-->
