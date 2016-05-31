@@ -1,7 +1,7 @@
 /**
  * Angular service for the correct data layer API to use.
  */
-app.service('storageServ', function ($http, $injector) {
+app.service('storageServ', function ($http, $injector, $q) {
 	'use strict';
 
 	this._apiIDB          = false; // true if using local indexedDB
@@ -17,8 +17,38 @@ app.service('storageServ', function ($http, $injector) {
 	 * Checking API ( NodeJS > IDB > localstorage ).
 	 */
 	this.checkAPI = function ( ) {
-		console.log(" [ storageServ ] Checking API for storage . . .");
-		this.checkNodeJSApi();
+
+		/*
+		function asyncGreet(name) {
+		  // perform some asynchronous operation, resolve or reject the promise when appropriate.
+		  return $q(function(resolve, reject) {
+		    setTimeout(function() {
+		      if (okToGreet(name)) {
+		        resolve('Hello, ' + name + '!');
+		      } else {
+		        reject('Greeting ' + name + ' is not allowed.');
+		      }
+		    }, 1000);
+		  });
+		}
+		*/
+		return $q( function ( resolve, reject ) {
+			console.log ( " [ storageServ ] CheckAPI $q . . .");
+			$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
+				// onSuccess
+				function ( response ) {
+					console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
+					resolve ( $injector.get("nodejsStorageAPI") );
+				},
+				// onError
+				function ( response ) {
+					console.log ( " [ storageServ ] NodeJS server unavailable: using local IDB . . . ");
+					resolve ( $injector.get("idbStorageAPI") );
+				}
+			);
+		});
+		/*console.log(" [ storageServ ] Checking API for storage . . .");
+		this.checkNodeJSApi();*/
 	};
 
 	/**
@@ -81,11 +111,21 @@ app.service('storageServ', function ($http, $injector) {
 	this.updateProject = function ( project ) { return this._storageServ.updateProject( project ) ; }
 
 	this.getProjects = function ( project ) {
+
+		var promise = this.checkAPI( ) ;
+
+		promise.then ( function ( response ) {
+			this._storageServ = response;
+		},
+		function ( response ) {
+			console.log ( " [ storageServ ] ERROR: " + JSON.stringify ( response ) );
+		});
+		/*this.checkAPI();
 		this._storageServ = $injector.get("nodejsStorageAPI");
-		 return this._storageServ.getProjects() ;
+		 return this._storageServ.getProjects() ;*/
 	}
 
 	// Detecting api . . .
-	//this.checkAPI();
+	//his.checkAPI();
 
 });
