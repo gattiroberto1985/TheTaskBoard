@@ -17,12 +17,13 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
     $scope.sProject          = null                ; // selected project
     $scope.timelineSortField = 'date'              ; // sort field for the date
     $scope.timelineSortSense = false               ; // flag for the sort order
-
+    $scope.projects          = projectServ.projects;
     // Calling getProjects() from the service, and valorizing the local
     // projects variable . . .
-    projectServ.getProjects().then(
+    projectServ.getProjects();/*.then(
         // onsuccess . . .
         function ( response ) {
+            console.log( " [ dashboardCtrl ] Response retreived from the promise: " + JSON.stringify( response ) );
             setProjects(response);
         },
         // onerror . . .
@@ -30,7 +31,7 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
             console.log ( "ERROR: unable to retreive the projects!");
             if ( response.status == -1 )
                 alert ( "ERROR: unable to get the projects: the server may be down . . .");
-        });
+        });*/
 
     /* ******************************************************************** */
     /*                              CALLBACKS                               */
@@ -44,7 +45,7 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
         console.log("Project retreived: '" + response.data.length + "'");
         $scope.projects = projectServ.projects = response.data;
     }
-
+    
     /* ******************************************************************** */
     /*                        VIEW MANAGER FUNCTION                         */
     /* ******************************************************************** */

@@ -59,6 +59,7 @@ app.service('nodejsStorageAPI', function ( $http ) {
     };
 
     this.getProjects = function ( ) {
+        console.log ( " [ nodejsStorageAPI ] Retreiving projects . . . ");
         return $http.get('http://localhost:3000/project');
     };
 

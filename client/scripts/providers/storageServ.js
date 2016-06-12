@@ -1,7 +1,7 @@
 /**
  * Angular service for the correct data layer API to use.
  */
-app.service('storageServ', function ($http, $injector, $q) {
+app.service('storageServ', function ($http, $injector, $q/*, projectServ */ ) {
 	'use strict';
 
 	this._apiIDB          = false; // true if using local indexedDB
@@ -110,16 +110,25 @@ app.service('storageServ', function ($http, $injector, $q) {
 
 	this.updateProject = function ( project ) { return this._storageServ.updateProject( project ) ; }
 
-	this.getProjects = function ( project ) {
 
-		var promise = this.checkAPI( ) ;
 
-		promise.then ( function ( response ) {
+	this.getProjects = function ( strgServ ) {
+
+		console.log ( " [ storageServ ] entering get projects . . . ");
+		/*return $q(
+			function ( resolve, reject )
+			{*/
+				console.log( " [ storageServ ] Retreiving projects . . . ");
+				// return a promise . . .
+				return strgServ.getProjects();
+			/*}
+		);*/
+/*		promise.then ( function ( response ) {
 			this._storageServ = response;
 		},
 		function ( response ) {
 			console.log ( " [ storageServ ] ERROR: " + JSON.stringify ( response ) );
-		});
+		});*/
 		/*this.checkAPI();
 		this._storageServ = $injector.get("nodejsStorageAPI");
 		 return this._storageServ.getProjects() ;*/
