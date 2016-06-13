@@ -69,7 +69,16 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
 				function ( response ) {
 					console.log ( " [ storageServ ] NodeJS server unavailable: using local IDB . . . ");
 					storageServ._storageServ = $injector.get("idbStorageAPI");
-                    storageServ.getProjects(storageServ._storageServ );
+                    var promise = storageServ.getProjects(storageServ._storageServ );
+                    promise.then (
+                    function ( response ) {
+                        var projects = response;
+                        console.log(" [ projectServ ] Response data: " + projects );
+                        return projects;
+                    },
+                    function ( response ) {
+                        console.log(" [ projectServ ] Response error. ");
+                    });
 				}
 			);
 		});

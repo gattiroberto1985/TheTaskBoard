@@ -845,7 +845,7 @@ Di seguito i dettagli:
 
 - `=` mette in corrispondenza la variabile esterna con la variabile
  interna tramite un binding bidirezionale;
-- 
+-
 
 # Dietro le quinte
 
@@ -980,6 +980,13 @@ specificare un terzo parametro nel metodo `$watch()`, un boolean:
 			alert("Il nuovo valore è " + newValue.nome);
 	}, true); // con il true, se cambio persona.nome, la funzione
               // viene invocata!
+
+# Altre utilita'
+
+## Promises
+Permettono una sorta di multithread in un ambiente tipicamente single-thread come
+e' quello di javascript in un browser web.
+              
 
 # Snippet utili generici
 

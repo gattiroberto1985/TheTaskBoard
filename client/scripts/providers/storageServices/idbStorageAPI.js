@@ -1,14 +1,14 @@
 /**
  * Storage API for the IndexedDB.
  */
-app.service('idbStorageAPI', function ( $window, storageServ, projectServ ) {
+app.service('idbStorageAPI', function ( $window, storageServ, projectServ, $q ) {
 
-    this.IDB_DB_NAME = "TheTaskBoard_IDB";
-    this.IDB_DB_VERS = 5;
+    var IDB_DB_NAME                    = this.IDB_DB_NAME = "TheTaskBoard_IDB";
+    var IDB_DB_VERS                    = this.IDB_DB_VERS = 5;
     var IDB_PROJECTS_OBJECT_STORE_NAME = this.IDB_PROJECTS_OBJECT_STORE_NAME = "ttb_projects";
     var IDB_FASKS_OBJECT_STORE_NAME    = this.IDB_FASKS_OBJECT_STORE_NAME    = "ttb_fasks";
     var IDB_READ_WRITE_MODE            = this.IDB_READ_WRITE_MODE           = "readwrite";
-    this.IDB_SERVICE = $window.indexedDB      = $window.indexedDB; // || $window.mozIndexedDB || $window.webkitIndexedDB || $window.msIndexedDB;
+    var IDB_SERVICE                    = this.IDB_SERVICE = $window.indexedDB      = $window.indexedDB; // || $window.mozIndexedDB || $window.webkitIndexedDB || $window.msIndexedDB;
     //this.idbTransaction = $window.IDBTransaction = $window.IDBTransaction || $window.webkitIDBTransaction || $window.msIDBTransaction || {READ_WRITE: "readwrite"}; // This line should only be needed if it is needed to support the object's constants for older browsers
     //this.idbKeyRange    = $window.IDBKeyRange    = $window.IDBKeyRange || $window.webkitIDBKeyRange || $window.msIDBKeyRange;
 
@@ -74,29 +74,33 @@ app.service('idbStorageAPI', function ( $window, storageServ, projectServ ) {
 
     this.getProjects = function ( ) {
         console.log(" [ idbStorageAPI ] Opening IndexedDB database '" + this.IDB_DB_NAME + "' at version '" + this.IDB_DB_VERS + "' . . .");
-        var request = this.IDB_SERVICE.open( this.IDB_DB_NAME, this.IDB_DB_VERS );
-        request.onupgradeneeded = this.onIDBUpgradeNeeded;
-        request.onerror = this.onIDBRequestError;
-        request.onsuccess = function ( event )
+        return $q( function( resolve, reject )
         {
-            //this.idb = event.target.result;
-            idb = event.target.result;
-            console.log(" [ idbStorageAPI ] Getting datas . . . ");
-            var getProjectsReq = /*this.*/idb.transaction( [ /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME ], /*this.*/IDB_READ_WRITE_MODE)
-                                 .objectStore( /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME ).getAll();
-            getProjectsReq.onsuccess = function ( event )
+            var request = /*this.*/IDB_SERVICE.open( /*this.*/IDB_DB_NAME, /*this.*/IDB_DB_VERS );
+            request.onupgradeneeded = this.onIDBUpgradeNeeded;
+            request.onerror = this.onIDBRequestError;
+            request.onsuccess = function ( event )
             {
-                console.log( " [ idbStorageAPI ] Data retreived: size is " + event.target.result.length);
-                var projects = event.target.result;
-                projectServ.setProjects ( projects );
-                for ( var i = 0; i++; i < projects.length )
-                    projectServ.projects.push( projects [ i ] );
+                //this.idb = event.target.result;
+                idb = event.target.result;
+                console.log(" [ idbStorageAPI ] Getting datas . . . ");
+                var getProjectsReq = /*this.*/idb.transaction( [ /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME ], /*this.*/IDB_READ_WRITE_MODE)
+                                     .objectStore( /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME ).getAll();
+                getProjectsReq.onsuccess = function ( event )
+                {
+                    console.log( " [ idbStorageAPI ] Data retreived: size is " + event.target.result.length);
+                    var projects = event.target.result;
+                    projectServ.setProjects ( projects );
+                    for ( var i = 0; i++; i < projects.length )
+                        projectServ.projects.push( projects [ i ] );
+                    resolve( projects );
+                };
+                getProjectsReq.onerror = function ( event )
+                {
+                    console.log( " [ idbStorageAPI ] ERROR on getProjects: " + event.target.errorCode);
+                };
             };
-            getProjectsReq.onerror = function ( event )
-            {
-                console.log( " [ idbStorageAPI ] ERROR on getProjects: " + event.target.errorCode);
-            };
-        };
+        });
     };
 
 });
