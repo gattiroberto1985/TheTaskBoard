@@ -6,7 +6,7 @@
  * Delete) and some utilities variable for referencing the user selection.
  *
  */
-app.service('projectServ', function ( $http, storageServ ) {
+app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
 
     this.owners            = [ ];     // local array for storing the owners
     this.statuses          = [ ];     // local array for storing the statuses
@@ -45,8 +45,51 @@ app.service('projectServ', function ( $http, storageServ ) {
      */
     this.getProjects = function ( )
     {
-        return storageServ.getProjects();
+        // return a promise with the datas populated
+        return $q( function ( resolve, reject ) {
+			console.log ( " [ projectServ ] Checking data source (nodeJS server or indexedDB) . . .");
+			$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
+				// onSuccess
+				function ( response ) {
+					console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
+                    storageServ._storageServ = $injector.get("nodejsStorageAPI");
+                    return storageServ.getProjects(storageServ._storageServ).then(
+                        function ( rresponse)
+                        {
+                            console.log( " Response OK! ");
+                             return rresponse.data;
+                        },
+                        function ( rreject )
+                        {
+                            console.log( " asdasd ");
+                        }
+                    );
+				},
+				// onError
+				function ( response ) {
+					console.log ( " [ storageServ ] NodeJS server unavailable: using local IDB . . . ");
+					storageServ._storageServ = $injector.get("idbStorageAPI");
+                    var promise = storageServ.getProjects(storageServ._storageServ );
+                    promise.then (
+                    function ( response ) {
+                        var projects = response;
+                        console.log(" [ projectServ ] Response data: " + projects );
+                        return projects;
+                    },
+                    function ( response ) {
+                        console.log(" [ projectServ ] Response error. ");
+                    });
+				}
+			);
+		});
     };
+
+    this.setProjects = function( projects )
+    {
+        this.projects = [ ];
+        for ( var i = 0; i++; i < projects.length )
+            this.projects.push( projects [ i ] );
+    }
 
     /**
      * Create method for a project.
