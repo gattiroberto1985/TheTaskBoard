@@ -3,7 +3,7 @@
 
     <!-- Header pagina -->
     <header id="page-header" class="jumbotron">
-        <h2>Tasks in {{ sProject.title | truncate:25 }}<br/><br/>
+        <h2>Tasks in {{ sProject.title | truncate:45 }}<br/><br/>
             <span class="small">{{ sProject.status.value }} -- {{ sProject.statusNote | truncate:30 }}</span>
         </h2>
     </header>
@@ -22,7 +22,7 @@
         <div class="panel-body">
             <div id="tasks-list" class="list-group">
                 <div ng-repeat="task in tasks track by task._id" class="list-group-item task-header">
-                    <h4>{{ task.title | truncate: 15 }}
+                    <h4>{{ task.title | truncate: 40 }}
                         <span class="small">
                             {{ task.description | truncate:35 }}
                         </span>

@@ -1,10 +1,10 @@
 /**
  * Storage API for the IndexedDB.
  */
-app.service('idbStorageAPI', function ( $window, storageServ, projectServ, $q ) {
+app.service('idbStorageAPI', function ( $window/*, storageServ, projectServ*/, $q ) {
 
-    var IDB_DB_NAME                    = this.IDB_DB_NAME = "TheTaskBoard_IDB";
-    var IDB_DB_VERS                    = this.IDB_DB_VERS = 5;
+    var IDB_DB_NAME                    = this.IDB_DB_NAME = "TheTaskBoard_IndexedDB";
+    var IDB_DB_VERS                    = this.IDB_DB_VERS = 3;
     var IDB_PROJECTS_OBJECT_STORE_NAME = this.IDB_PROJECTS_OBJECT_STORE_NAME = "ttb_projects";
     var IDB_FASKS_OBJECT_STORE_NAME    = this.IDB_FASKS_OBJECT_STORE_NAME    = "ttb_fasks";
     var IDB_READ_WRITE_MODE            = this.IDB_READ_WRITE_MODE           = "readwrite";
@@ -27,7 +27,12 @@ app.service('idbStorageAPI', function ( $window, storageServ, projectServ, $q ) 
 
     this.onIDBUpgradeNeeded = function ( event )
     {
+        console.log( " [ idbStorageAPI ] Upgrading database . . .");
         var db = event.target.result;
+        console.log(" [ idbStorageAPI ] Deleting old object store . . .");
+        db.deleteObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME );
+        db.deleteObjectStore( IDB_FASKS_OBJECT_STORE_NAME );
+        console.log(" [ idbStorageAPI ] Creating new object store . . . ");
         var objectStorePrjs = db.createObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME, { keyPath: "_id" } );
         objectStorePrjs.createIndex("_id_prjs", "_id", { unique: true });
         objectStorePrjs.createIndex("title", "title", { unique: true });
@@ -39,6 +44,10 @@ app.service('idbStorageAPI', function ( $window, storageServ, projectServ, $q ) 
     {
         this.idb = event.target.result;
     }
+
+    var onIDBUpgradeNeeded  = this.onIDBUpgradeNeeded ;
+    var onIDBRequestError   = this.onIDBRequestError  ;
+    var onIDBRequestSuccess = this.onIDBRequestSuccess;
 
     /* ********************************************************************* */
     /*                                CRUD METHODS                           */
@@ -59,26 +68,32 @@ app.service('idbStorageAPI', function ( $window, storageServ, projectServ, $q ) 
 
     };
 
-    this.deleteProject = function ( projectId ) {
+    this.removeProject = function ( projectId ) {
         var request = /*this.*/idb.transaction( [ /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME ], /*this.*/IDB_READ_WRITE_MODE)
                         .objectStore( /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME )
-                        .delete( { _id: projectId });
+                        .delete( projectId );
         request.onsuccess = function ( event ) {
             console.log( " [ idbStorageAPI ] Successfully removed project with _id '" + projectId + "'!");
         };
     };
 
     this.updateProject = function ( project ) {
-
+      var request = /*this.*/idb.transaction( [ /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME ], /*this.*/IDB_READ_WRITE_MODE)
+                      .objectStore( /*this.*/IDB_PROJECTS_OBJECT_STORE_NAME )
+                      .put( project );
+      request.onsuccess = function ( event ) {
+          console.log( " [ idbStorageAPI ] Successfully updated project with _id '" + project._id + "'!");
+      };
     };
 
     this.getProjects = function ( ) {
         console.log(" [ idbStorageAPI ] Opening IndexedDB database '" + this.IDB_DB_NAME + "' at version '" + this.IDB_DB_VERS + "' . . .");
+        var strgApi = this;
         return $q( function( resolve, reject )
         {
             var request = /*this.*/IDB_SERVICE.open( /*this.*/IDB_DB_NAME, /*this.*/IDB_DB_VERS );
-            request.onupgradeneeded = this.onIDBUpgradeNeeded;
-            request.onerror = this.onIDBRequestError;
+            request.onupgradeneeded = strgApi.onIDBUpgradeNeeded;
+            request.onerror = strgApi.onIDBRequestError;
             request.onsuccess = function ( event )
             {
                 //this.idb = event.target.result;
@@ -90,9 +105,9 @@ app.service('idbStorageAPI', function ( $window, storageServ, projectServ, $q ) 
                 {
                     console.log( " [ idbStorageAPI ] Data retreived: size is " + event.target.result.length);
                     var projects = event.target.result;
-                    projectServ.setProjects ( projects );
+                    /*projectServ.setProjects ( projects );
                     for ( var i = 0; i++; i < projects.length )
-                        projectServ.projects.push( projects [ i ] );
+                        projectServ.projects.push( projects [ i ] );*/
                     resolve( projects );
                 };
                 getProjectsReq.onerror = function ( event )

@@ -150,4 +150,9 @@ app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
         $location.path("project/" + sProject._id + "/tasks" );
     };
 
+    $scope.back = function ( ) {
+        console.log( " [ projectCtrl ] Backing to dashboard . . .");
+        $location.path("dashboard" );
+    };
+
 });

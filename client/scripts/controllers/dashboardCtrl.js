@@ -20,18 +20,8 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
     $scope.projects          = projectServ.projects;
     // Calling getProjects() from the service, and valorizing the local
     // projects variable . . .
-    projectServ.getProjects();/*.then(
-        // onsuccess . . .
-        function ( response ) {
-            console.log( " [ dashboardCtrl ] Response retreived from the promise: " + JSON.stringify( response ) );
-            setProjects(response);
-        },
-        // onerror . . .
-        function ( response ) {
-            console.log ( "ERROR: unable to retreive the projects!");
-            if ( response.status == -1 )
-                alert ( "ERROR: unable to get the projects: the server may be down . . .");
-        });*/
+
+
 
     /* ******************************************************************** */
     /*                              CALLBACKS                               */
@@ -45,7 +35,21 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
         console.log("Project retreived: '" + response.data.length + "'");
         $scope.projects = projectServ.projects = response.data;
     }
-    
+
+    projectServ.getProjects().then(
+        // onsuccess . . .
+        function ( response ) {
+            console.log( " [ dashboardCtrl ] Response retreived from the promise! "); // + JSON.stringify( response ) );
+            objWrap = { data: response };
+            setProjects(objWrap);
+        },
+        // onerror . . .
+        function ( response ) {
+            console.log ( "ERROR: unable to retreive the projects!");
+            if ( response.status == -1 )
+                alert ( "ERROR: unable to get the projects: the server may be down . . .");
+        });
+
     /* ******************************************************************** */
     /*                        VIEW MANAGER FUNCTION                         */
     /* ******************************************************************** */
@@ -77,7 +81,7 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
      * The method refresh the project list in the dashboard.
      */
     $scope.refreshProjects = function ( ) {
-        console.log("Refreshing projects in the dashboard . . .");
+        console.log(" [ dashboardCtrl ] Refreshing projects in the dashboard . . .");
         projectServ.getProjects().then( function ( response ) {
             setProjects(response);
         });

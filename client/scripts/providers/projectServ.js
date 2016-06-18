@@ -48,7 +48,8 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
         // return a promise with the datas populated
         return $q( function ( resolve, reject ) {
 			console.log ( " [ projectServ ] Checking data source (nodeJS server or indexedDB) . . .");
-			$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
+      // FOR NODEJS LOCAL SERVER
+			/*$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
 				// onSuccess
 				function ( response ) {
 					console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
@@ -64,21 +65,22 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
                             console.log( " asdasd ");
                         }
                     );
-				},
-				// onError
+				});*/
+        // FOR IDB LOCAL SERVER
+				$http.get( "http://localhost:8080/").then(
 				function ( response ) {
 					console.log ( " [ storageServ ] NodeJS server unavailable: using local IDB . . . ");
 					storageServ._storageServ = $injector.get("idbStorageAPI");
-                    var promise = storageServ.getProjects(storageServ._storageServ );
-                    promise.then (
-                    function ( response ) {
-                        var projects = response;
-                        console.log(" [ projectServ ] Response data: " + projects );
-                        return projects;
-                    },
-                    function ( response ) {
-                        console.log(" [ projectServ ] Response error. ");
-                    });
+          var promise = storageServ.getProjects(storageServ._storageServ );
+          promise.then (
+          function ( response ) {
+              var projects = response;
+              console.log(" [ projectServ ] Response data: " + projects );
+              resolve(  projects );
+          },
+          function ( response ) {
+              console.log(" [ projectServ ] Response error. ");
+          });
 				}
 			);
 		});

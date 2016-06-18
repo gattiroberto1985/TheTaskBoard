@@ -3,7 +3,7 @@
 
     <!-- Header pagina -->
     <header id="page-header" class="jumbotron">
-        <h2>Dettagli {{ sProject.title | truncate:25 }}<br/><br/>
+        <h2>Dettagli {{ sProject.title | truncate:45 }}<br/><br/>
             <span class="small">{{ sProject.status.value }} -- {{ sProject.statusNote | truncate:30 }}</span>
         </h2>
     </header>
@@ -30,6 +30,7 @@
             <button class="form-control btn-primary" ng-click="rollbackProject()" >Annulla modifiche</button>
             <button class="form-control btn-primary" ng-click="removeProject()"   >Rimuovi progetto</button>
             <button class="form-control btn-primary" ng-click="openTasks()"       >Apri tasks</button>
+            <button class="form-control btn-primary" ng-click="back()"            >Dashboard</button>
         </div>
     </div>
 
