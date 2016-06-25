@@ -39,7 +39,7 @@ app.service('nodejsStorageAPI', function ( $http ) {
         );
     };
 
-    this.deleteProject = function ( projectId ) {
+    this.removeProject = function ( projectId ) {
         $http.delete("http://localhost:3000/project/" + projectId).then (
             // Success callback . . .
             this.onSuccess, //function ( response ) { alert("Project deleted on server!"); console.log(response.data + " -- " + response.status )},

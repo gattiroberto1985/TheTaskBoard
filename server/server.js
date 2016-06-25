@@ -4,6 +4,9 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var _ = require('lodash');
+
+var serveStatic = require('serve-static');
+
 //var passport = require('passport');
 
 /**
@@ -33,6 +36,15 @@ app.use('/ttb_mongo_api', function(req, res, next) {
   next(); // pass to next middlewaer
 });
 
+/*
+var serve = serveStatic("./");
+
+var server = http.createServer(function(req, res) {
+  var done = finalhandler(req, res);
+  serve(req, res, done);
+});
+*/
+
 // Connect to MongoDB
 //mongoose.connect('mongodb://localhost/mean-dev/');
 mongoose.connect('mongodb://roberto:roberto@ds011732.mlab.com:11732/thetaskboard');
@@ -48,6 +60,7 @@ mongoose.connection.once('open', function() {
         app.use(route, controller(app, route));
     });
 
+    app.use('/client', express.static('./client'));
     console.log('Listening on port 3000...');
     app.listen(3000);
 });
