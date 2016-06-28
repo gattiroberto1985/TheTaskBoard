@@ -52,6 +52,14 @@ app.config( function ($routeProvider ) {
         });
 });
 
+/*app.run(['$cookies', '$window', function($cookies, auth, $window, $log) {
+
+        $window.onbeforeunload = function() {
+            // Clearing all cookies now!
+            $cookies.remove('TTB_COOKIE');
+        };
+    }]);*/
+
 // Defining application constants
 app.constant("PROJECT_STATUSES", [{ }]);
 
