@@ -36,6 +36,11 @@ app.use('/ttb_mongo_api', function(req, res, next) {
   next(); // pass to next middlewaer
 });
 
+/** OPENSHIFT COMPATIBILITY **/
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
+
 app.use('/client/doLogin', function( req, res, next) {
     // recupero variabile post: req.body.<nome_variabile>
     var username = req.body.username;
@@ -87,8 +92,10 @@ var server = http.createServer(function(req, res) {
 */
 app.use('/client', express.static('./client'));
 
-console.log('Listening on port 3000...');
-app.listen(3000);
+app.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+});
+
 
 // Connect to MongoDB
 //mongoose.connect('mongodb://localhost/mean-dev/');
