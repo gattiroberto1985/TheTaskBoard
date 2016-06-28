@@ -1,9 +1,14 @@
 // Defining application
-var app = angular.module("TTBApp", ["ngRoute"/*, "ui.tree" */ ]);
+var app = angular.module("TTBApp", ["ngRoute", "ngCookies"/*, "ui.tree" */ ]);
 
 // Configuring the app
 app.config( function ($routeProvider ) {
     'use strict';
+
+    var loginPageDatas = {
+        controller: 'loginCtrl',
+        templateUrl: 'pages/login.html'
+    };
 
     var homePageDatas = {
         controller: 'dashboardCtrl',
@@ -40,6 +45,7 @@ app.config( function ($routeProvider ) {
         .when('/fasks', fasksPage)
         .when('/project/:_id', projectDetailsPageDatas )
         .when('/project/:_id/tasks', projectTasksPageDatas )
+        .when('/login', loginPageDatas)
         //.when('/admin', adminPageDatas )
         .otherwise({
             redirectTo: '/dashboard'

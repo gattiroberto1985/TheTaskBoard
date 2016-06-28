@@ -5,7 +5,14 @@
  * API to finalize the changes.
  *
  */
-app.controller("projectCtrl", function ( $scope, $location, projectServ ) {
+app.controller("projectCtrl", function ( $scope, $location, $cookies, projectServ ) {
+
+    var logged = $cookies.get("TTB_COOKIE");
+    if ( logged === undefined || logged == null || logged == "" )
+    {
+        console.log("No user logged, redirect to login page . . .");
+        $location.path("/login");
+    }
 
     // As usual, check if a project is selected . . .
     if ( projectServ.sProject === undefined || projectServ.sProject == null )

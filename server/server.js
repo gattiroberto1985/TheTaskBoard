@@ -36,6 +36,47 @@ app.use('/ttb_mongo_api', function(req, res, next) {
   next(); // pass to next middlewaer
 });
 
+app.use('/client/doLogin', function( req, res, next) {
+    // recupero variabile post: req.body.<nome_variabile>
+    var username = req.body.username;
+    var password = req.body.password;
+    console.log( "Username: '" + username + "'");
+    console.log( "Password: '" + password + "'");
+
+    try
+    {
+        if ( username === undefined || username == null || username == "" )
+            throw "Username must be filled!";
+
+        if ( password === undefined || password == null || password == "" )
+            throw "Password must be filled!";
+
+        var mdbConnString = "mongodb://" + username + ":" + password + "@ds011732.mlab.com:11732/thetaskboard";
+        console.log( " Connecting with '" + mdbConnString + "'");
+        mongoose.connect( mdbConnString );
+        mongoose.connection.once('open', function( ) {
+                // Load the models. . .
+                app.models = require('./models/index');
+                //console.log( JSON.stringify ( app.models ) ) ;
+                // Load the routes. . .
+                var routes = require('./routes.js');
+                _.each(routes, function(controller, route){
+                    //console.log("Entering each . . .");
+                    app.use(route, controller(app, route));
+                });
+        });
+        console.log("'Once' method completed!");
+        //console.log("Exiting 'once' method with correct status!");
+        res.sendStatus(200);
+    }
+    catch ( err )
+    {
+        console.log(" ERROR: " + err );
+        res.sendStatus(201);
+    }
+    next();
+});
+
 /*
 var serve = serveStatic("./");
 
@@ -44,10 +85,14 @@ var server = http.createServer(function(req, res) {
   serve(req, res, done);
 });
 */
+app.use('/client', express.static('./client'));
+
+console.log('Listening on port 3000...');
+app.listen(3000);
 
 // Connect to MongoDB
 //mongoose.connect('mongodb://localhost/mean-dev/');
-mongoose.connect('mongodb://roberto:roberto@ds011732.mlab.com:11732/thetaskboard');
+/*mongoose.connect('mongodb://roberto:roberto@ds011732.mlab.com:11732/thetaskboard');
 mongoose.connection.once('open', function() {
 
     // Load the models. . .
@@ -60,7 +105,6 @@ mongoose.connection.once('open', function() {
         app.use(route, controller(app, route));
     });
 
-    app.use('/client', express.static('./client'));
     console.log('Listening on port 3000...');
     app.listen(3000);
-});
+});*/

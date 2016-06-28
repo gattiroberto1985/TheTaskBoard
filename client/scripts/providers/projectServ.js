@@ -49,7 +49,7 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
         return $q( function ( resolve, reject ) {
 			console.log ( " [ projectServ ] Checking data source (nodeJS server or indexedDB) . . .");
       // FOR NODEJS LOCAL SERVER
-			/*$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
+			$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
 				// onSuccess
 				function ( response ) {
 					console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
@@ -58,16 +58,17 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
                         function ( rresponse)
                         {
                             console.log( " Response OK! ");
-                             return rresponse.data;
+                             //return rresponse.data;
+                             resolve ( rresponse.data );
                         },
                         function ( rreject )
                         {
                             console.log( " asdasd ");
                         }
                     );
-				});*/
+				});
         // FOR IDB LOCAL SERVER
-				$http.get( "http://localhost:8080/").then(
+				/*$http.get( "http://localhost:8080/").then(
 				function ( response ) {
 					console.log ( " [ storageServ ] NodeJS server unavailable: using local IDB . . . ");
 					storageServ._storageServ = $injector.get("idbStorageAPI");
@@ -82,7 +83,7 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
               console.log(" [ projectServ ] Response error. ");
           });
 				}
-			);
+			);*/
 		});
     };
 

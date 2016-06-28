@@ -1,0 +1,31 @@
+<!-- Data section of the login -->
+<section ng-show="!logged" class="col-md-12" id="div-login">
+
+    <!-- Header pagina -->
+    <header id="page-header" class="jumbotron">
+        <h2>Login to TheTaskBoard!<h2>
+    </header>
+
+    <div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="username">Username: </label>
+            <div class="col-md-10">
+                <input id="username" type="text" class="form-control"
+                ng-model="username"
+                label="ttb-user"
+                placeholder="Inserisci l'utente..."
+                required="true"></input>
+            </div>
+            <label class="control-label col-md-2" for="password">Password: </label>
+            <div class="col-md-10">
+                <input id="password" type="password" class="form-control"
+                ng-model="password"
+                label="ttb-pass"
+                placeholder="Inserisci la password"
+                required="true"></input>
+            </div>
+            <button ng-click="doLogin()">Login</button>
+        </div>
+    </div>
+
+</section>

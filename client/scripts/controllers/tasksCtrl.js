@@ -5,8 +5,14 @@
  * method to manage the save/update or the change of the selected task.
  *
  */
-app.controller("tasksCtrl", function ( $scope, $location, projectServ/*, modals */) {
+app.controller("tasksCtrl", function ( $scope, $location, $cookies, projectServ/*, modals */) {
 
+    var logged = $cookies.get("TTB_COOKIE");
+    if ( logged === undefined || logged == null || logged == "" )
+    {
+        console.log("No user logged, redirect to login page . . .");
+        $location.path("/login");
+    }
     // First of all, check if a project is selected . . .
     if ( projectServ.sProject === undefined || projectServ.sProject == null )
     {
