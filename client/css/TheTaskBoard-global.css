@@ -1,0 +1,363 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/** [ START: ROW MANAGEMENT ] **/
+
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+/*.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}*/
+
+/*.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}*/
+/*[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}*/
+
+/** [ END: ROW MANAGEMENT   ] **/
+
+/* [ START: UTILS ] */
+
+.spacer {
+    height: 30px;
+}
+
+/* [ END: UTILS ] */
+
+
+/* voci di menu di navigazione */
+
+/* [ START: MENU CSS ] */
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+  font-size: 12px;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li.active {
+  background-color: lightgrey;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+/* [ END: MENU CSS ] */
+
+/* [ START: PROJECT LIST CSS ] */
+
+.project-list {
+
+}
+
+.project {
+
+}
+
+/* [ END: PROJECT LIST ] */
+
+
+
+
+/*  [ START: TASK LIST ] */
+
+
+.tasks-list {
+  margin-left: 1px;
+  padding-left: 1px;
+  list-style-type: none;
+}
+
+.single-task {
+  margin-left: 10px;
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+/* task statuses */
+.task-closed {
+
+}
+
+/* [ END: TASK LIST ] */
+
+
+.trash {
+    font-family: "Glyphicons Halflings";
+    content: '\xE068';
+    cursor: pointer;
+}
+
+
+/** Classi di visualizzazione **/
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/** Classi per la visualizzazione in editing **/
+#ul-projects-list li.editing {
+    border-bottom: none;
+	padding: 0;
+    color: red;
+    background-color: yellow;
+}
+
+/* questa classe nasconde la componente di lettura se sto modificando il progetto */
+#ul-projects-list li.editing .view {
+    display: none;
+    background-color: green;
+}
+
+#ul-projects-list li.editing .edit {
+    display: block;
+    background-color: grey;
+}
+
+/* Tooltip animations */
+/* VERSION 1 */
+/*[tooltip]:before {
+    background-color: darkgrey;
+    position: absolute;
+    content: attr(tooltip);
+    opacity: 0;
+}
+
+[tooltip]:hover:before {
+    background-color: darkgrey;
+    opacity: 1;
+}
+
+[tooltip]:not([tooltip-persistent]):before {
+    pointer-events: none;
+}*/
+
+/* Classi per collasso dei pannelli */
+/* Icon when the collapsible content is shown */
+.btn:after {
+    font-family: "Glyphicons Halflings";
+    content: "\e114";
+}
+
+/* Icon when the collapsible content is hidden */
+/*.btn.collapsed:after {
+    content: "\e080";
+}*/
+
+
+
+/* VERSION 2 */
+[tooltip]:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(title);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width:200px;
+}
+[tooltip]:hover:before{
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}
+/* classes */
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.highlight {
+    background-color :#CCC;
+}
+
+.full {
+    height:100% !important;
+    width:100% !important;
+    z-index: 100;
+}
+
+/*@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}*/
+
+/*****************************************************************************/
+/*                                  TEST CLASSES                             */
+/*****************************************************************************/
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+
+.container-fluid{
+    position:absolute;
+    height:100%;
+    display:table;
+    width: 70%;
+    padding: 0;
+}
+
+.row-fluid {
+    height: 100%;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.centering {
+  float:none;
+  margin:0 auto;
+}
+
+.overlay {
+    background: #e9e9e9;
+    position: absolute;     /*<- This and the following properties will  */
+    /*top: 0;           */    /*   make the overlay, the element will expand */
+    /*right: 0;  */           /*   so as to cover the whole body of the page */
+    /*bottom: 0;
+    left: 0;
+    opacity: 0.5;*/
+}
+
+
+
+
+/* DEPRECATED */
+.container {
+    position: relative;
+}
+
+.project {
+    position: relative;
+
+    border-radius: 10px /* tl corner */
+                   10px /* tr corner */
+                   10px /* bl corner */
+                   10px /* br corner */;
+    border: 1px solid #dedeDD;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 10px /* dimensione orizzontale */
+                10px /* dimensione verticale */
+                 8px /* raggio sfumatura */
+                #dedede /* colore sfumatura */ ;
+
+}
+
+.task {
+    /*position: absolute;*/
+}
+
+.selectedTask {
+    background-color: red;
+}
+
+.background-ul {
+    background-color: cornflowerblue;
+}
+
+.background-li {
+    background-color: red;
+}
+
+.clone {
+    position:absolute;
+}
+.prj_id {
+
+}
+
+.prj_desc { }
+
+.prj_status { }

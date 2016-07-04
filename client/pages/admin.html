@@ -1,0 +1,19 @@
+<!-- Data section of the project -->
+<section class="col-md-12" id="div-admin">
+
+    <div id="div-export-project-json">
+
+      <button ng-click="exportProjects()">Esporta progetti (formato JSON)</button>
+
+      <div id="div-project-export-datas">
+        <section ng-repeat="project in projects track by project._uid">
+          <p>
+            {{ printProject( project ) }}
+          </p>
+        </section>
+        <hr/>
+      </div>
+
+    </div>
+
+</section>

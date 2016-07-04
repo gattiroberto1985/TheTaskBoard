@@ -1,0 +1,202 @@
+<!-- Div contenitore per la view relativa alla taskboard -->
+<section id="div-project-tasks" class="col-md-12"> <!-- ng-controller="tasksCtrl"-->
+
+    <!-- Header pagina -->
+    <header id="page-header" class="jumbotron">
+        <h2>Tasks in {{ sProject.title | truncate:45 }}<br/><br/>
+            <span class="small">{{ sProject.status.value }} -- {{ sProject.statusNote | truncate:30 }}</span>
+        </h2>
+    </header>
+
+    <!-- Section con i task -->
+
+    <section class="panel" id="project-tasks-section">
+
+        <div id="tasks-panel-header" class="panel-heading form-inline">
+            <button class="form-control btn-primary" ng-click="addTask()"   >Aggiungi task</button>
+            <button class="form-control btn-primary" ng-click="rollbackTask()" >Annulla modifiche</button>
+            <button class="form-control btn-primary" ng-click="back()" >Torna al progetto</button>
+            <button class="form-control btn-primary" ng-click="fullSave()" >Salva le modifiche</button>
+        </div>
+
+        <div class="panel-body">
+            <div id="tasks-list" class="list-group">
+                <div ng-repeat="task in tasks track by task._id" class="list-group-item task-header">
+                    <h4>{{ task.title | truncate: 40 }}
+                        <span class="small">
+                            {{ task.description | truncate:35 }}
+                        </span>
+                        <span class="pull-right">
+                            <span class="small">Ultima modifica: {{ task.dateLastUpdated | date: 'dd MMM yyyy HH:mm' }}</span>
+                            <span class="small">Stato: {{ task.status.value }}</span>
+                            <!--
+                            { id: 0, value: "Aperto"         },
+                            { id: 1, value: "In Lavorazione" },
+                            { id: 2, value: "In Pausa"       },
+                            { id: 3, value: "Chiuso"         }
+                            -->
+                            <!--span ng-class=" {
+                                'glyphicon glyphicon-triangle-right': task.status.value == statuses[0].value,
+                                'glyphicon glyphicon-option-horizontal': task.status.value == statuses[1].value,
+                                'glyphicon glyphicon-hourglass': task.status.value == statuses[2].value,
+                                'glyphicon glyphicon-ok': task.status.value == statuses[3].value
+                            }"
+                            title="{{ task.status.value }}"></span-->
+                            <button title="Rimuovi Task"
+                                    class="btn btn-default btn-sm"
+                                    ng-click="removeTask(task._id)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button title="Salva Task"
+                                    class="btn btn-default btn-sm"
+                                    ng-click="saveTask(task)">
+                                    <span class="glyphicon glyphicon-save"></span>
+                            </button>
+                            <button data-toggle="collapse"
+                                    class="btn btn-default btn-sm"
+                                    data-target="#selected-task-details-{{ task._id }}">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                            </button>
+                        </span>
+                    </h4>
+                    <div id="selected-task-details-{{ task._id }}" class="panel-body collapse out form-horizontal">
+
+
+                        <!--
+                        id: getUid(),
+                        title: "Task 1",
+                        description: "Descrizione Task 1",
+                        status: "In Pausa",
+                        owner: this.owners[1],
+                        dateOpen: new Date(2016, 04, 04),
+                        dateClose: null,
+                        dateLastUpdated: new Date(2016, 04, 07),
+                        statusNote: "",
+                        notes: [
+                            { date: new Date(2016, 04, 04, 12, 00), title: "titolo nota task 1", text: "testo nota task 1"}
+                        ],
+                        tasks: [ ]
+                        -->
+
+                        <!--form class="form-horizontal"-->
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="tsk-new-title">Titolo</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control"
+                                ng-model="task.title"
+                                label="tsk-new-title"
+                                placeholder="Inserisci il titolo..."
+                                required="true"></input>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="tsk-new-description">Descrizione</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control"
+                                    type="text"
+                                    ng-model="task.description"
+                                    label="tsk-new-description"
+                                    placeholder="Inserisci la descrizione..."
+                                    required="true"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="tsk-new-status">Stato</label>
+                            <div class="col-md-10">
+                                <select class="form-control"
+                                    ng-model="task.status"
+                                    label="tsk-new-status"
+                                    placeholder="Inserisci lo stato..."
+                                    ng-options="status as status.value for status in statuses track by status.id"
+                                    required="true"></select>
+                            </div>
+                            <label class="control-label col-md-2" for="tsk-new-status-note">Nota stato</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control"
+                                    ng-model="task.statusNote"
+                                    label="tsk-status-note"
+                                    placeholder="Inserisci le note dello stato . . . ">{{ task.statusNote }}</textarea>
+                                    <button class="form-control btn-primary" ng-click="saveTaskStatusNote(task)">
+                                        Aggiungi nota stato
+                                    </button>
+                            </div>
+                            <!--label class="control-label col-md-2" for="tsk-new-status-note">Nota stato</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control"
+                                    ng-model="task.statusNote"
+                                    label="tsk-status-note"
+                                    placeholder="Inserisci le note dello stato . . . ">{{sProject.statusNote}}</textarea>
+                                    <button class="form-control btn-primary" ng-click="addProjectTimelineStep()">
+                                        Aggiungi nota stato
+                                    </button>
+                            </div-->
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2" for="tsk-new-owner">Assegnato a: </label>
+                            <div class="col-md-10">
+                                <select class="form-control"
+                                    ng-model="task.owner"
+                                    label="tsk-new-owner"
+                                    placeholder="Inserisci l'assegnatario..."
+                                    ng-options="owner as owner.value for owner in owners track by owner.id"
+                                    required="true"></select>
+                            </div>
+                        </div>
+
+                        <div id="task-timeline" >
+                            <h3>Timeline task</h3>
+                            <!-- button class="btn col-md-12" data-toggle="collapse" data-target="#div-task-timeline">Mostra/Nascondi timeline</button -->
+                            <div class="col-md-12" id="div-task-timeline">
+                                <div id="tsk-timeline">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <a href="" ng-click="timelineSortField = 'date'; timelineSortSense = !timelineSortSense">
+                                                        Data
+                                                        <span ng-show="timelineSortField == 'date'" class="fa fa-caret-down"></span>
+                                                    </a>
+                                                </td>
+                                                <!--td>
+                                                    <a href="" ng-click="timelineSortField = 'status'; timelineSortSense = !timelineSortSense">
+                                                        Stato
+                                                        <span ng-show="timelineSortField == 'status'" class="fa fa-caret-down"></span>
+                                                    </a>
+                                                </td-->
+                                                <td>
+                                                    <a href="" ng-click="timelineSortField = 'note'; timelineSortSense = !timelineSortSense">
+                                                        Nota
+                                                        <span ng-show="timelineSortField == 'note'" class="fa fa-caret-down"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tr ng-repeat="timestep in task.timeline | orderBy:timelineSortField:timelineSortSense">
+                                            <td>{{timestep.date | date: 'dd MMM yyyy HH:mm'}} </td>
+                                            <!--td>{{timestep.status}}</td-->
+                                            <td>{{timestep.note}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--span class="small">
+                        {{ task.description | truncate:120 }}
+                    </span-->
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+</section>
