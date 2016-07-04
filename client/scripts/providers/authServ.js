@@ -56,6 +56,11 @@ app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT) {
                         }
                         else
                             reject ( result.data.msg );
+                    },
+                    function ( result )
+                    {
+                        console.log(" [ authServ ] Authentication failed!");
+                        reject ( result.data.msg );
                     }
                 );
             } // closing $q function

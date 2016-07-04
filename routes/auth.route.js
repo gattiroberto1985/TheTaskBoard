@@ -59,7 +59,7 @@ router.post('/login', function(req, res) {
             throw err;
 
         if (!user) {
-            res.status(400).send({success: false, msg: 'Authentication failed. User not found.'});
+            res.status(400).json({success: false, msg: 'Authentication failed. User not found.'});
         }
         else {
             // check if password matches
@@ -71,7 +71,7 @@ router.post('/login', function(req, res) {
                     res.json({success: true, token: 'JWT ' + token});
                 }
                 else {
-                    res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+                    res.status(400).json({success: false, msg: 'Authentication failed. Wrong password.'});
                 }
             }); // closing comparePassword
         } // closing else on !user
