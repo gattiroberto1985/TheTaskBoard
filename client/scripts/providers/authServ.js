@@ -78,3 +78,13 @@ app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT) {
     };
 
 });
+
+app.run( function( $rootScope, authServ, $location ) {
+    $rootScope.$on('$locationChangeStart', function (event, next, nextParams, fromState) {
+        if ( !authServ.isAuthenticated() )
+        {
+            console.log(" [ locationChangeStart @ rootScope ] User not authorized, backing to login page . . . ");
+            $location.path("login");
+        }
+    });
+});

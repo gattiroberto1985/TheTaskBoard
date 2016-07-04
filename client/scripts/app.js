@@ -2,7 +2,7 @@
 var app = angular.module("TTBApp", ["ngRoute"/*, "ui.tree" */ ]);
 
 // Configuring the app
-app.config( function ($routeProvider ) {
+app.config( function ($routeProvider) {
     'use strict';
 
     var homePageDatas = {
@@ -35,20 +35,28 @@ app.config( function ($routeProvider ) {
       templateUrl: 'pages/admin.html'
     };
 
+    var loginPageDatas = {
+      controller: 'loginCtrl',
+      templateUrl: 'pages/login.html'
+    };
+
+
     /*var projectDetailsData = {
         controller: 'adminCtrl',
         templateUrl: 'pages/admin.html'
     };*/
 
     $routeProvider
-        .when('/dashboard', homePageDatas)
-        .when('/fasks', fasksPage)
-        .when('/project/:_id', projectDetailsPageDatas )
+        .when('/dashboard'         , homePageDatas)
+        .when('/fasks'             , fasksPage)
+        .when('/project/:_id'      , projectDetailsPageDatas )
         .when('/project/:_id/tasks', projectTasksPageDatas )
-        .when('/admin', adminPageDatas )
+        .when("/login"             , loginPageDatas)
+        .when('/admin'             , adminPageDatas )
         .otherwise({
             redirectTo: '/dashboard'
         });
+
 });
 
 // Defining application constants

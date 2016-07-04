@@ -59,7 +59,7 @@ router.post('/login', function(req, res) {
             throw err;
 
         if (!user) {
-            res.send({success: false, msg: 'Authentication failed. User not found.'});
+            res.status(400).send({success: false, msg: 'Authentication failed. User not found.'});
         }
         else {
             // check if password matches

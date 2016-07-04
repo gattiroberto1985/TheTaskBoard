@@ -158,6 +158,8 @@ app.use(  '/info/poll', function ( req, res ) {
 var port = env.NODE_PORT || 3000;
 var ip   = env.NODE_IP || 'localhost'
 
+app.use('/client', express.static('client'));
+
 // END OPENSHIFT management
 
 // START DEFINE LOGIN
