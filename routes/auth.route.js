@@ -68,7 +68,7 @@ router.post('/login', function(req, res) {
                     // if user is found and password is right create a token
                     var token = jwt.encode(user, env.TTB_SECRET_KEY);
                     // return the information including token as JSON
-                    res.json({success: true, token: 'JWT ' + token});
+                    res.json({success: true, token: 'JWT ' + token, msg: "User " + user.username + " authorized! Welcome to TheTaskBoard!"});
                 }
                 else {
                     res.status(400).json({success: false, msg: 'Authentication failed. Wrong password.'});

@@ -1,4 +1,4 @@
-app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT) {
+app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT, LOCAL_IDB_SESSION) {
 
     var LOCAL_TOKEN_KEY = "TTB_AUTH_TOKEN";
     var isAuthenticated = false;
@@ -67,6 +67,26 @@ app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT) {
         ); // closing $q
     }; // closing login function
 
+    var noLogin = function ( ) {
+
+        return $q(
+            function ( resolve, reject ) {
+                $http.get("/client").then(
+                    function ( result )
+                    {
+                        setUserToken( LOCAL_IDB_SESSION.value );
+                        resolve( " [ authServ ] Using local idb session . . .");
+                    },
+                    function ( result )
+                    {
+                        console.log(" [ authServ ] ERROR: application must run in a server with endpoint '/client'!");
+                        reject ( result );
+                    }
+                );
+            }
+        );
+    };
+
     var logout = function ( ) {
         unsetUserToken();
     };
@@ -77,9 +97,11 @@ app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT) {
 
     return {
         login   : login,
+        noLogin : noLogin,
         register: register,
         logout  : logout,
-        isAuthenticated: function ( ) { return isAuthenticated ; }
+        isAuthenticated: function ( ) { return isAuthenticated ; },
+        isLocal : function ( ) { return authToken === LOCAL_IDB_SESSION.value }
     };
 
 });

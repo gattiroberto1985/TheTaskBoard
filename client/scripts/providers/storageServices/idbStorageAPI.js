@@ -29,9 +29,9 @@ app.service('idbStorageAPI', function ( $window/*, storageServ, projectServ*/, $
     {
         console.log( " [ idbStorageAPI ] Upgrading database . . .");
         var db = event.target.result;
-        console.log(" [ idbStorageAPI ] Deleting old object store . . .");
-        db.deleteObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME );
-        db.deleteObjectStore( IDB_FASKS_OBJECT_STORE_NAME );
+        //console.log(" [ idbStorageAPI ] Deleting old object store . . .");
+        //db.deleteObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME );
+        //db.deleteObjectStore( IDB_FASKS_OBJECT_STORE_NAME );
         console.log(" [ idbStorageAPI ] Creating new object store . . . ");
         var objectStorePrjs = db.createObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME, { keyPath: "_id" } );
         objectStorePrjs.createIndex("_id_prjs", "_id", { unique: true });

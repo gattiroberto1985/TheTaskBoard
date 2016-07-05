@@ -24,6 +24,24 @@ app.controller("loginCtrl", function($scope, authServ, $location ) {
             });
     };
 
+    $scope.noLogin = function ( ) {
+        var proceed = confirm(" WARNING: without user, you won't be able to share data between devices. All the informations " +
+                "will be stored in local IndexedDB. Proceeding?");
+        if ( proceed )
+        {
+            console.log( " [ loginCtrl ] Using TheTaskBoard without login!");
+            console.log( " [ loginCtrl ] All datas will be managed in local IndexedDB database");
+            authServ.noLogin( ).then(
+                function ( result ) {
+                    $location.path("dashboard");
+                },
+                function ( result ) {
+                    alert("ERROR: an error has occurred! Inner message is '"+ result + "'" );
+                }
+            );
+        }
+
+    };
 
 });
 /*

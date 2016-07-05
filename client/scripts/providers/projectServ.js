@@ -6,7 +6,7 @@
  * Delete) and some utilities variable for referencing the user selection.
  *
  */
-app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
+app.service('projectServ', function ( $http, storageServ, $q, $injector, authServ ) {
 
     this.owners            = [ ];     // local array for storing the owners
     this.statuses          = [ ];     // local array for storing the statuses
@@ -45,46 +45,58 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
      */
     this.getProjects = function ( )
     {
-        // return a promise with the datas populated
-        return $q( function ( resolve, reject ) {
-			console.log ( " [ projectServ ] Checking data source (nodeJS server or indexedDB) . . .");
-      // FOR NODEJS LOCAL SERVER
-			/*$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
-				// onSuccess
-				function ( response ) {
-					console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
-                    storageServ._storageServ = $injector.get("nodejsStorageAPI");
-                    return storageServ.getProjects(storageServ._storageServ).then(
-                        function ( rresponse)
-                        {
-                            console.log( " Response OK! ");
-                             return rresponse.data;
-                        },
-                        function ( rreject )
-                        {
-                            console.log( " asdasd ");
-                        }
-                    );
-				});*/
-        // FOR IDB LOCAL SERVER
-				$http.get( "http://localhost:8080/client").then(
-				function ( response ) {
-					console.log ( " [ storageServ ] NodeJS server unavailable: using local IDB . . . ");
-					storageServ._storageServ = $injector.get("idbStorageAPI");
-          var promise = storageServ.getProjects(storageServ._storageServ );
-          promise.then (
-          function ( response ) {
-              var projects = response;
-              console.log(" [ projectServ ] Response data: " + projects );
-              resolve(  projects );
-          },
-          function ( response ) {
-              console.log(" [ projectServ ] Response error. ");
-          });
-				}
-			);
-		});
-    };
+        var returnFunction;
+        if ( authServ.isLocal )
+        {
+            // Using local IndexedDB . . .
+            returnFunction = function ( resolve, reject ) {
+    			console.log ( " [ projectServ ] Getting datas from local IDB . . .");
+                $http.get( "http://localhost:3000/client").then(
+                    // on Success . . .
+				    function ( response ) {
+					    storageServ._storageServ = $injector.get("idbStorageAPI");
+                        var promise = storageServ.getProjects(storageServ._storageServ );
+                        promise.then (
+                            function ( response ) {
+                                var projects = response;
+                                console.log(" [ projectServ ] Response data: " + projects );
+                                resolve(  projects );
+                            },
+                            function ( response ) {
+                                console.log(" [ projectServ ] Response error. ");
+                            }
+                        );
+				    } // closing then function
+			    ); // closing then
+		    } // closing returnFunction
+        } // closing auth.isLocal
+        else
+        {
+            // Using remote server . . .
+            returnFunction = function ( resolve, reject ) {
+    			console.log ( " [ projectServ ] Getting datas from remote server . . .");
+                $http.get ( "http://thetaskboard-bob1985.rhcloud.com/health" ).then(
+                    // onSuccess
+                    function ( response ) {
+                        console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
+                        storageServ._storageServ = $injector.get("nodejsStorageAPI");
+                        return storageServ.getProjects(storageServ._storageServ).then(
+                            function ( rresponse)
+                            {
+                                console.log( " Response OK! ");
+                                 return rresponse.data;
+                            },
+                            function ( rreject )
+                            {
+                                console.log( " asdasd ");
+                            }
+                        );
+                    });
+            } // closing returnFunction
+        } // closing else branch
+
+        return $q(returnFunction);
+    }; // closing getProjects
 
     this.setProjects = function( projects )
     {
