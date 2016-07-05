@@ -65,6 +65,13 @@ if ( ! env.TTB_SECRET_KEY )
 // Loading xpress routing . . .
 var app = express();
 
+// Setting CORS headers . . .
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // Using morgan for logging . . .
 app.use(morgan("dev"));
 
