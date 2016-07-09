@@ -46,7 +46,7 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector, authSer
     this.getProjects = function ( )
     {
         var returnFunction;
-        if ( authServ.isLocal )
+        if ( authServ.isLocal() )
         {
             // Using local IndexedDB . . .
             returnFunction = function ( resolve, reject ) {

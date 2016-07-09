@@ -51,6 +51,7 @@ var   express   = require('express')
     , passport  = require("passport")
     , jwt       = require("jwt-simple")
     , morgan    = require("morgan")
+    , cors      = require("cors")
     ;
 
 if ( ! env.TTB_SECRET_KEY )
@@ -66,11 +67,13 @@ if ( ! env.TTB_SECRET_KEY )
 var app = express();
 
 // Setting CORS headers . . .
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
   next();
-});
+});*/
+
+app.use( cors() );
 
 // Using morgan for logging . . .
 app.use(morgan("dev"));
