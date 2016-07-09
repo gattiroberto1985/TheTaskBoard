@@ -145,7 +145,7 @@ app.use( "/", require("./routes/project.route.js"));
 // START OPENSHIFT management
 
 app.use("/node_api", function ( req, res ) {
-    res.send( 200 ).json( { status: 200, message: "OK!" }) );
+    res.send( 200 ).json( { status: 200, message: "OK!" } );
 });
 
 app.use( '/health' , function ( req, res ) {
