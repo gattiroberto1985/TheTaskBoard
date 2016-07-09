@@ -1,4 +1,4 @@
-app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT, LOCAL_IDB_SESSION) {
+app.service("authServ", function ( $window, $q, $http, TTB_API_REMOTE_ENDPOINT, TTB_API_LOCAL_ENDPOINT, LOCAL_IDB_SESSION) {
 
     var LOCAL_TOKEN_KEY = "TTB_AUTH_TOKEN";
     var isAuthenticated = false;
@@ -30,7 +30,7 @@ app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT, LOCAL_I
     var register = function( user ) {
         return $q(
             function( resolve, reject ) {
-                $http.post(TTB_API_ENDPOINT.url + "/register", user).then(
+                $http.post(TTB_API_REMOTE_ENDPOINT.url + "/register", user).then(
                     function( result )
                     {
                         if ( result.data.success )
@@ -46,7 +46,7 @@ app.service("authServ", function ( $window, $q, $http, TTB_API_ENDPOINT, LOCAL_I
     var login = function ( user ) {
         return $q(
             function ( resolve, reject ) {
-                $http.post(TTB_API_ENDPOINT.url + "/login", user).then(
+                $http.post(TTB_API_REMOTE_ENDPOINT.url + "/login", user).then(
                     function ( result )
                     {
                         if ( result.data.success )

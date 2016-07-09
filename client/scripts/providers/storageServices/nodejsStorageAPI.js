@@ -1,7 +1,7 @@
 /**
  * Storage API for the Node JS server.
  */
-app.service('nodejsStorageAPI', function ( $http ) {
+app.service('nodejsStorageAPI', function ( $http,  TTB_API_REMOTE_ENDPOINT ) {
 
 
     /* ********************************************************************* */
@@ -31,7 +31,7 @@ app.service('nodejsStorageAPI', function ( $http ) {
 
 
     this.addProject = function ( project ) {
-        $http.post("http://localhost:3000/project", project ).then (
+        $http.post(TTB_API_REMOTE_ENDPOINT.url + "/projects", project ).then (
             // Success callback . . .
             this.onSuccess,
             // . . . and error callback!
@@ -40,7 +40,7 @@ app.service('nodejsStorageAPI', function ( $http ) {
     };
 
     this.deleteProject = function ( projectId ) {
-        $http.delete("http://localhost:3000/project/" + projectId).then (
+        $http.delete(TTB_API_REMOTE_ENDPOINT.url + "/projects/" + projectId).then (
             // Success callback . . .
             this.onSuccess, //function ( response ) { alert("Project deleted on server!"); console.log(response.data + " -- " + response.status )},
             // Error callback
@@ -50,7 +50,7 @@ app.service('nodejsStorageAPI', function ( $http ) {
     };
 
     this.updateProject = function ( project ) {
-        $http.put("http://localhost:3000/project/" + project._id, project).then (
+        $http.put(TTB_API_REMOTE_ENDPOINT.url + "/projects/" + project._id, project).then (
             // Success callback . . .
             this.onSuccess, //function ( response ) { alert("Project updated on server!"); console.log(response.data + " -- " + response.status )},
             // Error callback
@@ -60,7 +60,7 @@ app.service('nodejsStorageAPI', function ( $http ) {
 
     this.getProjects = function ( ) {
         console.log ( " [ nodejsStorageAPI ] Retreiving projects . . . ");
-        return $http.get('http://localhost:3000/project');
+        return $http.get(TTB_API_REMOTE_ENDPOINT.url + "/projects");
     };
 
 });

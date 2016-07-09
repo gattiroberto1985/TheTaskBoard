@@ -78,17 +78,18 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector, authSer
                 $http.get ( "http://thetaskboard-bob1985.rhcloud.com/node_api/" ).then(
                     // onSuccess
                     function ( response ) {
-                        console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
+                        console.log ( " [ projectServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
                         storageServ._storageServ = $injector.get("nodejsStorageAPI");
                         return storageServ.getProjects(storageServ._storageServ).then(
                             function ( rresponse)
                             {
                                 console.log( " Response OK! ");
-                                 return rresponse.data;
+                                 resolve ( rresponse.data );
                             },
                             function ( rreject )
                             {
-                                console.log( " asdasd ");
+                                console.log( " [ projectServ ] ERROR: an error has occured in getting project from node! " );
+                                console.log (" [ projectServ ] " + rreject );
                             }
                         );
                     }

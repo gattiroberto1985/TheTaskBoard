@@ -1,7 +1,7 @@
 /**
  * Angular service for the correct data layer API to use.
  */
-app.service('storageServ', function ($http, $injector, $q/*, projectServ */ ) {
+app.service('storageServ', function ($http, $injector, $q, TTB_API_REMOTE_ENDPOINT, TTB_API_LOCAL_ENDPOINT/*, projectServ */ ) {
 	'use strict';
 
 	this._apiIDB          = false; // true if using local indexedDB
@@ -16,25 +16,10 @@ app.service('storageServ', function ($http, $injector, $q/*, projectServ */ ) {
 	/**
 	 * Checking API ( NodeJS > IDB > localstorage ).
 	 */
-	this.checkAPI = function ( ) {
-
-		/*
-		function asyncGreet(name) {
-		  // perform some asynchronous operation, resolve or reject the promise when appropriate.
-		  return $q(function(resolve, reject) {
-		    setTimeout(function() {
-		      if (okToGreet(name)) {
-		        resolve('Hello, ' + name + '!');
-		      } else {
-		        reject('Greeting ' + name + ' is not allowed.');
-		      }
-		    }, 1000);
-		  });
-		}
-		*/
+	/*this.checkAPI = function ( ) {
 		return $q( function ( resolve, reject ) {
 			console.log ( " [ storageServ ] CheckAPI $q . . .");
-			$http.get ( "http://localhost:3000/ttb_mongo_api" ).then(
+			$http.get ( TTB_API_LOCAL_ENDPOINT.url  + "/ttb_mongo_api" ).then(
 				// onSuccess
 				function ( response ) {
 					console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
@@ -47,15 +32,15 @@ app.service('storageServ', function ($http, $injector, $q/*, projectServ */ ) {
 				}
 			);
 		});
-		/*console.log(" [ storageServ ] Checking API for storage . . .");
-		this.checkNodeJSApi();*/
-	};
+		//console.log(" [ storageServ ] Checking API for storage . . .");
+		//this.checkNodeJSApi();
+	};*/
 
 	/**
 	 * Check method for the nodeJS server.
 	 */
-	this.checkNodeJSApi = function ( ) {
-		$http.get( "http://localhost:3000/ttb_mongo_api").then(
+	/*this.checkNodeJSApi = function ( ) {
+		$http.get(  TTB_API_LOCAL_ENDPOINT.url + "/ttb_mongo_api").then(
 			// on success . . .
 			function ( response ) {
 				console.log ( " [ storageServ ] Using mongoDB factory! ");
@@ -70,13 +55,13 @@ app.service('storageServ', function ($http, $injector, $q/*, projectServ */ ) {
 				this.checkIDBApi();
 			}
 		);
-	};
+	};*/
 
 	/**
 	 * Check method for the Indexed DB.
 	 */
-	this.checkIDBApi = function ( ) {
-		$http.get( "http://localhost:8080/" ).then(
+	/*this.checkIDBApi = function ( ) {
+		$http.get(  TTB_API_LOCAL_ENDPOINT.url ).then(
 		// on success
 		function ( response ) {
 			console.log ( " [ storageServ ] Using indexedDB API !");
@@ -89,16 +74,16 @@ app.service('storageServ', function ($http, $injector, $q/*, projectServ */ ) {
 			this._apiIDB = false;
 			this.checkLocalStorageAPI();
 		});
-	};
+	};*/
 
 	/**
 	 * Check method for the local storage db.
 	 */
-	this.checkLocalStorageAPI = function ( ) {
+	/*this.checkLocalStorageAPI = function ( ) {
 		console.log( " [ storageServ ] Checking for localstorage . . . well, let's say it's not a check, we will definitely use it!");
 		this._apiLocalStorage = true;
 		this._storageServ = $injector.get("localStorageAPI");
-	}
+	}*/
 
 	/* ********************************************************************* */
 	/*                              CRUD METHODS                             */
