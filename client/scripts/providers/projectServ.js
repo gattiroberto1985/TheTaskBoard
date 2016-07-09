@@ -75,7 +75,7 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector, authSer
             // Using remote server . . .
             returnFunction = function ( resolve, reject ) {
     			console.log ( " [ projectServ ] Getting datas from remote server . . .");
-                $http.get ( "http://thetaskboard-bob1985.rhcloud.com/health" ).then(
+                $http.get ( "http://thetaskboard-bob1985.rhcloud.com/node_api/" ).then(
                     // onSuccess
                     function ( response ) {
                         console.log ( " [ storageServ ] NodeJS server up&running! Using nodejs with mongoose . . . ");
@@ -91,7 +91,14 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector, authSer
                                 console.log( " asdasd ");
                             }
                         );
-                    });
+                    }
+                    ,
+                    // onError
+                    function ( response ) {
+                        console.log(" [ storageServ ] ERROR: " + response );
+                        reject ( response );
+                    }
+                );
             } // closing returnFunction
         } // closing else branch
 
