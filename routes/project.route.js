@@ -31,7 +31,7 @@ router.get("/projects/:_id", passport.authenticate('jwt', { session: false}), fu
 /**
  * Get the tasks of the project
  */
- router.get("/projects/:_id/tasks", passport.authenticate('jwt', { session: false}), function(req, res) {
+ router.get("/projects/:_id/tasks", passport.authenticate('jwt', { session: false }), function(req, res) {
      prjs.findById(req.params._id).select("tasks").exec( function ( err, datas) {
          if ( err )
              res.send( err );
@@ -42,9 +42,30 @@ router.get("/projects/:_id", passport.authenticate('jwt', { session: false}), fu
 /**
  * Get header datas of the projects
  */
- router.get("/projects/head", passport.authenticate('jwt', { session: false}), function(req, res) {
+ router.get("/projects/head", passport.authenticate('jwt', { session: false }), function(req, res) {
      // TBD
  });
 
+router.put("/projects", passport.authenticate('jwt', { session: false }), function (req, res) {
+    var project = req.body;
+    var mProject = new Project();
+    prjs.save( function ( err ) {
+        if ( err )
+            res.sendStatus( 400 ).send( err );
+        else
+            res.sendStatus( 200 );
+    });
+});
+
+router.put("/projects/:_id"/*, passport.authenticate('jwt', { session: false })*/, function (req, res) {
+    var project = req.body;
+    var mProject = new projectModel(project);
+    mProject.save( function ( err ) {
+        if ( err )
+            res.sendStatus( 400 ).send( err );
+        else
+            res.sendStatus( 200 );
+    });
+});
 
 module.exports = router;

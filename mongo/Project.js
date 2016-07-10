@@ -14,5 +14,27 @@ var projectSchema = new mongoose.Schema( {
     notes          : { type: Array , default: [ ]    },
     tasks          : { type: Array , default: [ ]    }
 });
+
+
+projectSchema/*.schema*/.createInstance = function ( project ) {
+    var projectModel = mongoose.model('project', projectSchema);
+    return new ProjectModel( {
+        _id            : project._id,
+        title          : project.title,
+        description    : project.description,
+        status         : project.status,
+        owner          : project.owner,
+        dateOpen       : project.dateOpen,
+        dateClose      : project.dateClose,
+        dateLastUpdated: project.dateLastUpdated,
+        statusNote     : project.statusNote,
+        timeline       : project.timeline,
+        notes          : project.notes,
+        tasks          : project.tasks
+    });
+};
+
+var projectModel = mongoose.model('project', projectSchema);
+
 //module.exports = userSchema;
-module.exports = mongoose.model('project', projectSchema);
+module.exports = projectModel;
