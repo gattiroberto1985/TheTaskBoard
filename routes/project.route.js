@@ -46,25 +46,55 @@ router.get("/projects/:_id", passport.authenticate('jwt', { session: false}), fu
      // TBD
  });
 
-router.put("/projects", passport.authenticate('jwt', { session: false }), function (req, res) {
+router.put("/projects"/*, passport.authenticate('jwt', { session: false })*/, function (req, res) {
     var project = req.body;
-    var mProject = new Project();
-    prjs.save( function ( err ) {
+    var mProject = new prjs(
+        {
+            _id            : project._id,
+            title          : project.title,
+            description    : project.description,
+            status         : project.status,
+            owner          : project.owner,
+            dateOpen       : project.dateOpen,
+            dateClose      : project.dateClose,
+            dateLastUpdated: project.dateLastUpdated,
+            statusNote     : project.statusNote,
+            timeline       : project.timeline,
+            notes          : project.notes,
+            tasks          : project.tasks
+        }
+    );
+    console.log( "Project created: " + JSON.stringify( mProject ) ) ;
+    mProject.save( function ( err ) {
         if ( err )
-            res.sendStatus( 400 ).send( err );
+        {
+            console.log("ERROR: " + err );
+            return res.send(500,  err );
+        }
         else
-            res.sendStatus( 200 );
+        {
+            console.log("OK!");
+            return res.send ( 200, "Ok!");
+        }
+    });
+});
+
+router.delete("/projects/:_id"/*, passport.authenticate('jwt', { session: false })*/, function (req, res) {
+    var query = { "_id": req.params._id };
+    prjs.findOneAndRemove( query, function( err ) {
+        if ( err )
+            return res.send( 400, { error: err });
+        return res.send( 200, "Ok, project deleted!");
     });
 });
 
 router.put("/projects/:_id"/*, passport.authenticate('jwt', { session: false })*/, function (req, res) {
     var project = req.body;
-    var mProject = new projectModel(project);
-    mProject.save( function ( err ) {
-        if ( err )
-            res.sendStatus( 400 ).send( err );
-        else
-            res.sendStatus( 200 );
+    var query = { "_id" : project._id };
+    prjs.findOneAndUpdate(query, project, { upsert: true }, function(err, doc) {
+        if (err)
+            return res.send(500, { error: err });
+        return res.send(200, "succesfully saved");
     });
 });
 

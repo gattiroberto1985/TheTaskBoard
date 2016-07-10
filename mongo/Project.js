@@ -16,7 +16,7 @@ var projectSchema = new mongoose.Schema( {
 });
 
 
-projectSchema/*.schema*/.createInstance = function ( project ) {
+/*projectSchema.createInstance = function ( project ) {
     var projectModel = mongoose.model('project', projectSchema);
     return new ProjectModel( {
         _id            : project._id,
@@ -32,7 +32,7 @@ projectSchema/*.schema*/.createInstance = function ( project ) {
         notes          : project.notes,
         tasks          : project.tasks
     });
-};
+};*/
 
 var projectModel = mongoose.model('project', projectSchema);
 
