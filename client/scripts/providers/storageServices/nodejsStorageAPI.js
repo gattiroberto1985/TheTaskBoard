@@ -31,7 +31,7 @@ app.service('nodejsStorageAPI', function ( $http,  TTB_API_REMOTE_ENDPOINT ) {
 
 
     this.addProject = function ( project ) {
-        $http.post(TTB_API_REMOTE_ENDPOINT.url + "/projects", project ).then (
+        $http.put(TTB_API_REMOTE_ENDPOINT.url + "/projects", project ).then (
             // Success callback . . .
             this.onSuccess,
             // . . . and error callback!
@@ -39,7 +39,7 @@ app.service('nodejsStorageAPI', function ( $http,  TTB_API_REMOTE_ENDPOINT ) {
         );
     };
 
-    this.deleteProject = function ( projectId ) {
+    this.removeProject = function ( projectId ) {
         $http.delete(TTB_API_REMOTE_ENDPOINT.url + "/projects/" + projectId).then (
             // Success callback . . .
             this.onSuccess, //function ( response ) { alert("Project deleted on server!"); console.log(response.data + " -- " + response.status )},

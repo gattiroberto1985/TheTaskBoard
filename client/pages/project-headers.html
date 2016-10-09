@@ -91,7 +91,7 @@
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
             </div>
-            <p ng-repeat="note in sProject.notes track by note.text">[ {{note.date | date: 'yyyy/MM/dd HH:mm'}} ] {{note.text}}</p>
+            <p ng-repeat="note in sProject.notes track by note.date | orderBy:timelineSortField:true ">[ {{note.date | date: 'yyyy/MM/dd HH:mm'}} ] {{note.text}}</p>
         </div>
     </div>
 
@@ -103,21 +103,21 @@
                     <thead>
                         <tr>
                             <td>
-                                <a href="" ng-click="timelineSortField = 'date'; timelineSortSense = !timelineSortSense">
+                                <a href="" ng-click="timelineSortField = 'timestep.date'; timelineSortSense = !timelineSortSense">
                                     Data
-                                    <span ng-show="timelineSortField == 'date'" class="fa fa-caret-down"></span>
+                                    <span ng-show="timelineSortField == 'timestep.date'" class="fa fa-caret-down"></span>
                                 </a>
                             </td>
                             <td>
-                                <a href="" ng-click="timelineSortField = 'status'; timelineSortSense = !timelineSortSense">
+                                <a href="" ng-click="timelineSortField = 'timestep.status'; timelineSortSense = !timelineSortSense">
                                     Stato
-                                    <span ng-show="timelineSortField == 'status'" class="fa fa-caret-down"></span>
+                                    <span ng-show="timelineSortField == 'timestep.status'" class="fa fa-caret-down"></span>
                                 </a>
                             </td>
                             <td>
-                                <a href="" ng-click="timelineSortField = 'note'; timelineSortSense = !timelineSortSense">
+                                <a href="" ng-click="timelineSortField = 'timestep.note'; timelineSortSense = !timelineSortSense">
                                     Nota
-                                    <span ng-show="timelineSortField == 'note'" class="fa fa-caret-down"></span>
+                                    <span ng-show="timelineSortField == 'timestep.note'" class="fa fa-caret-down"></span>
                                 </a>
                             </td>
                         </tr>
