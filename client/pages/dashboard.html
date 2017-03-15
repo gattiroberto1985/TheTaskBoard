@@ -118,7 +118,7 @@
             <!-- Div per accordion -->
             <div class="accordion-control panel-heading">
                 <!-- mostrare solo se chiuso! -->
-                <h4>{{ project.title }} <span class="small">{{ project.description | truncate:50 }}</span>
+                <h4>[ {{project.status.value}} ] {{ project.title }} &nbsp;<span class="small">{{ project.description | truncate:50 }}</span>
                     <span class="pull-right">
                         <button title="Rimuovi progetto"
                                 class="btn btn-default btn-sm"
