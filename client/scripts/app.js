@@ -5,11 +5,17 @@ var app = angular.module("TTBApp", ["ngRoute", "ngCookies"/*, "ui.tree" */ ]);
 app.config( function ($routeProvider ) {
     'use strict';
 
-    var loginPageDatas = {
+    /*var loginPageDatas = {
         controller: 'loginCtrl',
         templateUrl: 'pages/login.html'
-    };
+    };*/
 
+    var adminPageDatas = {
+        controller: 'adminCtrl',
+        templateUrl: 'pages/admin.html'
+    };
+    
+    
     var homePageDatas = {
         controller: 'dashboardCtrl',
         templateUrl: 'pages/dashboard.html',
@@ -45,8 +51,8 @@ app.config( function ($routeProvider ) {
         .when('/fasks', fasksPage)
         .when('/project/:_id', projectDetailsPageDatas )
         .when('/project/:_id/tasks', projectTasksPageDatas )
-        .when('/login', loginPageDatas)
-        //.when('/admin', adminPageDatas )
+        //.when('/login', loginPageDatas)
+        .when('/admin', adminPageDatas )
         .otherwise({
             redirectTo: '/dashboard'
         });

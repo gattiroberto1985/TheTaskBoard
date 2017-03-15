@@ -13,7 +13,7 @@ func main() {
     //http.HandleFunc("/", handler)
     fs := http.FileServer(http.Dir("client"))
     http.Handle("/", fs)
-    fmt.Printf ( "Listening on port 8080 . . ");
-    http.ListenAndServe(":8080", nil)
+    fmt.Printf ( "Serving files in './client' on port 1314 . . ");
+    http.ListenAndServe(":1314", nil)
 
 }

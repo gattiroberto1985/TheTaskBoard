@@ -8,12 +8,12 @@
 app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectServ, $cookies ) {
     console.log(" [ AJS ] [ dashboardCtrl ] Entering dashboard controller . . .");
 
-    var logged = $cookies.get("TTB_COOKIE");
+    /*var logged = $cookies.get("TTB_COOKIE");
     if ( logged === undefined || logged == null || logged == "" )
     {
         console.log("No user logged, redirect to login page . . .");
         $location.path("/login");
-    }
+    }*/
 
     /**
      * Scope variables

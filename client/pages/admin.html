@@ -1,0 +1,16 @@
+<div class="col-md-12" id="div-admin">
+
+    <div class="panel">
+        <h1>Esporta progetti</h1>
+        <button class="form-control btn-primary" ng-click="exportProjects()" >Esporta progetti su file</button>
+    </div>
+
+    <div class="panel">
+        <h1>Importa progetti</h1>
+        <button class="form-control btn-primary" ng-click="importProjects()" >Importa progetti</button>
+        <textarea class="form-control"
+            type="text"
+            ng-model="projects"
+            placeholder="Inserisci un array di oggetti JSON validi per l'import . . ."></textarea>
+    </div>
+</div>

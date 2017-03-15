@@ -7,12 +7,12 @@
  */
 app.controller("projectCtrl", function ( $scope, $location, $cookies, projectServ ) {
 
-    var logged = $cookies.get("TTB_COOKIE");
+    /*var logged = $cookies.get("TTB_COOKIE");
     if ( logged === undefined || logged == null || logged == "" )
     {
         console.log("No user logged, redirect to login page . . .");
         $location.path("/login");
-    }
+    }*/
 
     // As usual, check if a project is selected . . .
     if ( projectServ.sProject === undefined || projectServ.sProject == null )
@@ -37,6 +37,9 @@ app.controller("projectCtrl", function ( $scope, $location, $cookies, projectSer
     $scope.pausedTaskNumber  = 0                   ; // Paused task counter
     $scope.workingTaskNumber = 0                   ; // Working task counter
 
+	$scope.timelineSortField = "'date'";
+	$scope.timelineSortSense = false;
+	
     /**
      * Local variables and alias.
      */

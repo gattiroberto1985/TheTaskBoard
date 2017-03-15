@@ -1,0 +1,3056 @@
+[{
+	"title": "[Chiuso] AML",
+	"description": "Progetto AntiMoneyLaundering (Antiriciclaggio)\n\nImplementare soluzione di rilascio che preveda il versionamento su Nexus dei binari java (ear/jar) e su Dimensions un file guida specifico per ogni versione. Il rilascio vero e proprio sarà a carico di SDA invocato da Jenkins, che farà anche la gestione delle request. Il BDMS è usato solo come interfaccia utente.",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 3,
+		"value": "Chiuso"
+	},
+	"dateLastUpdated": "2016-06-30T10:21:26.995Z",
+	"dateOpen": "2016-06-30T10:21:26.995Z",
+	"dateClose": null,
+	"_id": "0fc5d9e4-7889-4355-9009-f97322202d11",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-06-30T10:22:57.904Z",
+		"status": "In Lavorazione",
+		"note": "Update per stato CHK certificazione"
+	}, {
+		"date": "2016-06-30T10:42:13.876Z",
+		"status": "In Lavorazione",
+		"note": "Update generico progetto.\nCHK C --> in attesa rilascio\nWTR S --> in attesa sw (tutto ok con sw di test)\nWTR K, M --> in attesa censimenti gpx (per file app, directory su dc, Dc, agent SDA e infrastruttura)\nWTR C, P --> in attesa censimenti gpx"
+	}, {
+		"date": "2016-06-30T12:35:56.084Z",
+		"status": "In Lavorazione",
+		"note": "Update generico progetto.\nCHK C --> rilascio ok con properties aggiornate, in attesa conferma favaretto. Consegnabile.\nWTR S --> in attesa sw (tutto ok con sw di test)\nWTR K, M --> in attesa censimenti gpx (per file app, directory su dc, Dc, agent SDA e infrastruttura)\nWTR C, P --> in attesa censimenti gpx"
+	}, {
+		"date": "2016-07-04T08:01:27.497Z",
+		"status": "In Lavorazione",
+		"note": "Update generico progetto.\nCHK C --> consegnato.\nWTR S --> in attesa favaretto (update properties);\nWTR K, M --> richieste partite, in attesa censimenti gpx (per file app, directory su dc, Dc, agent SDA e infrastruttura)\nWTR C, P --> richieste partite, in attesa censimenti gpx"
+	}, {
+		"date": "2016-07-20T07:28:47.501Z",
+		"status": "In Lavorazione",
+		"note": "WTR S --> in attesa test di favaretto.\nWTR K, M --> richieste partite, in attesa censimenti gpx (per file app, directory su dc, Dc, agent SDA e infrastruttura)\nWTR C, P --> richieste partite, in attesa censimenti gpx"
+	}, {
+		"date": "2016-07-20T07:45:26.230Z",
+		"status": "In Lavorazione",
+		"note": "WTR S --> consegnato!\nWTR K, M --> richieste partite, in attesa censimenti gpx (per file app, directory su dc, Dc, agent SDA e infrastruttura)\nWTR C, P --> richieste partite, in attesa censimenti gpx"
+	}, {
+		"date": "2016-08-05T11:55:49.943Z",
+		"status": "In Lavorazione",
+		"note": "WTR S --> consegnato!\nWTR K --> rilascio OK, in attesa conferma favaretto.\nWTR C, M, P --> richieste partite, in attesa censimenti gpx"
+	}, {
+		"date": "2016-08-25T13:25:45.230Z",
+		"status": "In Lavorazione",
+		"note": "WTR S, K --> consegnati!\nWTR C --> rilascio in start error, in attesa lumi favaretto/del tedesco;\nWTR P --> in attesa direcory \nWTR M --> richieste partite, in attesa censimenti gpx e macchine."
+	}, {
+		"date": "2016-09-14T08:39:47.687Z",
+		"status": "In Lavorazione",
+		"note": "WTR S, K, C --> consegnati.\nWTR P --> in attesa aggiornamento properties. \nWTR M --> host non esistente"
+	}, {
+		"date": "2016-09-30T10:36:51.966Z",
+		"status": "In Lavorazione",
+		"note": "M con deploy a rc 0. Problemi su prospettiva online e a db. In attesa lumi."
+	}, {
+		"date": "2016-10-03T08:45:31.732Z",
+		"status": "Chiuso",
+		"note": "Allestimenti ultimati."
+	}, {
+		"date": "2016-10-03T08:46:13.138Z",
+		"status": "Chiuso",
+		"note": "Chiusura progetto."
+	}],
+	"tasks": [{
+		"_id": "f28481dc-5108-40cf-b696-343127d0b434",
+		"title": "[SCM] Lifecycle e gruppi per ambienti K e M",
+		"description": "Da creare sul global e su wintar i lifecycle e i gruppi per la gestione degli ambienti di K e M (lifecycle, valid set, gruppi).",
+		"dateOpened": "2016-06-30T10:36:36.316Z",
+		"dateLastUpdated": "2016-06-30T12:33:47.353Z",
+		"timeline": [],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Creati su WTR_WINTAR e sul global."
+	}, {
+		"_id": "687a751c-09c5-42a6-884d-5252569758c0",
+		"title": "Allestimento PROD WTR",
+		"description": "Allestimento ambiente di produzione per WTR",
+		"dateOpened": "2016-06-30T10:35:46.877Z",
+		"dateLastUpdated": "2016-09-30T10:35:52.585Z",
+		"timeline": [{
+			"date": "2016-09-30T10:35:52.585Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Consegnato.",
+			"$$hashKey": "object:132"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato."
+	}, {
+		"_id": "3a9eb566-48ba-4909-a338-bec9d19301c4",
+		"title": "Allestimento CERT WTR",
+		"description": "Allestimento ambiente di certificazione per wintar",
+		"dateOpened": "2016-06-30T10:33:05.883Z",
+		"dateLastUpdated": "2016-09-14T08:38:03.354Z",
+		"timeline": [{
+			"date": "2016-06-30T10:34:15.364Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Creato ambiente BDMS;\nCreato job Jenkins;\nCreati oggetti su SDA;\nIn attesa file applicazione, da inviare richiesta directory gpx, e directory properties.",
+			"$$hashKey": "object:88"
+		}, {
+			"date": "2016-08-25T13:12:46.790Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Rilascio rc 0, errore su start AS. In attesa lumi da Favaretto/Del Tedesco.",
+			"$$hashKey": "object:449"
+		}, {
+			"date": "2016-09-14T08:37:57.737Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Consegnato.",
+			"$$hashKey": "object:130"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Consegnato.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "ce6ab6a0-e3c3-466a-b0ba-7f86edccc653",
+		"title": "Allestimento MAIN WTR",
+		"description": "Allestimento ambiente di manutenzione per wintar",
+		"dateOpened": "2016-06-30T10:31:45.609Z",
+		"dateLastUpdated": "2016-10-03T08:45:14.271Z",
+		"timeline": [{
+			"date": "2016-06-30T10:33:00.170Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Da capire dove posizionare l'ambiente (RMC? RMP?).\nambiente BDMS in attesa (alto o basso);\nCreato job Jenkins;\nIn attesa file applicazione, agent SDA (da inviare richiesta directory gpx, cartella installazione agent, cartella workarea agent, scambio chiavi con RM).\nDa creare risorse su SDA.",
+			"$$hashKey": "object:78"
+		}, {
+			"date": "2016-09-30T10:36:15.941Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Deploy RC, qualche prob con prospettivaonline e db.",
+			"$$hashKey": "object:134"
+		}, {
+			"date": "2016-10-03T08:45:12.412Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Ok, conferma da applicativo.",
+			"$$hashKey": "object:135"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Ok, conferma da applicativo.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "3617e669-ab21-4168-ba4f-bddecbef8732",
+		"title": "Allestimento CONS WTR",
+		"description": "Allestimento ambiente di consolidamento per WTR.",
+		"dateOpened": "2016-06-30T10:29:35.418Z",
+		"dateLastUpdated": "2016-09-14T08:38:14.260Z",
+		"timeline": [{
+			"date": "2016-06-30T10:31:33.802Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Creato ambiente BDMS;\nCreato job Jenkins;\nIn attesa file applicazione, agent SDA (da inviare richiesta directory gpx, cartella installazione agent, cartella workarea agent, scambio chiavi rmc001).\nDa creare risorse su SDA.",
+			"$$hashKey": "object:68"
+		}, {
+			"date": "2016-08-05T11:55:04.531Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Rilascio RC 0, in attesa indicazioni favaretto",
+			"$$hashKey": "object:123"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Consegnato",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "a054ff46-81ad-4ef8-8f7a-c87b67bc0c20",
+		"title": "[Chiuso] Allestimento SVIL WTR",
+		"description": "Allestimento ambiente di sviluppo per WTR",
+		"dateOpened": "2016-06-30T10:29:00.321Z",
+		"dateLastUpdated": "2016-07-20T07:45:13.931Z",
+		"timeline": [{
+			"date": "2016-06-30T10:29:33.433Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Eseguito rilascio di test, ma ancora in attesa del software JBoss ufficiale.",
+			"$$hashKey": "object:58"
+		}, {
+			"date": "2016-07-04T08:00:33.176Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Creata request sviluppo RR_SVIL_WTR_WINTAR_4 pronta per rilascio.",
+			"$$hashKey": "object:109"
+		}, {
+			"date": "2016-07-20T07:26:17.956Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Rilascio eseguito, in attesa di test da parte di favaretto.",
+			"$$hashKey": "object:116"
+		}, {
+			"date": "2016-07-20T07:45:11.974Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "ok, consegnato!",
+			"$$hashKey": "object:264"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "ok, consegnato!",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "b4cc1e6b-f362-4b30-8d11-db8968f7a496",
+		"title": "[Chiuso] Allestimento CERT CHK",
+		"description": "Allestimento ambiente di certificazione per CHK",
+		"dateOpened": "2016-06-30T10:21:36.160Z",
+		"dateLastUpdated": "2016-08-25T13:12:59.517Z",
+		"timeline": [{
+			"date": "2016-06-30T10:22:32.091Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "da eseguire rilascio properties su batch, con puntamenti a DB forniti da pasin.",
+			"$$hashKey": "object:36"
+		}, {
+			"date": "2016-07-04T07:27:54.875Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Ambiente consegnato post conferma favaretto venerdì 1/07.",
+			"$$hashKey": "object:107"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Ambiente consegnato post conferma favaretto venerdì 1/07.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}],
+	"statusNote": "Chiusura progetto."
+}, {
+	"title": "BPMS",
+	"description": "Processo di rilascio RA per oggetti su BPMS. \nIl tutto è costituito da:\n - processo di deploy: architetture fornirà una deploy unit dedicata (come per qlikview), che dovrà essere versionata su un product specifico e gestita in modalità RA arch (_evol --> repo snapshot dedicato; _rlse --> repo release di SCA);\n - librerie architetturali: sono librerie necessarie ai processi bpm, e la loro gestione sarà analoga al processo di deploy, con la sola differneza che queste avranno la corrispondente parte SDA tramite cui fare l'installazione;\n- processi BPM: sono i processi veri e propri, che andranno registrati sotto un produt dedicato, con repo nexus specifici.",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-11-11T08:51:06.765Z",
+	"dateOpen": "2016-11-11T08:51:06.765Z",
+	"dateClose": null,
+	"_id": "1ad6c251-c063-4275-b82e-6ba3b7653aaa",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-11-11T09:00:43.078Z",
+		"status": "In Lavorazione",
+		"note": "Creato task di analisi processo di rilascio;\ncreato task di configurazione strumenti;\ncreato task di creazione plugin sda maven deploy"
+	}, {
+		"date": "2016-11-16T08:54:57.495Z",
+		"status": "In Lavorazione",
+		"note": "Definita proposta di processo, in attesa validazione"
+	}, {
+		"date": "2016-11-25T17:57:04.647Z",
+		"status": "In Lavorazione",
+		"note": "Proposta in implementazione, da capire alcuni punti sui container"
+	}, {
+		"date": "2016-11-29T14:47:47.411Z",
+		"status": "In Lavorazione",
+		"note": "Processi di installazione creati, a meno di un DEPLOY_CFG per cui sarebbe arduo capire di che versione del container fare stop&start.\nInfo a vicentini per output nulli delle response ricevute dal server BPM."
+	}, {
+		"date": "2016-12-12T16:19:00.647Z",
+		"status": "In Lavorazione",
+		"note": "Inserito task di gestione properties tramite database esterno.\nIn attesa informazioni per il processo di installazione properties applicative;\nDa valutare se usare il componente dimensions o appoggiarsi ad un db anche per le properties applicative."
+	}, {
+		"date": "2017-02-07T16:22:10.944Z",
+		"status": "In Lavorazione",
+		"note": "Ripresa lavori. NON è PREVISTA la gestione delle properties, che verranno aggiornate dall'applicativo di concerto con mw."
+	}],
+	"tasks": [{
+		"_id": "e11a0270-bdb7-456c-b138-f09ddeb713b5",
+		"title": "Gestione properties di processo",
+		"description": "Analizzare la possibilità di gestire le properties di processo a partire da una base dati oracle su LFCG3. Requisiti sono:\n - differenziazione ed aggregazione per ambiente;\n - sistema di versioning.",
+		"dateOpened": "2016-12-12T16:13:20.444Z",
+		"dateLastUpdated": "2016-12-12T16:17:10.446Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"statusNote": "in avvio analisi.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "d8229da8-c7d0-43db-827c-19cd9f5550bb",
+		"title": "Implementazione soluzione",
+		"description": "Implementare la soluzione esposta nel documento wiki",
+		"dateOpened": "2016-11-25T17:48:21.102Z",
+		"dateLastUpdated": "2016-11-29T14:46:32.849Z",
+		"timeline": [{
+			"date": "2016-11-29T14:45:23.747Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Punti aperti: \n - Stop&start del container necessitano della major version dell'artifact: NO rilascio solo properties e in ogni caso come recupero nel processo di CFG la major version del BIN?\n - 3 processi nel componente CFG (stop container, start container, publish_cfg), da capire se girano tutti nonostante già il primo installi la versione.",
+			"$$hashKey": "object:101"
+		}],
+		"status": {
+			"id": 1,
+			"value": "In Lavorazione"
+		},
+		"statusNote": "Creati 4 processi, due per componente:\n - BIN: processo di identificazione versione major e processo installazione;\n - CFG: processo di gestione start/stop container e processo installazione.\nDa capire se va definito e gestito un processo di SOLA installazione CFG, al momento non previsto.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "bc6f2958-dc8a-4c92-91a0-f845699831b2",
+		"title": "SDA - creazione plugin per deploy",
+		"description": "Valutare la creazione di un plugin SDA per eseguire il deploy maven degli artefatti verso un repository nexus.",
+		"dateOpened": "2016-11-11T08:57:35.963Z",
+		"dateLastUpdated": "2016-11-11T08:59:59.139Z",
+		"timeline": [{
+			"date": "2016-11-11T08:59:57.853Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Da capire se ha senso e, nel caso, valutare la proposta.",
+			"$$hashKey": "object:488"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "Forse",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "5e65ebfa-9b70-4a88-aaa8-1bd9943b9d69",
+		"title": "Definizione processo di rilascio",
+		"description": "Definire il flusso di rilascio degli oggetti BPMS.",
+		"dateOpened": "2016-11-11T08:53:56.518Z",
+		"dateLastUpdated": "2016-11-16T08:52:53.986Z",
+		"timeline": [{
+			"date": "2016-11-11T08:57:19.708Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "N applicazioni BPMS, tutte residenti su un product, che conterrà n*3 stream sorgenti (a meno di sviluppi paralleli) e n project di configurazione.\nRilascio standard, con pubblicazione su Nexus aziendale di oggetti senza properties.\nSu SDA una applicazione per ogni processo BPMS, ciascuna avente 3 componenti (BIN_EVOL, BIN_RLSE, CFG). Componenti ereditano da template che dovrà fare pubblicazione su repository del BPMS e avvio rilascio (tramite chiamata REST, da capire se sincrona o asincrona).",
+			"$$hashKey": "object:478"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "Prima proposta eseguita, in attesa validazione informazioni di base e proposta stessa.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "cfb27ba3-f83d-4b78-8a12-9507e96069bb",
+		"title": "Definizione oggetti standard RA",
+		"description": "Configurazione Dimensions, Pulse, Jenkins, Nexus ed SDA.",
+		"dateOpened": "2016-11-11T08:51:12.592Z",
+		"dateLastUpdated": "2016-11-11T08:57:32.034Z",
+		"timeline": [],
+		"status": {
+			"id": 1,
+			"value": "In Lavorazione"
+		},
+		"statusNote": "Dimensions: adeguare stream a RA\nPulse: expert da creare\nJenkins: job jenkins paiono standard, se pubblicazione su nexus bpms la fa SDA\nNexus: standard;\nSDA: da creare template per componenti (processo differente), applicazione standard RA.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}],
+	"statusNote": "Ripresa lavori. NON è PREVISTA la gestione delle properties, che verranno aggiornate dall'applicativo di concerto con mw."
+}, {
+	"title": "Documentazione Wiki generale",
+	"description": "Completamento documentazione dei vari processi",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-07-06T07:18:47.521Z",
+	"dateOpen": "2016-07-06T07:18:47.521Z",
+	"dateClose": null,
+	"_id": "2274047f-ea84-4424-a9db-676acf1342c9",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-07-06T07:21:04.828Z",
+		"status": "In Lavorazione",
+		"note": "Inseriti task per plugin jenkins, rilasci fast 2.0 e job jenkins genertel."
+	}, {
+		"date": "2016-10-31T14:16:38.291Z",
+		"status": "In Lavorazione",
+		"note": "Sempre aperta doc. per plugin jenkins e job jenkins genertel.\nChiusa doc rilasci fast 2.0 e fuse/multiwar/propertiesRA."
+	}],
+	"tasks": [{
+		"_id": "5606c173-11d4-410f-a1b8-0d4fed22dc08",
+		"title": "Fuse e Multiwar",
+		"description": "Create pagine con disegno, guida utente, guida admin e gestione properties. In lettura interna.",
+		"dateOpened": "2016-10-31T14:15:07.099Z",
+		"dateLastUpdated": "2016-10-31T14:16:02.756Z",
+		"timeline": [{
+			"date": "2016-10-31T14:16:01.374Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "fatto, piccole limature correttive come normale routine.",
+			"$$hashKey": "object:93"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "fatto, piccole limature correttive come normale routine.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "7d18341d-0646-487b-8f4f-d3fe894207ae",
+		"title": "Documentazione rilasci fast 2.0",
+		"description": "Pagina di riferimento: http://sp2013.teamwork.generali.com/sites/scmdm/SCMDM_Wiki/Rilasci%20fast%202.0%20--%20Guida%20per%20l%27amministratore.aspx",
+		"dateOpened": "2016-07-06T07:20:19.065Z",
+		"dateLastUpdated": "2016-10-31T14:15:04.650Z",
+		"timeline": [{
+			"date": "2016-10-31T14:15:01.600Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Fatto, me par a posto.",
+			"$$hashKey": "object:83"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Fatto, me par a posto."
+	}, {
+		"_id": "e1c61410-ab06-473c-8f41-fbe26e9c34c2",
+		"title": "Documentazione plugin SD Jenkins",
+		"description": "Pagina di riferimento: http://sp2013.teamwork.generali.com/sites/scmdm/SCMDM_Wiki/Customizzazione%20plugin%20Jenkins%20per%20Serena%20Dimensions.aspx",
+		"dateOpened": "2016-07-06T07:19:52.299Z",
+		"dateLastUpdated": "2016-07-06T07:20:17.907Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "9e30672f-878c-436b-965a-23da30b74b39",
+		"title": "Documentazione Job Jenkins GTEL",
+		"description": "Pagina di riferimento: http://sp2013.teamwork.generali.com/sites/scmdm/SCMDM_Wiki/Processi%20Jenkins%20Genertel%20--%20SPD%20-%20GOL.aspx",
+		"dateOpened": "2016-07-06T07:18:53.224Z",
+		"dateLastUpdated": "2016-07-06T07:19:51.107Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}],
+	"statusNote": "Sempre aperta doc. per plugin jenkins e job jenkins genertel.\nChiusa doc rilasci fast 2.0 e fuse/multiwar/propertiesRA."
+}, {
+	"title": "Decommissioning Ambienti",
+	"description": "Progetto dismissione ambienti",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-09-12T10:29:35.180Z",
+	"dateOpen": "2016-09-12T10:29:35.180Z",
+	"dateClose": null,
+	"_id": "2dc7f933-146b-408e-847a-50d57412e353",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-09-16T14:02:46.239Z",
+		"status": "In Lavorazione",
+		"note": "Aperti task per GFV, GEEG, GMC_LAYOUT. Da chiarire con applicativi."
+	}, {
+		"date": "2016-09-16T15:26:27.029Z",
+		"status": "In Lavorazione",
+		"note": "Chiesti lumi per GEEG e GMC."
+	}, {
+		"date": "2016-09-19T13:03:40.698Z",
+		"status": "In Lavorazione",
+		"note": "Avviata dismissione GEEG (Irene);\nGFV GMC in attesa info"
+	}, {
+		"date": "2016-09-20T16:01:26.299Z",
+		"status": "In Lavorazione",
+		"note": "Avviata dismissione GEEG (Irene);\nAvviata dismissione GFV;\nIn attesa lumi per GMC."
+	}, {
+		"date": "2016-09-22T13:22:28.357Z",
+		"status": "In Lavorazione",
+		"note": "Chiuso GFVC9 e GEE*9. In attesa lumi per GMC."
+	}, {
+		"date": "2016-10-04T14:30:16.205Z",
+		"status": "In Lavorazione",
+		"note": "Rimossi ambienti GMC, sempre in attesa per rimozione project Dimensions FAT SVIL e MNT."
+	}, {
+		"date": "2016-10-31T14:20:03.735Z",
+		"status": "In Lavorazione",
+		"note": "In dismissione project GMC e in stesura script di dismissione product su Dimensions."
+	}, {
+		"date": "2016-11-17T13:18:46.776Z",
+		"status": "In Lavorazione",
+		"note": "Aggiunto task di dismissione per Preventivatore\nAggiunto task di dismissione GMC fata Prod\nAggiunto task di dismissione per AW_IIN"
+	}],
+	"tasks": [{
+		"_id": "1045097c-5de1-4b1b-bcc5-0e20311e658d",
+		"title": "[15003329] Dismissione AW_IIN",
+		"description": "TAS000000676331: Dismissione AMB_IINS1 - IIN_AW_IIN0000_GES1_XWEB\nTAS000000676754:  Dismissione AMB_IINC1 - IIN_AW_IIN0000_GEC1_XWEB\nTAS000000686973: Dismissione AMB_IING1 - IIN_AW_IIN0000_GEP1_XWEB\nTAS000000686974: Rimozione product AW_IIN",
+		"dateOpened": "2016-11-17T13:13:46.474Z",
+		"dateLastUpdated": "2016-11-17T13:14:59.094Z",
+		"timeline": [],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "in attesa abilitazione task.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "b7e1d1be-79cf-466b-815e-080567881a39",
+		"title": "[1401361] Dismissione GMC",
+		"description": "TAS000000675640: Dismissione ambienti prod \"UT_AMB_GMCG9 - UT_BCH_GMCG9 - UT_WSR_GMCG9 - UT_WSR_GSRG9 - UT_AMB_GLOG9",
+		"dateOpened": "2016-11-17T13:12:31.855Z",
+		"dateLastUpdated": "2016-11-17T13:13:28.426Z",
+		"timeline": [],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "In attesa abilitazione task.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "a3445caa-82ee-4a18-bc87-373ac58e5f4a",
+		"title": "[???] Dismissione Preventivatore",
+		"description": "TAS000000549189: DIsmissione ambienti \"WSR_PRAS1 - AMB_PRFS1 - AMB_PRIS1 - AMB_PRTS1\nTAS000000549318: Rimozione product PREVISVAP, PREVWEB",
+		"dateOpened": "2016-11-17T13:11:08.166Z",
+		"dateLastUpdated": "2016-11-17T13:12:29.047Z",
+		"timeline": [],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "In attesa abilitazione task",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "af2957e2-bc56-4ff8-8a94-bb8254022e80",
+		"title": "Script dismissione product",
+		"description": "Procedura pl/sql di dismissione product. Da capire requisiti corretti.",
+		"dateOpened": "2016-10-31T14:19:06.090Z",
+		"dateLastUpdated": "2016-11-17T13:17:44.015Z",
+		"timeline": [],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Prima bozza creata con generazione comandi di derelazionamento oggetti."
+	}, {
+		"_id": "30975e41-e56a-4836-a436-1520d9b9c3ed",
+		"title": "[1401361] Dismissione GFVC9",
+		"description": "Dismissione:\n- ambienti UT_AMB_GFVC9, UT_AMB_GFVC9_CONFIG (TAS000000588592);",
+		"dateOpened": "2016-09-16T14:00:37.036Z",
+		"dateLastUpdated": "2016-09-22T13:21:58.005Z",
+		"timeline": [{
+			"date": "2016-09-19T13:02:40.085Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Chiesti lumi per il batch",
+			"$$hashKey": "object:84"
+		}, {
+			"date": "2016-09-20T16:00:56.230Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Backup scarico e deposito creati. \nBackup workflow creato.\nFile applicazione già eliminati.\nBackup file allinea eseguito.\nDa cancellare ambiente BDMS e fare pulizia a DB.\nDa rimuovere file batch.",
+			"$$hashKey": "object:87"
+		}, {
+			"date": "2016-09-22T13:21:56.520Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Dismissione completata.",
+			"$$hashKey": "object:537"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Dismissione completata."
+	}, {
+		"_id": "82f492d0-72a8-452e-92cb-84f4c4949ad5",
+		"title": "[???] Dismissione GEEG",
+		"description": "Attività da eseguire:\n- Rimozione UT_AMB_GEEP9 per GEEG e GEEG_BATCH (TAS000000653683);\n- Rimozione UT_AMB_GEEC9 per GEEG e GEEG_BATCH. Proposta rimozione per UT_AMB_GEEK2 e i non UT (senti Ioppi per far chiarezza) (TAS000000653604);",
+		"dateOpened": "2016-09-16T13:57:41.991Z",
+		"dateLastUpdated": "2016-09-22T13:22:11.301Z",
+		"timeline": [{
+			"date": "2016-09-16T14:00:33.187Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Sentire Ioppi per chiarezza su ciò che va rimosso...",
+			"$$hashKey": "object:94"
+		}, {
+			"date": "2016-09-16T15:25:08.386Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Chiesta conferma a ioppi per rimozione ambienti:\nUT_AMB_GEEC9\nUT_AMB_GEEC9_CONFIG\nUT_BCH_GEEC9\nUT_BCH_GEEC9_CONFIG\nBCH_GEEK1\nBCH_GEEM1\nBCH_GEES1\nUT_AMB_GEEK2\nUT_BCH_GEEK2",
+			"$$hashKey": "object:473"
+		}, {
+			"date": "2016-09-19T13:03:06.859Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Ok, da rimuovere ambienti indicati. Passata a Irene.",
+			"$$hashKey": "object:86"
+		}, {
+			"date": "2016-09-22T13:22:09.967Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Dismissione completata.",
+			"$$hashKey": "object:539"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Dismissione completata.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "64a6d660-7acf-4646-b7af-416b873b262d",
+		"title": "[1401361] Dismissione GMC",
+		"description": "Dismissione:\n- Rimozione project WS_GMC_LAYOUT_FAT_LYT_SVIL_001 (TAS000000613873);\n- Eliminazione ambiente UT_AMB_GLOK9 (TAS000000661527);\n- Rimozione project WS_GMC_LAYOUT_FAT_LYT_MNT_001 (TAS000000661535);\n- Rimozione ambiente UT_AMB_GLOM9 (TAS000000661616);\n- Rimozione ambienti C9 per GLO, GMC, GSR (TAS000000669932);",
+		"dateOpened": "2016-09-16T13:52:49.503Z",
+		"dateLastUpdated": "2016-11-17T13:18:15.221Z",
+		"timeline": [{
+			"date": "2016-09-16T13:57:35.065Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Codice residente sugli stream? Check ambienti residui.",
+			"$$hashKey": "object:84"
+		}, {
+			"date": "2016-10-04T14:29:45.861Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "In attesa conferma esistenza backup applicativo degli item sui project.\nTutti gli ambienti BDMS indicati in descrizione sono stati rimossi (cfr RE: Demand 1401361 - dismissione FATA - Rilascio Dedicato 30 settembre 2016 del martedì 04/10/2016 10:36 from Gatti Roberto).",
+			"$$hashKey": "object:92"
+		}, {
+			"date": "2016-11-17T13:18:11.000Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Ambienti BDMS rimossi.\nProject svuotati. In attesa rimozione (Marco -> Giorgio).",
+			"$$hashKey": "object:136"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Ambienti BDMS rimossi.\nProject svuotati. In attesa rimozione (Marco -> Giorgio)."
+	}],
+	"statusNote": "Aggiunto task di dismissione per Preventivatore\nAggiunto task di dismissione GMC fata Prod\nAggiunto task di dismissione per AW_IIN"
+}, {
+	"title": "[CHIUSO] JLOG 4 Maven",
+	"description": "Allestire ambienti di build once e di sviluppo (per reference Application) per software JLOG.",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:17"
+	},
+	"status": {
+		"id": 3,
+		"value": "Chiuso"
+	},
+	"dateLastUpdated": "2016-06-30T10:44:46.716Z",
+	"dateOpen": "2016-06-30T10:44:46.716Z",
+	"dateClose": null,
+	"_id": "37db98c1-4df9-4005-857e-26894c2a3bf9",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-06-30T10:46:01.476Z",
+		"status": "In Lavorazione",
+		"note": "verifiche stato allestimento in corso."
+	}, {
+		"date": "2016-06-30T14:20:18.425Z",
+		"status": "In Pausa",
+		"note": "Tutto ok. Ruoli forniti all'applicativo, possono caricare sw e fare i test. In attesa sviluppi."
+	}, {
+		"date": "2016-08-03T15:15:43.414Z",
+		"status": "Chiuso",
+		"note": "A posto, ambienti consegnati dopo vari test applicativi. Chiudo!"
+	}, {
+		"date": "2016-08-25T13:27:56.043Z",
+		"status": "Chiuso",
+		"note": "Update descrizione... resta comunque chiuso :)"
+	}],
+	"tasks": [{
+		"_id": "eb5185b1-30dd-4648-a6e2-9b18b1208a47",
+		"title": "Verifica generale",
+		"description": "Sistemare tutto in modo che l'applicativo sia autonomo nel caricamento degli item su Dimensions e nel lancio dei processi di build&deploy. L'ideale sarebbe solo dare una prima fase di supporto.",
+		"dateOpened": "2016-06-30T10:44:55.782Z",
+		"dateLastUpdated": "2016-06-30T14:19:44.068Z",
+		"timeline": [{
+			"date": "2016-06-30T14:19:41.859Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Tutto ok, nexus configurato e bdms funzionanti.",
+			"$$hashKey": "object:397"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Tutto ok, nexus configurato e bdms funzionanti."
+	}],
+	"statusNote": "Update descrizione... resta comunque chiuso :)"
+}, {
+	"title": "Finder 2.0",
+	"description": "Creazione sistema per recupero informazioni infrastrutturali relativi ad un progetto a partire da un certo numero di input. Estensione del bdms finder che attualmente gira su LFCG2.",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-10-05T07:46:28.199Z",
+	"dateOpen": "2016-10-05T07:46:28.199Z",
+	"dateClose": null,
+	"_id": "39f20275-7ad6-416f-99d2-31a57416ca5b",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-10-05T07:49:21.063Z",
+		"status": "In Lavorazione",
+		"note": "In corso analisi preliminari."
+	}, {
+		"date": "2016-10-31T14:39:01.112Z",
+		"status": "In Lavorazione",
+		"note": "Modello dati stabilito, in lavorazione interfaccia di interrogazione. \nSecondo step, creazione delle procedure automatiche di popolamento e loro schedulazione."
+	}, {
+		"date": "2016-11-11T08:06:22.912Z",
+		"status": "In Lavorazione",
+		"note": "Creato repo online su onedrive personale accenture. Da creare procedure plsql di recupero dati.\nValutare inserimento di \"properties sheet\", anzichè la tabellona piena di attributi. \nSecondo step, creazione delle procedure automatiche di popolamento e loro schedulazione."
+	}, {
+		"date": "2016-11-17T13:22:13.459Z",
+		"status": "In Lavorazione",
+		"note": "Revisione modello dati a seguito di prime analisi sui processi di popolamento automatici.\nValutare inserimento di \"properties sheet\", anzichè la tabellona piena di attributi."
+	}, {
+		"date": "2017-02-07T16:16:48.328Z",
+		"status": "In Lavorazione",
+		"note": "Update generale del progetto. Inseriti task di evolutiva (gestione attributi da sitemi mancanti, nuovo frontend, gestione aggiornamenti tabelle definitive)."
+	}],
+	"tasks": [{
+		"_id": "dfa05655-4dd9-4699-9096-8f117c59bb92",
+		"title": "[EVOL] Gestione attributi Nexus",
+		"description": "Definire e inserire nel sistema la gestione dei repository nexus",
+		"dateOpened": "2017-02-07T16:12:21.007Z",
+		"dateLastUpdated": "2017-02-07T16:16:06.247Z",
+		"timeline": [{
+			"date": "2017-02-07T16:13:50.520Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Nexus espone interfacce REST, da studiare e capire come incastrarle nel flusso. Potrebbe essere un job jenkins da cui partono le chiamate necessarie che generano un file xml, da far elaborare poi ad un job talend dedicato.",
+			"$$hashKey": "object:326"
+		}],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"statusNote": "Nexus espone interfacce REST, da studiare e capire come incastrarle nel flusso. Potrebbe essere un job jenkins da cui partono le chiamate necessarie che generano un file xml, da far elaborare poi ad un job talend dedicato.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "81a69ce6-a7d3-498f-8325-6ea7c2417c63",
+		"title": "[EVOL] Gestione attributi jenkins",
+		"description": "Inserire nel finder i dati relativi ai job jenkins creati per i vari progetti.",
+		"dateOpened": "2017-02-07T16:11:10.219Z",
+		"dateLastUpdated": "2017-02-07T16:12:18.515Z",
+		"timeline": [{
+			"date": "2017-02-07T16:12:17.334Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Probabilmente è sufficiente uno script groovy di interrogazione per il recupero dei job jenkins e la generazione di un file xml da passare come input di un job talend.",
+			"$$hashKey": "object:316"
+		}],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"statusNote": "Probabilmente è sufficiente uno script groovy di interrogazione per il recupero dei job jenkins e la generazione di un file xml da passare come input di un job talend.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "4254c742-6bbf-4d41-92b9-58e7aced7cf5",
+		"title": "Porting in produzione",
+		"description": "Portare la base dati in prod.",
+		"dateOpened": "2017-02-07T16:09:25.718Z",
+		"dateLastUpdated": "2017-02-07T16:10:28.770Z",
+		"timeline": [{
+			"date": "2017-02-07T16:10:27.615Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "In attesa validazione da parte di alberto&co. E' comunque sufficiente far girare lo script sql di creazione base dati su bgoal di prod e impostare il context environment talend PROD sul job jenkins dedicato al progetto.",
+			"$$hashKey": "object:224"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "In attesa validazione da parte di alberto&co. E' comunque sufficiente far girare lo script sql di creazione base dati su bgoal di prod e impostare il context environment talend PROD sul job jenkins dedicato al progetto.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "e9b63db9-a9cf-4414-ac30-de370466e8ce",
+		"title": "[EVOL] Gestione update su tabelle definitive",
+		"description": "Da gestre il caso in cui un attributo precedentemente nascosto debba essere ripristinato. Al momento sulle tabelle definitive si va in INSERT mode, e con le chiavi impostate l'inserimento terminerebbe in errore.",
+		"dateOpened": "2017-02-07T16:07:59.435Z",
+		"dateLastUpdated": "2017-02-07T16:09:21.501Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Da provare se è sufficiente cambiare la table mode sugli output talend."
+	}, {
+		"_id": "e1302033-2c10-4e8f-819d-6c5304fad732",
+		"title": "Documentazione",
+		"description": "Stesura documentazione di progetto",
+		"dateOpened": "2017-02-07T16:07:33.900Z",
+		"dateLastUpdated": "2017-02-07T16:07:56.427Z",
+		"timeline": [{
+			"date": "2017-02-07T16:07:54.969Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Pagina di documentazione scritta sulla wiki.",
+			"$$hashKey": "object:206"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Pagina di documentazione scritta sulla wiki.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "2275630d-4a78-40d8-b922-1ca8a9b61e02",
+		"title": "Struttura database",
+		"description": "Stabilire la struttura della base dati, con le tabelle ed eventuali oggetti a corredo (sequences, trigger, procedure, packages, ...).",
+		"dateOpened": "2016-11-11T07:48:55.561Z",
+		"dateLastUpdated": "2017-02-07T16:04:56.203Z",
+		"timeline": [{
+			"date": "2017-02-07T16:04:54.872Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Database definito, script sql a posto. Base dati creata su sviluppo, in linea di massima la struttura è chiusa.",
+			"$$hashKey": "object:192"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Database definito, script sql a posto. Base dati creata su sviluppo, in linea di massima la struttura è chiusa.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "c42e1115-c8cd-444d-a9d2-3ae15d4eced9",
+		"title": "Frontend applicativo",
+		"description": "Creare una interfaccia (java? procedura pl/sql?) che, data una serie di attributi in input, restituisca in output tutti i vari progetti SCM legati agli attributi specificati.",
+		"dateOpened": "2016-10-31T14:35:55.770Z",
+		"dateLastUpdated": "2017-02-07T16:06:35.638Z",
+		"timeline": [{
+			"date": "2016-10-31T14:38:15.961Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "in lavorazione il jar e le relazioni. Primi test con interfaccia rest per recupero elementi primari (tutti i progetti, tutti i progetti scm, ...)",
+			"$$hashKey": "object:1010"
+		}, {
+			"date": "2017-02-07T16:06:34.492Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Creata pagina html statica con angularjs su host di laboratorio. A scopo di test, magari ci si torna prossimamente.",
+			"$$hashKey": "object:194"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Creata pagina html statica con angularjs su host di laboratorio. A scopo di test, magari ci si torna prossimamente."
+	}, {
+		"_id": "7e045106-f72a-4023-8ee5-1d120527b47e",
+		"title": "Batch di popolamento automatico del sistema",
+		"description": "Creare dei batch di popolamento automatico del sistema.",
+		"dateOpened": "2016-10-31T14:31:36.158Z",
+		"dateLastUpdated": "2017-02-07T16:07:28.730Z",
+		"timeline": [{
+			"date": "2016-11-17T13:20:40.986Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Identificazione fonti (quali tabelle SD, workflow BDMS, componenti ed applicazioni SDA);\nStesura procedure di parsing dei vari oggetti (talend?)\nSchedulazione delle procedure di cui al punto precedente.",
+			"$$hashKey": "object:281"
+		}, {
+			"date": "2017-02-07T16:07:28.729Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Job talend creati con struttura a macro-fasi (Estrazione, trasformazione, utilità), fasi (progetti, componenti, attributi) e step (sorgente, operazioni varie ed eventuali).",
+			"$$hashKey": "object:196"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Job talend creati con struttura a macro-fasi (Estrazione, trasformazione, utilità), fasi (progetti, componenti, attributi) e step (sorgente, operazioni varie ed eventuali).",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "de4861dc-1360-4a77-ab3d-bdfe8a024bc0",
+		"title": "Analisi preliminare",
+		"description": "Analisi preliminare per struttura base dati",
+		"dateOpened": "2016-10-05T07:46:36.519Z",
+		"dateLastUpdated": "2016-10-31T14:38:19.788Z",
+		"timeline": [{
+			"date": "2016-10-05T07:49:10.364Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "JSON con mongodb o SQL con Oracle?",
+			"$$hashKey": "object:66"
+		}, {
+			"date": "2016-10-31T14:31:31.735Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Oracle con hibernate, modello dati (pare) consolidato con:\ntabella dedicata per tecnologia, piattaforma, progetti, progetti SCM, usecase, tool (con tabelle dedicate per ognuno [nexus, sd, sda, ...]  e attributi + tabelle varie per i relazionamenti. Sostanzialmente si avrà:\n- un progetto applicativo avrà associati uno o più progetti SCM ciascuno dei quali sarà una implementazione di uno use case.\n- ad ogni use case possono essere associate più tecnologie e più piattaforme, ma ciascun progetto SCM avrà solo una tecnologia e solo una piattaforma;\n- ad ogni progetto SCM possono essere associati più attributi (coppie chiave - valore che su db possono avere relazionato uno strumento).",
+			"$$hashKey": "object:992"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Oracle con hibernate, modello dati (pare) consolidato con:\ntabella dedicata per tecnologia, piattaforma, progetti, progetti SCM, usecase, tool (con tabelle dedicate per ognuno [nexus, sd, sda, ...]  e attributi + tabelle varie per i relazionamenti. Sostanzialmente si avrà:\n- un progetto applicativo avrà associati uno o più progetti SCM ciascuno dei quali sarà una implementazione di uno use case.\n- ad ogni use case possono essere associate più tecnologie e più piattaforme, ma ciascun progetto SCM avrà solo una tecnologia e solo una piattaforma;\n- ad ogni progetto SCM possono essere associati più attributi (coppie chiave - valore che su db possono avere relazionato uno strumento)."
+	}],
+	"statusNote": "Update generale del progetto. Inseriti task di evolutiva (gestione attributi da sitemi mancanti, nuovo frontend, gestione aggiornamenti tabelle definitive)."
+}, {
+	"title": "LOY_LOYALTY @ MVNDB",
+	"description": "Allestimento ambienti per product LOY_LOYALTY. Allestimento su MVNDB, hanno jar di libreria da gestire separatamente.",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-07-06T14:31:56.040Z",
+	"dateOpen": "2016-07-06T14:31:56.040Z",
+	"dateClose": null,
+	"_id": "3fa3f71a-f30f-4956-a11c-00eab44bf225",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-07-06T16:14:16.676Z",
+		"status": "In Lavorazione",
+		"note": "Avviate attività su SD; Nexus completato, in attesa mavenizzazione sorgenti; BDMS e Jenkins da capire come gestire il tutto."
+	}, {
+		"date": "2016-07-11T15:05:37.853Z",
+		"status": "In Lavorazione",
+		"note": "In attesa applicativo per test Dimensions e properties. In attesa AS per configurazione deploy."
+	}, {
+		"date": "2016-07-12T15:59:37.727Z",
+		"status": "In Lavorazione",
+		"note": "Ambienti B0 ok. Ambienti S funzionanti, da capire info su batch e struttura ear pe primo deploy."
+	}, {
+		"date": "2016-07-13T13:27:56.467Z",
+		"status": "In Lavorazione",
+		"note": "Batch sistemato, da capire posizionamento properties (voto interne...). S fermo causa server group vuoto."
+	}, {
+		"date": "2016-07-15T12:01:52.823Z",
+		"status": "In Lavorazione",
+		"note": "In test agli applicativi gli ambienti di sviluppo e build once relativi al FE e alla libreria. Per il batch tutto ancora fermo."
+	}, {
+		"date": "2016-07-21T12:37:16.611Z",
+		"status": "In Lavorazione",
+		"note": "Frontend con problemi di runtime (versione java errata)."
+	}, {
+		"date": "2016-07-22T11:26:11.519Z",
+		"status": "In Lavorazione",
+		"note": "S con runtime errato, in analisi da applicativi e compagnia. Inseriti task per K/C/P/X/M frontend."
+	}, {
+		"date": "2016-07-26T13:06:50.278Z",
+		"status": "In Lavorazione",
+		"note": "S con runtime errato, in analisi da applicativi e compagnia. Inseriti task per K/C/P/X/M frontend.\ndc lmlmk640dc*001. \nCreati job jenkins S/K/M/C/P per FE e BATCH (questo da rivedere). File applicazione da creare. Infrastruttura OK su slave 2."
+	}, {
+		"date": "2016-08-03T15:15:05.059Z",
+		"status": "In Lavorazione",
+		"note": "K configurato, in attesa consegna S. \nDa sistemare i job jenkins del batch."
+	}, {
+		"date": "2016-08-04T07:44:38.060Z",
+		"status": "In Lavorazione",
+		"note": "In attesa consegna S. Configurato job batch e ambienti K. Post conferma S, procedo."
+	}, {
+		"date": "2016-08-22T10:39:34.837Z",
+		"status": "In Lavorazione",
+		"note": "K configurato in attesa B0 su 1.0.2 e properties ufficiali; in attesa consegna S."
+	}, {
+		"date": "2016-08-25T09:35:24.185Z",
+		"status": "In Lavorazione",
+		"note": "S e B0 LIB/FE consegnati.\nK FE in attesa properties e censimenti JNDI su AS.\nBatch in attesa installazione GPX e file system su host target;\nShell in attesa avvio attività (product allestito, ambiente mpeasx01 pronto. Software di test, da modificare permessi su target)."
+	}, {
+		"date": "2016-09-12T09:02:24.121Z",
+		"status": "In Lavorazione",
+		"note": "In consegna ambienti residui di S (batch) e ambienti K (FE/BCH/SCH)."
+	}, {
+		"date": "2016-09-13T12:31:32.859Z",
+		"status": "In Lavorazione",
+		"note": "Consegna completa ambienti S/B0 e K. \nAvviati lavori per C (deploy error batch, schedulazione in attesa infrastruttura, deploy ok frontend)."
+	}, {
+		"date": "2016-09-22T08:59:09.054Z",
+		"status": "In Lavorazione",
+		"note": "C e X in attesa conferma funzionamento da progetto (FE ok, manca conferma X BCH e SCH, e conferma C BCH. SCH per C non rilasciato, in attesa sticky bit)."
+	}, {
+		"date": "2016-09-23T14:16:25.213Z",
+		"status": "In Lavorazione",
+		"note": "C e X in attesa conferma funzionamento da progetto (FE ok, manca conferma X BCH e SCH, e conferma C BCH. SCH per C in errore e manca sticky bit)."
+	}, {
+		"date": "2016-09-27T08:25:32.613Z",
+		"status": "In Lavorazione",
+		"note": "C e X a posto, consegnabili. In attesa conferma funzionamento."
+	}, {
+		"date": "2016-09-28T14:35:45.518Z",
+		"status": "In Lavorazione",
+		"note": "Avviate richieste per M e P.  C e X in attesa conferma funzionamento."
+	}, {
+		"date": "2016-10-12T12:58:19.058Z",
+		"status": "In Lavorazione",
+		"note": "X: fermo infrastruttura\nC: attesa ok a consegna\nP: sch attesa sticky bit, FE attesa pconsole, BCH rilascio ok;\nM: sch attesa infrastruttura, FE attesa infrastruttura, BCH in attesa properties aggiornate."
+	}, {
+		"date": "2016-10-12T13:51:20.654Z",
+		"status": "In Lavorazione",
+		"note": "X: fermo infrastruttura\nC: consegnato!\nP: sch attesa sticky bit, FE attesa pconsole, BCH rilascio ok;\nM: sch attesa infrastruttura, FE attesa infrastruttura, BCH in attesa properties aggiornate."
+	}, {
+		"date": "2016-10-21T13:14:55.373Z",
+		"status": "In Lavorazione",
+		"note": "X: fermo infrastruttura\nP: rilasci ok, in attesa test applicativi.\nM: sch attesa infrastruttura, FE attesa infrastruttura, BCH in attesa properties aggiornate."
+	}, {
+		"date": "2016-10-25T07:49:46.513Z",
+		"status": "In Lavorazione",
+		"note": "X: fermo infrastruttura\nP: consegnato FE, in attesa info bch e sch\nM: sch attesa infrastruttura, FE attesa infrastruttura, BCH in attesa properties aggiornate."
+	}, {
+		"date": "2016-10-31T14:26:18.708Z",
+		"status": "In Lavorazione",
+		"note": "X: fermo infrastruttura\nP tutto consegnato.\nM: sch attesa infrastruttura, FE attesa infrastruttura, BCH in attesa properties aggiornate."
+	}, {
+		"date": "2016-11-10T10:20:15.626Z",
+		"status": "In Lavorazione",
+		"note": "X: rilacsio completato, in attesa lumi\nM: sch attesa infrastruttura, FE attesa infrastruttura, BCH in attesa properties aggiornate."
+	}, {
+		"date": "2016-12-14T10:55:48.367Z",
+		"status": "In Lavorazione",
+		"note": "X, M: in attesa informazioni\nRA: tutto pronto per test deploy in S e K, in attesa ok a procedere da parte di guassone."
+	}, {
+		"date": "2016-12-20T08:54:33.407Z",
+		"status": "In Lavorazione",
+		"note": "X, M consegnati.\nS2 in attesa shell schedulazione e conferma funzionamento per FE/BCH\nRA in standby causa mancanza budget."
+	}],
+	"tasks": [{
+		"_id": "1eb34835-6867-4cbc-816c-3dc4b5b675e7",
+		"title": "Adeguamento a release automation",
+		"description": "Adeguare loyalty a rilascio in release automation",
+		"dateOpened": "2016-12-14T10:53:32.973Z",
+		"dateLastUpdated": "2016-12-20T08:53:38.241Z",
+		"timeline": [{
+			"date": "2016-12-14T10:55:16.010Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Stream creati per le linee di sviluppo 1 (fe/bch/lib) e 2 (fe/bch). \nExpert pulse creati\nNexus adeguato con i ruoli corretti\nJob jenkins condivisi tra i vari expert\nSDA ok con applicazioni distinte tra FE e BCH. Prima parte della ra funzionante, da testare installazioni.\nUtenti da censire su SBM e SDA.",
+			"$$hashKey": "object:448"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "Configurazione ultimata, pronto per test di installazione. In attesa nuovo budget.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "4a468210-f0d4-4639-b793-e95a3c0a1c25",
+		"title": "Allestimento Dimensions per versionamento Shell",
+		"description": "Infrastruttura SD per shell",
+		"dateOpened": "2016-08-04T07:40:51.274Z",
+		"dateLastUpdated": "2016-09-27T08:25:12.450Z",
+		"timeline": [{
+			"date": "2016-08-04T07:42:17.502Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Da creare product su LFCDB (LOY_LOYLTY). \nMeccanismo sticky bit.",
+			"$$hashKey": "object:188"
+		}, {
+			"date": "2016-08-25T09:34:02.595Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Product creato ed allestito (secondo utenze di MVNDB). Da aggiungere utenze al gruppo di notifiche mail per validazione item (chiedi al progetto quando parte l'attività).",
+			"$$hashKey": "object:199"
+		}, {
+			"date": "2016-09-22T08:56:27.263Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Aggiunte utenze CM per validazione shell. Allestimento completo.",
+			"$$hashKey": "object:404"
+		}, {
+			"date": "2016-09-27T08:25:10.693Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Sistemati tipi baseline, disabilitato SRC e impostato attributo sottogruppo su SCH.",
+			"$$hashKey": "object:222"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Sistemati tipi baseline, disabilitato SRC e impostato attributo sottogruppo su SCH."
+	}, {
+		"_id": "b23f0531-8ce2-4f00-93ca-14de0f8b8789",
+		"title": "[PROD] Allestimento Batch + Shell",
+		"description": "[PROD] Allestimento Batch + Shell",
+		"dateOpened": "2016-08-04T07:40:31.515Z",
+		"dateLastUpdated": "2016-10-31T14:25:56.186Z",
+		"timeline": [{
+			"date": "2016-09-28T14:34:43.384Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "richieste cartelle e scambi chiavi. Job creati e BDMS allestiti. In attesa.",
+			"$$hashKey": "object:223"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Tutto consegnato!"
+	}, {
+		"_id": "f81b3179-1f9e-4625-ad02-349bb9063665",
+		"title": "[CERT] Allestimento Batch + Shell",
+		"description": "[CERT] Allestimento Batch + Shell",
+		"dateOpened": "2016-08-04T07:39:59.607Z",
+		"dateLastUpdated": "2016-10-12T13:50:42.700Z",
+		"timeline": [{
+			"date": "2016-09-13T12:30:32.339Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Rilascio in deploy error, analisi in corso da GPX.",
+			"$$hashKey": "object:519"
+		}, {
+			"date": "2016-09-22T08:54:56.349Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Frontend e batch rilasciati con successo. Shell in attesa di sticky bit.",
+			"$$hashKey": "object:398"
+		}, {
+			"date": "2016-09-23T14:15:57.776Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Cert Batch a posto, previo test applicativo. Cert shell in errore deploy (sticky bit e copy error su file sql)",
+			"$$hashKey": "object:301"
+		}, {
+			"date": "2016-09-27T08:24:37.067Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Cert a posto, in attesa creazione release.",
+			"$$hashKey": "object:220"
+		}, {
+			"date": "2016-10-12T13:50:41.349Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Consegnato!",
+			"$$hashKey": "object:884"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato!"
+	}, {
+		"_id": "e0d5a47b-7e37-4a52-bd36-a71f796e284a",
+		"title": "[PERF] Allestimento Batch + Shell",
+		"description": "[PERF] Allestimento Batch + Shell",
+		"dateOpened": "2016-08-04T07:39:24.196Z",
+		"dateLastUpdated": "2016-12-20T08:50:25.924Z",
+		"timeline": [{
+			"date": "2016-09-22T08:54:29.951Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Rilascio eseguito per le tre componenti, in attesa conferma funzionamento.",
+			"$$hashKey": "object:396"
+		}, {
+			"date": "2016-11-10T08:22:49.199Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Rilascio ok in sched, in attesa ok funzionamento.",
+			"$$hashKey": "object:241"
+		}],
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Consegnato!"
+	}, {
+		"_id": "095c0d7c-e914-455f-9ce3-09a1c99e2306",
+		"title": "[MAIN] Allestimento Batch + Shell",
+		"description": "[Main] Allestimento Batch + Shell",
+		"dateOpened": "2016-08-04T07:39:04.553Z",
+		"dateLastUpdated": "2016-12-20T08:50:39.243Z",
+		"timeline": [{
+			"date": "2016-09-28T14:34:58.029Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "richieste cartelle e scambi chiavi. Job creati e BDMS allestiti. In attesa.",
+			"$$hashKey": "object:225"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato!"
+	}, {
+		"_id": "dd4eb647-547b-4a41-88ef-c98ecb74706a",
+		"title": "[CONS] Allestimento Batch + Shell",
+		"description": "Allestimento Batch + Shell",
+		"dateOpened": "2016-08-04T07:38:35.709Z",
+		"dateLastUpdated": "2016-09-13T12:26:15.420Z",
+		"timeline": [{
+			"date": "2016-09-12T09:01:22.494Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Lavori ultimati da Alessio, ambienti in consegna.",
+			"$$hashKey": "object:200"
+		}, {
+			"date": "2016-09-13T12:26:14.180Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Consegnato!",
+			"$$hashKey": "object:509"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato!"
+	}, {
+		"_id": "3b62ec59-09bc-494b-b266-8b6a446a53f4",
+		"title": "[SVIL/BLDO] Allestimento Batch + shell",
+		"description": "Allestimento ambiente di rilascio batch + shell loyalty",
+		"dateOpened": "2016-08-04T07:37:55.359Z",
+		"dateLastUpdated": "2016-09-13T12:26:27.078Z",
+		"timeline": [{
+			"date": "2016-08-25T09:32:47.522Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "In attesa gpx su host target batch. Software riallineato con struttura e versione corretta, job jenkins adeguato.\nSchedulazione, in attesa conferma attività. Product dimensions allestito, ambiente su mpeasx01. In attesa rilascio.",
+			"$$hashKey": "object:197"
+		}, {
+			"date": "2016-09-12T09:01:06.767Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Lavori ultimati da Alessio, in consegna.",
+			"$$hashKey": "object:198"
+		}, {
+			"date": "2016-09-13T12:26:27.078Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Consegnato!",
+			"$$hashKey": "object:511"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato!"
+	}, {
+		"_id": "8860d6a4-fe77-482b-9446-dd781e2981c2",
+		"title": "[MAIN] Allestimento FE",
+		"description": "[MAIN] Allestimento frontend",
+		"dateOpened": "2016-07-22T10:15:34.430Z",
+		"dateLastUpdated": "2016-12-20T08:52:38.639Z",
+		"timeline": [{
+			"date": "2016-09-28T14:35:07.201Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "richieste cartelle e scambi chiavi. Job creati e BDMS allestiti. In attesa.",
+			"$$hashKey": "object:227"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato!"
+	}, {
+		"_id": "9edda27d-9e8c-4061-9823-2aa9946ea62e",
+		"title": "[PERF] Allestimento FE",
+		"description": "Allestimento frontend loyalty performance",
+		"dateOpened": "2016-07-22T10:11:55.200Z",
+		"dateLastUpdated": "2016-12-20T08:52:50.871Z",
+		"timeline": [{
+			"date": "2016-09-13T12:30:05.063Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Pronto per rilascio.",
+			"$$hashKey": "object:517"
+		}, {
+			"date": "2016-09-22T08:55:54.486Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Ambiente consegnabile, in attesa batch e shell.",
+			"$$hashKey": "object:402"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Consegnato!",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "f90bc096-5410-4e99-8d8e-fe75918a7c7d",
+		"title": "[PROD] Allestimento FE",
+		"description": "Allestimento frontend produzione loyalty",
+		"dateOpened": "2016-07-22T10:11:26.170Z",
+		"dateLastUpdated": "2016-10-25T07:49:24.139Z",
+		"timeline": [{
+			"date": "2016-09-28T14:35:14.423Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "richieste cartelle e scambi chiavi. Job creati e BDMS allestiti. In attesa.",
+			"$$hashKey": "object:229"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Ambiente consegnato."
+	}, {
+		"_id": "391f92a5-b522-40d0-b4c0-194c9b7ad2e3",
+		"title": "[CERT] Allestimento FE",
+		"description": "Allestimento frontend certificazione",
+		"dateOpened": "2016-07-22T10:11:03.647Z",
+		"dateLastUpdated": "2016-10-12T13:50:54.803Z",
+		"timeline": [{
+			"date": "2016-09-13T12:29:41.476Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Rilascio FE terminato con successo. In attesa properties aggiornate.",
+			"$$hashKey": "object:515"
+		}, {
+			"date": "2016-09-22T08:55:35.788Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Ambiente consegnabile. Attesa ok per batch e shell.",
+			"$$hashKey": "object:400"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato."
+	}, {
+		"_id": "67ca17ae-7a2e-4fac-bf63-66701137d6b8",
+		"title": "[CONS] Allestimento FE",
+		"description": "Allestimento frontend Loyalty",
+		"dateOpened": "2016-07-22T10:10:36.242Z",
+		"dateLastUpdated": "2016-09-13T12:26:43.932Z",
+		"timeline": [{
+			"date": "2016-08-22T10:38:53.757Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "in attesa versonamento via build once 1.0.2 dell'ear e properties ufficiali.  Resto ok.",
+			"$$hashKey": "object:191"
+		}, {
+			"date": "2016-08-25T09:31:28.604Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Rilascio eseguito, in attesa censimento datasource Middleware GBS e properties ufficiali.",
+			"$$hashKey": "object:195"
+		}, {
+			"date": "2016-09-12T09:01:42.274Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Lavori ultimati da Alessio, in consegna.",
+			"$$hashKey": "object:202"
+		}, {
+			"date": "2016-09-13T12:26:41.853Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Consegnato!",
+			"$$hashKey": "object:513"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnato!"
+	}, {
+		"_id": "5109218b-e60e-42ce-bb96-5cd81a7e3f90",
+		"title": "[SVIL/BLDO] Allestimento ambienti FE/LIB",
+		"description": "Allestimento FE/LIB S/B0",
+		"dateOpened": "2016-07-06T16:02:16.177Z",
+		"dateLastUpdated": "2016-08-25T09:30:58.431Z",
+		"timeline": [{
+			"date": "2016-07-11T15:03:35.943Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Da capire la gestione delle due componenti (FRONTEND e BATCH). Si potrebbe utilizzare un job unico, parametrizzato secondo workstream ed ambiente di rilascio ( build - build once - recupero).",
+			"$$hashKey": "object:135"
+		}, {
+			"date": "2016-07-11T15:04:36.640Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Creati tre ambienti distinti per S/B0 relativi a LIB, BCH, WEB. Su amb. alti no LIB. Workstream unico, BL_MAVEN. Test ok su build once, in attesa application server per S e utenze per serena.",
+			"$$hashKey": "object:137"
+		}, {
+			"date": "2016-07-15T12:01:44.675Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Ambienti in test da parte dell'applicativo. In attesa conferma funzionamento per consegna ufficiale.",
+			"$$hashKey": "object:84"
+		}, {
+			"date": "2016-08-04T07:43:36.111Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "In attesa conferma funzionamento.",
+			"$$hashKey": "object:190"
+		}, {
+			"date": "2016-08-25T09:30:57.103Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Consegnati.",
+			"$$hashKey": "object:193"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Consegnati."
+	}, {
+		"_id": "19dd510f-1d85-40b8-9aad-ab571407132e",
+		"title": "Allestimento Nexus",
+		"description": "Servono snapshot e terze parti. Utenze da fornire, file di settings locale da creare.",
+		"dateOpened": "2016-07-06T14:32:53.918Z",
+		"dateLastUpdated": "2016-07-06T16:13:36.865Z",
+		"timeline": [{
+			"date": "2016-07-06T15:30:13.036Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Allestiti thridparty, release e snapshot. Settings creato (magari qualche problema  in caso di altri progetti). Utenze ok, permessi OK.",
+			"$$hashKey": "object:65"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Allestiti thridparty, release e snapshot. Settings creato (magari qualche problema  in caso di altri progetti). Utenze ok, permessi OK."
+	}, {
+		"_id": "65b8eb7f-a90a-4a89-9d53-20d882c00d0a",
+		"title": "Allestimento Serena Dimensions",
+		"description": "Configurazione SD per product. Da creare tre stream, _JAVA_FE_EVO_001, JAVA_LIB_EVO_001 e JAVA_BCH_EVO_001.",
+		"dateOpened": "2016-07-06T14:32:02.509Z",
+		"dateLastUpdated": "2016-07-15T12:00:37.893Z",
+		"timeline": [{
+			"date": "2016-07-06T16:02:09.277Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Richiesto product, in attesa censimento.",
+			"$$hashKey": "object:67"
+		}, {
+			"date": "2016-07-11T15:05:00.518Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Product allestito, in attesa test dell'applicativo.",
+			"$$hashKey": "object:139"
+		}, {
+			"date": "2016-07-15T12:00:36.515Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Primi test ok. Chiudo, al max c'è qualche finezza da fare.",
+			"$$hashKey": "object:82"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Primi test ok. Chiudo, al max c'è qualche finezza da fare."
+	}],
+	"statusNote": "X, M consegnati.\nS2 in attesa shell schedulazione e conferma funzionamento per FE/BCH\nRA in standby causa mancanza budget."
+}, {
+	"title": "Varie ed eventuali",
+	"description": "In attesa di sistemare la pagina dei fast task ..........",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 2,
+		"value": "In Pausa"
+	},
+	"dateLastUpdated": "2016-07-25T13:30:13.117Z",
+	"dateOpen": "2016-07-25T13:30:13.117Z",
+	"dateClose": null,
+	"_id": "575e7b89-2325-4a82-8ee5-0c5d5a02b79e",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-07-25T13:33:24.905Z",
+		"status": "In Lavorazione",
+		"note": "Aperto task di verifica stato agent SDA"
+	}, {
+		"date": "2016-07-27T15:49:33.342Z",
+		"status": "In Lavorazione",
+		"note": "Aperti task per batch su job maven e file di settings da scaricare da nexus"
+	}, {
+		"date": "2016-10-03T09:13:04.551Z",
+		"status": "In Lavorazione",
+		"note": "Chiuso task di gestione batch maven e di monitoraggio agent SDA. \nDa avviare lavori per task di download settings.xml via nexus."
+	}, {
+		"date": "2016-11-11T09:06:00.771Z",
+		"status": "In Pausa",
+		"note": "Chiuso task di recupero settings.xml\nChiuso task di creazione job template per maven.\nNessuna attività attualmente attiva."
+	}, {
+		"date": "2016-11-25T14:43:44.473Z",
+		"status": "In Pausa",
+		"note": "Aggiunto task per pulizia artefatti\nChiuso task di recupero settings.xml\nChiuso task di creazione job template per maven.\nNessuna attività attualmente attiva."
+	}],
+	"tasks": [{
+		"_id": "9b087eea-0360-45d1-a7a8-af579593f83b",
+		"title": "[MVN] Pulizia artefatti in repository locale",
+		"description": "Scrivere plugin, estendendo il dependency plugin, per la pulizia dal repository locale degli artefatti finali (ear/war) che non devono essere recuperati.",
+		"dateOpened": "2016-11-25T14:39:27.366Z",
+		"dateLastUpdated": "2016-11-25T14:41:50.144Z",
+		"timeline": [{
+			"date": "2016-11-25T14:41:48.555Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Da pensarci sopra e documentarsi un po'",
+			"$$hashKey": "object:537"
+		}],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Da pensarci sopra e documentarsi un po'"
+	}, {
+		"_id": "43ec2682-94be-45bb-8821-72ea8e243c78",
+		"title": "[JKS] Download settings.xml da Nexus",
+		"description": "Verificare la possibilità di creare directory repo a runtime, e sempre a runtime di scaricare il file di settings personalizzato per l'ambiente.",
+		"dateOpened": "2016-07-27T15:32:46.794Z",
+		"dateLastUpdated": "2016-11-11T09:04:38.085Z",
+		"timeline": [{
+			"date": "2016-11-11T09:04:19.969Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Vedi qui per il file di settings.xml: https://books.sonatype.com/nexus-book/reference/maven-settings.html",
+			"$$hashKey": "object:617"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Creato builder template Check ambiente di esecuzione Maven",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "c8f65cc7-cc51-4ddc-8288-90b6b90e255e",
+		"title": "[JKS] Modifica job template per maven",
+		"description": "Da modificare i job template di maven per arrivare a gestire i batch. Dovrebbe esser necessario l'inserimento del parametro con il nome dell'artefatto obiettivo e il punto dello zip dei jar.",
+		"dateOpened": "2016-07-27T15:31:18.721Z",
+		"dateLastUpdated": "2016-11-11T09:05:10.503Z",
+		"timeline": [{
+			"date": "2016-10-03T09:11:26.625Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Fatto con loyalty, per il batch guarda là.",
+			"$$hashKey": "object:533"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Template creati, per RA e per maven base (ricerca RR da jenkins)."
+	}, {
+		"_id": "41de62a1-20b7-4059-a77f-950db129197c",
+		"title": "[SDA] Sistemazione job di controllo stato agent",
+		"description": "Sistemare job jenkins di controllo stato agent. Causa inserimento SSO via SBM, la basic authentication non funziona più. Verificare altre strade per l'autenticazione e/o passare alla chiamata Java del client SDA.",
+		"dateOpened": "2016-07-25T13:30:19.930Z",
+		"dateLastUpdated": "2016-10-03T09:12:24.290Z",
+		"timeline": [{
+			"date": "2016-10-03T09:12:22.687Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Identificato header DirectSsoInteraction che permette il bypass dell'SSO. Creato user agent_monitor per controllo agent. Riga di comando identificata. Processo in elaborazione da parte di Event Management.",
+			"$$hashKey": "object:535"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Identificato header DirectSsoInteraction che permette il bypass dell'SSO. Creato user agent_monitor per controllo agent. Riga di comando identificata. Processo in elaborazione da parte di Event Management."
+	}],
+	"statusNote": "Aggiunto task per pulizia artefatti\nChiuso task di recupero settings.xml\nChiuso task di creazione job template per maven.\nNessuna attività attualmente attiva."
+}, {
+	"title": "Dashboard Progetti",
+	"description": "App di utilità per la gestione dei vari progetti.",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:17"
+	},
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-06-30T15:05:59.704Z",
+	"dateOpen": "2016-06-30T15:05:59.704Z",
+	"dateClose": null,
+	"_id": "70efbfe6-de3b-4813-9364-1394b9ed325d",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-06-30T15:11:47.795Z",
+		"status": "In Lavorazione",
+		"note": "Avvio attività per improvement applicazione!"
+	}, {
+		"date": "2016-08-04T13:37:28.153Z",
+		"status": "In Lavorazione",
+		"note": "Inserito task di import/export"
+	}],
+	"tasks": [{
+		"_id": "187114e7-e771-410e-9381-c9e1f4b670e8",
+		"title": "Funzionalita import/export",
+		"description": "Inserire meccanismo di import/export progetti.",
+		"dateOpened": "2016-08-04T13:33:26.521Z",
+		"dateLastUpdated": "2016-08-04T13:37:10.921Z",
+		"timeline": [],
+		"status": {
+			"id": 1,
+			"value": "In Lavorazione"
+		},
+		"statusNote": "Export creato. \nPer l'import, recuperare un file denominato projects.json in una delle cartelle sotto http static. Via angular dare un $http.get('path_per_il_file').success( function ( data ) {... }, dall'array definire un project e per ognuno di questi eseguire l'inserimento a db. Da testare ovviamente su progetto parallelo!",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "4ee598ae-9426-4a0b-8577-c6c145dde841",
+		"title": "Notifiche",
+		"description": "Inserire un sistema dii notifiche per le varie conferme delle attività di backend (salvataggio task/progetto, ecc...).",
+		"dateOpened": "2016-06-30T15:10:45.149Z",
+		"dateLastUpdated": "2016-06-30T15:11:25.946Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "6f2500cc-3cd9-4422-8076-c01a2f21a6f3",
+		"title": "Revisione home page",
+		"description": "Revisione home page per visualizzazione efficiente delle attività pending.",
+		"dateOpened": "2016-06-30T15:07:34.490Z",
+		"dateLastUpdated": "2016-06-30T15:10:37.968Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "7554c432-ac54-4859-9378-e68b913f2dd5",
+		"title": "Evidenziazione e filtraggio task/progetti per stato",
+		"description": "Inserire un meccanismo di filtraggio dei progetti/task in base allo stato. Prevedere magari anche criteri per un ordinamento intelligente (nascondo progetti chiusi, in alto progetti in pausa, ...).",
+		"dateOpened": "2016-06-30T15:06:12.398Z",
+		"dateLastUpdated": "2016-06-30T15:10:35.153Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}],
+	"statusNote": "Inserito task di import/export"
+}, {
+	"title": "[RA] Release Automation",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:17"
+	},
+	"description": "Progetti Multiwar (rilascio war su jboss a caldo/a freddo) + use case per rilascio ear + cfg in release automation (SD - SDA - SRC - Jenkins - Nexus)",
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-06-30T10:49:27.033Z",
+	"dateOpen": "2016-06-30T10:49:27.033Z",
+	"dateClose": null,
+	"_id": "85fa5f46-5ee8-497b-8e46-1297508f6970",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-06-30T10:53:40.571Z",
+		"status": "In Lavorazione",
+		"note": "avvio attività"
+	}, {
+		"date": "2016-07-01T15:50:05.250Z",
+		"status": "In Lavorazione",
+		"note": "Dimensions a posto, in linea di massima, con le tre componenti (2 jar, un war dipendente). \nDa impostare Nexus per gli stream di main.\nPulse configurato con expert jenkins (test solo su deliver su war_evol, ok). Job jenkins creati (9x). SDA in sviluppo."
+	}, {
+		"date": "2016-07-04T15:59:01.377Z",
+		"status": "In Lavorazione",
+		"note": "Serena - pulse - jenkins ok. SDA componenti e popolamento a posto, da ultimare job jenkins e processi applicazione. Zero completo su SRC."
+	}, {
+		"date": "2016-07-06T16:15:44.859Z",
+		"status": "In Lavorazione",
+		"note": "Aggiunto task di controllo sorgente di Perini."
+	}, {
+		"date": "2016-07-07T15:54:21.276Z",
+		"status": "In Lavorazione",
+		"note": "Compilazione con sorgenti ufficiali di Perini ok. Nexus a posto, da fare tutto SD - Pulse - Jenkins."
+	}, {
+		"date": "2016-07-11T15:59:40.870Z",
+		"status": "In Lavorazione",
+		"note": "Aggiornamento con censimento su Dimensions, pulse e jenkins (flussi evol per 3 oggetti). Non funziona innesco automatico di jenkins da pulse. Occhio al permesso particolare per jks_user."
+	}, {
+		"date": "2016-07-12T08:50:14.082Z",
+		"status": "In Lavorazione",
+		"note": "Aggiornamento con censimento su Dimensions, pulse e jenkins (flussi evol per 3 oggetti). Non funziona innesco automatico di jenkins da pulse. Occhio al permesso particolare per jks_user e all'utenza di lancio dei job jenkins da pulse (ora lfc_bdms)."
+	}, {
+		"date": "2016-07-16T13:28:20.378Z",
+		"status": "In Lavorazione",
+		"note": "Pulse, Jenkins e nexus sistemati. Test rimossi dalle compilazioni maven, aggiunto repo cloudera. \nDa capire: utenza di lancio job da pulse."
+	}, {
+		"date": "2016-07-26T13:08:59.276Z",
+		"status": "In Lavorazione",
+		"note": "Info a pasqualini per rilasci caldo/freddo; sistemazione job evolutiva; analisi ruoli src/sda"
+	}, {
+		"date": "2016-07-28T15:27:24.316Z",
+		"status": "In Lavorazione",
+		"note": "Aggiunti task di rigenerazione componenti SDA e profilazione utenti."
+	}, {
+		"date": "2016-08-04T10:50:10.289Z",
+		"status": "In Lavorazione",
+		"note": "Update su abilitazioni, profilazione e ridefinizione componenti e processo tramite componente template e script di pasqualini."
+	}, {
+		"date": "2016-09-14T08:58:01.630Z",
+		"status": "In Lavorazione",
+		"note": "In esame configurazione ruoli ed utenti SDA/SRC."
+	}, {
+		"date": "2016-09-20T12:08:42.798Z",
+		"status": "In Lavorazione",
+		"note": "Ruoli ok. Da sistemare i lifecycle e i tipi item/baseline su Dimensions."
+	}, {
+		"date": "2016-09-22T08:53:54.148Z",
+		"status": "In Lavorazione",
+		"note": "Avviata richiesta monitoraggio;\nTest di deploy in attesa di ok a procedere (maraschi);\nDocumentazione in stesura\nProblemi aperti: visionatura log jenkins e pulse da parte del progetto applicativo: se non vogliamo dare pulse, va fatto sistema di notifica mail!"
+	}, {
+		"date": "2016-09-22T17:35:10.516Z",
+		"status": "In Lavorazione",
+		"note": "Avviata richiesta monitoraggio;\nTest di deploy in attesa di conferma funzionamento (maraschi);\nDocumentazione in stesura\nProblemi aperti: visionatura log jenkins e pulse da parte del progetto applicativo: se non vogliamo dare pulse, va fatto sistema di notifica mail!"
+	}, {
+		"date": "2016-09-29T06:58:47.726Z",
+		"status": "In Lavorazione",
+		"note": "Avviata richiesta monitoraggio;\nTest deploy ok!!\nDocumentazione in stesura\nProblemi aperti: visionatura log jenkins e pulse da parte del progetto applicativo: se non vogliamo dare pulse, va fatto sistema di notifica mail!"
+	}, {
+		"date": "2016-10-03T09:20:08.107Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in stesura\nProblemi aperti: visionatura log jenkins e pulse da parte del progetto applicativo: se non vogliamo dare pulse, va fatto sistema di notifica mail!"
+	}, {
+		"date": "2016-10-06T07:19:52.815Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in stesura\nProblemi aperti: visionatura log jenkins e pulse da parte del progetto applicativo: se non vogliamo dare pulse, va fatto sistema di notifica mail!\naggiunta task di monitoraggio profili attivi"
+	}, {
+		"date": "2016-10-06T13:59:20.804Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in stesura\nProblemi aperti: visionatura log jenkins e pulse da parte del progetto applicativo: se non vogliamo dare pulse, va fatto sistema di notifica mail!\nvalidazione maven profile da validare boscolo/tofanelli"
+	}, {
+		"date": "2016-10-10T08:24:00.271Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in stesura\nProblemi aperti: visionatura log jenkins e pulse da parte del progetto applicativo: se non vogliamo dare pulse, va fatto sistema di notifica mail!\nvalidazione maven profile da validare boscolo/tofanelli\ninserito task per gestione iniezione configurazione."
+	}, {
+		"date": "2016-10-12T14:59:15.981Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in validazione;\nvalidazione maven profile da validare boscolo/tofanelli\niniezione configurazione in pausa causa problema permessi SDA."
+	}, {
+		"date": "2016-10-13T08:39:24.983Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in validazione;\nvalidazione maven profile da validare boscolo/tofanelli\niniezione configurazione in pausa causa problema permessi SDA;\nversione pulse nuova corregge anomalia su folder plugin (test in S, vedi mail RE: [SCM_SRC_02] Gestione iniezione properties via SDA)."
+	}, {
+		"date": "2016-10-18T06:11:38.556Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in validazione;\nvalidazione maven profile da validare boscolo/tofanelli\niniezione configurazione gestita con 3 processi (vedi dettagli nel task dedicato);\nversione pulse nuova corregge anomalia su folder plugin (test in S, vedi mail RE: [SCM_SRC_02] Gestione iniezione properties via SDA)."
+	}, {
+		"date": "2016-10-21T13:18:58.614Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in validazione;\nvalidazione maven profile da validare boscolo/tofanelli\niniezione configurazione ha sollevato vespaio (case aperti a serena, problemi di sicurezza, vedi thread di mail in giro);\npulse aggiornato, da spostare i job e ricreare con i template e riconfigurare pulse."
+	}, {
+		"date": "2016-10-21T13:32:12.771Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione in validazione;\nvalidazione maven profile da validare boscolo/tofanelli\niniezione configurazione ha sollevato vespaio (case aperti a serena, problemi di sicurezza, vedi thread di mail in giro); procedi come da indicazioni nel task dedicato;\npulse aggiornato, da spostare i job e ricreare con i template e riconfigurare pulse."
+	}, {
+		"date": "2016-10-31T14:18:48.184Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione spostata su progetto ad hoc;\nmaven profile validati, da attivare e gestire job jenkins come template.\niniezione properties funzionante in sviluppo.\npulse aggiornato, da spostare i job e ricreare con i template e riconfigurare pulse."
+	}, {
+		"date": "2016-11-03T15:32:34.535Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione spostata su progetto ad hoc;\nChiusi task di spostamento job in directory GSC_FUSE a seguito di update pulse.\niniezione properties funzionante in sviluppo."
+	}, {
+		"date": "2016-11-08T14:12:07.479Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nDocumentazione spostata su progetto ad hoc;\nUnificati processi applicazione GSC_FUSE. \nDefinita modalità di rilascio properties a 4 processi"
+	}, {
+		"date": "2016-11-11T08:50:35.771Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nAggiunto task di creazione plugin sda per iniezione properties."
+	}, {
+		"date": "2016-11-25T11:36:14.107Z",
+		"status": "In Lavorazione",
+		"note": "Monitoraggio in esame da parte di Event Management; \nAggiunto task di creazione plugin sda per iniezione properties.\nupdate generico."
+	}],
+	"tasks": [{
+		"_id": "dd08a546-dda9-495f-920e-e0742b3f50f6",
+		"title": "SDA - Creazione plugin per iniezione properties",
+		"description": "Creazione plugin SDA groovy per iniezione properties in artefatto.",
+		"dateOpened": "2016-11-11T08:44:43.010Z",
+		"dateLastUpdated": "2016-11-25T11:35:32.855Z",
+		"timeline": [],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "Base: plugin per lancio ant. Da modificare con:\n - impostazione properties legate allo script di iniezione;\n - inserimento script dentro il plugin e suo recupero da qui (no script esterni, nè contenuto script come stringa);\n - capire properties disponibili (agent.home?);\n - posizionamento script in ${agent.home}/script/prj/ci/ e controllo checksum tra file attuale e file nel plugin.\n\nVersione 2.0: traduzione in groovy",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "f7250efc-211d-4042-986d-946cce8b7b6f",
+		"title": "[Evol] Gestione componente CFG con innesto properties",
+		"description": "Inserire componente di configurazione e verificare la sua corretta gestione via src. Per l'iniezione utilizzare il vecchio script di iniezione configurazione.",
+		"dateOpened": "2016-10-10T08:19:02.676Z",
+		"dateLastUpdated": "2016-11-25T11:34:45.916Z",
+		"timeline": [{
+			"date": "2016-10-12T13:53:36.864Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Problema con profilazione utenti (vedi mail [SCM_SRC_02] Gestione iniezione properties via SDA). In attesa lumi.",
+			"$$hashKey": "object:1104"
+		}, {
+			"date": "2016-10-21T13:17:54.325Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Primi test per integrazione SRC/SDA (3 job creati, deploy, deploy_ear, deploy_cfg con configurazione SRC a diversi RP e DU specifiche di ambiente). Vedi mail RE: [SCM_SRC_02] Gestione iniezione properties via SDA di martedì 18/10/2016 12:30. Punti aperti e discussi, in attesa di sviluppi.",
+			"$$hashKey": "object:461"
+		}, {
+			"date": "2016-10-21T13:29:32.283Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Procedere con: release package distinti per sw e cfg x ambiente (3 rp per 3 ambienti). Due processi SDA (cfg --> pulizia scarico + download versione artefatto, src --> chiamata ant a script di iniezione più avvio deploy). RP con due tipi di rp (cfg e src).",
+			"$$hashKey": "object:825"
+		}, {
+			"date": "2016-10-31T14:17:12.133Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Soluzione in piedi in ambiente di sviluppo. In validazione interna.",
+			"$$hashKey": "object:307"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Processi portati in produzione, già in utilizzo."
+	}, {
+		"_id": "5d72fc1c-307b-499d-90bf-f20fe42b4f00",
+		"title": "Profili Maven nei pom.xml applicativi",
+		"description": "- Modifica wiki per:\n  -  abilitazione profili purchè NON di default\n   - istruzioni per abilitazione di default nel settings.xml\n- Identificazione comando per check profili di default ;\n- Verifica se check è prebuild o build (vedi template jenkins);\n- predisposizione script per il check\n- comunicazione post aggiornamento al supporto SCMDM della gestione",
+		"dateOpened": "2016-10-06T07:14:41.846Z",
+		"dateLastUpdated": "2016-11-03T15:30:50.261Z",
+		"timeline": [{
+			"date": "2016-10-06T13:57:54.047Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "comando è mvn help:active_profiles\nda modificare wiki e controllare se step inseribile in template jenkins.",
+			"$$hashKey": "object:360"
+		}, {
+			"date": "2016-10-06T13:58:59.176Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Creato builder per il check dei profiles (nella root così lo vedono tutti)\nhttp://lmlift11hcp001.generali.it:9180/jenkins_Ent/job/SCMDM_MAVEN_CHECK_ACTIVE_PROFILES/\nda far validare da boscolo/tofanelli",
+			"$$hashKey": "object:362"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Inserito builder template nei job jenkins relativi a fuse. Controllo ed eventuale creazione degli oggetti necessari."
+	}, {
+		"_id": "83e310f4-bd06-4b37-ae11-377505bce6b9",
+		"title": "[SDA] [SRC] Monitoraggio processi",
+		"description": "Richiedere monitoraggio processi agent/server SDA e impostare schedulazione riavvio. Redigere note operative per Sala Console.",
+		"dateOpened": "2016-09-22T07:12:55.735Z",
+		"dateLastUpdated": "2016-10-03T09:14:21.528Z",
+		"timeline": [{
+			"date": "2016-09-22T08:51:02.017Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Aperto incident INC000002289985 . Da redigere note operative per sala console e schedulare i riavvi del server/agent.",
+			"$$hashKey": "object:135"
+		}, {
+			"date": "2016-10-03T09:14:16.597Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Note operative stese, in validazione interna. Monitoraggio richiesto, in attesa indicazioni.",
+			"$$hashKey": "object:709"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "Note operative stese, in validazione interna. Monitoraggio richiesto, in attesa indicazioni.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "07a0334e-346f-4a9b-ab57-65ee1e5dc021",
+		"title": "[SDA] Ridefinizione componenti SDA",
+		"description": "Da ridefinire i componenti SDA, creando due template (RLSE ed EVOL) e ricreando i componenti sulla base dei template.",
+		"dateOpened": "2016-07-28T15:23:50.572Z",
+		"dateLastUpdated": "2016-09-14T08:57:20.303Z",
+		"timeline": [{
+			"date": "2016-08-04T10:46:44.957Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Creato template SCM_TPL_WAR (o simile). Ricreati componenti sulla base di questo template e riconfigurati con tutte le properties del caso. Nello specifico:\n[ APP ] application.war.name, application.war.type;\n[ ENV ] jboss.application.name;\n[ RES ] serverGroupName.",
+			"$$hashKey": "object:413"
+		}, {
+			"date": "2016-08-04T10:48:13.506Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Creato template SCM_TPL_WAR (o simile). Ricreati componenti sulla base di questo template e riconfigurati con tutte le properties del caso. Nello specifico:\n[ APP ] application.war.name, application.war.type;\n[ ENV ] jboss.application.name;\n[ RES ] serverGroupName.",
+			"$$hashKey": "object:417"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Creato template SCM_TPL_WAR (o simile). Ricreati componenti sulla base di questo template e riconfigurati con tutte le properties del caso. Nello specifico:\n[ APP ] application.war.name, application.war.type;\n[ ENV ] jboss.application.name;\n[ RES ] serverGroupName."
+	}, {
+		"_id": "dbbeb5a9-9e1b-4120-880b-bc4bbaaa1fe2",
+		"title": "[SRC] [SDA] Ruoli e profilazione utenti",
+		"description": "Profilazione utenti su SRC/SDA",
+		"dateOpened": "2016-07-26T13:07:37.113Z",
+		"dateLastUpdated": "2016-10-03T09:13:40.949Z",
+		"timeline": [{
+			"date": "2016-07-28T15:23:12.360Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Serve utente SRC con corrispondente utente SDA. Crea gruppi omonimi di quelli su Dimensions. Serve restrizione privilegi per i componenti EVOL e RLSE.",
+			"$$hashKey": "object:107"
+		}, {
+			"date": "2016-08-04T10:48:04.403Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Create utenze su SDA e profilate per componenti evol come Deployment Engineer. Per info aggiuntive, far riferimento al thread di mail. Avviata configurazione per ruoli su SRC.",
+			"$$hashKey": "object:415"
+		}, {
+			"date": "2016-09-22T08:51:27.134Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Ruoli configurati correttamente. In analisi aggancio a LDAP da parte di Stefano.",
+			"$$hashKey": "object:137"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Ruoli configurati correttamente. In analisi aggancio a LDAP da parte di Stefano."
+	}, {
+		"_id": "aae5e613-02c6-421f-bce2-822967a05542",
+		"title": "Definizione oggetti SD - Pulse - Jenkins",
+		"description": "Da sistemare la configurazione di serena dimensions, pulse e Jenkins.",
+		"dateOpened": "2016-07-11T15:06:23.567Z",
+		"dateLastUpdated": "2016-11-03T15:31:27.494Z",
+		"timeline": [{
+			"date": "2016-07-11T15:59:01.796Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Creato product con stream, per ora, di war di cache, jar bean e jar apigw. Pulse sistemato per allestimento iniziale, da configurare gli expert. In lavorazione i job jenkins (creati sotto la root e raggruppati per nome in una vista specifica). Ruoli creaati solo per sviluppatori e responsabili di sviluppo. OCCHIO: aggiunto JKS_USER alla lista di user abilitati al lock&hide!",
+			"$$hashKey": "object:257"
+		}, {
+			"date": "2016-09-20T12:08:16.367Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Da sistemare lifecycle, tipo baseline e tipo oggetti per Dimensions.",
+			"$$hashKey": "object:126"
+		}, {
+			"date": "2016-09-22T08:52:06.206Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Jenkins riadattato con esclusione profilo locale e creazione baseline tipo BL_SRC. Da sistemare oggetti e lifecycle su Dimensoins.",
+			"$$hashKey": "object:139"
+		}, {
+			"date": "2016-10-12T14:57:16.608Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Oggetti Dimensions da sistemare. Notifiche non necessarie, aperti pulse e jenkins agli utonti.",
+			"$$hashKey": "object:1108"
+		}, {
+			"date": "2016-10-21T13:16:11.855Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Da riconfigurare pulse con i job all'interno della directory GSC_FUSE, post upgrade di pulse.\nTutti i job jenkins vanno implementati tramite dei template (crea due template e poi genera i job dentro la cartellina opportuna).",
+			"$$hashKey": "object:459"
+		}, {
+			"date": "2016-10-21T13:30:59.916Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Da riconfigurare pulse con i job all'interno della directory GSC_FUSE, post upgrade di pulse.\nTutti i job jenkins vanno implementati tramite dei template (crea due template e poi genera i job dentro la cartellina specifica per ogni applicazione SDA).",
+			"$$hashKey": "object:827"
+		}, {
+			"date": "2016-11-03T15:31:26.631Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Job template e specializzazioni create. Pulse riconfigurato, vista rimossa. A posto, parrebbe...",
+			"$$hashKey": "object:187"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Job template e specializzazioni create. Pulse riconfigurato, vista rimossa. A posto, parrebbe...",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "6071d55e-927f-4dd7-828d-ed5b734bf373",
+		"title": "Sistemazione sorgenti forniti da Perini",
+		"description": "Perini ha fornito i progetti da utilizzare. Eseguire le compilazioni di test per verificare che sia tutto in ordine.",
+		"dateOpened": "2016-07-06T16:14:43.189Z",
+		"dateLastUpdated": "2016-07-26T13:07:28.528Z",
+		"timeline": [{
+			"date": "2016-07-07T12:07:12.976Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Definito ordine di compilazione (vedi workarea). Operazioni eseguite:\n- cambio di tutti i parent sul pom.xml della versione di camel.example da 2.3.0snapshot a 3.0.0;\n- rimozione di tutti i profile dai pom.xml;\n- rimozione modulo ear da bean_pom (sia come puntamento che come cartella);",
+			"$$hashKey": "object:80"
+		}, {
+			"date": "2016-07-07T15:52:41.105Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Per tutti i moduli: commentate le dipendenze di test + usa \"-Dmaven.skip.test=true\". Due jar non trovati come dipendenze per apigw_impala, chiesto a Perini.\nUna volta creato il product, son da creare gli stream, impostare pulse, jenkins (Nexus è già tutto ok, a regola ...). Identifica uno slave (SSO?) e prova i test di compilazione.",
+			"$$hashKey": "object:82"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Test di build terminati con successo su tutte le componenti."
+	}, {
+		"_id": "386b409f-d3d5-40ff-a0b6-7d87ba695929",
+		"title": "Test soluzione parziale",
+		"description": "Utilizzare il software fornito dal progetto per testare il giro iniziale.",
+		"dateOpened": "2016-06-30T10:50:08.610Z",
+		"dateLastUpdated": "2016-07-11T15:06:10.162Z",
+		"timeline": [{
+			"date": "2016-06-30T10:53:23.820Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Identificare le componenti fornite, creare gli stream appositi, configurare pulse, jenkins ed SDA di conseguenza.",
+			"$$hashKey": "object:138"
+		}, {
+			"date": "2016-07-01T15:48:33.943Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Creati i tre stream di evolutiva (1) per i due jar e il war. Creati i job jenkins e configurato pulse per stream evo e main. Nexus da sistemare (manca utente).\nSu SDA creata applicazione AGW_UPG, e template AGW_UPG_EVO_TPL per lo sviluppo (source type: Jenkins) con processo di massima (manca tutta la gestione rilascio a caldo/a freddo). Fa pulizia ws, download artefatto (in artifacts), rinomina con nome corretto, undeploy e deploy.",
+			"$$hashKey": "object:61"
+		}, {
+			"date": "2016-07-04T15:58:09.939Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Sistemati job jenkins, dimensions, pulse e nexus. Ho flusso corretto che alla deliver sul main carica l'ear su Nexus e genera versione Maven su SDA, mentre su EVO_1 carico war a partire da directory jenkins. In entrambi i casi su dimensions viene generata una baseline con nome OFFSET-versione dove versione è il build number, per evo, o la versione dell'artefatto, per il main. Da sistemare i processi SDA (di componente e di applicazione) e l'interfacciamento con SRC. Controllo con boscolo/fiorini domani.",
+			"$$hashKey": "object:249"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Chiudo per porting in produzione.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "c8e3d6e9-ab7f-4986-98fd-790289df70cc",
+		"title": "Documentazione",
+		"description": "Stendere la documentazione del processo.",
+		"dateOpened": "2016-06-30T10:49:46.231Z",
+		"dateLastUpdated": "2016-10-31T14:17:46.931Z",
+		"timeline": [{
+			"date": "2016-09-22T08:52:27.959Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Stesura in corso della pagina di amministratore.",
+			"$$hashKey": "object:141"
+		}, {
+			"date": "2016-10-03T09:14:47.343Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Prima bozza (senza SRC) in validazione interna.",
+			"$$hashKey": "object:711"
+		}, {
+			"date": "2016-10-12T14:54:48.745Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Aggiornata con apertura pulse e Jenkins al team applicativo. In validazione.",
+			"$$hashKey": "object:1106"
+		}, {
+			"date": "2016-10-31T14:17:46.931Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Chiudo, spostata su progetto Documentazione in dashboard.",
+			"$$hashKey": "object:309"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Chiudo, spostata su progetto Documentazione in dashboard."
+	}],
+	"statusNote": "Monitoraggio in esame da parte di Event Management; \nAggiunto task di creazione plugin sda per iniezione properties.\nupdate generico."
+}, {
+	"title": "[16001204] [16000672] QlikView",
+	"description": "Allestimento 4 cruscotti qlikview su product esistente.",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 1,
+		"value": "In Lavorazione"
+	},
+	"dateLastUpdated": "2016-10-31T14:20:45.143Z",
+	"dateOpen": "2016-10-31T14:20:45.143Z",
+	"dateClose": null,
+	"_id": "b637b736-c442-442b-af50-336fa23d0cea",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-10-31T14:24:49.801Z",
+		"status": "In Lavorazione",
+		"note": "Revisionato processo di rilascio, con rimozione del componente Jenkins. \nDeploy in S ok per un cruscotto (periti auto), uno non fatto ma è tutto ok (MonitorBOPS). In attesa riferimenti per gli altri due cruscotti."
+	}, {
+		"date": "2016-11-10T10:59:17.029Z",
+		"status": "In Lavorazione",
+		"note": "Aggiunti task per gli altri due cruscotti. In attesa di info da Tutrone.\nDeploy in S ok per un cruscotto (periti auto), uno non fatto ma è tutto ok (MonitorBOPS). In attesa riferimenti per gli altri due cruscotti."
+	}, {
+		"date": "2016-11-11T09:08:50.120Z",
+		"status": "In Pausa",
+		"note": "IN ATTESA LUMI. \nAggiunti task per gli altri due cruscotti. In attesa di info da Tutrone.\nDeploy in S ok per un cruscotto (periti auto), uno non fatto ma è tutto ok (MonitorBOPS). In attesa riferimenti per gli altri due cruscotti."
+	}, {
+		"date": "2016-11-16T09:16:34.044Z",
+		"status": "In Pausa",
+		"note": "Deploy in S/C/P ok per MonitorBOPS\nDeploy in S/C ok per PeritiAuto\nDeploy in S ok per ProcurementDashboard\nIn attesa per LogisticDashboard\nDa spostare di product i vari cruscotti."
+	}, {
+		"date": "2016-11-17T13:24:18.671Z",
+		"status": "In Pausa",
+		"note": "Deploy in S/C/P ok per MonitorBOPS\nDeploy in S/C ok per PeritiAuto\nDeploy in S ok per ProcurementDashboard\nLogisticDashboard è COOBlabla. \nTutto fermo in attesa di creazione dei product.\nDa spostare di product i vari cruscotti."
+	}, {
+		"date": "2016-11-25T11:39:45.912Z",
+		"status": "In Lavorazione",
+		"note": "Cruscotti smistati, e rilasci ok per cruscotti MonitorBOPS, PeritiAuto, CooDashboard e Procurement Dashboard.\nRestano da definire le utenze su Dimensions ed associarle ai gruppi."
+	}],
+	"tasks": [{
+		"_id": "f78ef5b7-321f-44a9-ad9f-db42c88b4bd7",
+		"title": "Refactoring applicazioni SDA",
+		"description": "Ridefinire le applicazioni SDA e i componenti in modo da avere nomi più parlanti e più standard per l'SCMFinder.",
+		"dateOpened": "2016-11-17T13:22:47.504Z",
+		"dateLastUpdated": "2016-11-25T11:36:41.679Z",
+		"timeline": [],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Refactoring ultimato."
+	}, {
+		"_id": "78407a16-82f1-4822-b71f-517e12cf165a",
+		"title": "Refactoring Dimensions",
+		"description": "Spostare i vari cruscotti su product dedicati.",
+		"dateOpened": "2016-11-16T09:15:07.049Z",
+		"dateLastUpdated": "2016-11-25T11:37:14.992Z",
+		"timeline": [],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "Cruscotti definiti e smistati sui product corretti. Da definire utenze, in attesa lumi.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "9603980f-1a82-41b1-b3d5-63cbe1d1f815",
+		"title": "Cruscotto Logistic & facilities dashboard",
+		"description": "Allestimento Cruscotto Logistic & facilities dashboard",
+		"dateOpened": "2016-11-10T10:23:04.119Z",
+		"dateLastUpdated": "2016-11-25T11:37:40.013Z",
+		"timeline": [{
+			"date": "2016-11-16T09:15:04.271Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Avvio attività.",
+			"$$hashKey": "object:236"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Configurazione ultimata, rilascio ok su S/C/P."
+	}, {
+		"_id": "3c09f571-efde-4bbf-9d73-3edaa6c6986d",
+		"title": "Cruscotto Procurement dashboard",
+		"description": "Allestimento cruscotto procurementDashboard",
+		"dateOpened": "2016-11-10T10:20:38.937Z",
+		"dateLastUpdated": "2016-11-25T11:38:07.090Z",
+		"timeline": [],
+		"statusNote": "Configurazione ultimata, rilascio ok su tutti gli ambienti.",
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "948c6914-d93f-4fc8-8023-8a579ea2a8a9",
+		"title": "Revisione globale processo di rilascio",
+		"description": "Non funziona processo di creazione versioni a partire da Jenkins. Revisionare l'intero flusso",
+		"dateOpened": "2016-10-31T14:22:09.863Z",
+		"dateLastUpdated": "2016-10-31T14:23:54.248Z",
+		"timeline": [{
+			"date": "2016-10-31T14:23:52.410Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Testato nuovo flusso senza componente jenkins. Ora il job jenkins, tramite CLI, fa import della versione corretta (appoggiandosi sempre al descrittore di versionamento) e lancia il solo processo di installazione versioni. Modificati i template SDA e aggiunte properties di offset, rivista gestione deploy del componente di configurazione (ora va tutto sotto offset dedicato).",
+			"$$hashKey": "object:594"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Testato nuovo flusso senza componente jenkins. Ora il job jenkins, tramite CLI, fa import della versione corretta (appoggiandosi sempre al descrittore di versionamento) e lancia il solo processo di installazione versioni. Modificati i template SDA e aggiunte properties di offset, rivista gestione deploy del componente di configurazione (ora va tutto sotto offset dedicato).",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "59e8c398-3b7c-4fe7-a3d3-c8e29746c5a1",
+		"title": "Cruscotto PeritiAuto",
+		"description": "Allestimento standard cruscotto periti auto",
+		"dateOpened": "2016-10-31T14:21:43.513Z",
+		"dateLastUpdated": "2016-11-25T11:38:24.877Z",
+		"timeline": [{
+			"date": "2016-10-31T14:22:09.004Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Deploy S ok, in attesa ok a procedere per C e P.",
+			"$$hashKey": "object:584"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Tutto ok.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "d5f466a0-3b45-4e82-8c6f-53b697bf88cd",
+		"title": "Cruscotto MonitorBOPS",
+		"description": "Allestimento cruscotto standard",
+		"dateOpened": "2016-10-31T14:20:52.904Z",
+		"dateLastUpdated": "2016-11-25T11:38:44.411Z",
+		"timeline": [{
+			"date": "2016-11-25T11:38:42.948Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "Allestimento completato.",
+			"$$hashKey": "object:393"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "Allestimento completato.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}],
+	"statusNote": "Cruscotti smistati, e rilasci ok per cruscotti MonitorBOPS, PeritiAuto, CooDashboard e Procurement Dashboard.\nRestano da definire le utenze su Dimensions ed associarle ai gruppi."
+}, {
+	"title": "[PAUSED] Processo di rilascio baseline script SCMDM",
+	"description": "Implementare un sistema di rilascio per le shell del gruppo SCMDM, relativamente alla Release Automation (RM, BU, DS, DU, BD e tutto il mondo Jenkins).",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:5"
+	},
+	"status": {
+		"id": 2,
+		"value": "In Pausa"
+	},
+	"dateLastUpdated": "2016-07-01T07:49:27.693Z",
+	"dateOpen": "2016-07-01T07:49:27.693Z",
+	"dateClose": null,
+	"_id": "d380d670-f919-4d46-abf8-f378eeedeb65",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-07-01T07:52:30.761Z",
+		"status": "In Pausa",
+		"note": "Attività ferma causa budget"
+	}, {
+		"date": "2016-07-01T08:24:53.290Z",
+		"status": "In Pausa",
+		"note": "Update task -- Attività ferma causa budget"
+	}, {
+		"date": "2016-07-01T10:03:09.870Z",
+		"status": "In Pausa",
+		"note": "sospensione task -- Attività ferma causa budget"
+	}, {
+		"date": "2016-10-03T08:48:07.031Z",
+		"status": "In Lavorazione",
+		"note": "Progetto fermo, entrato anche Ansible. Da studiare un po', forse la vecchia soluzione è già ... vecchia!"
+	}, {
+		"date": "2016-11-11T09:06:43.073Z",
+		"status": "In Pausa",
+		"note": "Stoppo per cause di forza maggiore [[ Progetto fermo, entrato anche Ansible. Da studiare un po', forse la vecchia soluzione è già ... vecchia! ]]"
+	}],
+	"tasks": [{
+		"_id": "1e525abb-fc46-4c33-b5af-de5a427bdbc4",
+		"title": "Ansible SW",
+		"description": "Studiacchiare ansible per capire come integrarlo nel baraccone!",
+		"dateOpened": "2016-10-03T08:46:39.362Z",
+		"dateLastUpdated": "2016-10-03T08:47:37.739Z",
+		"timeline": [],
+		"status": {
+			"id": 1,
+			"value": "In Lavorazione"
+		},
+		"statusNote": "Primi test di stefano, da studiare un po'",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "9369ca9a-49da-442b-baea-699b826986ba",
+		"title": "Aggiornamento documentazione",
+		"description": "Documentazione per il processo",
+		"dateOpened": "2016-07-01T08:20:40.698Z",
+		"dateLastUpdated": "2016-07-01T10:02:51.474Z",
+		"timeline": [{
+			"date": "2016-07-01T10:02:51.474Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "doc aggiornata.",
+			"$$hashKey": "object:72"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"statusNote": "doc aggiornata.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "214e32b2-7482-4893-8415-27741ab19b0e",
+		"title": "Sistemazione job jenkins di download baseline",
+		"description": "Controllare e sistemare il job di sincronizzazione slave jenkins.",
+		"dateOpened": "2016-07-01T07:51:31.786Z",
+		"dateLastUpdated": "2016-07-01T10:02:33.200Z",
+		"timeline": [{
+			"date": "2016-07-01T08:24:34.332Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "Bug: creazione archivio solo se script e config sono state identificate!",
+			"$$hashKey": "object:147"
+		}, {
+			"date": "2016-07-01T10:02:29.244Z",
+			"status": {
+				"id": 2,
+				"value": "In Pausa"
+			},
+			"note": "Bug: creazione archivio solo se script e config sono state identificate! --> cgià lo fa, problema in rsync. Cartelle da creare nel processo di setting iniziale",
+			"$$hashKey": "object:70"
+		}],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Bug: creazione archivio solo se script e config sono state identificate! --> cgià lo fa, problema in rsync. Cartelle da creare nel processo di setting iniziale"
+	}, {
+		"_id": "a76f4275-94ee-452f-8b7a-e6aed2c227a9",
+		"title": "Infrastruttura a db per le configurazioni dei vari oggetti",
+		"description": "Disegno del database per la gestione delle configurazioni (path dei vari software [agent dimensions, client oracle, ...], id, stringhe di connessione).",
+		"dateOpened": "2016-07-01T07:49:37.585Z",
+		"dateLastUpdated": "2016-07-01T07:49:37.585Z",
+		"timeline": [],
+		"status": {
+			"id": 2,
+			"value": "In Pausa"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}],
+	"statusNote": "Stoppo per cause di forza maggiore [[ Progetto fermo, entrato anche Ansible. Da studiare un po', forse la vecchia soluzione è già ... vecchia! ]]"
+}, {
+	"title": "[PAUSED] BDMS2JENKINS",
+	"description": "Porting su plugin jenkins della logica di inizializzazione rilascio insita nel BDMS",
+	"owner": {
+		"id": "roberto.gatti",
+		"value": "Roberto",
+		"$$hashKey": "object:17"
+	},
+	"status": {
+		"id": 2,
+		"value": "In Pausa"
+	},
+	"dateLastUpdated": "2016-06-30T10:56:11.283Z",
+	"dateOpen": "2016-06-30T10:56:11.283Z",
+	"dateClose": null,
+	"_id": "d3f9150a-6579-4d8a-acdd-fc426ee5281f",
+	"notes": [],
+	"timeline": [{
+		"date": "2016-06-30T10:59:02.972Z",
+		"status": "In Lavorazione",
+		"note": "inserimento tasks"
+	}, {
+		"date": "2016-06-30T14:39:46.028Z",
+		"status": "In Lavorazione",
+		"note": "aggiunto task di limitazione download item a specifici nomi/path"
+	}, {
+		"date": "2016-07-25T09:12:53.261Z",
+		"status": "In Lavorazione",
+		"note": "inserita fix di pulizia per il maven checkout"
+	}, {
+		"date": "2016-07-26T07:57:10.242Z",
+		"status": "In Lavorazione",
+		"note": "Inserito task di fix per messaggio log in request not found (inserimento tipo request)."
+	}, {
+		"date": "2016-10-10T08:25:56.908Z",
+		"status": "In Lavorazione",
+		"note": "Chiuso task di pulizia offset download.\nDa competare: inserimento tipo request nel log, timestamp nei messaggi, esternalizzazione costanti, limitazione download (path), documentazione wiki."
+	}, {
+		"date": "2016-11-11T09:08:20.393Z",
+		"status": "In Pausa",
+		"note": "Stoppo per attività vecchia [[\nChiuso task di pulizia offset download.\nDa competare: inserimento tipo request nel log, timestamp nei messaggi, esternalizzazione costanti, limitazione download (path), documentazione wiki. ]]"
+	}],
+	"tasks": [{
+		"_id": "e3a6afc3-c496-4a91-887a-17a64a717cb5",
+		"title": "[FIX] Inserimento tipo request in log",
+		"description": "Inserire nel log l'etichetta relativa al tipo di request ricercato (per evitare di dover andar sempre nella configurazione del job).",
+		"dateOpened": "2016-07-26T07:55:46.578Z",
+		"dateLastUpdated": "2016-07-26T07:56:29.122Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "0b33184a-1c77-4a69-a462-90d978dfc8fd",
+		"title": "[FIX] MavenCheckout non pulisce offset",
+		"description": "Fix per la corretta pulizia della directory di scarico della baseline (relativa all'offset) nel Maven checkout",
+		"dateOpened": "2016-07-25T08:52:18.705Z",
+		"dateLastUpdated": "2016-10-10T08:24:44.170Z",
+		"timeline": [{
+			"date": "2016-07-25T08:53:28.067Z",
+			"status": {
+				"id": 1,
+				"value": "In Lavorazione"
+			},
+			"note": "In test su sviluppo (sostituita File.delete con FilePath.deleteContents() ).",
+			"$$hashKey": "object:93"
+		}, {
+			"date": "2016-10-10T08:24:42.995Z",
+			"status": {
+				"id": 3,
+				"value": "Chiuso"
+			},
+			"note": "A posto, già in produzione da ... mesi!",
+			"$$hashKey": "object:330"
+		}],
+		"status": {
+			"id": 3,
+			"value": "Chiuso"
+		},
+		"statusNote": "A posto, già in produzione da ... mesi!",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "725cc692-7622-4201-9f22-6adced15bcfb",
+		"title": "Limitazioni download",
+		"description": "Valutare l'inserimento di un meccanismo per selezionare gli item da scaricare da dimensions.",
+		"dateOpened": "2016-06-30T14:38:10.288Z",
+		"dateLastUpdated": "2016-06-30T14:39:23.837Z",
+		"timeline": [{
+			"date": "2016-06-30T14:39:20.894Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Utile per esempio per i job alti dello use case maven, che si appoggiano solo ai pom.xml.",
+			"$$hashKey": "object:487"
+		}],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"statusNote": "Utile per esempio per i job alti dello use case maven, che si appoggiano solo ai pom.xml.",
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "cf8bd65b-49cc-41f9-9041-2459af4b6f82",
+		"title": "Esternalizzazione costanti",
+		"description": "Da portare sulla classe esistente Constants tutte le costanti ed i campi definiti nei file di configurazione in modo da poterli referenziare senza errore in tutti i punti del codice java dove questi sono puntati.",
+		"dateOpened": "2016-06-30T10:57:47.484Z",
+		"dateLastUpdated": "2016-06-30T10:58:49.603Z",
+		"timeline": [],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}, {
+		"_id": "a77469d9-fb5f-428f-810c-1765f569fa8b",
+		"title": "Inserimento timestamp",
+		"description": "Inserire dei timestamp nel log generato dal processo di checkout.",
+		"dateOpened": "2016-06-30T10:56:42.515Z",
+		"dateLastUpdated": "2016-06-30T10:58:48.014Z",
+		"timeline": [{
+			"date": "2016-06-30T10:57:43.554Z",
+			"status": {
+				"id": 0,
+				"value": "Aperto"
+			},
+			"note": "Da capire se è utilizzabile un qualche framework di logging o se è necessario andare via oggetti Date.",
+			"$$hashKey": "object:207"
+		}],
+		"status": {
+			"id": 0,
+			"value": "Aperto"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		},
+		"statusNote": "Da capire se è utilizzabile un qualche framework di logging o se è necessario andare via oggetti Date."
+	}, {
+		"_id": "828a630d-d2e4-432c-865d-ad35ffbdc33b",
+		"title": "Stesura documentazione",
+		"description": "Sistemare la documentazione esistente.",
+		"dateOpened": "2016-06-30T10:56:18.162Z",
+		"dateLastUpdated": "2016-06-30T10:58:47.348Z",
+		"timeline": [],
+		"status": {
+			"id": 1,
+			"value": "In Lavorazione"
+		},
+		"owner": {
+			"id": "roberto.gatti",
+			"value": "Roberto"
+		}
+	}],
+	"statusNote": "Stoppo per attività vecchia [[\nChiuso task di pulizia offset download.\nDa competare: inserimento tipo request nel log, timestamp nei messaggi, esternalizzazione costanti, limitazione download (path), documentazione wiki. ]]"
+}]

@@ -13,12 +13,13 @@
         <link rel="stylesheet" type="text/css" href="./css/sidebar.css" >
         <link rel="stylesheet" type="text/css" href="./css/mainpanel.css" >
         <link rel="stylesheet" type="text/css" href="./css/footer.css" >
+        <link rel="stylesheet" type="text/css" href="./css/fonts.css" >
         <!--link rel="stylesheet" type="text/css" href="./css/TheTaskBoard-global.css" >
         <link rel="stylesheet" type="text/css" href="./css/myTreeView.css" -->
         <!--link rel="stylesheet" type="text/css" href="./css/angularjs-treeview.css" -->
 
         <!-- Importing fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <!--link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'-->
 
 
         <!-- Importing angular js . . . -->
@@ -60,6 +61,7 @@
         <script src="./scripts/controllers/tasksCtrl.js"></script>
         <script src="./scripts/controllers/fasksCtrl.js"></script>
         <script src="./scripts/controllers/loginCtrl.js"></script>
+        <script src="./scripts/controllers/adminCtrl.js"></script>
 
         <!-- Importing angularJS filters . . . -->
         <script src="./scripts/filters/stringTruncateFltr.js"></script>
@@ -88,7 +90,7 @@
                 <ul class="sidebar-nav">
                     <li ng-class="menuClass('dashboard')"><a href="#dashboard" class="active">Dashboard</a></li>
                     <li ng-class="menuClass('fasks')">    <a href="#fasks">Fast task and Ideas</a></li> <!-- Not available -->
-                    <li><a href="">Admin</a></li> <!-- Not available -->
+                    <li ng-class="menuClass('admin')"><a href="#admin">Admin</a></li>
                 </ul>
             </div> <!-- chiude sidebar-wrapper -->
 

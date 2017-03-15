@@ -4,11 +4,11 @@
 app.service('idbStorageAPI', function ( $window/*, storageServ, projectServ*/, $q ) {
 
     var IDB_DB_NAME                    = this.IDB_DB_NAME = "TheTaskBoard_IndexedDB";
-    var IDB_DB_VERS                    = this.IDB_DB_VERS = 3;
+    var IDB_DB_VERS                    = this.IDB_DB_VERS = 4;
     var IDB_PROJECTS_OBJECT_STORE_NAME = this.IDB_PROJECTS_OBJECT_STORE_NAME = "ttb_projects";
     var IDB_FASKS_OBJECT_STORE_NAME    = this.IDB_FASKS_OBJECT_STORE_NAME    = "ttb_fasks";
     var IDB_READ_WRITE_MODE            = this.IDB_READ_WRITE_MODE           = "readwrite";
-    var IDB_SERVICE                    = this.IDB_SERVICE = $window.indexedDB      = $window.indexedDB; // || $window.mozIndexedDB || $window.webkitIndexedDB || $window.msIndexedDB;
+    var IDB_SERVICE                    = this.IDB_SERVICE = $window.indexedDB;//      = $window.indexedDB; // || $window.mozIndexedDB || $window.webkitIndexedDB || $window.msIndexedDB;
     //this.idbTransaction = $window.IDBTransaction = $window.IDBTransaction || $window.webkitIDBTransaction || $window.msIDBTransaction || {READ_WRITE: "readwrite"}; // This line should only be needed if it is needed to support the object's constants for older browsers
     //this.idbKeyRange    = $window.IDBKeyRange    = $window.IDBKeyRange || $window.webkitIDBKeyRange || $window.msIDBKeyRange;
 
@@ -30,8 +30,23 @@ app.service('idbStorageAPI', function ( $window/*, storageServ, projectServ*/, $
         console.log( " [ idbStorageAPI ] Upgrading database . . .");
         var db = event.target.result;
         console.log(" [ idbStorageAPI ] Deleting old object store . . .");
-        db.deleteObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME );
-        db.deleteObjectStore( IDB_FASKS_OBJECT_STORE_NAME );
+        try {
+            db.deleteObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME );
+        } catch (e) {
+            console.log(" [ idbStorageAPI ] Unable to delete object store '" + IDB_PROJECTS_OBJECT_STORE_NAME + "': " + e );
+        }
+
+        try {
+            db.deleteObjectStore( IDB_FASKS_OBJECT_STORE_NAME );
+        } catch (e) {
+            console.log(" [ idbStorageAPI ] Unable to delete object store: '" + IDB_FASKS_OBJECT_STORE_NAME + "': " + e );
+        } finally {
+
+        }
+
+		/*db.removeIndex("_id_prjs");
+		db.removeIndex("title");
+		db.removeIndex("_id_fsks");*/
         console.log(" [ idbStorageAPI ] Creating new object store . . . ");
         var objectStorePrjs = db.createObjectStore( IDB_PROJECTS_OBJECT_STORE_NAME, { keyPath: "_id" } );
         objectStorePrjs.createIndex("_id_prjs", "_id", { unique: true });

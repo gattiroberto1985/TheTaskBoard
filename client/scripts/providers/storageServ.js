@@ -76,7 +76,7 @@ app.service('storageServ', function ($http, $injector, $q/*, projectServ */ ) {
 	 * Check method for the Indexed DB.
 	 */
 	this.checkIDBApi = function ( ) {
-		$http.get( "http://localhost:8080/" ).then(
+		$http.get( "http://localhost:1314/" ).then(
 		// on success
 		function ( response ) {
 			console.log ( " [ storageServ ] Using indexedDB API !");
