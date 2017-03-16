@@ -104,64 +104,100 @@
     <!-- Sezione di lista progetti -->
     <!-- Div con lista progetti -->
     <div id="projects-list-div" class="panel">
-        <header class="panel-heading">
-            <h4>Lista progetti</h4>
-            <input type="text"
-                    class="form-control"
-                    ng-model="searchString"
-                    placeholder="Inserisci una stringa di ricerca . . ."></input>
-        </header>
 
 
-        <!-- Per ogni progetto, la sua section e il suo accordion -->
-        <section class="panel-body project" ng-repeat="project in projects | filter: searchString">
-            <!-- Div per accordion -->
-            <div class="accordion-control panel-heading">
-                <!-- mostrare solo se chiuso! -->
-                <h4>[ {{project.status.value}} ] {{ project.title }} &nbsp;<span class="small">{{ project.description | truncate:50 }}</span>
+        <section id="searchFilters" class="panel-body">
+
+            <div id="searchFilterAccordion" class="accordion-control">
+                <h4>Filtri di ricerca
                     <span class="pull-right">
-                        <button title="Rimuovi progetto"
-                                class="btn btn-default btn-sm"
-                                ng-click="removeProject(project._id)">
-                                <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                        <button title="Apri progetto . . ."
-                                class="btn btn-default btn-sm"
-                                ng-click="openProject(project)">
-                                <span class="glyphicon glyphicon glyphicon-arrow-right"></span>
-                        </button>
+
                         <button title="Espandi dati"
                                 data-toggle="collapse"
                                 class="btn btn-default btn-sm"
-                                data-target="#div-project-data-{{project._id}}">
+                                data-target="#searchFilterContainer">
                                 <span class="glyphicon glyphicon-chevron-down"></span>
                         </button>
                     </span>
                 </h4>
             </div>
-            <!-- Div per i dati -->
-            <div id="div-project-data-{{project._id}}" class="row collapse out panel-body">
 
-                <!--p>Descrizione progetto: </p-->
-                <blockquote class="project-desc">{{ project.description }}</blockquote>
-
-                <p>Attualmente in carico a: <strong>{{ project.owner.value }}</strong></p>
-                <p>Stato attuale: <strong>{{ project.status.value }}</strong>
-                    <p ng-show="project.statusNote != undefined">, con nota:<br/>
-                        {{ project.statusNote }}
-                    </p>
-                </p>
-                <p>Ultima modifica eseguita il: <strong>{{ project.dateLastUpdated | date: 'dd MMM yyyy HH:mm' }}</strong></p>
-                <p>In questo progetto sono presenti:
-                    <ul style="list-style-type:none">
-                        <li>{{ fromAngular }} task aperti</li>
-                        <li>{{ fromAngular }} task in lavorazione</li>
-                        <li>{{ fromAngular }} task fermi</li>
-                        <li>{{ fromAngular }} task chiusi</li>
-                    </ul>
-                </p>
+            <div id="searchFilterContainer" class="row collapse out panel-body">
+                <header class="panel-heading">
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">Ricerca:</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" ng-model="searchString" placeholder="Inserisci una stringa di ricerca . . ."></input>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <!--div class="col-sm-offset-1 col-sm-11"-->
+                            <label class="control-label col-sm-2" for="email">Mostra completati:</label>
+                            <div class="col-sm-10">
+                              <div class="checkbox">
+                                <input type="checkbox" ng-model="showCompleted"></input>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </header>
             </div>
         </section>
+        <div id="prjsContainer" class="panel-header">
+            <h2>Lista progetti</h2>
+            <!-- Per ogni progetto, la sua section e il suo accordion -->
+            <section class="panel-body project" ng-repeat="project in projects | filter: filterProjects()" >
+                <!-- Div per accordion -->
+                <div class="accordion-control panel-heading">
+                    <!-- mostrare solo se chiuso! -->
+                    <h4>[ {{project.status.value}} ] {{ project.title }} &nbsp;<span class="small">{{ project.description | truncate:50 }}</span>
+                        <span class="pull-right">
+                            <button title="Rimuovi progetto"
+                                    class="btn btn-default btn-sm"
+                                    ng-click="removeProject(project._id)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button title="Apri progetto . . ."
+                                    class="btn btn-default btn-sm"
+                                    ng-click="openProject(project)">
+                                    <span class="glyphicon glyphicon glyphicon-arrow-right"></span>
+                            </button>
+                            <button title="Espandi dati"
+                                    data-toggle="collapse"
+                                    class="btn btn-default btn-sm"
+                                    data-target="#div-project-data-{{project._id}}">
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                            </button>
+                        </span>
+                    </h4>
+                </div>
+                <!-- Div per i dati -->
+                <div id="div-project-data-{{project._id}}" class="row collapse out panel-body">
+
+                    <!--p>Descrizione progetto: </p-->
+                    <blockquote class="project-desc">{{ project.description }}</blockquote>
+
+                    <p>Attualmente in carico a: <strong>{{ project.owner.value }}</strong></p>
+                    <p>Stato attuale: <strong>{{ project.status.value }}</strong>
+                        <p ng-show="project.statusNote != undefined">, con nota:<br/>
+                            {{ project.statusNote }}
+                        </p>
+                    </p>
+                    <p>Ultima modifica eseguita il: <strong>{{ project.dateLastUpdated | date: 'dd MMM yyyy HH:mm' }}</strong></p>
+                    <p>In questo progetto sono presenti:
+                        <ul style="list-style-type:none">
+                            <li>{{ fromAngular }} task aperti</li>
+                            <li>{{ fromAngular }} task in lavorazione</li>
+                            <li>{{ fromAngular }} task fermi</li>
+                            <li>{{ fromAngular }} task chiusi</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+        </div>
     </div>
 
 </div>

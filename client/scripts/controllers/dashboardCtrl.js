@@ -25,6 +25,7 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
     $scope.timelineSortField = 'date'              ; // sort field for the date
     $scope.timelineSortSense = false               ; // flag for the sort order
     $scope.projects          = projectServ.projects;
+    $scope.showCompleted     = true;
     // Calling getProjects() from the service, and valorizing the local
     // projects variable . . .
 
@@ -110,6 +111,26 @@ app.controller("dashboardCtrl", function ( $scope, $filter, $location, projectSe
     $scope.resetFields = function ( ) {
         console.log(" [ dashboardCtrl ] Resetting new project fields . . .");
         $scope.newProject = null;
+    };
+
+    $scope.filterProjects = function ( ) {
+        //console.log(" [ dashboardCtrl ] Filtering projects . . . ");
+        return function ( project ) { // project is the variable in the filter section
+
+            if ( ! $scope.showCompleted && project.status.value == "Chiuso" )
+            {
+                return false;
+            }
+
+            if ( $scope.searchString === undefined || $scope.searchString == "" )
+                return true;
+            if ( project.title != "" && project.title.includes( $scope.searchString ) )
+                return true;
+            if ( project.description != "" && project.description.includes( $scope.searchString ) )
+                return true;
+
+            return false;
+        }
     };
 
 });
