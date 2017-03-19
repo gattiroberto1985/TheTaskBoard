@@ -25,7 +25,7 @@ func NewUserController() *UserController {
 func (uc UserController) GetUser(response http.ResponseWriter, request *http.Request, params httprouter.Params) {
     // Stub an user to be populated from the body
     u := models.User{}
-    Trace.Println("Entering post . . .")
+    //Trace.Println("Entering post . . .")
     // Populate the user data
     json.NewDecoder(request.Body).Decode(&u)
 
