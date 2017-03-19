@@ -1,0 +1,49 @@
+alberatura progetti go:
+    src --> sorgenti
+    pkg --> librerie (tutto ciò che è impostato con nome package diverso da main finisce qui)
+    bin --> eseguibili finali
+
+per corretto funzionamento:
+    export GOPATH=/path/della/directory/server
+
+per fare l'installazione del package (aka alberatura directory stile java):
+    go install <nome_package>
+
+per lancio:
+    $GOPATH/bin/<nome_file_go>
+
+per testare:
+    go test
+
+You write a test by creating a file with a name ending in _test.go that contains
+functions named TestXXX with signature func (t *testing.T). The test framework
+runs each such function; if the function calls a failure function such as
+t.Error or t.Fail, the test is considered to have failed.
+
+utility di formattazione:
+
+    gofmt <nome_file> > nome_file.go
+
+norme di documentazione: utile che la stringa di documentazione inizi con il nome
+dell'oggetto documentato:
+
+    //Compile makes blablabla
+    func Compile(str string)(*Regexp, error) { ... }
+
+per generare documentazione: godoc
+
+================================================================================
+NOMENCLATURA
+================================================================================
+
+campi interni alle struct con nomi che cominciano in minuscolo: NON ESPORTATI!
+
+ATTENZIONE: ciò che dovrà essere eseguito dovrà avere package main!
+
+per pacchetti e "framework":
+
+go get github.com/USER/PROJECT (vedi godoc)
+
+UTILITIES:
+
+https://stevenwhite.com/building-a-rest-service-with-golang-2/
