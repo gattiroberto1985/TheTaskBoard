@@ -47,3 +47,7 @@ go get github.com/USER/PROJECT (vedi godoc)
 UTILITIES:
 
 https://stevenwhite.com/building-a-rest-service-with-golang-2/
+
+set GOPATH=%cd% OPPURE export GOPATH=$(pwd)
+go get github.com/julienschmidt/httprouter
+go build it/bob/apps/web/ttb-server/main

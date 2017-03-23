@@ -1,4 +1,5 @@
 02-prj-03-thetaskboard/
 02-prj-03-thetaskboard
+**/*.exe
 **/pkg/
 **/bin/

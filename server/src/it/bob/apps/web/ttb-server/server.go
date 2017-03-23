@@ -6,10 +6,10 @@ import (
     //"time"
     //"encoding/json"
     "net/http"
-    //"io"
+    "io"
     //"io/ioutil"
-    //"log"
-    //"os"
+    "log"
+    "os"
 
     // External additional libraries
     "github.com/julienschmidt/httprouter"
@@ -25,7 +25,7 @@ import (
 /*                              GLOBAL VARIABLES                             */
 /* ************************************************************************* */
 
-/*var (
+var (
     Trace   *log.Logger
     Info    *log.Logger
     Warning *log.Logger
@@ -53,7 +53,7 @@ func Init(
     Error = log.New(errorHandle,
         "******* ERROR: ",
         log.Ldate|log.Ltime|log.Lshortfile)
-}*/
+}
 
 func getSession() *mgo.Session {
     // Connect to our local mongo
@@ -70,14 +70,14 @@ func getSession() *mgo.Session {
 func main() {
 
     // Initializing log . . .
-    //Init(os.Stdout, os.Stdout, os.Stdout, os.Stderr)
+    Init(os.Stdout, os.Stdout, os.Stdout, os.Stderr)
     //Trace.Println("Trace message")
     //Info.Println("Info message")
     //Warning.Println("Warning message")
     //Error.Println("ERROR Message!")
 
     //rlog.SetConfFile("./log.config")
-    rlog.Info("Info message in rlog!")
+    rlog.Info("Starting thetaskboard server . . . ")
     //rlog.Debug("Debug message in rlog!")
     //rlog.Error("Error message in rlog!")
 
@@ -86,44 +86,33 @@ func main() {
 
     // Get a UserController instance
     uc := controllers.NewUserController()
-    pc := controllers.NewProjectController()
+    pc := controllers.NewProjectController(getSession())
+    //fc := controllers.NewFreezoneController()
 
+    rlog.Info("Defining http routing . . . ")
     // Get a user resource
     r.GET("/rest/user/:id", uc.GetUser)
     r.POST("/rest/user/", uc.UpdateUser)
 
     // Routing for projects
-    r.GET("/rest/projects", pc.GetProject)
-    r.POST("/rest/projects", pc.UpdateProject)
+    r.GET("/rest/projects", pc.GetProjects)
+    r.POST("/rest/projects", pc.InsertProject)
     r.GET("/rest/projects/:pId", pc.GetProject)
-    r.POST("/rest/projects/pId", pc.UpdateProject)
+    r.PUT("/rest/projects/:pId", pc.UpdateProject)
+    r.DELETE("/rest/projects/:pId", pc.DeleteProject)
+    r.GET("/rest/projects/:pId/tasks", pc.GetProjectTasks)
+
+    //r.GET("/freezone/index.html", fc.getIndex )
+    //r.GET("/freezone/admin.html", fc.getIndex )
+    //r.GET("/freezone/index.html", fc.getIndex )
     /*r.GET("/rest/projects/:pId/tasks", pc.GetTask)
     r.GET("/rest/projects/:pId/tasks/:tId", pc.GetTask)
     r.POST("/rest/projects/:pId/tasks/:tId", pc.UpdateTask)
     r.POST("/rest/projects/:pId/tasks", pc.UpdateTask)*/
 
+    rlog.Info("Serving files . . .")
     http.ListenAndServe("localhost:3000", r)
-	//fmt.Printf("Hello, world.\n")
-    /*var project models.Project = models.Project{
-        Title: "Titolo progetto",
-        Description: "Descrizione progetto",
-        DateOpen: time.Now(),
-        DateClosed: time.Now(),
-        DatePaused: time.Now(),
-        DateWorking: time.Now(),
-        Status: 1,
-        StatusNote: "Avvio lavori!"}
 
-    jsonifiedProject, _ := json.Marshal(project)
-
-    fmt.Printf("%s\n", jsonifiedProject)*/
-
-    /*var user models.User = models.User{
-        Name: "roberto",
-        Surname: "gatti",
-        Username: "roberto.gatti",
-        Password: "pwd" }
-    jsonifiedUser, _ := json.Marshal(user)
-    fmt.Printf("%s\n", jsonifiedUser)*/
+    //deref getSession.close()
 
 }
