@@ -149,7 +149,7 @@
         <div id="prjsContainer" class="panel-header">
             <h2>Lista progetti</h2>
             <!-- Per ogni progetto, la sua section e il suo accordion -->
-            <section class="panel-body project" ng-repeat="project in projects | filter: filterProjects()" >
+            <section class="panel-body project" ng-repeat="project in projects | orderBy: '-dateLastUpdated' | filter: filterProjects()" >
                 <!-- Div per accordion -->
                 <div class="accordion-control panel-heading">
                     <!-- mostrare solo se chiuso! -->

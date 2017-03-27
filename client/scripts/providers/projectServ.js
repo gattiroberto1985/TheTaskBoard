@@ -68,7 +68,9 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
                     );
 				});*/
         // FOR IDB LOCAL SERVER
-				$http.get( "http://localhost:1314/").then(
+        var config = {headers:  {
+        'Access-Control-Allow-Origin': '*' }   };
+				$http.get( "http://www.thetaskboard.dev:1314/", config).then(
 				function ( response ) {
 					console.log ( " [ storageServ ] NodeJS server unavailable: using local IDB . . . ");
 					storageServ._storageServ = $injector.get("idbStorageAPI");
@@ -82,7 +84,10 @@ app.service('projectServ', function ( $http, storageServ, $q, $injector ) {
           function ( response ) {
               console.log(" [ projectServ ] Response error. ");
           });
-				}
+				}, function ( response )
+        {
+          console.log (" ERROR: " + JSON.stringify( response ) ) ;
+        }
 			);
 		});
     };

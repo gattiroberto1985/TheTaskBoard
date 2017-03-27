@@ -39,7 +39,7 @@ app.controller("projectCtrl", function ( $scope, $location, $cookies, projectSer
 
 	$scope.timelineSortField = "'date'";
 	$scope.timelineSortSense = false;
-	
+
     /**
      * Local variables and alias.
      */
@@ -128,6 +128,7 @@ app.controller("projectCtrl", function ( $scope, $location, $cookies, projectSer
             // . . . adding timeline step . . .
             $scope.addProjectTimelineStep();
         }
+        sProject.dateLastUpdated = new Date();
         // . . . then save the project!
         projectServ.saveProject( sProject );
     };

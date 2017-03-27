@@ -6,3 +6,4 @@ _.gitmodules
 client/scripts/controllers/modalCtrl.js
 client/scripts/directives/dirModals.js
 client/scripts/providers/modals.js
+server.exe  
