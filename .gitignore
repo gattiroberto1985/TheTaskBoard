@@ -3,3 +3,5 @@
 **/*.exe
 **/pkg/
 **/bin/
+**/src/github.com
+**/src/gopkg.in

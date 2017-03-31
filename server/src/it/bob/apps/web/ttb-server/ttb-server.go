@@ -111,7 +111,7 @@ func main() {
     r.POST("/rest/projects/:pId/tasks", pc.UpdateTask)*/
 
     rlog.Info("Serving files . . .")
-    http.ListenAndServe("localhost:3000", r)
+    rlog.Error( http.ListenAndServe("www.thegotaskboard.dev:3000", r) )
 
     //deref getSession.close()
 
