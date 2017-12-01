@@ -95,12 +95,14 @@ func main() {
     r.POST("/rest/user/", uc.UpdateUser)
 
     // Routing for projects
-    r.GET("/rest/projects", pc.GetProjects)
-    r.POST("/rest/projects", pc.InsertProject)
-    r.GET("/rest/projects/:pId", pc.GetProject)
-    r.PUT("/rest/projects/:pId", pc.UpdateProject)
-    r.DELETE("/rest/projects/:pId", pc.DeleteProject)
-    r.GET("/rest/projects/:pId/tasks", pc.GetProjectTasks)
+    r.GET("/rest/projects"                , pc.GetProjects)
+    r.POST("/rest/projects"               , pc.InsertProject)
+    r.GET("/rest/projects/:pId"           , pc.GetProject)
+    r.PUT("/rest/projects/:pId"           , pc.UpdateProject)
+    r.DELETE("/rest/projects/:pId"        , pc.DeleteProject)
+    r.GET("/rest/projects/:pId/tasks"     , pc.GetProjectTasks)
+    r.PUT("/rest/projects/:pId/tasks"     , pc.UpdateProjectTasks)
+    r.PUT("/rest/projects/:pId/tasks/:tId", pc.UpdateProjectTasks)
 
     //r.GET("/freezone/index.html", fc.getIndex )
     //r.GET("/freezone/admin.html", fc.getIndex )

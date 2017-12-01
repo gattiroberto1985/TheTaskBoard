@@ -5,7 +5,7 @@ import (
     "encoding/json"
     "fmt"
     "net/http"
-    //"strings"
+    "strings"
 
     // External additional libraries
     "gopkg.in/mgo.v2"
@@ -32,7 +32,7 @@ func (pc ProjectController) GetProject(response http.ResponseWriter, request *ht
     id := params.ByName("pId")
 
     rlog.Info(" [ GET /rest/projects/:pId ] Request for specific project headers . . . ")
-    err := pc.session.DB("thetaskboard").C("projects").Find( bson.M{ "_id": id } ).One(&project)
+    err := pc.session.DB("thegotaskboard").C("projects").Find( bson.M{ "_id": id } ).One(&project)
     if err != nil {
     		//if err.Error() == "not found" {
         rlog.Error("  |-------> ERROR: problem retreiving the project!")
@@ -56,7 +56,7 @@ func (pc ProjectController) GetProjects(response http.ResponseWriter, request *h
 
     rlog.Info(" [ GET /rest/projects ] Request for all projects headers . . . ")
     var projects []models.Project
-    err := pc.session.DB("thetaskboard").C("projects").Find( /*bson.M{ }*/ nil)/*.Select( bson.M{ "tasks": 0 } )*/.Sort("-DateLastUpdated").All(&projects)
+    err := pc.session.DB("thegotaskboard").C("projects").Find( /*bson.M{ }*/ nil)/*.Select( bson.M{ "tasks": 0 } )*/.Sort("-DateLastUpdated").All(&projects)
     if err != nil {
         rlog.Error("  |-------> ERROR: problem retreiving the projects!")
         responseMessage, _ := json.Marshal(models.ResponseMessage{HttpCode: 404, Message: ( "ERROR: problem on retreiving projects!"), Body: err })
@@ -80,7 +80,7 @@ func (pc ProjectController) InsertProject(response http.ResponseWriter, request 
 
     p := models.Project{}
     json.NewDecoder(request.Body).Decode(&p)
-    err := pc.session.DB("thetaskboard").C("projects").Insert(p)
+    err := pc.session.DB("thegotaskboard").C("projects").Insert(p)
     if ( err != nil ) {
       rlog.Error("  |-------> ERROR: problem inserting the project!")
       responseMessage, _ := json.Marshal(models.ResponseMessage{HttpCode: 404, Message: ( "ERROR: problem inserting the project!"), Body: err })
@@ -105,7 +105,7 @@ func (pc ProjectController) UpdateProject(response http.ResponseWriter, request 
     id := params.ByName("pId")
 
     json.NewDecoder(request.Body).Decode(&p)
-    err := pc.session.DB("thetaskboard").C("projects").Update(bson.M{ "_id": id }, p)
+    err := pc.session.DB("thegotaskboard").C("projects").Update(bson.M{ "_id": id }, p)
     if ( err != nil ) {
         rlog.Error("  |-------> ERROR: problem updating the project!")
         responseMessage, _ := json.Marshal(models.ResponseMessage{HttpCode: 404, Message: ( "ERROR: problem updating the project!"), Body: err })
@@ -123,10 +123,42 @@ func (pc ProjectController) UpdateProject(response http.ResponseWriter, request 
 }
 
 
+func (pc ProjectController) UpdateProjectTasks(response http.ResponseWriter, request *http.Request, params httprouter.Params) {
+  var logprefix = " [ PUT /rest/projects/:pId/tasks/[:tId] ] "
+  rlog.Info( logprefix + "Request for task project update . . . ")
+
+  p := models.Project{}
+  pId := params.ByName("pId")
+  tId := params.ByName("tId")
+  if ( strings.Compare( tId, "" ) == 0 ) {
+      return updateAllTasks(response, request)
+      rlog.Info(logprefix + "|--> Saving all tasks . . . ");
+      decoder := json.NewDecoder(req.Body)
+      var tasks []Task
+      err := decoder.Decode(&t)
+      if err != nil {
+           panic(err)
+       }
+      // defer req.Body.Close()
+      // log.Println(t.Test)
+      err := pc.session.DB("thegotaskboard").C("projects").Update( bson.M{ "_id": pId }, bson.M{ "$set": bson.M{ "tasks": tasks } } )
+      if ( err != nil ) {
+          rlog.Error(logprefix + "-----> ERROR: problem updating tasks!")
+          responseMessage := json.Marshal(models.ResponseMessage{ HttpCode: 500, Message: ( "ERROR: problem updating the tasks!"), Body: err })
+          response.Header().Set("Content-Type", "application/json")
+          response.WriteHeader(200)
+          fmt.Fprintf(response, "%s",responseMessage)
+          return
+      }
+  } else {
+      rlog.Info(logprefix + "|--> Saving single task with id '" + tId + "' . . .")
+  }
+}
+
 func (pc ProjectController) DeleteProject(response http.ResponseWriter, request *http.Request, params httprouter.Params) {
   rlog.Info(" [ DELETE /rest/projects/:pId ] Request for deleting a project . . . ")
   id := params.ByName("pId")
-  err := pc.session.DB("thetaskboard").C("projects").Remove( bson.M{ "_id": id })
+  err := pc.session.DB("thegotaskboard").C("projects").Remove( bson.M{ "_id": id })
   if err != nil {
       rlog.Error("  |-------> ERROR: problem deleting the project with id '" + id + "")
       responseMessage, _ := json.Marshal(models.ResponseMessage{HttpCode: 404, Message: ( "ERROR: problem deleting the project with id '" + id + "'!"), Body: err })
@@ -150,7 +182,7 @@ func (pc ProjectController) GetProjectTasks(response http.ResponseWriter, reques
   var project models.Project
   id := params.ByName("pId")
   rlog.Info(" [ GET /rest/projects/:pId/tasks ] Request for task of project with id '",id,"' . . . ")
-  err := pc.session.DB("thetaskboard").C("projects").Find( bson.M{ "_id": id }).Select(bson.M{ "tasks": 1}).Sort("-DateLastUpdated").One(&project)
+  err := pc.session.DB("thegotaskboard").C("projects").Find( bson.M{ "_id": id }).Select(bson.M{ "tasks": 1}).Sort("-DateLastUpdated").One(&project)
   if ( err != nil ) {
     panic(err)
   }
