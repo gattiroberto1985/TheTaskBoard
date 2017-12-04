@@ -1,0 +1,7 @@
+*.un~
+*.un
+server/bin
+server/pkg
+server/src/g**
+server/src/github.com/julienschmidt/httprouter
+server/src/github.com/romana/rlog

@@ -1,3 +1,13 @@
+/*
+ * File       : projectCtrl.go
+ * Description:
+ *       This file is a database controller for the project objects.
+ *
+ * Changelog:
+ *
+ *  2017.12.03 -- roberto -- Fix for build error in UpdateProjectTasks
+ */
+
 package controllers
 
 import (
@@ -127,24 +137,28 @@ func (pc ProjectController) UpdateProjectTasks(response http.ResponseWriter, req
   var logprefix = " [ PUT /rest/projects/:pId/tasks/[:tId] ] "
   rlog.Info( logprefix + "Request for task project update . . . ")
 
-  p := models.Project{}
+  //p := models.Project{}
   pId := params.ByName("pId")
   tId := params.ByName("tId")
   if ( strings.Compare( tId, "" ) == 0 ) {
-      return updateAllTasks(response, request)
+      //return updateAllTasks(response, request)
       rlog.Info(logprefix + "|--> Saving all tasks . . . ");
-      decoder := json.NewDecoder(req.Body)
-      var tasks []Task
-      err := decoder.Decode(&t)
+      decoder := json.NewDecoder(request.Body)
+      var tasks []models.Task
+      err := decoder.Decode(&tasks)
       if err != nil {
            panic(err)
        }
       // defer req.Body.Close()
       // log.Println(t.Test)
-      err := pc.session.DB("thegotaskboard").C("projects").Update( bson.M{ "_id": pId }, bson.M{ "$set": bson.M{ "tasks": tasks } } )
+      err = pc.session.DB("thegotaskboard").C("projects").Update( bson.M{ "_id": pId }, bson.M{ "$set": bson.M{ "tasks": tasks } } )
       if ( err != nil ) {
           rlog.Error(logprefix + "-----> ERROR: problem updating tasks!")
-          responseMessage := json.Marshal(models.ResponseMessage{ HttpCode: 500, Message: ( "ERROR: problem updating the tasks!"), Body: err })
+          var responseMessage, _ =
+            json.Marshal(models.ResponseMessage{
+                        HttpCode: 500,
+                        Message: "ERROR: problem updating the tasks!",
+                        Body: err })
           response.Header().Set("Content-Type", "application/json")
           response.WriteHeader(200)
           fmt.Fprintf(response, "%s",responseMessage)

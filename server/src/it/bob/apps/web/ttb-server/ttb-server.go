@@ -1,3 +1,14 @@
+/*
+ * File       : ttb-server.go
+ * Description:
+ *       Main program for the application
+ *
+ * Changelog:
+ *
+ *  2017.12.03 -- roberto -- Fix for user rest endpoint (users instead of user)
+ */
+
+
 package main // per identificarlo come eseguibile
 
 import (
@@ -85,14 +96,15 @@ func main() {
     r := httprouter.New()
 
     // Get a UserController instance
-    uc := controllers.NewUserController()
+    uc := controllers.NewUserController(getSession())
     pc := controllers.NewProjectController(getSession())
     //fc := controllers.NewFreezoneController()
 
     rlog.Info("Defining http routing . . . ")
     // Get a user resource
-    r.GET("/rest/user/:id", uc.GetUser)
-    r.POST("/rest/user/", uc.UpdateUser)
+    r.GET("/rest/users/"   , uc.GetUser)     // TODO: Should be for admin only
+    r.POST("/rest/users/"  , uc.UpdateUser)
+    r.GET("/rest/users/:id", uc.GetUser)
 
     // Routing for projects
     r.GET("/rest/projects"                , pc.GetProjects)
@@ -113,7 +125,7 @@ func main() {
     r.POST("/rest/projects/:pId/tasks", pc.UpdateTask)*/
 
     rlog.Info("Serving files . . .")
-    rlog.Error( http.ListenAndServe("www.thegotaskboard.dev:3000", r) )
+    rlog.Error( http.ListenAndServe("www.thegotaskboard.dev:3030", r) )
 
     //deref getSession.close()
 
